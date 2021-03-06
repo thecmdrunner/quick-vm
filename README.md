@@ -5,7 +5,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
  
   - Ubuntu 18.04 or newer
   - Fedora 29 or newer
-  - Arch (You can read this [Guide by LinuxHint for permissions and User Group setup](https://linuxhint.com/install_configure_kvm_archlinux))
+  - Arch (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux)for permissions and User Group setup)
  
 <p>
 <details>
