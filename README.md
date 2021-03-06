@@ -17,13 +17,17 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
  
  # Debian & Ubuntu based ditros 
  sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
- 
+``` 
+ ```bash
  # Fedora based ditros  
  sudo dnf -y install bridge-utils libvirt virt-install qemu-kvm
- 
+``` 
+```bash
  # Arch based ditros 
  sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq ridge-utils openbsd-netcat
- 
+```
+
+```bash
  # Enable Libvirt Service
  sudo systemctl enable --now libvirtd
  ```
