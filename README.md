@@ -59,6 +59,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 ### Make sure you rename both of the ISOs as following:
 
 > **Windows 10 ISO**: `win10vanilla.iso`
+>
 > **VirtIO Drivers**: `virtio-win.iso`
 
 ### Specs of the VM are as follows:
