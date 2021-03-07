@@ -11,6 +11,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 <details>
 <summary>Installing Dependencies</summary>
  
+<br>
  ### Install Qemu, Virt-Manager, Libvirt and other dependencies depending on your distro.
  First up, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
  ```bash
