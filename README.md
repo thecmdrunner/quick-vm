@@ -6,7 +6,9 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
   - Ubuntu 18.04 or newer
   - Fedora 29 or newer
   - Arch (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
- 
+  - 4 CPUs (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
+  - 8 GiB of RAM 
+
 <p>
 <details>
 <summary>Installing Dependencies</summary>
@@ -46,21 +48,8 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 **Note:** Any Linux distribution will work just fine. You do need to install `virt-manager`, `qemu`, and other required dependencies. ***Linux Kernel Version 5.4 LTS or newer is recommended.*** 
 
  
- You can make a Linux VM or a Windows VM. However, this guide focuses on making a Windows VM, as the process is a relatively easier for Linux VM because you don't have to install any drivers through an iso.
+ ## Download the Windows 10 ISO and KVM VirtIO drivers
+ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if you want to run Windows Apps under Linux. You will also need drivers for VirtIO to ensure the best performance and lowest overhead for your system.
  
- This guide uses Ubuntu 20.04 for the demo.
- 
- 
- # Creating a Virtual Machine in KVM
- This step-by-step guide will take you through setting up a CPU and memory efficient virtual machine to use OBS Studio and give exam at the same time.
- 
- ## Install KVM
- First up, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
- ```bash
- sudo apt-get install -y virt-manager
- ```
- 
- ## Download the Windows Professional and KVM VirtIO drivers
- You will need the Windows 10 ISO. You will also need drivers for VirtIO to ensure the best performance and lowest overhead for your system. You can download these at the following links.
- 
- Windows 10 ISO: https://www.microsoft.com/en-us/software-download/windows10ISO
+- [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
+- [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
