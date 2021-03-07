@@ -53,3 +53,12 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
  
 - [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 - [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
+
+Specs of the VM are as follows:
+
+CPU: 3 vCPUs Allocated.
+Memory: Total 6144 MiB, 1024 Allocated initially.
+Primary Drive: 256 GB VirtIO Disk (Dynamically Allocated)
+Secondary Drive: Windows 10 ISO (SATA CDROM)
+Other: VirtIO Drivers ISO (SATA CDROM), Essential Tools ISO (to optimize VM performance)
+Network Card: VirtIO (Disabled by default, Recommended this way until debloated)
