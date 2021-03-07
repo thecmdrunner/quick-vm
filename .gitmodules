@@ -1,0 +1,3 @@
+[submodule "kvm/windows-9.5"]
+	path = kvm/windows-9.5
+	url = https://github.com/gamerhat18/windows-9.5
