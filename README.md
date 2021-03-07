@@ -54,6 +54,13 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 - [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 - [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
 
+**Note:** You have to place the ISOs in your `~/WindowsVM` directory, as it will be clutter-free and easy to locate. Also, the KVM config file points to that directory to find those ISOs.
+
+### Make sure you rename both of the ISOs as following:
+
+Windows 10 ISO: win10vanilla.iso
+VirtIO Drivers: virtio-win.iso
+
 Specs of the VM are as follows:
 
 CPU: 3 vCPUs Allocated.
