@@ -1,6 +1,15 @@
 # Quick-VM
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using Red Hat KVM. 
 
+## One-liner to Setup KVM
+### Paste this in your terminal
+
+```bash
+
+curl -sSL https://git.io/
+
+```
+
 ### Requirements:
  
   - Ubuntu 18.04 or newer
@@ -15,8 +24,14 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
  
 <br>
  
+### Make sure your CPU Supports KVM.
+
+```bash
+
+
+
 ### Install Qemu, Virt-Manager, Libvirt and other dependencies depending on your distro.
- First up, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
+ Secondly, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
  
  ```bash
  
@@ -54,7 +69,9 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 - [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 - [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
 
-**Note:** You have to place the ISOs in your `~/WindowsVM` directory, as it will be clutter-free and easy to locate. Also, the KVM config file points to that directory to find those ISOs.
+**Note:** You have to place the ISOs in your `~/WindowsVM` directory, as it will be clutter-free and easy to locate. 
+
+Also, this KVM config file points to that directory to find those ISOs. You can change the location in the `kvm/Windows10-Vanilla.xml` file if you prefer.
 
 ### Make sure you rename both of the ISOs as following:
 
@@ -75,3 +92,6 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 >**Other Drives**: VirtIO Drivers ISO (SATA CDROM), Essential Tools ISO (to optimize VM performance)
 
 >**Network Card**: VirtIO (Disabled by default, Recommended this way until debloated)
+
+
+
