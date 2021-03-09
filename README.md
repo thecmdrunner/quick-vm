@@ -6,7 +6,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 
 ```bash
 
-curl -sSL https://git.io/
+curl -sSL https://git.io/JqtJc
 
 ```
 
