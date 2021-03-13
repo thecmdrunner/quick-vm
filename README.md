@@ -26,9 +26,6 @@ curl -sSL https://git.io/JqtJc
  
 ### Make sure your CPU Supports KVM.
 
-```bash
-
-
 
 ### Install Qemu, Virt-Manager, Libvirt and other dependencies depending on your distro.
  Secondly, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
