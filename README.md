@@ -9,6 +9,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 curl -sSL https://git.io/JqtJc
 
 ```
+Here is the script https://github.com/gamerhat18/Quick-VM/blob/main/one-liner.sh
 
 ### Host System Requirements:
  
