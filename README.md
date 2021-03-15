@@ -27,11 +27,9 @@ curl -sSL https://git.io/JqtJc
 ### Make sure your CPU Supports KVM.
 
 
-### Install Qemu, Virt-Manager, Libvirt and other dependencies depending on your distro.
- Secondly, you must install KVM and the Virtual Machine Manager. By installing `virt-manager`, you will get everything you need for your distribution:
+#### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
  
  ```bash
- 
  # Debian & Ubuntu based ditros 
  sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
 ``` 
@@ -56,9 +54,7 @@ curl -sSL https://git.io/JqtJc
 </details>
 </p>
  
- 
 **Note:** Any Linux distribution will work just fine. You do need to install `virt-manager`, `qemu`, and other required dependencies. ***Linux Kernel Version 5.4 LTS or newer is recommended.*** 
-
  
  ## Download the Windows 10 ISO and KVM VirtIO drivers
  You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if you want to run Windows Apps under Linux. You will also need drivers for VirtIO to ensure the best performance with the least overhead on your system.
