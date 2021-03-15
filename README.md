@@ -73,7 +73,7 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 
 ### Make sure you rename both of the ISOs as following:
 
-**Windows 10 ISO** ➜ `win10vanilla.iso`
+**Windows 10 ISO** ➜ `win10.iso`
 
 **VirtIO Drivers** ➜ `virtio-win.iso`
 
