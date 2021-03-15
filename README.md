@@ -6,7 +6,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 
 ```bash
 
-curl -sSL https://git.io/JqtJc
+curl -sSL https://git.io/JqtJc | bash
 
 ```
 Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/main/one-liner.sh)
