@@ -77,7 +77,7 @@ curl -sSL https://git.io/JqtJc
 
 **Windows 10 ISO** ==> `win10vanilla.iso`
 
-**VirtIO Drivers** -> `virtio-win.iso`
+**VirtIO Drivers** ➜ `virtio-win.iso`
 
 ### Specs of the VM are as follows:
 
