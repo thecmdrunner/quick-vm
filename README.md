@@ -1,7 +1,7 @@
-# Quick-VM
+# Quick-VM (WORK IN PROGRESS)
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
-## One-liner to Setup KVM
+## One-liner to Setup KVM (INCOMPLETE AS OF NOW)
 ### Paste this in your terminal
 
 ```bash
