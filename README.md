@@ -75,15 +75,15 @@ curl -sSL https://git.io/JqtJc
 
 ### Make sure you rename both of the ISOs as following:
 
-**Windows 10 ISO** ==> `win10vanilla.iso`
+**Windows 10 ISO** ➜ `win10vanilla.iso`
 
 **VirtIO Drivers** ➜ `virtio-win.iso`
 
-### Specs of the VM are as follows:
+### Default specs of the VM:
 
->**CPU**: 3 vCPUs Allocated.
+>**CPU**: 3 vCPUs Allocated
 >
->**Memory**: Total 6144 MiB, 1024 Allocated initially.
+>**Memory**: Total 4 GiB, 1 GiB Allocated initially
 >
 >**Primary Drive**: 256 GB VirtIO Disk (Dynamically Allocated)
 >
