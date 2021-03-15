@@ -75,9 +75,9 @@ curl -sSL https://git.io/JqtJc
 
 ### Make sure you rename both of the ISOs as following:
 
-> **Windows 10 ISO**: `win10vanilla.iso`
->
-> **VirtIO Drivers**: `virtio-win.iso`
+**Windows 10 ISO** ==> `win10vanilla.iso`
+
+**VirtIO Drivers** => `virtio-win.iso`
 
 ### Specs of the VM are as follows:
 
