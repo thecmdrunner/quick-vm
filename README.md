@@ -30,7 +30,7 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 #### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
  
  ```bash
- # Debian & Ubuntu based ditros 
+ # Debian & Ubuntu (Linux Mint, PopOS, ElementaryOS)
  sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager
 ``` 
 
@@ -40,12 +40,13 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 ``` 
 
 ```bash
- # Arch based ditros 
+ # Arch (Manjaro, Arco Linux, EndeavourOS) 
  sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
 
  ```
 
 ### After installing the dependencies, make sure you enable libvirtd.service
+
 ```bash
  # Enable Libvirt Service
  sudo systemctl enable --now libvirtd
