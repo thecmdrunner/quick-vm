@@ -28,17 +28,17 @@ curl -sSL https://git.io/JqtJc
  
  ```bash
  # Debian & Ubuntu based ditros 
- sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+ sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager
 ``` 
 
  ```bash
  # Fedora based ditros  
- sudo dnf -y install bridge-utils libvirt virt-install qemu-kvm
+ sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager
 ``` 
 
 ```bash
  # Arch based ditros 
- sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
 
  ```
 
