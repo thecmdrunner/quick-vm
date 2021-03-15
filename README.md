@@ -65,7 +65,10 @@ curl -sSL https://git.io/JqtJc
  
 - [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
-- Download the [Official Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO) from Microsoft OR supply your own custom Windows 10 ISO (for eg.: Windows Ameliorated Edition) 
+- Download the [Official Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO) from Microsoft 
+
+> You may even supply your own custom Windows Image (like Windows Ameliorated Edition)
+ 
 
 **Note:** You have to place the ISOs in your `~/WindowsVM` directory, as it will be clutter-free and easy to locate. 
 
