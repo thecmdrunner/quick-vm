@@ -38,8 +38,9 @@ curl -sSL https://git.io/JqtJc
 
 ```bash
  # Arch based ditros 
- sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq ridge-utils openbsd-netcat
-```
+ sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+
+ ```
 
 ### After installing the dependencies, make sure you enable libvirtd.service
 ```bash
@@ -75,6 +76,8 @@ curl -sSL https://git.io/JqtJc
 ### Default specs of the VM:
 
 >**CPU**: 3 vCPUs Allocated
+>
+>**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or 
 >
 >**Memory**: Total 4 GiB, 1 GiB Allocated initially
 >
