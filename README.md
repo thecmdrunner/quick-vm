@@ -63,16 +63,15 @@ curl -sSL https://git.io/JqtJc
  ## Download the Windows 10 ISO and KVM VirtIO drivers
  You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if you want to run Windows Apps under Linux. You will also need drivers for VirtIO to ensure the best performance with the least overhead on your system.
  
-- Download the [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) from FedoraPeople
+- Download [VirtIO Drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) from FedoraPeople
 
-- Download the [Official Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO) from Microsoft 
+- Download [Official Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO) from Microsoft 
 
 > You may even supply your own custom Windows Image (like Windows Ameliorated Edition)
  
 
-**Note:** You have to place the ISOs in your `~/WindowsVM` directory, as it will be clutter-free and easy to locate. 
+**Note:** Place the ISOs in `~/WindowsVM` , as this KVM config file points to that directory to find those ISOs. You can change the location in the `kvm/Windows10-Vanilla.xml` file if you prefer.
 
-Also, this KVM config file points to that directory to find those ISOs. You can change the location in the `kvm/Windows10-Vanilla.xml` file if you prefer.
 
 ### Make sure you rename both of the ISOs as following:
 
