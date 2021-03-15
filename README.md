@@ -22,6 +22,7 @@ curl -sSL https://git.io/JqtJc
 <details>
 <summary>Installing Dependencies</summary>
 <br>
+
 ### Make sure your CPU Supports KVM.
 
 #### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
