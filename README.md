@@ -13,7 +13,7 @@ curl -sSL https://git.io/JqtJc
 ### Requirements:
  
   - Ubuntu 18.04 or newer
-  - Fedora 29 or newer
+  - Fedora 30 or newer
   - Arch (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
   - 4 CPUs (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
   - 8 GiB of RAM 
@@ -21,11 +21,8 @@ curl -sSL https://git.io/JqtJc
 <p>
 <details>
 <summary>Installing Dependencies</summary>
- 
 <br>
- 
 ### Make sure your CPU Supports KVM.
-
 
 #### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
  
