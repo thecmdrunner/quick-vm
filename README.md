@@ -12,12 +12,12 @@ curl -sSL https://git.io/JqtJc
 
 ### Host System Requirements:
  
-  - Ubuntu 18.04 or newer
-  - Fedora 30 or newer
-  - Arch (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
-  - 4 CPUs (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
-  - 8 GiB of RAM 
-> Linux Kernel 5.4 LTS or newer is recommended 
+  - **Ubuntu 18.04** or newer
+  - **Fedora 30** or newer
+  - **Arch** (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
+  - **4 CPUs** (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
+  - **8 GiB Memory** (in total)
+> **Linux Kernel 5.4 LTS** or newer is recommended 
 
 <p>
 <details>
