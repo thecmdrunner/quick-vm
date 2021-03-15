@@ -18,6 +18,7 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
   - **Arch** (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
   - **4 CPUs** (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
   - **8 GiB Memory** (in total)
+  - **40 GiB of Storage for the VM** (For a typical install)
 > **Linux Kernel 5.4 LTS** or newer is recommended 
 
 <p>
