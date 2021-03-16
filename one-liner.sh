@@ -39,13 +39,13 @@ simple_blue_echo() {
 # Arch Setup with systemd init 
 arch_setup () {
   
-  MESSAGE="BASE SYSTEM: ARCH"; simple_green_echo
+  MESSAGE="[✓] BASE SYSTEM: ARCH"; simple_green_echo
   echo ""
-  MESSAGE="Installing Dependencies..."; simple_green_echo
+  MESSAGE="[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
-  sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager && libvirt_systemd_start
+  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager && libvirt_systemd_start
 }
 
 # Fedora Setup with systemd init
