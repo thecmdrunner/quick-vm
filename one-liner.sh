@@ -41,7 +41,7 @@ arch_setup () {
   
   MESSAGE="[✓] BASE SYSTEM: ARCH"; simple_green_echo
   echo ""
-  MESSAGE="[ ] Installing Dependencies..."; 
+  echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
@@ -53,7 +53,7 @@ fedora_setup () {
 
   MESSAGE="BASE SYSTEM: FEDORA"; simple_green_echo
   echo ""
-  MESSAGE="Installing Dependencies..."; simple_green_echo
+  echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
@@ -65,7 +65,7 @@ debian_setup () {
 
   MESSAGE="BASE SYSTEM: DEBIAN"; simple_green_echo
   echo ""
-  MESSAGE="Installing Dependencies..."; simple_green_echo
+  echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
