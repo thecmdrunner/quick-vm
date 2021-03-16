@@ -21,6 +21,22 @@ curl -sSL https://git.io/JqtJc | bash
 ```
 Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/main/one-liner.sh)
 
+### Default specs of the VM:
+
+>**CPU**: 3 vCPUs Allocated
+>
+>**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or 
+>
+>**Memory**: Total 4 GiB, 1 GiB Allocated initially
+>
+>**Primary Drive**: 256 GB VirtIO Disk (Dynamically Allocated)
+>
+>**Secondary Drive**: Windows 10 ISO (SATA CDROM)
+>
+>**Other Drives**: VirtIO Drivers ISO (SATA CDROM), Essential Tools ISO (to optimize VM performance)
+>
+>**Network Card**: VirtIO (Disabled by default, Recommended this way until debloated)
+
 <p>
 <details>
 <summary>Installing Dependencies</summary>
@@ -78,21 +94,6 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 
 **VirtIO Drivers** ➜ `virtio-win.iso`
 
-### Default specs of the VM:
-
->**CPU**: 3 vCPUs Allocated
->
->**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or 
->
->**Memory**: Total 4 GiB, 1 GiB Allocated initially
->
->**Primary Drive**: 256 GB VirtIO Disk (Dynamically Allocated)
->
->**Secondary Drive**: Windows 10 ISO (SATA CDROM)
->
->**Other Drives**: VirtIO Drivers ISO (SATA CDROM), Essential Tools ISO (to optimize VM performance)
->
->**Network Card**: VirtIO (Disabled by default, Recommended this way until debloated)
 
 
 
