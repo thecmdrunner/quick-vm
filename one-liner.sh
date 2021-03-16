@@ -36,7 +36,7 @@ simple_blue_echo() {
 
 ### PRE-DEFINED OPERATIONS
 
-# Arch Setup with systemd init 
+# Arch Setup 
 arch_setup () {
   
   MESSAGE="[✓] BASE SYSTEM: ARCH"; simple_green_echo
@@ -45,11 +45,11 @@ arch_setup () {
   echo ""
   echo ""
   echo ""
-  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager && libvirt_systemd_start
+  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
-# Fedora Setup with systemd init
+# Fedora Setup
 fedora_setup () {
 
   MESSAGE="[✓] BASE SYSTEM: FEDORA"; simple_green_echo
@@ -58,11 +58,11 @@ fedora_setup () {
   echo ""
   echo ""
   echo ""
-  sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager && libvirt_systemd_start 
+  sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
   MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
-# Debian Setup with systemd init
+# Debian Setup
 debian_setup () {
 
   MESSAGE="[✓] BASE SYSTEM: DEBIAN"; simple_green_echo
@@ -71,7 +71,7 @@ debian_setup () {
   echo ""
   echo ""
   echo ""
-  sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager && libvirt_systemd_start 
+  sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
@@ -80,6 +80,7 @@ unknown_distro () {
   echo "Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies and enable LIBVIRTD SERVICE/SOCKET before you continue." 
 }
 
+# Start Libvirt service through systemd
 libvirt_systemd_start () {
 sudo systemctl enable libvirtd
 sudo systemctl start libvirtd
@@ -88,8 +89,6 @@ sudo systemctl start libvirtd.socket
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 }
-
-
 
 # Check the flavour of Linux and install dependencies
 
@@ -105,5 +104,10 @@ then
 else
   unknown_distro
 fi
+
+
+# Start Libvirt service through systemd
+
+libvirt_systemd_start
 
 
