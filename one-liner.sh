@@ -46,30 +46,33 @@ arch_setup () {
   echo ""
   echo ""
   sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager && libvirt_systemd_start
+  MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
 # Fedora Setup with systemd init
 fedora_setup () {
 
-  MESSAGE="BASE SYSTEM: FEDORA"; simple_green_echo
+  MESSAGE="[✓] BASE SYSTEM: FEDORA"; simple_green_echo
   echo ""
   echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager && libvirt_systemd_start 
+  MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
 # Debian Setup with systemd init
 debian_setup () {
 
-  MESSAGE="BASE SYSTEM: DEBIAN"; simple_green_echo
+  MESSAGE="[✓] BASE SYSTEM: DEBIAN"; simple_green_echo
   echo ""
   echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
   echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager && libvirt_systemd_start 
+  MESSAGE="[✓] Finished!"; simple_green_echo
 }
 
 # Unknown Distro detected. Tells the user to install dependencies himself.
@@ -103,4 +106,4 @@ else
   unknown_distro
 fi
 
-curl
+
