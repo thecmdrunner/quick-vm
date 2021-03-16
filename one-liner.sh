@@ -113,4 +113,38 @@ fi
 
 libvirt_systemd_start
 
+#read -p 'Select' choice
 
+ROOT_UID=0
+THEME_DIR="/usr/share/grub/themes"
+PS3='Choose The Theme You Want: '
+themes=("Vimix" "Cyberpunk" "Shodan" "fallout" "CyberRe" "Quit")
+select THEME_NAME in "${themes[@]}"; do
+	case $THEME_NAME in
+	  "Vimix")
+		echo "Installing Vimix to Boot"
+		break
+		;;
+	  "Cyberpunk")
+		echo "Installing Cyberpunk to Boot"
+		break
+		;;
+	  "Shodan")
+		echo "Installing Shodan to Boot"
+		break
+		;;
+	  "fallout")
+		echo "Installing fallout to Boot"
+		break
+		;;
+	  "CyberRe")
+		echo "Installing CyberRe to Boot"
+		break
+		;;
+	  "Quit")
+	  	echo "User requested exit"
+		exit
+		;;
+          *) echo "invalid option $REPLY";;
+    esac
+  done
