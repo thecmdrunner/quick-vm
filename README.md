@@ -37,6 +37,13 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 >
 >**Network Card**: VirtIO (Disabled by default, Recommended this way until debloated)
 
+
+
+<p>
+<details>
+<summary>Manual Step-by-Step-Process</summary>
+<br>
+
 <p>
 <details>
 <summary>Installing Dependencies</summary>
