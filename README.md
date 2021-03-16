@@ -1,16 +1,6 @@
 # Quick-VM (WORK IN PROGRESS)
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
-## One-liner to Setup KVM (INCOMPLETE AS OF NOW)
-### Paste this in your terminal
-
-```bash
-
-curl -sSL https://git.io/JqtJc | bash
-
-```
-Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/main/one-liner.sh)
-
 ### Host System Requirements:
  
   - **Ubuntu 18.04** or newer
@@ -20,6 +10,16 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
   - **8 GiB Memory** (in total)
   - **40 GiB of Storage for the VM** (For a typical install)
 > **Linux Kernel 5.4 LTS** or newer is recommended 
+
+## One-liner to Setup KVM (INCOMPLETE AS OF NOW)
+### Paste this in your terminal
+
+```bash
+
+curl -sSL https://git.io/JqtJc | bash
+
+```
+Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/main/one-liner.sh)
 
 <p>
 <details>
