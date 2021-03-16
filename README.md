@@ -44,13 +44,12 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 <summary>Manual Step-by-Step-Process</summary>
 <br>
 
-First, you must install the required packages on your system. You may search the packages in your package manager or compile them yourself.
+### First, you must install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 <p>
 <details>
 <summary>Installing Dependencies</summary>
 <br>
 
-### Make sure your CPU Supports KVM.
 
 #### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
  
