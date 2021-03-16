@@ -1,17 +1,74 @@
 #!/bin/bash
 
+# Credits for colored output https://gist.github.com/amberj/5166112
+
+SELF_NAME=$(basename $0)
+
+# Prints warning/error $MESSAGE in red foreground color
+# For e.g. You can use the convention of using RED color for [E]rror messages
+red_echo() {
+    echo -e "\x1b[1;31m[E] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_red_echo() {
+    echo -e "\x1b[1;31m$MESSAGE\e[0m"
+}
+
+# Prints success/info $MESSAGE in green foreground color
+# For e.g. You can use the convention of using GREEN color for [S]uccess messages
+green_echo() {
+    echo -e "\x1b[1;32m[S] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_green_echo() {
+    echo -e "\x1b[1;32m$MESSAGE\e[0m"
+}
+
+# Prints $MESSAGE in blue foreground color
+# For e.g. You can use the convetion of using BLUE color for [I]nfo messages that require special user attention (especially when script requires input from user to continue)
+blue_echo() {
+    echo -e "\x1b[1;34m[I] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_blue_echo() {
+    echo -e "\x1b[1;34m$MESSAGE\e[0m"
+}
+
+### PRE-DEFINED OPERATIONS
+
 # Arch Setup with systemd init 
 arch_setup () {
+  
+  MESSAGE="BASE SYSTEM: ARCH"; simple_green_echo
+  echo ""
+  MESSAGE="Installing Dependencies..."; simple_green_echo
+  echo ""
+  echo ""
+  echo ""
   sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager && libvirt_systemd_start
 }
 
 # Fedora Setup with systemd init
 fedora_setup () {
+
+  MESSAGE="BASE SYSTEM: FEDORA"; simple_green_echo
+  echo ""
+  MESSAGE="Installing Dependencies..."; simple_green_echo
+  echo ""
+  echo ""
+  echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager && libvirt_systemd_start 
 }
 
 # Debian Setup with systemd init
 debian_setup () {
+
+  MESSAGE="BASE SYSTEM: DEBIAN"; simple_green_echo
+  echo ""
+  MESSAGE="Installing Dependencies..."; simple_green_echo
+  echo ""
+  echo ""
+  echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager && libvirt_systemd_start 
 }
 
