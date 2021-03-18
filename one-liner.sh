@@ -45,7 +45,7 @@ arch_setup () {
   echo ""
   echo ""
   echo ""
-  #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 }
@@ -73,7 +73,6 @@ debian_setup () {
   echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
-
 }
 
 # Unknown Distro detected. Tells the user to install dependencies himself.
@@ -96,10 +95,10 @@ sudo systemctl start libvirtd.service
 if [[ -f /usr/bin/pacman ]]
 then
   arch_setup;
-  #libvirt_systemd_start;
-  #sudo systemctl enable --now virtlogd;
-  #sudo virsh net-autostart default;
-  #sudo virsh net-start default
+  libvirt_systemd_start;
+  sudo systemctl enable --now virtlogd;
+  sudo virsh net-autostart default;
+  sudo virsh net-start default;
 
 elif [[ -f /usr/bin/dnf ]]
 then
@@ -111,38 +110,3 @@ else
   unknown_distro
 fi
 
-#read -p 'Select' choice
-
-ROOT_UID=0
-THEME_DIR="/usr/share/grub/themes"
-PS3='Choose The Theme You Want: '
-themes=("Vimix" "Cyberpunk" "Shodan" "fallout" "CyberRe" "Quit")
-select THEME_NAME in "${themes[@]}"; do
-	case $THEME_NAME in
-	  "Vimix")
-		echo "Installing Vimix to Boot"
-		break
-		;;
-	  "Cyberpunk")
-		echo "Installing Cyberpunk to Boot"
-		break
-		;;
-	  "Shodan")
-		echo "Installing Shodan to Boot"
-		break
-		;;
-	  "fallout")
-		echo "Installing fallout to Boot"
-		break
-		;;
-	  "CyberRe")
-		echo "Installing CyberRe to Boot"
-		break
-		;;
-	  "Quit")
-	  	echo "User requested exit"
-		exit
-		;;
-          *) echo "invalid option $REPLY";;
-    esac
-  done
