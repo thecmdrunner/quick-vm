@@ -41,6 +41,7 @@ simple_blue_echo() {
 libvirt_systemd_start () {
 
   MESSAGE="[ ] Executing 'sudo systemctl enable --now libvirtd' ..."; blue_echo
+  echo ''
 
   sudo systemctl enable libvirtd >> ~/quick-vm.log
   sudo systemctl start libvirtd >> ~/quick-vm.log
@@ -54,12 +55,14 @@ libvirt_systemd_start () {
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
   MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+  echo ''
 
 }
 
 virtlogd_systemd_start () {
   
   MESSAGE="[ ] Executing 'sudo systemctl enable --now virtlogd' ..."; blue_echo
+  echo ''
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
@@ -68,6 +71,7 @@ virtlogd_systemd_start () {
   sudo virsh net-start default >> ~/quick-vm.log
 
   MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+  echo ''
 
 }
 
@@ -75,6 +79,7 @@ virtlogd_systemd_start () {
 
 arch_setup() {
   
+  echo ''
   MESSAGE="[✓] BASE SYSTEM: ARCH"; simple_green_echo
   echo ""
   echo "[ ] Installing Dependencies..."; 
@@ -85,7 +90,7 @@ arch_setup() {
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
   echo ''
   MESSAGE="[ ] Now starting up libvirt socket and service..."; simple_blue_echo
-  libvirt_systemd_start
+  echo ''
 
 }
 
@@ -93,6 +98,7 @@ arch_setup() {
 
 fedora_setup() {
 
+  echo ''
   MESSAGE="[✓] BASE SYSTEM: FEDORA"; simple_green_echo
   echo ""
   echo "[ ] Installing Dependencies..."; 
@@ -102,6 +108,7 @@ fedora_setup() {
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
   echo ''
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  echo ''
 
 }
 
@@ -109,6 +116,7 @@ fedora_setup() {
 
 debian_setup() {
 
+  echo ''
   MESSAGE="[✓] BASE SYSTEM: DEBIAN"; simple_green_echo
   echo ""
   echo "[ ] Installing Dependencies..."; 
@@ -118,6 +126,7 @@ debian_setup() {
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ''
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  echo ''
 
 }
 
@@ -142,7 +151,7 @@ unknown_distro() {
 
 if [[ -f /usr/bin/makepkg ]] # Present in Arch
 then
-  arch_setup && libvirt_systemd_start && sudo systemctl enable --now virtlogd >> ~/quick-vm.log && sudo virsh net-autostart default >> ~/quick-vm.log && sudo virsh net-start default >> ~/quick-vm.log;
+  arch_setup && libvirt_systemd_start && virtlogd_systemd_start
 elif [[ -f /usr/bin/rpm ]] # Present in Fedora
 then
   fedora_setup && libvirt_systemd_start
