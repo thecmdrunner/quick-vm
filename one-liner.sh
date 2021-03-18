@@ -64,6 +64,8 @@ fedora_setup() {
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
+}
+
 # Debian Setup
 
 debian_setup() {
@@ -78,7 +80,7 @@ debian_setup() {
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 }
 
-# Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init
+# Fallback: Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init
 
 unknown_distro() {
   echo "Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."
@@ -115,6 +117,6 @@ then
 elif [[ -f /usr/bin/dpkg ]] # Present in Debian
 then
   debian_setup
-else
+else # Resorts to fallback
   unknown_distro
 fi
