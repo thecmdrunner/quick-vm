@@ -36,6 +36,41 @@ simple_blue_echo() {
 
 ### PRE-DEFINED OPERATIONS
 
+# Start Libvirt service through systemd
+
+libvirt_systemd_start () {
+
+  MESSAGE="[ ] Executing 'sudo systemctl enable --now libvirtd' ..."; blue_echo
+
+  sudo systemctl enable libvirtd >> ~/quick-vm.log
+  sudo systemctl start libvirtd >> ~/quick-vm.log
+
+
+  sudo systemctl enable libvirtd.socket >> ~/quick-vm.log
+  sudo systemctl start libvirtd.socket >> ~/quick-vm.log
+
+
+  sudo systemctl enable libvirtd.service >> ~/quick-vm.log
+  sudo systemctl start libvirtd.service >> ~/quick-vm.log
+
+  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+
+}
+
+virtlogd_systemd_start () {
+  
+  MESSAGE="[ ] Executing 'sudo systemctl enable --now virtlogd' ..."; blue_echo
+
+  sudo systemctl enable virtlogd >> ~/quick-vm.log
+  sudo systemctl start virtlogd >> ~/quick-vm.log
+
+  sudo virsh net-autostart default >> ~/quick-vm.log
+  sudo virsh net-start default >> ~/quick-vm.log
+
+  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+
+}
+
 # Arch Setup 
 
 arch_setup() {
@@ -45,9 +80,12 @@ arch_setup() {
   echo "[ ] Installing Dependencies..."; 
   echo ""
   echo ""
-  echo ""
-  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  echo ''
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  echo ''
+  MESSAGE="[ ] Now starting up libvirt socket and service..."; simple_blue_echo
+  libvirt_systemd_start
 
 }
 
@@ -62,6 +100,7 @@ fedora_setup() {
   echo ""
   echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
+  echo ''
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 }
@@ -77,12 +116,15 @@ debian_setup() {
   echo ""
   echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
+  echo ''
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
+
 }
 
 # Fallback: Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init
 
 unknown_distro() {
+
   echo "Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."
   echo ""
   if [[ -f /usr/bin/systemctl ]]
@@ -93,30 +135,21 @@ unknown_distro() {
   else
     MESSAGE="Your system doesn't use Systemd init, so you need to manually enable libvirt service and socket."; simple_red_echo
   fi
-}
 
-# Start Libvirt service through systemd
-
-libvirt_systemd_start () {
-sudo systemctl enable libvirtd
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd.socket  
-sudo systemctl start libvirtd.socket
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
 }
 
 # Check the flavour of Linux and install dependencies
 
 if [[ -f /usr/bin/makepkg ]] # Present in Arch
 then
-  arch_setup && libvirt_systemd_start && sudo systemctl enable --now virtlogd && sudo virsh net-autostart default && sudo virsh net-start default;
-elif [[ -f /usr/bin/dnf ]] # Present in Fedora
+  arch_setup && libvirt_systemd_start && sudo systemctl enable --now virtlogd >> ~/quick-vm.log && sudo virsh net-autostart default >> ~/quick-vm.log && sudo virsh net-start default >> ~/quick-vm.log;
+elif [[ -f /usr/bin/rpm ]] # Present in Fedora
 then
-  fedora_setup
+  fedora_setup && libvirt_systemd_start
 elif [[ -f /usr/bin/dpkg ]] # Present in Debian
 then
-  debian_setup
+  debian_setup && libvirt_systemd_start
 else # Resorts to fallback
   unknown_distro
 fi
+
