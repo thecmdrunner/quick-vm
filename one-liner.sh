@@ -103,7 +103,7 @@ arch_setup() {
   echo ":: Installing Dependencies..."; 
   echo ""
   echo ""
-  #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
