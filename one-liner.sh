@@ -46,7 +46,7 @@ arch_setup () {
   echo ""
   echo ""
   sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
-  MESSAGE="[✓] Finished!"; simple_green_echo
+  MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 }
 
@@ -60,9 +60,7 @@ fedora_setup () {
   echo ""
   echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
-  MESSAGE="[✓] Finished!"; simple_green_echo
-
-}
+  MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 # Debian Setup
 debian_setup () {
@@ -74,7 +72,7 @@ debian_setup () {
   echo ""
   echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
-  MESSAGE="[✓] Finished!"; simple_green_echo
+  MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 }
 
@@ -97,7 +95,12 @@ sudo systemctl start libvirtd.service
 
 if [[ -f /usr/bin/pacman ]]
 then
-  arch_setup
+  arch_setup;
+  libvirt_systemd_start;
+  sudo systemctl enable --now virtlogd;
+  sudo virsh net-autostart default;
+  sudo virsh net-start default
+
 elif [[ -f /usr/bin/dnf ]]
 then
   fedora_setup
@@ -107,11 +110,6 @@ then
 else
   unknown_distro
 fi
-
-
-# Start Libvirt service through systemd
-
-libvirt_systemd_start
 
 #read -p 'Select' choice
 
