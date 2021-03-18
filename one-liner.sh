@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Credits for colored output https://gist.github.com/amberj/5166112
 
 SELF_NAME=$(basename $0)
@@ -34,13 +35,29 @@ simple_blue_echo() {
   echo -e "\x1b[1;34m$MESSAGE\e[0m"
 }
 
+cd ~/
+
+touch ~/quick-vm.log
+
+if [[ -f ~/quick-vm.log ]]
+then
+  echo "Logs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm" >> ~/quick-vm.log
+else
+  MESSAGE="Filesystem is READ-ONLY. Errors may not be logged."; red_echo
+  MESSAGE="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; red_echo
+fi
+
 ### PRE-DEFINED OPERATIONS
 
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
 
-  MESSAGE=":: Executing 'sudo systemctl enable --now libvirtd' ..."; blue_echo
+  echo ""
+  MESSAGE=":: Now starting up libvirtd socket and service"; simple_blue_echo
+  echo ""
+
+  MESSAGE=":: Executing 'sudo systemctl enable --now libvirtd' ..."; simple_blue_echo
   echo ""
 
   sudo systemctl enable libvirtd >> ~/quick-vm.log
@@ -54,14 +71,14 @@ libvirt_systemd_start () {
   sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; simple_green_echo
+  echo ""
   echo ""
 
-}
+  MESSAGE=":: Now starting up virtlogd socket and service"; simple_blue_echo
+  echo ""
 
-virtlogd_systemd_start () {
-  
-  MESSAGE=":: Executing 'sudo systemctl enable --now virtlogd' ..."; blue_echo
+  MESSAGE=":: Executing 'sudo systemctl enable --now virtlogd'"; simple_blue_echo
   echo ""
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
@@ -70,7 +87,8 @@ virtlogd_systemd_start () {
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
-  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; green_echo
+  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; simple_green_echo
+  echo ""
   echo ""
 
 }
@@ -88,9 +106,6 @@ arch_setup() {
   #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
-  echo ""
-  MESSAGE=":: Now starting up libvirt socket and service..."; simple_blue_echo
-  echo ""
 
 }
 
@@ -101,16 +116,13 @@ fedora_setup() {
   echo ""
   MESSAGE="[✓] BASE SYSTEM: FEDORA"; simple_green_echo
   echo ""
-  echo ":: Installing Dependencies..."; 
+  echo ":: Installing Dependencies"; 
   echo ""
   echo ""
   echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
   echo ""
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
-  echo ""
-  MESSAGE=":: Now starting up libvirt socket and service..."; simple_blue_echo
-  echo ""
 
 }
 
@@ -128,9 +140,6 @@ debian_setup() {
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ""
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
-  echo ""
-  MESSAGE=":: Now starting up libvirt socket and service..."; simple_blue_echo
-  echo ""
 
 }
 
@@ -155,7 +164,7 @@ unknown_distro() {
 
 if [[ -f /usr/bin/makepkg ]] # Present in Arch
 then
-  arch_setup && libvirt_systemd_start && virtlogd_systemd_start
+  arch_setup && libvirt_systemd_start 
 elif [[ -f /usr/bin/rpm ]] # Present in Fedora
 then
   fedora_setup && libvirt_systemd_start
