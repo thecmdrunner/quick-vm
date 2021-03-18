@@ -45,7 +45,7 @@ arch_setup () {
   echo ""
   echo ""
   echo ""
-  sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   MESSAGE="[✓] Setup Finished!"; simple_green_echo
 
 }
@@ -96,10 +96,10 @@ sudo systemctl start libvirtd.service
 if [[ -f /usr/bin/pacman ]]
 then
   arch_setup;
-  libvirt_systemd_start;
-  sudo systemctl enable --now virtlogd;
-  sudo virsh net-autostart default;
-  sudo virsh net-start default
+  #libvirt_systemd_start;
+  #sudo systemctl enable --now virtlogd;
+  #sudo virsh net-autostart default;
+  #sudo virsh net-start default
 
 elif [[ -f /usr/bin/dnf ]]
 then
