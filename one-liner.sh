@@ -115,7 +115,7 @@ checkiso() {
    
    if [[ -f $maindir/win10.iso ]]; then
      echo -e "Windows ISO exists in ~/WindowsVM! \n";
-     TEXT="Relocating the image in /var/lib/libvirt/images!"; bluetext
+     TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
      sudo rsync --partial --progress $maindir/Win10*.iso /var/lib/libvirt/images/win10.iso 
      TEXT="[✓] Operation Done!"; greentext
    elif [[ ! -f $maindir/win10.iso ]] ; then
@@ -127,7 +127,7 @@ checkiso() {
    
    if [[ -f $maindir/virtio-win.iso ]]; then
      echo -e "VirtIO Drivers exist in ~/WindowsVM! \n"
-     TEXT="Relocating the image in /var/lib/libvirt/images!"; bluetext
+     TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
      sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
      TEXT="[✓] Operation Done!"; greentext
    elif [[! -f $maindir/virtio-win.iso ]] ; then
@@ -137,11 +137,32 @@ checkiso() {
      TEXT="ERROR OCCURED. Please check the logs."; redtext
    fi
 
-
  fi
    
 }
    
+
+
+# Clones the main reporsitory and defining the VM via `virsh`
+
+gitndefine() {
+
+  cd ~/
+  echo "cloning from git repo" >> ~/quick-vm.log
+  git clone --recursive https://github.com/gamerhat18/Quick-VM >> ~/quick-vm.log 
+  cd Quick-VM
+  sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
+  sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
+
+  if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
+    virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
+    echo "" && TEXT="Your VM is Ready! Launch Virt-Manager to start the VM."; greentext
+  else
+    TEXT="ISOs Don't exist in /var/lib/libvirt/images/"; redtext
+    echo -e "Please read the instructions on how and where to place them on the Official GitHub Page. \n"
+  fi
+
+}
 
 # Arch Setup 
 
@@ -153,7 +174,7 @@ arch_setup() {
   echo ":: Installing Dependencies..."; 
   echo ""
   echo ""
-  #sudo pacman -S qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  #sudo pacman -S git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -170,7 +191,7 @@ fedora_setup() {
   echo ""
   echo ""
   echo ""
-  sudo dnf -y install qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
+  sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -187,7 +208,7 @@ debian_setup() {
   echo ""
   echo ""
   echo ""
-  sudo apt install -y qemu rsync qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
+  sudo apt install -y git qemu rsync qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -197,7 +218,9 @@ debian_setup() {
 
 unknown_distro() {
 
-  echo "Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."
+  TEXT="Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."; bluetext
+  echo ""
+  echo "Check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM"
   echo ""
   if [[ -f /usr/bin/systemctl ]]
   then

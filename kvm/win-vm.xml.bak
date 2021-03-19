@@ -1,8 +1,6 @@
 <domain type="kvm">
   <name>Windows10-vanilla</name>
   <uuid>9c68b3c5-741e-4b6a-bd3e-428dd2faba6d</uuid>
-  <title>Windows 10 Vanilla</title>
-  <description>This Windows 10 VM is meant to be a template, for when a Windows VM starts suffering from software rot, that VM can be deleted and this Vanilla VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. DO NOT USE this VM for primary work. Always clone this VM and use the clone for any work you wanna do. </description>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://microsoft.com/win/10"/>
@@ -43,34 +41,27 @@
   </pm>
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2"/>
+      <source file="/home/gamerhat/WindowsVM/Windows-Vanilla.qcow2"/>
+      <target dev="vda" bus="virtio"/>
+      <boot order="2"/>
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
+    </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/win10.iso"/>
+      <source file="/home/gamerhat/WindowsVM/win10.iso"/>
       <target dev="sda" bus="sata"/>
       <readonly/>
-      <boot order="2"/>
+      <boot order="1"/>
       <address type="drive" controller="0" bus="0" target="0" unit="0"/>
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/virtio-win.iso"/>
+      <source file="/home/gamerhat/WindowsVM/virtio-win.iso"/>
       <target dev="sdb" bus="sata"/>
       <readonly/>
       <address type="drive" controller="0" bus="0" target="0" unit="1"/>
-    </disk>
-    <disk type="file" device="cdrom">
-      <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/essentials.iso"/>
-      <target dev="sdc" bus="sata"/>
-      <readonly/>
-      <address type="drive" controller="0" bus="0" target="0" unit="2"/>
-    </disk>
-    <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows-Vanilla.qcow2"/>
-      <target dev="vda" bus="virtio"/>
-      <boot order="1"/>
-      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15">
       <address type="pci" domain="0x0000" bus="0x02" slot="0x00" function="0x0"/>
@@ -104,9 +95,10 @@
       <target chassis="5" port="0x14"/>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x4"/>
     </controller>
-    <controller type="pci" index="6" model="pcie-root-port">
+    <controller type="pci" index="6" model="pcie-root-port"> 
       <model name="pcie-root-port"/>
       <target chassis="6" port="0x15"/>
+      <alias name='pci.6'/>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x5"/>
     </controller>
     <controller type="virtio-serial" index="0">
@@ -158,3 +150,4 @@
     </memballoon>
   </devices>
 </domain>
+
