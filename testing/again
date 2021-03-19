@@ -1,0 +1,22 @@
+#if [[ -f ./Win10*.iso ]]; then
+#  echo "ok works"
+#elif [[ -f ./*.iso ]]; then
+#  echo "somewhat works"
+#else
+#  echo "nope"
+#fi
+
+
+#$fileSearch="Win10";
+#$files=glob("/mnt/home/gamerhat/Projects/Quick-VM/testing/*" . $fileSearch . "iso");
+#if [[ count($files) > 0 ]]; then 
+#  echo "File Exists!";
+#fi
+
+
+#if [[ find . -name '*create_DB_files*' ]]; then
+if [[ /usr/bin/find /mnt/home/gamerhat/Projects/Quick-VM/testing/ -name 'Win10*' -type f -printf 1 -quit | grep -q 1 ]]; then
+  echo "YESSS"
+else
+  echo "ah"
+fi

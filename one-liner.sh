@@ -39,6 +39,9 @@ cd ~/
 if [[ -f ~/quick-vm.log ]]
 then
   echo "Logs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm" >> ~/quick-vm.log
+  if [[ $EUID -ne 0 ]]; then
+    echo " Not running this script as root. " >>  ~/quick-vm.log
+  fi
 else
   TEXT="Filesystem is READ-ONLY. Errors may not be logged."; redtext
   TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
@@ -107,10 +110,38 @@ maindir=/home/$USER/WindowsVM
 
 checkiso() {
 
+  # checks if ~/WindowsVM exists
  if [[ -d $maindir ]]; then
-   if [[ -f $maindir/]]; then
-     echo "~/WindowsVM exists!"
+   
+   if [[ -f $maindir/win10.iso ]]; then
+     echo -e "Windows ISO exists in ~/WindowsVM! \n";
+     TEXT="Relocating the image in /var/lib/libvirt/images!"; bluetext
+     sudo rsync --partial --progress $maindir/Win10*.iso /var/lib/libvirt/images/win10.iso 
+     TEXT="[✓] Operation Done!"; greentext
+   elif [[ ! -f $maindir/win10.iso ]] ; then
+     TEXT="Windows ISO doesn't exist in ~/WindowsVM!"; redtext
+     echo "Please make sure that it is in $maindir"
+   else
+     TEXT="ERROR OCCURED. Please check the logs."; redtext
+   fi
+   
+   if [[ -f $maindir/virtio-win.iso ]]; then
+     echo -e "VirtIO Drivers exist in ~/WindowsVM! \n"
+     TEXT="Relocating the image in /var/lib/libvirt/images!"; bluetext
+     sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+     TEXT="[✓] Operation Done!"; greentext
+   elif [[! -f $maindir/virtio-win.iso ]] ; then
+     TEXT="VirtIO Drivers ISO doesn't exist in ~/WindowsVM!"; redtext
+     echo "Please make sure that it is in $maindir"
+   else
+     TEXT="ERROR OCCURED. Please check the logs."; redtext
+   fi
+
+
+ fi
+   
 }
+   
 
 # Arch Setup 
 
@@ -122,7 +153,7 @@ arch_setup() {
   echo ":: Installing Dependencies..."; 
   echo ""
   echo ""
-  #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  #sudo pacman -S qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -139,7 +170,7 @@ fedora_setup() {
   echo ""
   echo ""
   echo ""
-  sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
+  sudo dnf -y install qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -156,7 +187,7 @@ debian_setup() {
   echo ""
   echo ""
   echo ""
-  sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
+  sudo apt install -y qemu rsync qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
