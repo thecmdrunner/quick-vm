@@ -4,9 +4,9 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 ## One-liner to Setup KVM (INCOMPLETE AS OF NOW)
 ### Paste this in your terminal
 
-## ```bash
+ ```bash
 ## curl -sSL https://git.io/JqtJc | bash
-## ```
+ ```
 
 Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/main/one-liner.sh)
 
@@ -24,7 +24,7 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 
 >**CPU**: 3 vCPUs Allocated
 >
->**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or 
+>**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
 >
 >**Memory**: Total 4 GiB, 1 GiB Allocated initially
 >
