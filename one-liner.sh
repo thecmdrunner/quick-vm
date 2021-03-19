@@ -35,7 +35,7 @@ bluetext() {
 
 echo ''
 cd ~/
-#touch ~/quick-vm.log
+touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
 then
   echo "Logs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm" >> ~/quick-vm.log
