@@ -1,84 +1,92 @@
 #!/bin/bash
 
 
+# For normal and bold text
+
+old=$(tput bold)
+normal=$(tput sgr0)
+
+boldtext() {
+  echo -e "\033[1m$TEXT"
+}
+
 # Credits for colored output https://gist.github.com/amberj/5166112
 
 SELF_NAME=$(basename $0)
 
-# Prints warning/error $MESSAGE in red foreground color
-# For e.g. You can use the convention of using RED color for [E]rror messages
-red_echo() {
-  echo -e "\x1b[1;31m[E] $SELF_NAME: $MESSAGE\e[0m"
+
+
+redtext() {
+  echo -e "\x1b[1;31m$TEXT\e[0m"
 }
 
-simple_red_echo() {
-  echo -e "\x1b[1;31m$MESSAGE\e[0m"
+
+greentext() {
+  echo -e "\x1b[1;32m$TEXT\e[0m"
 }
 
-# Prints success/info $MESSAGE in green foreground color
-# For e.g. You can use the convention of using GREEN color for [S]uccess messages
-green_echo() {
-  echo -e "\x1b[1;32m[S] $SELF_NAME: $MESSAGE\e[0m"
+
+bluetext() {
+  echo -e "\x1b[1;34m$TEXT\e[0m"
 }
 
-simple_green_echo() {
-  echo -e "\x1b[1;32m$MESSAGE\e[0m"
-}
+# Checks if the current working directory is read only and warns the user.
+# Logs cant be stored on a READ-ONLY Drive.
 
-# Prints $MESSAGE in blue foreground color
-# For e.g. You can use the convetion of using BLUE color for [I]nfo messages that require special user attention (especially when script requires input from user to continue)
-blue_echo() {
-  echo -e "\x1b[1;34m[I] $SELF_NAME: $MESSAGE\e[0m"
-}
-
-simple_blue_echo() {
-  echo -e "\x1b[1;34m$MESSAGE\e[0m"
-}
-
+echo ''
 cd ~/
-
-touch ~/quick-vm.log
-
+#touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
 then
   echo "Logs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm" >> ~/quick-vm.log
 else
-  MESSAGE="Filesystem is READ-ONLY. Errors may not be logged."; red_echo
-  MESSAGE="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; red_echo
+  TEXT="Filesystem is READ-ONLY. Errors may not be logged."; redtext
+  TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
 fi
+echo ''
+
+
 
 ### PRE-DEFINED OPERATIONS
+
+# exit function
+
+byee() {
+
+  echo ""
+  TEXT=":: Exiting, Bye!"; greentext
+  echo ""
+
+}
 
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
 
   echo ""
-  MESSAGE=":: Now starting up libvirtd socket and service"; simple_blue_echo
+  TEXT=":: Now starting up libvirtd socket and service"; bluetext
   echo ""
 
-  MESSAGE=":: Executing 'sudo systemctl enable --now libvirtd' ..."; simple_blue_echo
+  TEXT=":: Executing 'sudo systemctl enable --now libvirtd' ..."; bluetext
   echo ""
 
   sudo systemctl enable libvirtd >> ~/quick-vm.log
   sudo systemctl start libvirtd >> ~/quick-vm.log
 
-
   sudo systemctl enable libvirtd.socket >> ~/quick-vm.log
   sudo systemctl start libvirtd.socket >> ~/quick-vm.log
-
 
   sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; simple_green_echo
+  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
   echo ""
 
-  MESSAGE=":: Now starting up virtlogd socket and service"; simple_blue_echo
+  TEXT=":: Now starting up virtlogd socket and service"; bluetext
   echo ""
 
-  MESSAGE=":: Executing 'sudo systemctl enable --now virtlogd'"; simple_blue_echo
+  TEXT=":: Executing 'sudo systemctl enable --now virtlogd'"; bluetext
   echo ""
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
@@ -87,10 +95,21 @@ libvirt_systemd_start () {
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
-  MESSAGE="[✓] Done. Logs saved to ~/quick-vm.log"; simple_green_echo
+  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
   echo ""
 
+}
+
+# Check if Windows iso and virtio-drivers exist in ~/WindowsVM
+
+maindir=/home/$USER/WindowsVM
+
+checkiso() {
+
+ if [[ -d $maindir ]]; then
+   if [[ -f $maindir/]]; then
+     echo "~/WindowsVM exists!"
 }
 
 # Arch Setup 
@@ -98,14 +117,14 @@ libvirt_systemd_start () {
 arch_setup() {
   
   echo ""
-  MESSAGE="[✓] BASE SYSTEM: ARCH"; simple_green_echo
+  TEXT="[✓] BASE SYSTEM: ARCH"; greentext
   echo ""
   echo ":: Installing Dependencies..."; 
   echo ""
   echo ""
   #sudo pacman -S qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
-  MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  TEXT="[✓] Setup Finished!"; greentext
 
 }
 
@@ -114,7 +133,7 @@ arch_setup() {
 fedora_setup() {
 
   echo ""
-  MESSAGE="[✓] BASE SYSTEM: FEDORA"; simple_green_echo
+  TEXT="[✓] BASE SYSTEM: FEDORA"; greentext
   echo ""
   echo ":: Installing Dependencies"; 
   echo ""
@@ -122,7 +141,7 @@ fedora_setup() {
   echo ""
   sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager 
   echo ""
-  MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  TEXT="[✓] Setup Finished!"; greentext
 
 }
 
@@ -131,7 +150,7 @@ fedora_setup() {
 debian_setup() {
 
   echo ""
-  MESSAGE="[✓] BASE SYSTEM: DEBIAN"; simple_green_echo
+  TEXT="[✓] BASE SYSTEM: DEBIAN"; greentext
   echo ""
   echo ":: Installing Dependencies..."; 
   echo ""
@@ -139,11 +158,11 @@ debian_setup() {
   echo ""
   sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ""
-  MESSAGE="[✓] Setup Finished!"; simple_green_echo
+  TEXT="[✓] Setup Finished!"; greentext
 
 }
 
-# Fallback: Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init
+# Fallback: Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init, then exits.
 
 unknown_distro() {
 
@@ -153,14 +172,17 @@ unknown_distro() {
   then
     echo "Your system has Systemd init, you can type the following to get libvirtd service running quickly after installing the dependencies."
     echo ""
-    MESSAGE="sudo systemctl enable --now libvirtd"; simple_blue_echo
+    TEXT="sudo systemctl enable --now libvirtd"; bluetext
   else
-    MESSAGE="Your system doesn't use Systemd init, so you need to manually enable libvirt service and socket."; simple_red_echo
+    TEXT="Your system doesn't use Systemd init, so you need to manually enable libvirt service and socket."; redtext
   fi
+  byee;
 
 }
 
 # Check the flavour of Linux and install dependencies
+
+install_all() {
 
 if [[ -f /usr/bin/makepkg ]] # Present in Arch
 then
@@ -175,3 +197,40 @@ else # Resorts to fallback
   unknown_distro
 fi
 
+}
+
+# Simple Quick and automatic setup.
+
+simplesetup() {
+  
+  echo "";
+  echo -e "Starting Simple Setup"
+
+}
+
+
+#  ${bold}  ${normal}
+TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
+echo "${bold}:: Select any one of the options below to get started!${normal}"
+echo ""
+
+echo "[1] Default install (Fully Automated & Quick)"; boldtext
+echo "[2] Advanced install (Pick and choose what you want)"; boldtext
+
+echo ""
+read -p ":: Choose an option [1, 2]: " user_choice
+echo ""
+
+if [[ $user_choice == 1 ]]
+then
+  echo "You selected Default install"
+elif [[ $user_choice == 2 ]]
+then
+  clear;
+  simplesetup;
+else
+  echo "Invalid choice, please select from the options above."
+  byee;
+fi
+
+echo ""
