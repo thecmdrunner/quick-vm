@@ -259,7 +259,11 @@ simplesetup() {
   
   echo "";
   echo -e "Starting Simple Setup"
-
+  install_all;
+  libvirt_systemd_start;
+  checkiso;
+  gitndefine;
+  
 }
 
 
