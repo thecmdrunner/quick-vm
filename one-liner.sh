@@ -82,8 +82,8 @@ libvirt_systemd_start () {
   sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
+  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
 
   TEXT=":: Now starting up virtlogd socket and service"; bluetext
@@ -98,8 +98,10 @@ libvirt_systemd_start () {
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
+  echo ""
   TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
+  echo "*******************************************************************************"
   echo ""
 
 }
@@ -114,9 +116,12 @@ checkiso() {
  if [[ -d $maindir ]]; then
    
    if [[ -f $maindir/win10.iso ]]; then
-     echo -e "Windows ISO exists in ~/WindowsVM! \n";
+     TEXT="Windows ISO exists in ~/WindowsVM!"; greentext
+     echo ''
      TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
-     sudo rsync --partial --progress $maindir/Win10*.iso /var/lib/libvirt/images/win10.iso 
+     echo ''
+     sudo rsync --partial --progress $maindir/Win10*.iso /var/lib/libvirt/images/win10.iso
+     echo ''
      TEXT="[✓] Operation Done!"; greentext
    elif [[ ! -f $maindir/win10.iso ]] ; then
      TEXT="Windows ISO doesn't exist in ~/WindowsVM!"; redtext
@@ -126,10 +131,14 @@ checkiso() {
    fi
    
    if [[ -f $maindir/virtio-win.iso ]]; then
-     echo -e "VirtIO Drivers exist in ~/WindowsVM! \n"
+     TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
+     echo ''
      TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
+     echo ''
      sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+     echo ''
      TEXT="[✓] Operation Done!"; greentext
+     echo ''
    elif [[! -f $maindir/virtio-win.iso ]] ; then
      TEXT="VirtIO Drivers ISO doesn't exist in ~/WindowsVM!"; redtext
      echo "Please make sure that it is in $maindir"
@@ -240,13 +249,13 @@ install_all() {
 
 if [[ -f /usr/bin/makepkg ]] # Present in Arch
 then
-  arch_setup && libvirt_systemd_start 
+  arch_setup
 elif [[ -f /usr/bin/rpm ]] # Present in Fedora
 then
-  fedora_setup && libvirt_systemd_start
+  fedora_setup
 elif [[ -f /usr/bin/dpkg ]] # Present in Debian
 then
-  debian_setup && libvirt_systemd_start
+  debian_setup
 else # Resorts to fallback
   unknown_distro
 fi
@@ -267,13 +276,12 @@ simplesetup() {
 }
 
 
-#  ${bold}  ${normal}
 TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
-echo "${bold}:: Select any one of the options below to get started!${normal}"
+TEXT=":: Select any one of the options below to get started!"; boldtext
 echo ""
 
-echo "[1] Default install (Fully Automated & Quick)"; boldtext
-echo "[2] Advanced install (Pick and choose what you want)"; boldtext
+TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
+TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
 
 echo ""
 read -p ":: Choose an option [1, 2]: " user_choice
@@ -281,11 +289,12 @@ echo ""
 
 if [[ $user_choice == 1 ]]
 then
-  echo "You selected Default install"
+  clear;
+  simplesetup
 elif [[ $user_choice == 2 ]]
 then
-  clear;
-  simplesetup;
+  echo "You are advance"
+  
 else
   echo "Invalid choice, please select from the options above."
   byee;
