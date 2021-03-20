@@ -109,14 +109,15 @@ libvirt_systemd_start () {
 # Check if Windows iso and virtio-drivers exist in ~/WindowsVM
 
 maindir=/home/$USER/WindowsVM
+dirname=WindowsVM
 
 checkiso() {
 
   # checks if ~/WindowsVM exists
  if [[ -d $maindir ]]; then
    
-   if [[ -f $maindir/win10.iso ]]; then
-     TEXT="Windows ISO exists in ~/WindowsVM!"; greentext
+   if [[ -f $maindir/*.iso ]]; then
+     TEXT="Windows ISO exists in ~/$dirname!"; greentext
      echo ''
      TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
      echo ''
@@ -146,7 +147,15 @@ checkiso() {
      TEXT="ERROR OCCURED. Please check the logs."; redtext
    fi
 
+ else
+   mkdir $maindir
+   TEXT=":: Please put Windows and VirtIO Drivers ISO in $maindir"; redtext
+   echo ''
+   echo "Without the ISOs, the setup can't progress further."
+   echo ''
+   exit
  fi
+
    
 }
    
@@ -164,7 +173,7 @@ gitndefine() {
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
-    virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
+    sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
     echo "" && TEXT="Your VM is Ready! Launch Virt-Manager to start the VM."; greentext
   else
     TEXT="ISOs Don't exist in /var/lib/libvirt/images/"; redtext
