@@ -28,7 +28,7 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 >
 >**Memory**: Total 4 GiB, 1 GiB Allocated initially
 >
->**Primary Drive**: 256 GB VirtIO Disk (Dynamically Allocated)
+>**Primary Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
 >
 >**Secondary Drive**: Windows 10 ISO (SATA CDROM)
 >
