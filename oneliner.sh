@@ -327,7 +327,6 @@ echo ""
 
 TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
 TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
-TEXT="[3] Exit without installation"; boldtext
 
 echo ""
 read -p ":: Choose an option [1,2,3]: " user_choice
