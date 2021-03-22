@@ -109,6 +109,7 @@ libvirt_systemd_start () {
 # Check if Windows iso and virtio-drivers exist in ~/WindowsVM
 
 maindir=/home/$USER/WindowsVM
+imagesdir=/var/lib/libvirt/images
 dirname=WindowsVM
 
 checkiso() {
@@ -116,21 +117,33 @@ checkiso() {
   # checks if ~/WindowsVM exists
  if [[ -d $maindir ]]; then
    
-   if [[ -f $maindir/*.iso ]]; then
+   # Windows ISO check and moves it to $imagesdir
+
+   if [[ -f $maindir/win10.iso ]]; then
      TEXT="Windows ISO exists in ~/$dirname!"; greentext
      echo ''
      TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
      echo ''
-     sudo rsync --partial --progress $maindir/Win10*.iso /var/lib/libvirt/images/win10.iso
+     sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
      echo ''
      TEXT="[✓] Operation Done!"; greentext
-   elif [[ ! -f $maindir/win10.iso ]] ; then
-     TEXT="Windows ISO doesn't exist in ~/WindowsVM!"; redtext
-     echo "Please make sure that it is in $maindir"
+
+
+   elif [[ -f $imagesdir/win10.iso ]]; then
+     TEXT="Windows ISO already exists in ~/$imagesdir!"; greentext
+     echo ''
+     TEXT="[✓] ISOs gathered!"; greentext
+
+
+   elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
+     TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
+     echo "Please make sure that it is in $maindir and run the script again!"
    else
      TEXT="ERROR OCCURED. Please check the logs."; redtext
    fi
    
+# VirtIO Check and moves it to $imagesdir
+
    if [[ -f $maindir/virtio-win.iso ]]; then
      TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
      echo ''
@@ -140,9 +153,36 @@ checkiso() {
      echo ''
      TEXT="[✓] Operation Done!"; greentext
      echo ''
-   elif [[! -f $maindir/virtio-win.iso ]] ; then
-     TEXT="VirtIO Drivers ISO doesn't exist in ~/WindowsVM!"; redtext
-     echo "Please make sure that it is in $maindir"
+
+   elif [[ -f $imagesdir/virtio-win.iso ]]; then
+     TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
+     echo ''
+     TEXT="[✓] ISOs gathered!"; greentext
+
+   elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
+     TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
+     echo ''
+     TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext
+     
+     read -p "Please enter your choice [Y/n]: " virt_choice
+  
+     if [[ $virt_choice == 'y' ]]; then
+      echo ''
+      echo 'Downloading VirtIO Drivers (Stable)...'
+      echo ''
+      wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
+      echo ''
+      if [[ -f $maindir/virtio-win.iso ]]; then
+        echo ":: Done! Now the setup process will continue."
+      fi
+     elif [[ $virt_choice == 'n' ]]; then
+      echo ''
+      TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
+      echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
+      echo "OR place it in $maindir and run the script again."
+     fi
+   
+
    else
      TEXT="ERROR OCCURED. Please check the logs."; redtext
    fi
@@ -156,9 +196,9 @@ checkiso() {
    exit
  fi
 
-   
+ 
 }
-   
+  
 
 
 # Clones the main reporsitory and defining the VM via `virsh`
@@ -271,7 +311,7 @@ fi
 
 }
 
-# Simple Quick and automatic setup.
+# Simple Quick and automatic setup for One-Liner.
 
 simplesetup() {
   
