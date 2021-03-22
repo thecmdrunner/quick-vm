@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # For normal and bold text
 
 old=$(tput bold)
@@ -13,8 +12,6 @@ boldtext() {
 # Credits for colored output https://gist.github.com/amberj/5166112
 
 SELF_NAME=$(basename $0)
-
-
 
 redtext() {
   echo -e "\x1b[1;31m$TEXT\e[0m"
@@ -47,7 +44,6 @@ else
   TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
 fi
 echo ''
-
 
 
 ### PRE-DEFINED OPERATIONS
@@ -333,17 +329,16 @@ TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
 TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
 
 echo ""
-read -p ":: Choose an option [1, 2]: " user_choice
+read -p ":: Choose an option [1,2,3]: " user_choice
 echo ""
 
-if [[ $user_choice == 1 ]]
-then
+if [[ $user_choice == 1 ]]; then
   clear;
   simplesetup
-elif [[ $user_choice == 2 ]]
-then
+elif [[ $user_choice == 2 ]]; then
   echo "You are advance"
-  
+elif [[ $user_choice == 3 ]]; then
+  byee;
 else
   echo "Invalid choice, please select from the options above."
   byee;
