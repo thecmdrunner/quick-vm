@@ -30,11 +30,11 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/Quick-VM/m
 >
 >**Primary Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
 >
->**Secondary Drive**: Windows 10 ISO (SATA CDROM)
+>**Secondary Drive**: Windows 10 ISO
 >
->**Other Drives**: VirtIO Drivers ISO (SATA CDROM), Essential Tools ISO (to optimize VM performance)
+>**Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
 >
->**Network Card**: VirtIO (Disabled by default, Recommended this way until debloated)
+>**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
 
