@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# oneliner command: bash <(curl -sSL https://git.io/JqtJc) 
+
 # For normal and bold text
 
 old=$(tput bold)
@@ -55,7 +57,6 @@ byee() {
   echo ""
   TEXT=":: Exiting, Bye!"; greentext
   echo ""
-  break
   exit
 }
 
@@ -320,10 +321,8 @@ simplesetup() {
   checkiso;
   gitndefine;
   byee;
-  exit
 
 }
-
 
 TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
 TEXT=":: Select any one of the options below to get started!"; boldtext
