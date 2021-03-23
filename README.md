@@ -1,6 +1,12 @@
 # Quick-VM (WORK IN PROGRESS)
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
+### Make sure you rename both of the ISOs as following:
+
+**Note:** Place the ISOs in `~/WindowsVM`, as this script points to that directory to find those ISOs. You can change the location in the `kvm/Windows10-Vanilla.xml` file if you prefer.
+**Windows 10 ISO** ➜ `win10.iso`
+**VirtIO Drivers** ➜ `virtio-win.iso`
+
 ## One-liner to Setup KVM
 ### Paste this in your terminal
 
