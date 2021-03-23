@@ -214,7 +214,7 @@ gitndefine() {
     sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
     echo "" && TEXT="Your VM is Ready! Launch Virt-Manager to start the VM."; greentext
   else
-    TEXT="ISOs Don't exist in /var/lib/libvirt/images/"; redtext
+    TEXT="Some ISOs missing from /var/lib/libvirt/images/"; redtext
     echo -e "Please read the instructions on how and where to place them on the Official GitHub Page. \n"
   fi
 
@@ -320,6 +320,7 @@ simplesetup() {
   checkiso;
   gitndefine;
   byee;
+  exit
 
 }
 
