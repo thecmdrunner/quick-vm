@@ -2,8 +2,8 @@
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
 1. Rename the ISOs as following:
-  - **Windows 10 ISO** ➜ `win10.iso`
-  - **VirtIO Drivers** ➜ `virtio-win.iso`
+    - **Windows 10 ISO** ➜ `win10.iso`
+    - **VirtIO Drivers** ➜ `virtio-win.iso`
 
 2. Place the ISOs in `~/WindowsVM` and run the one-liner script below. The script will copy the ISOs to `/var/lib/libvirt/images/` for easy setup.
 
