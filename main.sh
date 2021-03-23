@@ -123,6 +123,7 @@ checkiso() {
      sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
      echo ''
      TEXT="[✓] Operation Done!"; greentext
+     echo ''
 
 
    elif [[ -f $imagesdir/win10.iso ]]; then
@@ -317,7 +318,8 @@ simplesetup() {
   libvirt_systemd_start;
   checkiso;
   gitndefine;
-  
+  byee;
+
 }
 
 
