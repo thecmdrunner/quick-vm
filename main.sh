@@ -55,7 +55,8 @@ byee() {
   echo ""
   TEXT=":: Exiting, Bye!"; greentext
   echo ""
-
+  break
+  exit
 }
 
 # Start Libvirt service through systemd
