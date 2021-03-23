@@ -343,10 +343,11 @@ if [[ $user_choice == 1 ]]; then
 elif [[ $user_choice == 2 ]]; then
   echo "You are advance"
 elif [[ $user_choice == 3 ]]; then
-  byee;
+  echo ''
+  TEXT=":: Exiting, Bye!"; greentext
 else
   echo "Invalid choice, please select from the options above."
-  byee;
+  exit
 fi
 
 echo ""
