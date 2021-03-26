@@ -58,6 +58,7 @@ byee() {
   TEXT=":: Exiting, Bye!"; greentext
   echo ""
   exit
+
 }
 
 # Start Libvirt service through systemd
@@ -221,6 +222,7 @@ gitndefine() {
 
 }
 
+
 # Arch Setup 
 
 arch_setup() {
@@ -231,7 +233,7 @@ arch_setup() {
   echo ":: Installing Dependencies..."; 
   echo ""
   echo ""
-  #sudo pacman -S git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+  sudo pacman -S git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -290,7 +292,6 @@ unknown_distro() {
   byee;
 
 }
-
 # Check the flavour of Linux and install dependencies
 
 install_all() {
