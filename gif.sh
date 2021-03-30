@@ -33,7 +33,6 @@ bluetext() {
 # Logs cant be stored on a READ-ONLY Drive.
 
 echo ''
-cd ~/
 touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
 then
@@ -72,15 +71,6 @@ libvirt_systemd_start () {
   TEXT=":: Executing 'sudo systemctl enable --now libvirtd' ..."; bluetext
   echo ""
 
-  sudo systemctl enable libvirtd >> ~/quick-vm.log
-  sudo systemctl start libvirtd >> ~/quick-vm.log
-
-  sudo systemctl enable libvirtd.socket >> ~/quick-vm.log
-  sudo systemctl start libvirtd.socket >> ~/quick-vm.log
-
-  sudo systemctl enable libvirtd.service >> ~/quick-vm.log
-  sudo systemctl start libvirtd.service >> ~/quick-vm.log
-
   echo ""
   TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
@@ -90,12 +80,6 @@ libvirt_systemd_start () {
 
   TEXT=":: Executing 'sudo systemctl enable --now virtlogd'"; bluetext
   echo ""
-
-  sudo systemctl enable virtlogd >> ~/quick-vm.log
-  sudo systemctl start virtlogd >> ~/quick-vm.log
-
-  sudo virsh net-autostart default >> ~/quick-vm.log
-  sudo virsh net-start default >> ~/quick-vm.log
 
   echo ""
   TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
@@ -116,92 +100,76 @@ checkiso() {
   # checks if ~/WindowsVM exists
  if [[ -d $maindir ]]; then
    
-   # Checks if the ISOs already exists
+   # Windows ISO check and moves it to $imagesdir
 
-   if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
-    echo ''
-    TEXT='[✓] VirtIO Drivers and Windows 10 ISO already exist in '$imagesdir'!'; greentext
-    echo ''
+   if [[ -f $maindir/win10.iso ]]; then
+     TEXT="Windows ISO exists in ~/$dirname!"; greentext
+     echo ''
+     TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
+     echo ''
+     sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
+     sleep 3
+     echo ''
+     TEXT="[✓] Operation Done!"; greentext
+     echo ''
+
+
+   elif [[ -f $imagesdir/win10.iso ]]; then
+     TEXT="Windows ISO already exists in ~/$imagesdir!"; greentext
+     echo ''
+     TEXT="[✓] ISOs gathered!"; greentext
+
+
+   elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
+     TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
+     echo "Please make sure that it is in $maindir and run the script again!"
+   else
+     TEXT="ERROR OCCURED. Please check the logs."; redtext
+   fi
+   
+# VirtIO Check and moves it to $imagesdir
+
+   if [[ -f $maindir/virtio-win.iso ]]; then
+     TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
+     echo ''
+     TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
+     echo ''
+     sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+     echo ''
+     TEXT="[✓] Operation Done!"; greentext
+     echo ''
+
+   elif [[ -f $imagesdir/virtio-win.iso ]]; then
+     TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
+     echo ''
+     TEXT="[✓] ISOs gathered!"; greentext
+
+   elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
+     TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
+     echo ''
+     TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext
+     
+     read -p "Please enter your choice [Y/n]: " virt_choice
+  
+     if [[ $virt_choice == 'y' ]]; then
+      echo ''
+      echo 'Downloading VirtIO Drivers (Stable)...'
+      echo ''
+      wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
+      echo ''
+      if [[ -f $maindir/virtio-win.iso ]]; then
+        echo ":: Done! Now the setup process will continue."
+      fi
+     elif [[ $virt_choice == 'n' ]]; then
+      echo ''
+      TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
+      echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
+      echo "OR place it in $maindir and run the script again."
+     fi
+   
 
    else
-
-    # Windows ISO check and moves it to $imagesdir
-
-     if [[ -f $maindir/win10.iso ]]; then
-       TEXT="Windows ISO exists in ~/$dirname!"; greentext
-       echo ''
-       TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
-       echo ''
-       sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
-       echo ''
-       TEXT="[✓] Operation Done!"; greentext
-       echo ''
-  
-     elif [[ -f $imagesdir/win10.iso ]]; then
-       TEXT="Windows ISO already exists in ~/$imagesdir!"; greentext
-       echo ''
-  
-     elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
-       TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
-       echo "Please make sure that it is in $maindir and run the script again!"
-
-     else
-       TEXT="ERROR OCCURED. Please check the logs."; redtext
-     fi
-     
-     # VirtIO Check and moves it to $imagesdir
-  
-     if [[ -f $maindir/virtio-win.iso ]]; then
-       TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
-       echo ''
-       TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
-       echo ''
-       sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
-       echo ''
-       TEXT="[✓] Operation Done!"; greentext
-       echo ''
-  
-     elif [[ -f $imagesdir/virtio-win.iso ]]; then
-       TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
-       echo ''
-  
-     elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
-       TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
-       echo ''
-       TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext
-       
-       read -p "Please enter your choice [Y/n]: " virt_choice
-    
-       if [[ $virt_choice == 'y' ]]; then
-        echo ''
-        echo 'Downloading VirtIO Drivers (Stable)...'
-        echo ''
-        wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
-        echo ''
-
-        if [[ -f $maindir/virtio-win.iso ]]; then
-          echo ":: Done! Now the setup process will continue."
-          sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
-          echo ''
-          TEXT="[✓] Operation Done!"; greentext
-        fi
-
-       elif [[ $virt_choice == 'n' ]]; then
-        echo ''
-        TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
-        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "OR place it in $maindir and run the script again."
-
-       else
-        TEXT="[!] Invalid Option! Skipping VirtIO Drivers for now,"; redtext
-        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "OR place it in $maindir and run the script again."
-       fi
-
-     else
-       TEXT="ERROR OCCURED. Please check the logs."; redtext
-     fi
-  
+     TEXT="ERROR OCCURED. Please check the logs."; redtext
    fi
 
  else
@@ -212,9 +180,11 @@ checkiso() {
    echo ''
    exit
  fi
+
  
 }
   
+
 
 # Clones the main reporsitory and defining the VM via `virsh`
 
@@ -330,9 +300,6 @@ fi
 
 simplesetup() {
   
-while [[ $setupmode=='simple' ]]
-do
-
   echo "";
   echo -e "Starting Simple Setup"
   install_all;
@@ -341,47 +308,11 @@ do
   gitndefine;
   byee;
 
-done
-
 }
 
-# Advanced Setup with every step
 
-advancedsetup(){
+# Advanced Setup that lets you pick every step
 
-while [[ $setupmode=='advanced' ]]
-do
-
-  echo ""
-
-  TEXT="[1] Install required packages (via package manager)"; greentext
-  TEXT="[2] Enable Libvirt Service & Virtual Networking"; greentext
-  TEXT="[3] Default install (Fully Automated & Quick)"; greentext
-  TEXT="[4] Default install (Fully Automated & Quick)"; greentext
-  echo ''
-  TEXT="[5] Default install (Fully Automated & Quick)"; greentext
-
-  echo ''
-  read -p ":: Choose a task from above [1-5]: " setup_choice
-  echo ''
-
-  if [[ $setup_choice == 1 ]]; then
-    clear;
-    install_all
-  elif [[ $setup_choice == 2 ]]; then
-    clear;
-    libvirt_systemd_start
-  elif [[ $setup_choice == 3 ]]; then
-    clear;
-    checkiso
-  else
-    echo "Invalid choice, please select from the options above."
-    exit
-  fi
-
-done
-
-}
 
 
 TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
@@ -398,12 +329,9 @@ echo ""
 
 if [[ $user_choice == 1 ]]; then
   clear;
-  setupmode='simple'
   simplesetup
 elif [[ $user_choice == 2 ]]; then
-  clear;
-  setupmode='advanced'
-  advancedsetup
+  echo "You are advance"
 elif [[ $user_choice == 3 ]]; then
   echo ''
   TEXT=":: Exiting, Bye!"; greentext
