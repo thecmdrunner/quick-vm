@@ -88,6 +88,13 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 ```bash
  # Enable Libvirt Service
  sudo systemctl enable --now libvirtd
+
+ # Enable VM Console logging 
+ sudo systemctl enable --now virtlogd 
+
+ # Enable Virtual Network Bridge 
+ sudo virsh net-autostart default
+ sudo virsh net-start default
  ```
  
 </br> 
