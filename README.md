@@ -52,7 +52,6 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/quick-vm/m
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
-
 <p>
 <details>
 <summary>Manual Step-by-Step-Process</summary>
