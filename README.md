@@ -68,6 +68,9 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/quick-vm/m
 
 #### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
  
+
+**Note:** Any Linux distribution will work just fine. You do need to install `libvirt`, `virt-manager`, `qemu`, and other required dependencies.
+
  ```bash
 # Debian & Ubuntu (Linux Mint, PopOS, ElementaryOS)
 sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager
@@ -101,7 +104,6 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 </details>
 </p>
  
-**Note:** Any Linux distribution will work just fine. You do need to install `libvirt`, `virt-manager`, `qemu`, and other required dependencies.
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
 ## Download the Windows 10 ISO and KVM VirtIO drivers
