@@ -1,5 +1,10 @@
 # Quick-VM (WORK IN PROGRESS)
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
+Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines]*(https://nvidia.custhelp.com/app/answers/detail/a_id/5173), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM.
+Till then, read https://github.com/gamerhat18/single-gpu-passthrough
+
+## Getting Started
+
 
 1. Rename the ISOs as following:
     - **Windows 10 ISO** ➜ `win10.iso`
