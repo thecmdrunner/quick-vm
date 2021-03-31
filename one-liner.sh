@@ -330,9 +330,6 @@ fi
 
 simplesetup() {
   
-while [[ $setupmode=='simple' ]]
-do
-
   echo "";
   echo -e "Starting Simple Setup"
   install_all;
@@ -340,8 +337,6 @@ do
   checkiso;
   gitndefine;
   byee;
-
-done
 
 }
 
@@ -353,13 +348,14 @@ while [[ $setupmode=='advanced' ]]
 do
 
   echo ""
+  TEXT=":: Select any one of the options below to get started!"; boldtext
 
-  TEXT="[1] Install required packages (via package manager)"; greentext
-  TEXT="[2] Enable Libvirt Service & Virtual Networking"; greentext
-  TEXT="[3] Default install (Fully Automated & Quick)"; greentext
-  TEXT="[4] Default install (Fully Automated & Quick)"; greentext
+  TEXT="[1] Install required packages (via package manager)"; bluetext
+  TEXT="[2] Enable Libvirt Service & Virtual Networking"; bluetext 
+  TEXT="[3] Check ISOs (in "$maindir")"; bluetext
+  TEXT="[4] Define VM from Windows10-Vanilla.xml"; bluetext
   echo ''
-  TEXT="[5] Default install (Fully Automated & Quick)"; greentext
+  TEXT="[5] Return"; boldtext 
 
   echo ''
   read -p ":: Choose a task from above [1-5]: " setup_choice
@@ -367,13 +363,19 @@ do
 
   if [[ $setup_choice == 1 ]]; then
     clear;
-    install_all
+    install_all;
   elif [[ $setup_choice == 2 ]]; then
     clear;
-    libvirt_systemd_start
+    libvirt_systemd_start;
   elif [[ $setup_choice == 3 ]]; then
     clear;
-    checkiso
+    checkiso;
+  elif [[ $setup_choice == 4 ]]; then
+    clear;
+    gitndefine;
+  elif [[ $setup_choice == 5 ]]; then
+    clear;
+    welcome;
   else
     echo "Invalid choice, please select from the options above."
     exit
@@ -383,33 +385,39 @@ done
 
 }
 
+welcome() {
 
-TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
-TEXT=":: Select any one of the options below to get started!"; boldtext
-echo ""
+  TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
+  TEXT=":: Select any one of the options below to get started!"; boldtext
+  echo ""
+  
+  TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
+  TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
+  TEXT="[3] Exit without installation"; boldtext
+  
+  echo ""
+  read -p ":: Choose an option [1,2,3]: " user_choice
+  echo ""
+  
+  if [[ $user_choice == 1 ]]; then
+    clear;
+    setupmode='simple'
+    simplesetup
+  elif [[ $user_choice == 2 ]]; then
+    clear;
+    setupmode='advanced'
+    advancedsetup
+  elif [[ $user_choice == 3 ]]; then
+    echo ''
+    TEXT=":: Exiting, Bye!"; greentext
+    exit
+  else
+    echo "Invalid choice, please select from the options above."
+    exit
+  fi
+  
+  echo ""
 
-TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
-TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
-TEXT="[3] Exit without installation"; boldtext
+}
 
-echo ""
-read -p ":: Choose an option [1,2,3]: " user_choice
-echo ""
-
-if [[ $user_choice == 1 ]]; then
-  clear;
-  setupmode='simple'
-  simplesetup
-elif [[ $user_choice == 2 ]]; then
-  clear;
-  setupmode='advanced'
-  advancedsetup
-elif [[ $user_choice == 3 ]]; then
-  echo ''
-  TEXT=":: Exiting, Bye!"; greentext
-else
-  echo "Invalid choice, please select from the options above."
-  exit
-fi
-
-echo ""
+welcome
