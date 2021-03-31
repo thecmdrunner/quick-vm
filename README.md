@@ -66,7 +66,7 @@ Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/quick-vm/m
 <br>
 
 
-#### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies depending on your distro.
+#### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies on your distro.
  
 
 **Note:** Any Linux distribution will work just fine. You do need to install `libvirt`, `virt-manager`, `qemu`, and other required dependencies.
