@@ -90,7 +90,7 @@ libvirt_systemd_start () {
   
   if [[ ! -f /usr/bin/virsh ]]; then
     echo ''
-    TEXT="[X] Virtlogd not found!"; redtext
+    TEXT="[X] Virsh not found!"; redtext
     exit
   fi
 
