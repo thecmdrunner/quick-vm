@@ -65,18 +65,19 @@ byee() {
 
 check_kvm() {
 
-if [[ -f /usr/bin/makepkg ]] # Present in Arch
-then
-  arch_setup
-elif [[ -f /usr/bin/rpm ]]   # Present in Fedora
-then
-  fedora_setup
-elif [[ -f /usr/bin/dpkg ]]  # Present in Debian
-then
-  debian_setup
-else                         # Resorts to fallback
-  unknown_distro
-fi
+  cpu_vt=$(lscpu | grep Virtualization)
+  echo ''
+
+  if [[ $cpu_vt =~ "AMD-V" ]]; then
+    TEXT="[✓] AMD Virtualization (AMD-V) is Supported! Setup will now progress."; greentext
+  elif [[ $cpu_vt =~ "VT-x" ]]; then
+    TEXT="[✓] Intel Virtualization (VT-x) is Supported! Setup will now progress."; greentext
+  else
+    TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
+    echo -e "The stetup will still continue."
+  fi
+
+  echo ''
 
 }
 
@@ -448,5 +449,4 @@ welcome() {
 
 }
 
-echo ''
 welcome
