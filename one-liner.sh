@@ -311,7 +311,7 @@ debian_setup() {
   echo ""
   echo ""
   echo ""
-  sudo apt install -y git qemu rsync qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager 
+  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager 
   echo ""
   TEXT="[✓] Setup Finished!"; greentext
 
@@ -362,6 +362,7 @@ simplesetup() {
   
   echo "";
   echo -e "Starting Simple Setup"
+  check_kvm;
   install_all;
   libvirt_systemd_start;
   checkiso;
@@ -380,12 +381,13 @@ do
   echo ''
   TEXT=":: Select any one of the options below to get started!"; boldtext
   echo ''
-  TEXT="[1] Install required packages (via package manager)"; bluetext
-  TEXT="[2] Enable Libvirt Service & Virtual Networking"; bluetext 
-  TEXT="[3] Check ISOs (in "$maindir")"; bluetext
-  TEXT="[4] Define VM from Windows10-Vanilla.xml"; bluetext
+  TEXT="[1] Check KVM"; boldtext 
+  TEXT="[2] Install required packages (via package manager)"; bluetext
+  TEXT="[3] Enable Libvirt Service & Virtual Networking"; bluetext 
+  TEXT="[4] Check ISOs (in "$maindir")"; bluetext
+  TEXT="[5] Define VM from Windows10-Vanilla.xml"; bluetext
   echo ''
-  TEXT="[5] Return"; boldtext 
+  TEXT="[6] Return"; boldtext 
 
   echo ''
   read -p ":: Choose a task from above [1-5]: " setup_choice
@@ -393,17 +395,20 @@ do
 
   if [[ $setup_choice == 1 ]]; then
     clear;
-    install_all;
+    check_kvm;
   elif [[ $setup_choice == 2 ]]; then
     clear;
-    libvirt_systemd_start;
+    install_all;
   elif [[ $setup_choice == 3 ]]; then
     clear;
-    checkiso;
+    libvirt_systemd_start;
   elif [[ $setup_choice == 4 ]]; then
     clear;
-    gitndefine;
+    checkiso;
   elif [[ $setup_choice == 5 ]]; then
+    clear;
+    gitndefine;
+  elif [[ $setup_choice == 6 ]]; then
     clear;
     welcome;
   else
