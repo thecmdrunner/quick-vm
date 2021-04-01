@@ -88,7 +88,7 @@ libvirt_systemd_start () {
 
   # dependencies check
   
-  if [[ ! -f /usr/bin/virtlogd ]]; then
+  if [[ ! -f /usr/bin/virsh ]]; then
     echo ''
     TEXT="[X] Virtlogd not found!"; redtext
     exit
