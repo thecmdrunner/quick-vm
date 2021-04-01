@@ -61,9 +61,38 @@ byee() {
 
 }
 
+# Check if the system supports virtualisation
+
+check_kvm() {
+
+if [[ -f /usr/bin/makepkg ]] # Present in Arch
+then
+  arch_setup
+elif [[ -f /usr/bin/rpm ]]   # Present in Fedora
+then
+  fedora_setup
+elif [[ -f /usr/bin/dpkg ]]  # Present in Debian
+then
+  debian_setup
+else                         # Resorts to fallback
+  unknown_distro
+fi
+
+}
+
+
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
+
+  # dependencies check
+  
+  if [[ ! -f /usr/bin/virtlogd ]]; then
+    echo ''
+    TEXT="[X] Virtlogd not found!"; redtext
+    exit
+  fi
+
 
   echo ""
   TEXT=":: Now starting up libvirtd socket and service"; bluetext
@@ -347,9 +376,9 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
-  echo ""
+  echo ''
   TEXT=":: Select any one of the options below to get started!"; boldtext
-
+  echo ''
   TEXT="[1] Install required packages (via package manager)"; bluetext
   TEXT="[2] Enable Libvirt Service & Virtual Networking"; bluetext 
   TEXT="[3] Check ISOs (in "$maindir")"; bluetext
@@ -390,7 +419,6 @@ welcome() {
   TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
   TEXT=":: Select any one of the options below to get started!"; boldtext
   echo ""
-  
   TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
   TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
   TEXT="[3] Exit without installation"; boldtext
@@ -420,4 +448,5 @@ welcome() {
 
 }
 
+echo ''
 welcome
