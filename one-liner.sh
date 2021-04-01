@@ -25,14 +25,15 @@ greentext() {
 }
 
 
+yellowtext() {
+  echo -e "\x1b[1;33m$TEXT\e[0m"
+}
+
+
 bluetext() {
   echo -e "\x1b[1;34m$TEXT\e[0m"
 }
 
-
-yellowtext() {
-  echo -e "\x1b[1;33m$TEXT\e[0m"
-}
 
 
 # Checks if the current working directory is read only and warns the user.
