@@ -138,8 +138,6 @@ libvirt_systemd_start () {
   echo ""
   TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
   echo ""
-  echo "*******************************************************************************"
-  echo ""
 
 }
 
@@ -267,11 +265,10 @@ gitndefine() {
   sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
-  echo -e '\n:: Please Selct the VM Profile according to your needs. You can change it later.'
-  echo ''
-  echo -e '\n[1] Lightweight and Barebones (Basic Work - 2 CPU Threads/4 GB RAM)'
-  echo -e '\n[2] Decently Powerful (MS Office + Browser - 4 CPU Threads/6 GB RAM)'
-  echo -e '\n[3] Serious Business (Gaming & Productivity - 6 CPU Threads/8 GB RAM)'
+  TEXT='\n:: Please Selct the VM Profile according to your needs. You can change it later.\n'; greentext
+  TEXT='\n[1] Lightweight and Barebones (Basic Work - 2 CPU Threads/4 GB RAM)'; boldtext
+  TEXT='\n[2] Decently Powerful (MS Office + Browser - 4 CPU Threads/6 GB RAM)'; boldtext
+  TEXT='\n[3] Serious Business (Gaming & Productivity - 6 CPU Threads/8 GB RAM)'; boldtext
   echo ''
   read -p ":: Choose an option [1,2,3]: " profile_choice
   echo ''
@@ -288,10 +285,10 @@ gitndefine() {
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
-    echo "" && TEXT="Your VM is Ready! Launch Virt-Manager to start the VM."; greentext
+    TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
   else
-    TEXT="Some ISOs missing from /var/lib/libvirt/images/"; redtext
-    echo -e "Please read the instructions on how and where to place them on the Official GitHub Page. \n"
+    TEXT="\nSome ISOs missing from /var/lib/libvirt/images/"; redtext
+    echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
   fi
 
 }
@@ -300,15 +297,10 @@ gitndefine() {
 
 arch_setup() {
   
-  echo ""
-  TEXT="[✓] BASE SYSTEM: ARCH"; greentext
-  echo ""
-  echo ":: Installing Dependencies..."; 
-  echo ""
-  echo ""
-  sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
-  echo ""
-  TEXT="[✓] Setup Finished!"; greentext
+  TEXT="\n[✓] BASE SYSTEM: ARCH"; greentext
+  echo -e "\n:: Installing Dependencies...\n"; 
+  sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
+  TEXT="\n[✓] Setup Finished!"; greentext
 
 }
 
@@ -316,16 +308,11 @@ arch_setup() {
 
 fedora_setup() {
 
-  echo ""
-  TEXT="[✓] BASE SYSTEM: FEDORA"; greentext
-  echo ""
-  echo ":: Installing Dependencies"; 
-  echo ""
-  echo ""
+  TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; greentext
+  echo -e ":: Installing Dependencies\n"; 
   echo ""
   sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
-  echo ""
-  TEXT="[✓] Setup Finished!"; greentext
+  TEXT="\n[✓] Setup Finished!"; greentext
 
 }
 
@@ -333,16 +320,11 @@ fedora_setup() {
 
 debian_setup() {
 
-  echo ""
-  TEXT="[✓] BASE SYSTEM: DEBIAN"; greentext
-  echo ""
-  echo ":: Installing Dependencies..."; 
-  echo ""
-  echo ""
-  echo ""
-  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager 
-  echo ""
-  TEXT="[✓] Setup Finished!"; greentext
+  TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; greentext
+  echo -e ":: Installing Dependencies...\n"; 
+  echo -e "\n"
+  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+  TEXT="\n[✓] Setup Finished!"; greentext
 
 }
 
@@ -350,11 +332,9 @@ debian_setup() {
 
 unknown_distro() {
 
-  TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."; bluetext
-  echo ''
-  echo "After installing, run the Advanced Setup to complete the rest of the process."
-  echo "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM"
-  echo ''
+  TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager.\n"; bluetext
+  echo -e "\nAfter installing, run the Advanced Setup to complete the rest of the process."
+  echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM\n"
   sleep 3
   byee;
 
@@ -364,16 +344,13 @@ unknown_distro() {
 
 install_all() {
 
-if [[ -f /usr/bin/makepkg ]] # Present in Arch
-then
+if [[ -f /usr/bin/makepkg ]]; then    # Present in Arch
   arch_setup
-elif [[ -f /usr/bin/rpm ]] # Present in Fedora
-then
+elif [[ -f /usr/bin/rpm ]]; then      # Present in Fedora
   fedora_setup
-elif [[ -f /usr/bin/dpkg ]] # Present in Debian
-then
+elif [[ -f /usr/bin/dpkg ]]; then     # Present in Debian
   debian_setup
-else                       # Resorts to fallback
+else                                  # Resorts to fallback
   unknown_distro
 fi
 
@@ -383,8 +360,7 @@ fi
 
 simplesetup() {
   
-  echo "";
-  echo -e "Starting Simple Setup"
+  echo -e "\nStarting Simple Setup"
   check_kvm;
   install_all;
   libvirt_systemd_start;
@@ -401,9 +377,8 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
-  echo ''
-  TEXT=":: Select any one of the options below to get started!"; boldtext
-  echo ''
+  TEXT="\n\n:: You have selected Advanced Install. Pick any option to execute it."; boldtext
+  TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Check KVM"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
   TEXT="[3] Enable Libvirt Service & Virtual Networking"; bluetext 
@@ -413,7 +388,7 @@ do
   TEXT="[6] Return"; boldtext 
 
   echo ''
-  read -p ":: Choose a task from above [1-5]: " setup_choice
+  read -p ":: Choose a task from above [1-6]: " setup_choice
   echo ''
 
   if [[ $setup_choice == 1 ]]; then
@@ -445,19 +420,14 @@ done
 
 welcome() {
 
-  echo ''
-  echo ''
-  TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
-  TEXT=":: Select any one of the options below to get started!"; boldtext
-  echo ""
+  TEXT="\n\n\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
+  TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
   echo ''
   TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
   echo ''
   TEXT="[3] Exit without installation"; boldtext
-  
-  echo ''
-  echo ''
+  echo -e '\n\n'
   read -p ":: Choose an option [1,2,3]: " user_choice
   echo ''
   
@@ -478,7 +448,7 @@ welcome() {
     exit
   fi
   
-  echo ""
+  echo '\n'
 
 }
 
