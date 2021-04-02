@@ -134,4 +134,6 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 
 ## TODO-notes
 
- you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
+- you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
+- Stealth VM notes
+- GPU Passthrough options and notes
