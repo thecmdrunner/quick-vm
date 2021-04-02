@@ -2,7 +2,7 @@
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
 Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173)(no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
-Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) and .
+Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) and [Arch Wiki - PCI Passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF).
 
 ## Getting Started
 
@@ -23,16 +23,16 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 bash <(curl -sL https://git.io/JqtJc) 
  ```
 
-Here is the [Raw Script](https://raw.githubusercontent.com/gamerhat18/quick-vm/main/main.sh)
+Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.sh)
 
 ### Host System Requirements:
  
   - **Ubuntu 18.04** or newer
   - **Fedora 30** or newer
   - **Arch** (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
-  - **4 CPUs** (2 Hyperthreaded Cores at minimum, 1 vCPU is reserved for the host)
+  - **4 CPUs** (2 Hyperthreaded Cores at minimum)
   - **8 GiB Memory** (in total)
-  - **40-50 GiB of Storage Free** (For a typical install)
+  - **40+ GiB of Storage Free** (For a typical install)
 > **Linux Kernel 5.4 LTS** or newer is recommended 
 
 ### Default specs of the VM:

@@ -131,6 +131,9 @@ libvirt_systemd_start () {
   sudo systemctl enable virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
 
+  TEXT=":: Enabling Virtual Network Bridge at startup'"; bluetext
+  echo ""
+
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
