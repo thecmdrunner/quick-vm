@@ -10,9 +10,9 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 
 1. Download [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), and [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
-1. Place the ISOs in `~/WindowsVM` and rename them as follows:
-  - **Windows 10 ISO** ➜ `win10.iso`
-  - **VirtIO Drivers** ➜ `virtio-win.iso`
+1. Place the ISOs in `~/WindowsVM` and rename them as shown below:
+    - **Windows 10 ISO** ➜ `win10.iso`
+    - **VirtIO Drivers** ➜ `virtio-win.iso`
 
 2. Place the ISOs in `~/WindowsVM` and run the one-liner script below. The script will copy the ISOs to `/var/lib/libvirt/images/` for easy setup.
 
