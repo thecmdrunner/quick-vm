@@ -39,7 +39,6 @@ bluetext() {
 # Checks if the current working directory is read only and warns the user.
 # Logs cant be stored on a READ-ONLY Drive.
 
-echo ''
 cd ~/
 touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
@@ -52,7 +51,6 @@ else
   TEXT="Filesystem is READ-ONLY. Errors may not be logged."; redtext
   TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
 fi
-echo ''
 
 
 ### PRE-DEFINED OPERATIONS
@@ -220,8 +218,8 @@ checkiso() {
         echo ''
 
         if [[ -f $maindir/virtio-win.iso ]]; then
-          echo ":: Done! Now the setup process will continue."
           sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+          echo ":: Done! Now the setup process will continue."
           echo ''
           TEXT="[✓] Operation Done!"; greentext
         fi
@@ -260,12 +258,33 @@ checkiso() {
 
 gitndefine() {
 
+  totalcpus=$(getconf _NPROCESSORS_ONLN)
+
   cd ~/
   echo "cloning from git repo" >> ~/quick-vm.log
   git clone --recursive https://github.com/gamerhat18/Quick-VM >> ~/quick-vm.log 
   cd Quick-VM
   sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
+
+  echo -e '\n:: Please Selct the VM Profile according to your needs. You can change it later.'
+  echo ''
+  echo -e '\n[1] Lightweight and Barebones (Basic Work - 2 CPU Threads/4 GB RAM)'
+  echo -e '\n[2] Decently Powerful (MS Office + Browser - 4 CPU Threads/6 GB RAM)'
+  echo -e '\n[3] Serious Business (Gaming & Productivity - 6 CPU Threads/8 GB RAM)'
+  echo ''
+  read -p ":: Choose an option [1,2,3]: " profile_choice
+  echo ''
+
+
+
+
+
+
+
+
+
+
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
@@ -331,18 +350,12 @@ debian_setup() {
 
 unknown_distro() {
 
-  TEXT="Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."; bluetext
-  echo ""
-  echo "Check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM"
-  echo ""
-  if [[ -f /usr/bin/systemctl ]]
-  then
-    echo "Your system has Systemd init, you can type the following to get libvirtd service running quickly after installing the dependencies."
-    echo ""
-    TEXT="sudo systemctl enable --now libvirtd"; bluetext
-  else
-    TEXT="Your system doesn't use Systemd init, so you need to manually enable libvirt service and socket."; redtext
-  fi
+  TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager."; bluetext
+  echo ''
+  echo "After installing, run the Advanced Setup to complete the rest of the process."
+  echo "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM"
+  echo ''
+  sleep 3
   byee;
 
 }
@@ -391,7 +404,7 @@ do
   echo ''
   TEXT=":: Select any one of the options below to get started!"; boldtext
   echo ''
-  TEXT="[1] Check KVM"; boldtext 
+  TEXT="[1] Check KVM"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
   TEXT="[3] Enable Libvirt Service & Virtual Networking"; bluetext 
   TEXT="[4] Check ISOs (in "$maindir")"; bluetext
@@ -432,16 +445,21 @@ done
 
 welcome() {
 
+  echo ''
+  echo ''
   TEXT="\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
   TEXT=":: Select any one of the options below to get started!"; boldtext
   echo ""
   TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
+  echo ''
   TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
+  echo ''
   TEXT="[3] Exit without installation"; boldtext
   
-  echo ""
+  echo ''
+  echo ''
   read -p ":: Choose an option [1,2,3]: " user_choice
-  echo ""
+  echo ''
   
   if [[ $user_choice == 1 ]]; then
     clear;
