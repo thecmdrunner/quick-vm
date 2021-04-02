@@ -380,15 +380,15 @@ vm_profile_define() {
   read -p ":: Choose an option [1,2,3]: " profile_choice
   echo ''
 
-  if [[ $profile_choice=='1' ]]; then
+  if [[ $profile_choice=='1' ]]; then                       # Barebones..
     TEXT='\n:: Making an economic VM!\n'; greentext
     
 
-  elif [[ $profile_choice=='2' ]]; then
+  elif [[ $profile_choice=='2' ]]; then                     # Default.
     TEXT='\n:: Making a useful VM!\n'; greentext
 
 
-  elif [[ $profile_choice=='3' ]]; then
+  elif [[ $profile_choice=='3' ]]; then                     # High-End!
     TEXT='\n:: Making a Gaming capable VM!\n'; greentext
 
 
