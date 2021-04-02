@@ -32,7 +32,7 @@ Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.
   - **Arch** (You can read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setup)
   - **4 CPUs** (2 Hyperthreaded Cores at minimum)
   - **8 GiB Memory** (in total)
-  - **40+ GiB of Storage Free** (For a typical install)
+  - **40+ GiB of Free Storage** (For a typical install, **SSD Recommened**)
 > **Linux Kernel 5.4 LTS** or newer is recommended 
 
 ### Default specs of the VM:
@@ -129,3 +129,9 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 </br>
 </details>
 </p>
+
+
+
+## TODO-notes
+
+ you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).

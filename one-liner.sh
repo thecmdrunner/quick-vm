@@ -256,8 +256,6 @@ checkiso() {
 
 gitndefine() {
 
-  totalcpus=$(getconf _NPROCESSORS_ONLN)
-
   cd ~/
   echo "cloning from git repo" >> ~/quick-vm.log
   git clone --recursive https://github.com/gamerhat18/Quick-VM >> ~/quick-vm.log 
@@ -265,13 +263,6 @@ gitndefine() {
   sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
-  TEXT='\n:: Please Selct the VM Profile according to your needs. You can change it later.\n'; greentext
-  TEXT='\n[1] Lightweight and Barebones (Basic Work - 2 CPU Threads/4 GB RAM)'; boldtext
-  TEXT='\n[2] Decently Powerful (MS Office + Browser - 4 CPU Threads/6 GB RAM)'; boldtext
-  TEXT='\n[3] Serious Business (Gaming & Productivity - 6 CPU Threads/8 GB RAM)'; boldtext
-  echo ''
-  read -p ":: Choose an option [1,2,3]: " profile_choice
-  echo ''
 
 
 
@@ -370,9 +361,46 @@ simplesetup() {
 
 }
 
+# Define VMs from a set Profile
+
+vm_profile_define() {
+
+  totalcpus=$(getconf _NPROCESSORS_ONLN)
+  
+  TEXT='\n:: Please Selct the VM Profile according to your needs. You can change it later.\n'; greentext
+  TEXT='\n[1] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
+  TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
+  TEXT='\n[3] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
+    
+  if [[ $totalcpus < 4 ]]; then
+    TEXT='\n:: Your system probably does NOT have enough CPU resources, slowdowns might occur.'
+  fi
+
+  echo ''
+  read -p ":: Choose an option [1,2,3]: " profile_choice
+  echo ''
+
+  if [[ $profile_choice=='1' ]]; then
+    TEXT='\n:: Making an economic VM!\n'; greentext
+    
+
+  elif [[ $profile_choice=='2' ]]; then
+    TEXT='\n:: Making a useful VM!\n'; greentext
+
+
+  elif [[ $profile_choice=='3' ]]; then
+    TEXT='\n:: Making a Gaming capable VM!\n'; greentext
+
+
+  fi
+
+}
+
+
 # Advanced Setup with every step
 
 advancedsetup(){
+
 
 while [[ $setupmode=='advanced' ]]
 do
@@ -383,7 +411,7 @@ do
   TEXT="[2] Install required packages (via package manager)"; bluetext
   TEXT="[3] Enable Libvirt Service & Virtual Networking"; bluetext 
   TEXT="[4] Check ISOs (in "$maindir")"; bluetext
-  TEXT="[5] Define VM from Windows10-Vanilla.xml"; bluetext
+  TEXT="[5] Define VM from Profiles"; bluetext
   echo ''
   TEXT="[6] Return"; boldtext 
 
@@ -411,7 +439,8 @@ do
     welcome;
   else
     echo "Invalid choice, please select from the options above."
-    exit
+    echo '-----------------------------------------------------'
+    setupmode='advanced'
   fi
 
 done
