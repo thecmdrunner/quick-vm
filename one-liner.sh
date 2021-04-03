@@ -35,6 +35,10 @@ bluetext() {
 }
 
 
+cyantext() {
+  echo -e "\e[1;36m$TEXT\e[0m"
+}
+
 
 # Checks if the current working directory is read only and warns the user.
 # Logs cant be stored on a READ-ONLY Drive.
@@ -86,7 +90,6 @@ check_kvm() {
 
 }
 
-
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
@@ -95,7 +98,7 @@ libvirt_systemd_start () {
   
   if [[ ! -f /usr/bin/virsh ]]; then
     echo ''
-    TEXT="[X] Virsh not found!"; redtext
+    TEXT="[X] Virsh not found! Please make sure all the dependencies are installed correctly."; redtext
     exit
   fi
 
@@ -263,20 +266,10 @@ gitndefine() {
   sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
-
-
-
-
-
-
-
-
-
-
-
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
     TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
+
   else
     TEXT="\nSome ISOs missing from /var/lib/libvirt/images/"; redtext
     echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
@@ -288,7 +281,7 @@ gitndefine() {
 
 arch_setup() {
   
-  TEXT="\n[✓] BASE SYSTEM: ARCH"; greentext
+  TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
   echo -e "\n:: Installing Dependencies...\n"; 
   sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
   TEXT="\n[✓] Setup Finished!"; greentext
@@ -299,7 +292,7 @@ arch_setup() {
 
 fedora_setup() {
 
-  TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; greentext
+  TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
   echo -e ":: Installing Dependencies\n"; 
   echo ""
   sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
@@ -311,7 +304,7 @@ fedora_setup() {
 
 debian_setup() {
 
-  TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; greentext
+  TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
   echo -e ":: Installing Dependencies...\n"; 
   echo -e "\n"
   sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
@@ -323,6 +316,7 @@ debian_setup() {
 
 unknown_distro() {
 
+  TEXT="\n[X] Skipping Distro Check...\n"; cyantext
   TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager.\n"; bluetext
   echo -e "\nAfter installing, run the Advanced Setup to complete the rest of the process."
   echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM\n"
@@ -335,9 +329,9 @@ unknown_distro() {
 
 install_all() {
 
-if [[ -f /usr/bin/makepkg ]]; then    # Present in Arch
+if [[ -f /usr/bin/pacman ]]; then    # Present in Arch
   arch_setup
-elif [[ -f /usr/bin/rpm ]]; then      # Present in Fedora
+elif [[ -f /usr/bin/dnf ]]; then      # Present in Fedora
   fedora_setup
 elif [[ -f /usr/bin/dpkg ]]; then     # Present in Debian
   debian_setup
@@ -371,6 +365,8 @@ vm_profile_define() {
   TEXT='\n[1] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
   TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
   TEXT='\n[3] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
+
+  TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 ]]; then
     TEXT='\n:: Your system probably does NOT have enough CPU resources, slowdowns might occur.'
@@ -390,6 +386,14 @@ vm_profile_define() {
 
   elif [[ $profile_choice=='3' ]]; then                     # High-End!
     TEXT='\n:: Making a Gaming capable VM!\n'; greentext
+
+  elif [[ $profile_choice=='4' ]]; then                     # Stealthy ^=^
+    TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; yellowtext
+    TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; yellowtext
+    TEXT='\nHowever, the workarounds and mitigations result in a performace hit, which depend entirely on your hardware config, and the way you have your VM Set up.'; yellowtext
+    TEXT='Therefore, It is adviced that you only use a Stealthy VM for operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
+    TEXT='\n'; yellowtext
+    sleep 5
 
 
   fi
