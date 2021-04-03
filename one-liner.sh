@@ -368,6 +368,7 @@ vm1_define() {
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
+  setupmode="advanced" advancedsetup;
 
 }
 
@@ -376,6 +377,7 @@ vm2_define() {
   TEXT='\n:: Making a useful VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
+  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -384,6 +386,7 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
+  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -396,13 +399,21 @@ stealth_define() {
   TEXT='\n\nNOTE: Please follow the steps '
   TEXT='\n\nCreating a Stealth VM'; yellowtext
   sleep 5
+  setupmode='advanced' && advancedsetup;
 
 }
 
 
 vm_profile_define() {
   
-  TEXT='\n:: Please Selct the VM Profile according to your needs.\n'; greentext
+  if [[ ! -d ~/quick-vm ]]; then
+    cd ~/
+    echo "cloning from git repo" >> ~/quick-vm.log
+    git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
+    cd ~/quick-vm
+  fi
+
+  TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
   TEXT='\n[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
   TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
@@ -440,6 +451,8 @@ vm_profile_define() {
     vm2_define;
 
   fi
+
+  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -480,6 +493,7 @@ do
   elif [[ $setup_choice == 5 ]]; then
     clear;
     vm_profile_define;
+    setupmode='advanced'
   elif [[ $setup_choice == 6 ]]; then
     clear;
     welcome;
