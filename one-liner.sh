@@ -39,6 +39,9 @@ cyantext() {
   echo -e "\e[1;36m$TEXT\e[0m"
 }
 
+# System resource definitions
+totalmem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+totalcpus=$(getconf _NPROCESSORS_ONLN)
 
 # Checks if the current working directory is read only and warns the user.
 # Logs cant be stored on a READ-ONLY Drive.
@@ -361,32 +364,59 @@ simplesetup() {
 # Define VMs from a set Profile
 
 vm1_define() {
+
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
 
 }
 
 vm2_define() {
+
   TEXT='\n:: Making a useful VM!\n'; greentext
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
 
 }
 
 vm3_define() {
+
   TEXT='\n:: Making an economic VM!\n'; greentext
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
 
 }
 
-vm_profile_define() {
+stealth_define() {
 
-  totalcpus=$(getconf _NPROCESSORS_ONLN)
+  TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; yellowtext
+  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; yellowtext
+  TEXT='\nHowever, the workarounds and mitigations result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; yellowtext
+  TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
+  TEXT='\n\nNOTE: Please follow the steps '
+  TEXT='\n\nCreating a Stealth VM'; yellowtext
+  sleep 5
+
+}
+
+
+vm_profile_define() {
   
-  TEXT='\n:: Please Selct the VM Profile according to your needs. You can change it later.\n'; greentext
+  TEXT='\n:: Please Selct the VM Profile according to your needs.\n'; greentext
+  TEXT='\nYou can change the resource allocations anytime.\n'; greentext
   TEXT='\n[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
   TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
   TEXT='\n[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
 
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
-  if [[ $totalcpus < 4 ]]; then
+  if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
+    TEXT='\n:: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
+
+  elif [[ $totalcpus < 4 && $totalmem < 7000000 ]]; then
+    TEXT='\n:: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
+
+  else
     TEXT='\n:: Your system probably does NOT have enough CPU resources, slowdowns might occur.'
   fi
 
@@ -404,12 +434,7 @@ vm_profile_define() {
     vm3_define;
 
   elif [[ $profile_choice=='4' ]]; then                     # Stealthy ^=^
-    TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; yellowtext
-    TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; yellowtext
-    TEXT='\nHowever, the workarounds and mitigations result in a performace hit, which depend entirely on your hardware config, and the way you have your VM Set up.'; yellowtext
-    TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
-    TEXT='\n\nCreating a Stealth VM'; yellowtext
-    sleep 5
+    stealth_define;
 
   else
     vm2_define;
@@ -417,7 +442,6 @@ vm_profile_define() {
   fi
 
 }
-
 
 # Advanced Setup with every step
 
