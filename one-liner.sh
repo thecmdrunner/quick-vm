@@ -358,7 +358,7 @@ simplesetup() {
   checkiso;
   gitndefine;
   byee;
-  virt-manager &
+  virt-manager >> /dev/null &
 
 }
 
