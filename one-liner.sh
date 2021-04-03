@@ -422,33 +422,32 @@ vm_profile_define() {
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
-    TEXT='\n:: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
+    TEXT=':: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
 
   elif [[ $totalcpus < 4 && $totalmem < 7000000 ]]; then
-    TEXT='\n:: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
+    TEXT=':: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
 
   else
-    TEXT='\n:: Your system probably does NOT have enough CPU resources, slowdowns might occur.'
+    TEXT=':: Your system has enough resources for VMs\n'; yellowtext
   fi
 
+  vm_profile_choice=''
   echo ''
-  read -p ":: Choose an option [1,2,3]: " profile_choice
+  read -p ":: Choose an option [1-4]: " vm_profile_choice
   echo ''
 
-  if [[ $profile_choice=='1' ]]; then                       # High-End!
+  if [[ $vm_profile_choice=='1' ]]; then                       # High-End!
     vm1_define;
 
-  elif [[ $profile_choice=='2' ]]; then                     # Default.
+  elif [[ $vm_profile_choice=='2' ]]; then                     # Default.
     vm2_define;
 
-  elif [[ $profile_choice=='3' ]]; then                     # Barebones..
+  elif [[ $vm_profile_choice=='3' ]]; then                     # Barebones..
     vm3_define;
 
-  elif [[ $profile_choice=='4' ]]; then                     # Stealthy ^=^
+  elif [[ $vm_profile_choice=='4' ]]; then                     # Stealthy ^=^
     stealth_define;
 
-  else
-    vm2_define;
 
   fi
 
