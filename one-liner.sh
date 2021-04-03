@@ -259,10 +259,13 @@ checkiso() {
 
 gitndefine() {
 
-  cd ~/
-  echo "cloning from git repo" >> ~/quick-vm.log
-  git clone --recursive https://github.com/gamerhat18/Quick-VM >> ~/quick-vm.log 
-  cd Quick-VM
+  if [[ ! -d ~/quick-vm ]]; then
+    cd ~/
+    echo "cloning from git repo" >> ~/quick-vm.log
+    git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
+    cd ~/quick-vm
+  fi
+
   sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
   sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
@@ -357,14 +360,29 @@ simplesetup() {
 
 # Define VMs from a set Profile
 
+vm1_define() {
+  TEXT='\n:: Making a Gaming capable VM!\n'; greentext
+
+}
+
+vm2_define() {
+  TEXT='\n:: Making a useful VM!\n'; greentext
+
+}
+
+vm3_define() {
+  TEXT='\n:: Making an economic VM!\n'; greentext
+
+}
+
 vm_profile_define() {
 
   totalcpus=$(getconf _NPROCESSORS_ONLN)
   
   TEXT='\n:: Please Selct the VM Profile according to your needs. You can change it later.\n'; greentext
-  TEXT='\n[1] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
+  TEXT='\n[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
   TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
-  TEXT='\n[3] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
+  TEXT='\n[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
 
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
@@ -376,25 +394,25 @@ vm_profile_define() {
   read -p ":: Choose an option [1,2,3]: " profile_choice
   echo ''
 
-  if [[ $profile_choice=='1' ]]; then                       # Barebones..
-    TEXT='\n:: Making an economic VM!\n'; greentext
-    
+  if [[ $profile_choice=='1' ]]; then                       # High-End!
+    vm1_define;
 
   elif [[ $profile_choice=='2' ]]; then                     # Default.
-    TEXT='\n:: Making a useful VM!\n'; greentext
+    vm2_define;
 
-
-  elif [[ $profile_choice=='3' ]]; then                     # High-End!
-    TEXT='\n:: Making a Gaming capable VM!\n'; greentext
+  elif [[ $profile_choice=='3' ]]; then                     # Barebones..
+    vm3_define;
 
   elif [[ $profile_choice=='4' ]]; then                     # Stealthy ^=^
     TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; yellowtext
     TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; yellowtext
     TEXT='\nHowever, the workarounds and mitigations result in a performace hit, which depend entirely on your hardware config, and the way you have your VM Set up.'; yellowtext
-    TEXT='Therefore, It is adviced that you only use a Stealthy VM for operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
-    TEXT='\n'; yellowtext
+    TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
+    TEXT='\n\nCreating a Stealth VM'; yellowtext
     sleep 5
 
+  else
+    vm2_define;
 
   fi
 
@@ -437,7 +455,7 @@ do
     checkiso;
   elif [[ $setup_choice == 5 ]]; then
     clear;
-    gitndefine;
+    vm_profile_define;
   elif [[ $setup_choice == 6 ]]; then
     clear;
     welcome;
