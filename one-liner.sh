@@ -358,7 +358,6 @@ simplesetup() {
   checkiso;
   gitndefine;
   byee;
-  virt-manager &
 
 }
 
@@ -432,7 +431,6 @@ vm_profile_define() {
     TEXT=':: Your system has enough resources for VMs\n'; yellowtext
   fi
 
-  vm_profile_choice=''
   echo ''
   read -p ":: Choose an option [1-4]: " vm_profile_choice
   echo ''

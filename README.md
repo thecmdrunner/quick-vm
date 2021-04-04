@@ -1,4 +1,7 @@
+![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
+
 # Quick-VM 
+
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
 
 Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173)(no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
@@ -137,3 +140,4 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - Stealth VM notes
 - GPU Passthrough options and notes
+- AMD GPUs can use vendor_id="AuthenticAMD"
