@@ -24,13 +24,13 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 
 2. Place the ISOs in `~/WindowsVM` and run the one-liner script below. The script will copy the ISOs to `/var/lib/libvirt/images/` for easy setup.
 
-### One-liner to Setup KVM - Paste this in your terminal
+### 🛸 One-liner to Setup KVM - Paste this in your terminal
 
 ```bash
 bash <(curl -sL https://git.io/JqtJc) 
  ```
 
-Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.sh)
+> Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.sh)
 
 ### Host System Requirements:
  
