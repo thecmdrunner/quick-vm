@@ -192,26 +192,25 @@ checkiso() {
 
    if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
     echo ''
-    TEXT='[✓] VirtIO Drivers and Windows 10 ISO already exist in '$imagesdir'!'; greentext
+    TEXT='[✓] VirtIO Drivers and Windows 10 ISO already exist in '$imagesdir'!'; whiteunderline
     echo ''
 
    else
 
     # Windows ISO check and moves it to $imagesdir
 
-     if [[ -f $maindir/win10.iso ]]; then
+     if [[ -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]]; then
        TEXT="Windows ISO exists in ~/$dirname!"; greentext
        echo ''
        TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
        echo ''
-       sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
+       sudo rsync --partial --progress $maindir/win10.iso /var/lib/libvirt/images/win10.iso
        echo ''
        TEXT="[✓] Operation Done!"; greentext
        echo ''
   
      elif [[ -f $imagesdir/win10.iso ]]; then
-       TEXT="Windows ISO already exists in ~/$imagesdir!"; greentext
-       echo ''
+       TEXT="Windows ISO already exists in ~/$imagesdir!\n"; greentext
   
      elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
        TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
