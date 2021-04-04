@@ -1,7 +1,7 @@
 [![GitHub](https://img.shields.io/badge/Quick-VM-red?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gamerhat18/Quick-VM/)
 ![Arch](https://img.shields.io/badge/Arch-blue?style=for-the-badge&logo=Arch-Linux&logoColor=white)
-![Fedora](https://img.shields.io/badge/Fedora-?style=for-the-badge&logo=Fedora&logoColor=white&color=294172)
-![Debian](https://img.shields.io/badge/Debain?style=for-the-badge&logo=Debian&logoColor=white&color=A81D33)
+![Fedora](https://img.shields.io/badge/Fedora-blue?style=for-the-badge&logo=Fedora&logoColor=white&color=294172)
+![Debian](https://img.shields.io/badge/Debain-red?style=for-the-badge&logo=Debian&logoColor=white&color=A81D33)
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
 
 
