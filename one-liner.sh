@@ -207,7 +207,7 @@ checkiso() {
        TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
        echo ''
   
-     elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
+     elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
        TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
        echo ''
        TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext

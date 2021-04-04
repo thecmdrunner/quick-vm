@@ -61,6 +61,15 @@ bash <(curl -sL https://git.io/JqtJc)
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
+
+
+# Advanced Install Method
+
+
+
+
+
+
 # 🛸 DIY (Manual Method)
 
 <p>
