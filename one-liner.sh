@@ -172,7 +172,7 @@ checkiso() {
      if [[ -f $maindir/win10.iso ]]; then
        TEXT="Windows ISO exists in ~/$dirname!"; greentext
        echo ''
-       TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
+       TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
        echo ''
        sudo rsync --partial --progress $maindir/win10*.iso /var/lib/libvirt/images/win10.iso
        echo ''
@@ -196,7 +196,7 @@ checkiso() {
      if [[ -f $maindir/virtio-win.iso ]]; then
        TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
        echo ''
-       TEXT="Relocating the image in /var/lib/libvirt/images !"; bluetext
+       TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
        echo ''
        sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
        echo ''
@@ -208,11 +208,11 @@ checkiso() {
        echo ''
   
      elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
-       TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
+       TEXT="\n\nVirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
        echo ''
-       TEXT=":: Do you want to download them now? The VM will NOT boot without the drivers ISO."; greentext
+       TEXT="[!] Do you want to download them now? The VM will NOT boot without the drivers ISO."; greentext
        
-       read -p "Please enter your choice [Y/n]: " virt_choice
+       read -p "➜ Please enter your choice [Y/n]: " virt_choice
     
        if [[ $virt_choice == 'y' ]]; then
         echo ''
@@ -276,7 +276,7 @@ gitndefine() {
     TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
 
   else
-    TEXT="\n[!] Some ISOs missing from /var/lib/libvirt/images/"; redtext
+    TEXT="\n[!] Some filess missing from /var/lib/libvirt/images/"; redtext
     echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
   fi
 
@@ -357,6 +357,7 @@ simplesetup() {
   checkiso;
   gitndefine;
   byee;
+  virt-manager & 
 
 }
 
@@ -365,7 +366,7 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
+  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
   setupmode="advanced" advancedsetup;
 
@@ -374,7 +375,7 @@ vm1_define() {
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
+  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
   setupmode='advanced' && advancedsetup;
 
@@ -383,7 +384,7 @@ vm2_define() {
 vm3_define() {
 
   TEXT='\n:: Making an economic VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
+  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
   setupmode='advanced' && advancedsetup;
 
@@ -421,17 +422,17 @@ vm_profile_define() {
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
-    TEXT=':: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
+    TEXT='➜ Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
 
   elif [[ $totalcpus < 4 && $totalmem < 7000000 ]]; then
-    TEXT=':: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
+    TEXT='➜ Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
 
   else
     TEXT=':: Your system has enough resources for VMs\n'; yellowtext
   fi
 
   echo ''
-  read -p ":: Choose an option [1-4]: " vm_profile_choice
+  read -p "➜ Choose an option [1-4]: " vm_profile_choice
   echo ''
 
   if [[ $vm_profile_choice == 1 ]]; then                       # High-End!
@@ -450,7 +451,7 @@ vm_profile_define() {
 
   if [[ -f /usr/bin/virt-manager ]]; then
     echo ''
-    read -p ":: Open Virt-Manager? [Y/n]: " virtmanagerchoice
+    read -p "➜ Open Virt-Manager? [Y/n]: " virtmanagerchoice
     echo ''
 
       if [[ $virtmanagerchoice =~ "Y" || $virtmanagerchoice =~ "y" ]]; then
@@ -483,7 +484,7 @@ do
   TEXT="[6] Return"; boldtext 
 
   echo ''
-  read -p ":: Choose a task from above [1-6]: " setup_choice
+  read -p "➜ Choose a task from above [1-6]: " setup_choice
   echo ''
 
   if [[ $setup_choice == 1 ]]; then
@@ -525,7 +526,7 @@ welcome() {
   echo ''
   TEXT="[3] Exit without installation"; boldtext
   echo -e '\n\n'
-  read -p ":: Choose an option [1,2,3]: " user_choice
+  read -p "➜ Choose an option [1,2,3]: " user_choice
   echo ''
   
   if [[ $user_choice == 1 ]]; then
