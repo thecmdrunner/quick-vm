@@ -64,14 +64,14 @@ bash <(curl -sL https://git.io/JqtJc)
 
 
 
-# ⚔️ Advanced Install Method
+## ⚔️ Advanced Install Method
 
 
 
 
 
 
-# 🛸 DIY (Manual Method)
+## 🛸 DIY (Manual Method)
 
 <p>
 <details>
