@@ -5,7 +5,6 @@
 ![Terminal](https://img.shields.io/badge/Terminal-black?style=for-the-badge&logo=Windows-Terminal&logoColor=white&color=4D4D4D)
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
 
 
 # Quick-VM (WORK IN PROGRESS) 
@@ -148,3 +147,6 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 - Stealth VM notes
 - GPU Passthrough options and notes
 - AMD GPUs can use vendor_id="AuthenticAMD"
+
+
+![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
