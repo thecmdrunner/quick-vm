@@ -209,8 +209,7 @@ checkiso() {
   
      elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
        TEXT="\n\nVirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
-       echo ''
-       TEXT="[!] Do you want to download them now? The VM will NOT boot without the drivers ISO."; greentext
+       TEXT="[!] Do you want to download them now? The VM will NOT boot without the drivers ISO.\n"; greentext
        
        read -p "➜ Please enter your choice [Y/n]: " virt_choice
     
@@ -377,7 +376,6 @@ vm2_define() {
   TEXT='\n:: Making a useful VM!\n'; greentext
   echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
-  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -386,20 +384,19 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
-  setupmode='advanced' && advancedsetup;
 
 }
 
 stealth_define() {
 
-  TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; yellowtext
-  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; yellowtext
-  TEXT='\nHowever, the workarounds and mitigations result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; yellowtext
-  TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
-  TEXT='\n\nNOTE: Please follow the steps '
-  TEXT='\n\nCreating a Stealth VM'; yellowtext
+  TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; cyantext
+  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; cyantext
+  TEXT='\nHowever, the workarounds and mitigations result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; cyantext
+  TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; cyantext
+  TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'
+  TEXT='\n'
+  TEXT='\n\nCreating a Stealth VM'; greentext
   sleep 5
-  setupmode='advanced' && advancedsetup;
 
 }
 
