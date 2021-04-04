@@ -35,7 +35,7 @@ bash <(curl -sL https://git.io/JqtJc)
 
 > Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.sh)
 
-### Host System Requirements:
+### 🖥 Host System Requirements:
  
   - **Ubuntu 18.04** or newer
   - **Fedora 30** or newer
