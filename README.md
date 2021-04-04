@@ -46,11 +46,11 @@ bash <(curl -sL https://git.io/JqtJc)
 
 ### Default specs of the VM:
 
->**CPU**: 3 vCPUs Allocated
+>**CPU**: 4 vCPUs Allocated
 >
->**GPU**: You may Passthrough a GPU if you need using [ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
+>**GPU**: VirtIO or [VFIO GPU Passthrough - ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
 >
->**Memory**: Total 4 GiB, 1 GiB Allocated initially
+>**Memory**: Total 6 GiB, 1 GiB Allocated initially
 >
 >**Primary Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
 >
