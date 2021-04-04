@@ -12,7 +12,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173)(no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
 Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) and [Arch Wiki - PCI Passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF).
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
 ### 🌟 Simple Method:
 
