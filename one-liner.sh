@@ -45,6 +45,11 @@ purpletext() {
 }
 
 
+whiteunderline() {
+  echo -e "\e[4;37m$TEXT\e[0m"
+}
+
+
 # System resource definitions
 totalmem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 totalcpus=$(getconf _NPROCESSORS_ONLN)
@@ -398,7 +403,7 @@ stealth_define() {
   TEXT='\nThese workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
   TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
-  TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; purpletext 
+  TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; whiteunderline 
   sleep 5
   TEXT='\n\nCreating a Stealth VM'; greentext
   echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
