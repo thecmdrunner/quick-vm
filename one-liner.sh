@@ -207,7 +207,7 @@ checkiso() {
        TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
        echo ''
   
-     elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
+     elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
        TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
        echo ''
        TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext
@@ -230,9 +230,9 @@ checkiso() {
 
        elif [[ $virt_choice == 'n' ]]; then
         echo ''
-        TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
-        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "OR place it in $maindir and run the script again."
+        TEXT="\n[✓] OK! Skipping VirtIO Drivers for now."; bluetext
+        echo "\nBut make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
+        echo "\nOR place it in $maindir and run the script again.\n"
 
        else
         TEXT="[!] Invalid Option! Skipping VirtIO Drivers for now,"; redtext
@@ -366,25 +366,27 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
+  setupmode="advanced" advancedsetup;
 
 }
 
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
+  setupmode='advanced' && advancedsetup;
 
 }
 
 vm3_define() {
 
   TEXT='\n:: Making an economic VM!\n'; greentext
-  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml
-  TEXT="\n[✓] VM has been created\n!"; greentext
+  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
+  sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
+  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -397,9 +399,7 @@ stealth_define() {
   TEXT='\n\nNOTE: Please follow the steps '
   TEXT='\n\nCreating a Stealth VM'; yellowtext
   sleep 5
-  echo -e '\nsudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml
-  TEXT="\n[✓] VM has been created\n!"; greentext
+  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -422,49 +422,31 @@ vm_profile_define() {
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
-    TEXT='[!] Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
+    TEXT=':: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
 
   elif [[ $totalcpus < 4 && $totalmem < 7000000 ]]; then
-    TEXT='[!] Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
+    TEXT=':: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
 
   else
-    TEXT='[✓] Your system has enough resources for VMs\n'; greentext
+    TEXT=':: Your system has enough resources for VMs\n'; yellowtext
   fi
 
   echo ''
-  read -p ":: Choose an option [1-4]: " vmprofilechoice
+  read -p ":: Choose an option [1-4]: " vm_profile_choice
   echo ''
 
-  if [[ $vmprofilechoice < 2 && $vmprofilechoice > 0 ]]; then                       # High-End!
+  if [[ $vm_profile_choice=='1' ]]; then                       # High-End!
     vm1_define;
 
-  elif [[ $vmprofilechoice < 3 && $vmprofilechoice > 1 ]]; then                     # Default.
+  elif [[ $vm_profile_choice=='2' ]]; then                     # Default.
     vm2_define;
 
-  elif [[ $vmprofilechoice < 4 && $vmprofilechoice > 2 ]]; then                     # Barebones..
+  elif [[ $vm_profile_choice=='3' ]]; then                     # Barebones..
     vm3_define;
 
-  elif [[ $vmprofilechoice < 5 && $vmprofilechoice > 3 ]]; then                     # Stealthy ^=^
+  elif [[ $vm_profile_choice=='4' ]]; then                     # Stealthy ^=^
     stealth_define;
 
-  fi
-
-  if [[ -f /usr/bin/virt-manager ]]; then
-
-    echo ''
-    read -p ":: Open Virt-Manager now? [Y/n]: " virtmanagerchoice
-    echo ''
-  
-    if [[ $virtmanagerchoice =~ "y" || $virtmanagerchoice =~ "Y" ]]; then
-      echo -e "\n OK, opening Virt-Manager...\n\n" && virt-manager
-  
-    elif [[ $virtmanagerchoice == 'n' || $virtmanagerchoice == 'no' || $virtmanagerchoice == 'N' || $virtmanagerchoice == 'NO' ]]; then
-      TEXT="\n\n"; greentext
-  
-    else
-      TEXT="\n[X] INVALID OPTION\n"; redtext
-      
-    fi
 
   fi
 
