@@ -9,7 +9,7 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 
 ## Getting Started
 
-### Simple Method:
+### 🚀 Simple Method:
 
 1. Download [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), and [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
@@ -53,6 +53,9 @@ Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.
 >**Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
 >
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
+
+
+## 🖥 DIY Manually
 
 
 <p>
