@@ -1,4 +1,7 @@
+[![GitHub](https://img.shields.io/badge/Quick-VM-red?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gamerhat18/Quick-VM/)
+
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
+
 
 # Quick-VM 
 
