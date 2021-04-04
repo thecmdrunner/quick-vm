@@ -207,10 +207,10 @@ checkiso() {
        TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
        echo ''
   
-     elif [[! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
+     elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
        TEXT="VirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
        echo ''
-       TEXT=":: Do you want to download them now? Else, the setup can't progress further."; greentext
+       TEXT=":: Do you want to download them now? The VM will NOT boot without the drivers ISO."; greentext
        
        read -p "Please enter your choice [Y/n]: " virt_choice
     
@@ -230,8 +230,8 @@ checkiso() {
 
        elif [[ $virt_choice == 'n' ]]; then
         echo ''
-        TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
-        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
+        TEXT="[✓] OK! Skipping VirtIO Drivers for now.\n"; bluetext
+        echo "Make sure to download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
         echo "OR place it in $maindir and run the script again."
 
        else
@@ -276,7 +276,7 @@ gitndefine() {
     TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
 
   else
-    TEXT="\nSome ISOs missing from /var/lib/libvirt/images/"; redtext
+    TEXT="\n[!] Some ISOs missing from /var/lib/libvirt/images/"; redtext
     echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
   fi
 
