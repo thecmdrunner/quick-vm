@@ -93,14 +93,35 @@ check_kvm() {
 
   if [[ $cpu_vt =~ "AMD-V" ]]; then
     TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
+    cpubrand='AMD'
   elif [[ $cpu_vt =~ "VT-x" ]]; then
     TEXT="[✓] Intel Virtualization (VT-x) is Supported!"; greentext
+    cpubrand='INTEL'
   else
     TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
     echo -e "The setup can still continue."
   fi
 
 }
+
+reload_kvm() {
+
+  if [[ $cpubrand == 'AMD' ]]; then
+    sudo modprobe -r kvm kvm_amd
+    sudo modprobe kvm
+    sudo modprobe kvm_amd nested=1
+
+  elif [[ $cpubrand == 'INTEL' ]]; then
+    sudo modprobe -r kvm kvm_intel
+    sudo modprobe kvm
+    sudo modprobe kvm_intel nested=1
+  
+  fi
+
+  TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY.\n"; whiteunderline
+
+}
+
 
 # Start Libvirt service through systemd
 
@@ -488,8 +509,9 @@ do
   TEXT="[3] Enable Libvirt Service & Virtual Networking (SYSTEMD ONLY)"; bluetext 
   TEXT="[4] Check ISOs (in "$maindir"  and  $imagesdir)"; bluetext
   TEXT="[5] Select a Custom VM Profile"; bluetext
+  TEXT="[6] Load/Reload KVM Kernel Modules (also enables Nested Virtualization)"; bluetext
   echo ''
-  TEXT="[6] Return"; boldtext 
+  TEXT="[7] Return"; boldtext 
 
   echo ''
   read -p "➜ Choose a task from above [1-6]: " setup_choice
@@ -512,6 +534,9 @@ do
     vm_profile_define;
     setupmode='advanced'
   elif [[ $setup_choice == 6 ]]; then
+    clear;
+    reload_kvm;
+  elif [[ $setup_choice == 7 ]]; then
     clear;
     welcome;
   else
