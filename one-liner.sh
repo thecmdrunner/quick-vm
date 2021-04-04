@@ -434,18 +434,29 @@ vm_profile_define() {
   read -p ":: Choose an option [1-4]: " vm_profile_choice
   echo ''
 
-  if [[ $vm_profile_choice=='1' ]]; then                       # High-End!
+  if [[ $vm_profile_choice == 1 ]]; then                       # High-End!
     vm1_define;
 
-  elif [[ $vm_profile_choice=='2' ]]; then                     # Default.
+  elif [[ $vm_profile_choice == 2 ]]; then                     # Default.
     vm2_define;
 
-  elif [[ $vm_profile_choice=='3' ]]; then                     # Barebones..
+  elif [[ $vm_profile_choice == 3 ]]; then                     # Barebones..
     vm3_define;
 
-  elif [[ $vm_profile_choice=='4' ]]; then                     # Stealthy ^=^
+  elif [[ $vm_profile_choice == 4 ]]; then                     # Stealthy ^=^
     stealth_define;
 
+  fi
+
+  if [[ -f /usr/bin/virt-manager ]]; then
+    echo ''
+    read -p ":: Open Virt-Manager? [Y/n]: " virtmanagerchoice
+    echo ''
+
+      if [[ $virtmanagerchoice =~ "Y" || $virtmanagerchoice =~ "y" ]]; then
+        echo -e '\n\n'
+        virt-manager &
+      fi
 
   fi
 
