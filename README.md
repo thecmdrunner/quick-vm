@@ -150,7 +150,7 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 
 ## 📬 Contact me
 
-[![pranavkulkarni195@gmail.com](https://img.shields.io/badge/pranavkulkarni195@gmail.com-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:pranavkulkarni195@gmail.com) 
+[![Mail Me](https://img.shields.io/badge/pranavkulkarni195@gmail.com-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:pranavkulkarni195@gmail.com) 
 [![TangoMan.io](https://img.shields.io/badge/TangoMan.io-%23337AB7.svg?&style=flat-square&logo=google-chrome&logoColor=white)](https://tangoman.io) 
 [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/TangoMan75) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/matthiasmorin) 
