@@ -385,6 +385,7 @@ simplesetup() {
   libvirt_systemd_start;
   checkiso;
   gitndefine;
+  reload_kvm;
   byee;
   virt-manager & 
 
