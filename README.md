@@ -59,8 +59,7 @@ Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
-## 🖥 DIY Manually
-
+# 🖥 DIY (Manual Method)
 
 <p>
 <details>
