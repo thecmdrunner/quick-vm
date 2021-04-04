@@ -366,24 +366,24 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
+  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml
 
 }
 
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
+  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml
 
 }
 
 vm3_define() {
 
   TEXT='\n:: Making an economic VM!\n'; greentext
-  echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
+  echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml
 
 }
 
@@ -396,6 +396,8 @@ stealth_define() {
   TEXT='\n\nNOTE: Please follow the steps '
   TEXT='\n\nCreating a Stealth VM'; yellowtext
   sleep 5
+  echo -e '\nsudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml
 
 }
 
