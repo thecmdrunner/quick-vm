@@ -68,7 +68,16 @@ bash <(curl -sL https://git.io/JqtJc)
 
 ## ⚔️ Advanced Install Method
 
+### Making a VM Stealthy...
 
+If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
+
+- Select `Advanced Setup` and go to `Select a Custom VM Profile`
+- From there, select `Create a Stealth VM`, and you will have a Stealthy VM ready (almost) in a few seconds.
+- Once you are past the Windows Install, go to **Turn Windows Features Onor Off**.
+- Click the dropdown menu for **Hyper-V**, and check both of the boxes as shown below.
+
+### screenshot here
 
 
 
