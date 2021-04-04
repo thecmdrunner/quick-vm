@@ -368,7 +368,6 @@ vm1_define() {
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
-  setupmode="advanced" advancedsetup;
 
 }
 
@@ -377,7 +376,6 @@ vm2_define() {
   TEXT='\n:: Making a useful VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
-  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -386,7 +384,6 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
   sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
-  setupmode='advanced' && advancedsetup;
 
 }
 
@@ -399,7 +396,6 @@ stealth_define() {
   TEXT='\n\nNOTE: Please follow the steps '
   TEXT='\n\nCreating a Stealth VM'; yellowtext
   sleep 5
-  setupmode='advanced' && advancedsetup;
 
 }
 
