@@ -24,7 +24,7 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 
 2. Place the ISOs in `~/WindowsVM` and run the one-liner script below. The script will copy the ISOs to `/var/lib/libvirt/images/` for easy setup.
 
-### 🛸 One-liner to Setup KVM - Paste this in your terminal
+### 🪄 One-liner to Setup KVM - Paste this in your terminal
 
 ```bash
 bash <(curl -sL https://git.io/JqtJc) 
@@ -59,7 +59,7 @@ bash <(curl -sL https://git.io/JqtJc)
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
-# 🖥 DIY (Manual Method)
+# 🛸 DIY (Manual Method)
 
 <p>
 <details>
@@ -139,9 +139,7 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 </details>
 </p>
 
-
-
-## TODO-notes
+## 🔌 TODO-notes
 
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - Stealth VM notes
