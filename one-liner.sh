@@ -39,6 +39,12 @@ cyantext() {
   echo -e "\e[1;36m$TEXT\e[0m"
 }
 
+
+purpletext() {
+  echo -e "\e[0;105m$TEXT\e[0m"
+}
+
+
 # System resource definitions
 totalmem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 totalcpus=$(getconf _NPROCESSORS_ONLN)
@@ -363,38 +369,40 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml
-  setupmode="advanced" advancedsetup;
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml
 
 }
 
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-default.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-default.xml
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-default.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml
 
 }
 
 vm3_define() {
 
   TEXT='\n:: Making an economic VM!\n'; greentext
-  echo '➜ sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml'
-  sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml
 
 }
 
 stealth_define() {
 
   TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; cyantext
-  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into then (for eg. Games).\n'; cyantext
-  TEXT='\nHowever, the workarounds and mitigations result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; cyantext
-  TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; cyantext
-  TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'
-  TEXT='\n'
-  TEXT='\n\nCreating a Stealth VM'; greentext
+  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into them.\n'; cyantext
+  TEXT='(for eg. Video Games)\n'; cyantext
+  TEXT='\nThese workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; redtext
+  TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
+  TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
+  TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; purpletext 
   sleep 5
+  TEXT='\n\nCreating a Stealth VM'; greentext
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
+  sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml
 
 }
 
