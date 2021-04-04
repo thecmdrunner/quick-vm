@@ -432,19 +432,19 @@ vm_profile_define() {
   fi
 
   echo ''
-  read -p ":: Choose an option [1-4]: " vmprofilechoice
+  read -p ":: Choose an option [A-D]: " vmprofilechoice
   echo ''
 
-  if [[ $vmprofilechoice == 1 ]]; then                       # High-End!
+  if [[ $vmprofilechoice == 'A' ]]; then                       # High-End!
     vm1_define;
 
-  elif [[ $vmprofilechoice == 2 ]]; then                     # Default.
+  elif [[ $vmprofilechoice == 'B' ]]; then                     # Default.
     vm2_define;
 
-  elif [[ $vmprofilechoice == 3 ]]; then                     # Barebones..
+  elif [[ $vmprofilechoice == 'C' ]]; then                     # Barebones..
     vm3_define;
 
-  elif [[ $vmprofilechoice == 4 ]]; then                     # Stealthy ^=^
+  elif [[ $vmprofilechoice == 'D' ]]; then                     # Stealthy ^=^
     stealth_define;
 
   fi
