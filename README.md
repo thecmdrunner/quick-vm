@@ -64,7 +64,7 @@ bash <(curl -sL https://git.io/JqtJc)
 
 
 
-# Advanced Install Method
+# ⚔️ Advanced Install Method
 
 
 
@@ -127,6 +127,7 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
 ## Download the Windows 10 ISO and KVM VirtIO drivers
+
 You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if you want to run Windows Apps under Linux. You will also need drivers for VirtIO to ensure the best performance with the least overhead on your system.
  
 - Download [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) from FedoraPeople
