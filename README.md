@@ -21,11 +21,11 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
 
 1. Download [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), and [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
-1. Place the ISOs in `~/WindowsVM` and rename them as shown below:
+2. Place the ISOs in either `~/WindowsVM/` or `/var/lib/libvirt/images/`.
+
+3. Rename the ISOs as shown below:
     - **Windows 10 ISO** ➜ `win10.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
-
-2. Place the ISOs in either `~/WindowsVM/` or `/var/lib/libvirt/images/`.
 
 ### 🪄 One-liner to Setup KVM - Paste this in your terminal
 
