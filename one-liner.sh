@@ -300,7 +300,7 @@ gitndefine() {
   sudo rsync -q ~/quick-vm/kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
-    sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
+    sudo virsh define kvm/Windows10-Default.xml >> ~/quick-vm.log;
     TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
 
   else
