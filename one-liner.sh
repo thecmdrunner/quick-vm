@@ -455,10 +455,10 @@ vm_profile_define() {
     read -p ":: Open Virt-Manager now? [Y/n]: " virtmanagerchoice
     echo ''
   
-    if [[ $virtmanagerchoice=~'y' || $virtmanagerchoice=~'ye' || $virtmanagerchoice=~'yes' || $virtmanagerchoice=~'Y' || $virtmanagerchoice=='Ye' || $virtmanagerchoice=~'YE' ]]; then
+    if [[ $virtmanagerchoice =~ "y" || $virtmanagerchoice =~ "Y" ]]; then
       echo -e "\n OK, opening Virt-Manager...\n\n" && virt-manager
   
-    elif [[ $virtmanagerchoice=='n' || $virtmanagerchoice=='no' || $virtmanagerchoice=='N' || $virtmanagerchoice=='NO' ]]; then
+    elif [[ $virtmanagerchoice == 'n' || $virtmanagerchoice == 'no' || $virtmanagerchoice == 'N' || $virtmanagerchoice == 'NO' ]]; then
       TEXT="\n\n"; greentext
   
     else
