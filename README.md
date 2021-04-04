@@ -167,6 +167,8 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - Stealth VM notes
+- Make separate VM XML files for all profiles, with their own qcow2
+- remove virtio From stealth VM
 - GPU Passthrough options and notes
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
 
