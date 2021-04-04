@@ -25,7 +25,7 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
     - **Windows 10 ISO** ➜ `win10.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
 
-2. Place the ISOs in `~/WindowsVM` and run the one-liner script below. The script will copy the ISOs to `/var/lib/libvirt/images/` for easy setup.
+2. Place the ISOs in either `~/WindowsVM/` or `/var/lib/libvirt/images/`.
 
 ### 🪄 One-liner to Setup KVM - Paste this in your terminal
 
