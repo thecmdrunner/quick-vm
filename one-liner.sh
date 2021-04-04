@@ -230,9 +230,9 @@ checkiso() {
 
        elif [[ $virt_choice == 'n' ]]; then
         echo ''
-        TEXT="\n[✓] OK! Skipping VirtIO Drivers for now."; bluetext
-        echo "\nBut make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "\nOR place it in $maindir and run the script again.\n"
+        TEXT="[✓] OK! Skipping VirtIO Drivers for now,"; bluetext
+        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
+        echo "OR place it in $maindir and run the script again."
 
        else
         TEXT="[!] Invalid Option! Skipping VirtIO Drivers for now,"; redtext
@@ -266,11 +266,10 @@ gitndefine() {
     cd ~/
     echo "cloning from git repo" >> ~/quick-vm.log
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
-    cd ~/quick-vm
   fi
 
-  sudo rsync -q kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
-  sudo rsync -q kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
+  sudo rsync -q ~/quick-vm/kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
+  sudo rsync -q ~/quick-vm/kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     sudo virsh define kvm/Windows10-Vanilla.xml >> ~/quick-vm.log;
