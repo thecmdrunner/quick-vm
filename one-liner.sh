@@ -397,10 +397,10 @@ vm3_define() {
 
 stealth_define() {
 
-  TEXT='\n:: Stealthy VM applies some mitigations to bypass and prevent VM detection.\n'; cyantext
-  TEXT='This is useful if the programs you use have some kind of DRM/Anticheat built into them.\n'; cyantext
+  TEXT='\n:: A Stealthy VM applies some mitigations to prevent VM detection.\n'; cyantext
+  TEXT='This is useful for running programs that have DRM/Anticheat built into them.\n'; cyantext
   TEXT='(for eg. Video Games)\n'; cyantext
-  TEXT='\nThese workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.'; redtext
+  TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
   TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
   TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; whiteunderline 
