@@ -113,11 +113,12 @@ vm_profile_define() {
     TEXT=':: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
 
   else
-    TEXT=':: Your system has enough resources for VMs\n'; yellowtext
+    TEXT=':: Your system has enough resources for VMs!\n'; yellowtext
   fi
 
   echo ''
-  read -p ":: Choose an option [1-4]: " vm_profile_choice
+  read -pr ":: Choose an option [1-4]: " vm_profile_choice
+#  PS3=$(echo_prompt ':: Choose an option [1-4]: ' vm_profile_choice
   echo ''
 
   if [[ $vm_profile_choice=='1' ]]; then                       # High-End!
