@@ -27,6 +27,8 @@ Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GP
     - **Windows 10 ISO** ➜ `win10.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
 
+4. Open your terminal and enter the command shown below  
+
 ### 🪄 One-liner to Setup KVM - Paste this in your terminal
 
 ```bash
