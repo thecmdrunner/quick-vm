@@ -384,6 +384,7 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo -e 'sudo virsh define ~/quick-vm/kvm/Windows10-barebones.xml\n'
   sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml
+  TEXT="\n[✓] VM has been created\n!"; greentext
 
 }
 
@@ -398,6 +399,7 @@ stealth_define() {
   sleep 5
   echo -e '\nsudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
   sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml
+  TEXT="\n[✓] VM has been created\n!"; greentext
 
 }
 
@@ -420,13 +422,13 @@ vm_profile_define() {
   TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
-    TEXT=':: Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
+    TEXT='[!] Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
 
   elif [[ $totalcpus < 4 && $totalmem < 7000000 ]]; then
-    TEXT=':: Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
+    TEXT='[!] Your system probably does NOT have enough CPU and Memory resources, slowdowns might occur.'; redtext
 
   else
-    TEXT=':: Your system has enough resources for VMs\n'; yellowtext
+    TEXT='[✓] Your system has enough resources for VMs\n'; greentext
   fi
 
   echo ''
@@ -444,6 +446,25 @@ vm_profile_define() {
 
   elif [[ $vmprofilechoice < 5 && $vmprofilechoice > 3 ]]; then                     # Stealthy ^=^
     stealth_define;
+
+  fi
+
+  if [[ -f /usr/bin/virt-manager ]]; then
+
+    echo ''
+    read -p ":: Open Virt-Manager now? [Y/n]: " virtmanagerchoice
+    echo ''
+  
+    if [[ $virtmanagerchoice=='[yY]' || $virtmanagerchoice=='[yY][eE][sS]' ]]; then                       # High-End!
+      echo -e "\n OK, opening Virt-Manager...\n\n" && virt-manager
+  
+    elif [[ $virtmanagerchoice=='[nN]' || $virtmanagerchoice=='[nN][oO]' ]]; then                       # High-End!
+      TEXT="\n\n"; greentext
+  
+    else
+      TEXT="\n[X] INVALID OPTION\n"; redtext
+      
+    fi
 
   fi
 
