@@ -81,15 +81,13 @@ check_kvm() {
   echo ''
 
   if [[ $cpu_vt =~ "AMD-V" ]]; then
-    TEXT="[✓] AMD Virtualization (AMD-V) is Supported! Setup will now progress."; greentext
+    TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
   elif [[ $cpu_vt =~ "VT-x" ]]; then
-    TEXT="[✓] Intel Virtualization (VT-x) is Supported! Setup will now progress."; greentext
+    TEXT="[✓] Intel Virtualization (VT-x) is Supported!"; greentext
   else
     TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
-    echo -e "The stetup will still continue."
+    echo -e "The setup can still continue."
   fi
-
-  echo ''
 
 }
 
@@ -472,11 +470,11 @@ do
 
   TEXT="\n\n:: You have selected Advanced Install. Pick any option to execute it."; boldtext
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
-  TEXT="[1] Check KVM"; bluetext 
+  TEXT="[1] Check KVM Compatibility"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
-  TEXT="[3] Enable Libvirt Service & Virtual Networking"; bluetext 
-  TEXT="[4] Check ISOs (in "$maindir")"; bluetext
-  TEXT="[5] Define VM from Profiles"; bluetext
+  TEXT="[3] Enable Libvirt Service & Virtual Networking (SYSTEMD ONLY)"; bluetext 
+  TEXT="[4] Check ISOs (in "$maindir"  and  $imagesdir)"; bluetext
+  TEXT="[5] Select a Custom VM Profile"; bluetext
   echo ''
   TEXT="[6] Return"; boldtext 
 
