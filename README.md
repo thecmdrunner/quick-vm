@@ -85,7 +85,9 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | --- |
 | ![Screenshot](docs/img/advanced-setup.png) |
 
-- Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
+- Start **Windows 10 Stealth** VM (Reboot if it doesn't start and do the previous step again)
+
+- It should boot like normal Windows. Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
 
 | Search for Windows Features menu |
 | --- |
