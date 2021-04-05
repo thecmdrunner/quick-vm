@@ -118,7 +118,7 @@ reload_kvm() {
   
   fi
 
-  TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY.\n"; whiteunderline
+  TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY."; whiteunderline
 
 }
 
@@ -192,7 +192,7 @@ checkiso() {
 
    if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
     echo ''
-    TEXT='[✓] VirtIO Drivers and Windows 10 ISO already exist in '$imagesdir'!'; whiteunderline
+    TEXT='[✓] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!'; whiteunderline
     echo ''
 
    else
@@ -444,11 +444,11 @@ vm_profile_define() {
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
-  TEXT='\n[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
-  TEXT='\n[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
-  TEXT='\n[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
+  TEXT='[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
+  TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
+  TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
 
-  TEXT='\n\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
+  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
     TEXT='➜ Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
@@ -502,12 +502,12 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
-  TEXT="\n\n:: You have selected Advanced Install. Pick any option to execute it."; boldtext
+  TEXT="\n\n:: You have selected Advanced Install."; boldtext
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Check KVM Compatibility"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
   TEXT="[3] Enable Libvirt Service & Virtual Networking (SYSTEMD ONLY)"; bluetext 
-  TEXT="[4] Check ISOs (in "$maindir"  and  $imagesdir)"; bluetext
+  TEXT="[4] Check ISOs (in "$maindir" & $imagesdir)"; bluetext
   TEXT="[5] Select a Custom VM Profile"; bluetext
   TEXT="[6] Load/Reload KVM Kernel Modules (also enables Nested Virtualization)"; bluetext
   echo ''
