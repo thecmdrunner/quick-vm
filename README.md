@@ -77,7 +77,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 | Select the Stealth Profile |
 | --- |
-| ![Screenshot](docs/img/windows-features.png) |
+| ![Screenshot](docs/img/vm-profile.png) |
 
 - Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
 
