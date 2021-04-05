@@ -87,7 +87,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | --- |
 | ![Screenshot](docs/img/windows-features.png) |
 
-- Click the dropdown menu for **Hyper-V**, and check both of the boxes as shown below.
+- Click the ▼ dropdown menu for **Hyper-V**, and check both of the boxes as shown below.
 
 | Enable Hyper-V |
 | --- |
