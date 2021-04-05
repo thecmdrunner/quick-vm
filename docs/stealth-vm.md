@@ -1,5 +1,5 @@
 
-# 🛡 Making a VM Stealth🧱
+# 🛡 Making a VM Stealt
 
 If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
 
@@ -32,5 +32,10 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | --- |
 | ![Screenshot](img/hyper-v-enable.png) |
 
--
+- After enabling **Hyper-V**, select the restart option from the prompt shown in Windows.
 
+  > It is necessary to restart using Windows' built in method.
+> If you face a bootloop in Windows, try switching to another kernel (v5.10 LTS or v5.11)
+> I have personally tested it on 5.10 LTS without any problems, but your mileage ma vary.
+
+-
