@@ -74,6 +74,11 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
 - From there, select `Create a Stealth VM`, and you will have a Stealthy VM ready (almost) in a few seconds.
+
+| Select the Stealth Profile |
+| --- |
+| ![Screenshot](docs/img/windows-features.png) |
+
 - Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
 
 | Search for Windows Features menu |
@@ -85,6 +90,8 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | Enable Hyper-V |
 | --- |
 | ![Screenshot](docs/img/hyper-v-enable.png) |
+
+-
 
 
 
