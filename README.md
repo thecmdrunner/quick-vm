@@ -83,8 +83,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 | Modprobe - Enable Nested Virtualization |
 | --- |
-| ![Screenshot](docs/img/vm-profile.png) |
-
+| ![Screenshot](docs/img/advanced-setup.png) |
 
 - Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
 
