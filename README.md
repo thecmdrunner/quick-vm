@@ -64,8 +64,6 @@ bash <(curl -sL https://git.io/JqtJc)
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
 
-
-
 ## ⚔️ Advanced Install Method
 
 ### Making a VM Stealthy...
@@ -80,6 +78,13 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | Select the Stealth Profile |
 | --- |
 | ![Screenshot](docs/img/vm-profile.png) |
+
+- In `Advanced Setup` select `Load/Reload KVM Kernel Modules` to enable Nested Virtualization.
+
+| Modprobe - Enable Nested Virtualization |
+| --- |
+| ![Screenshot](docs/img/vm-profile.png) |
+
 
 - Once you are past the Windows Install, go to **Turn Windows Features On or Off**.
 
