@@ -429,10 +429,11 @@ stealth_define() {
   TEXT='\n\nCreating a Stealth VM'; greentext
 
   if [[ $cpubrand == 'AMD' ]]; then
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml\n'
+    echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml\n'
     sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml
+
   elif [[ $cpubrand == 'INTEL' ]]; then
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
+    echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
     sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml
   fi
 
