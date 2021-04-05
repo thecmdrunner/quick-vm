@@ -427,11 +427,12 @@ stealth_define() {
   TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; whiteunderline 
   sleep 5
   TEXT='\n\nCreating a Stealth VM'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth.xml\n'
 
   if [[ $cpubrand == 'AMD' ]]; then
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml\n'
     sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml
   elif [[ $cpubrand == 'INTEL' ]]; then
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
     sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml
   fi
 
@@ -444,8 +445,9 @@ vm_profile_define() {
     cd ~/
     echo "cloning from git repo" >> ~/quick-vm.log
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
-    cd ~/quick-vm
   fi
+
+  cd ~/quick-vm && git pull;
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
