@@ -448,7 +448,7 @@ vm_profile_define() {
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
   fi
 
-  cd ~/quick-vm && git pull;
+  cd ~/quick-vm && git pull >> ~/quick-vm.log;
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
