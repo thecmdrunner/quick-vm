@@ -1,0 +1,167 @@
+<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
+
+  <name>Windows10-vanilla</name>
+  <uuid>9c68b3c5-741e-4b6a-bd3e-428dd2faba6d</uuid>
+  <title>Windows 10 Vanilla</title>
+  <description>This Windows 10 VM is meant to be a template, for when a Windows VM starts suffering from software rot, that VM can be deleted and this Vanilla VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. DO NOT USE this VM for primary work. Always clone this VM and use the clone for any work you wanna do. </description>
+  <metadata>
+    <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
+      <libosinfo:os id="http://microsoft.com/win/10"/>
+    </libosinfo:libosinfo>
+  </metadata>
+  <memory unit="KiB">4194304</memory>
+  <currentMemory unit="KiB">1048576</currentMemory>
+  <vcpu placement="static">4</vcpu>
+  <os>
+    <type arch="x86_64" machine="q35">hvm</type>
+    <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-vanilla_VARS.fd</nvram>
+    <bootmenu enable="yes"/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <hyperv>
+    </hyperv>
+    <vmport state="off"/>
+  </features>
+  <cpu mode="host-model" check="partial"/>
+  <clock offset="localtime">
+    <timer name="rtc" tickpolicy="catchup"/>
+    <timer name="pit" tickpolicy="delay"/>
+    <timer name="hpet" present="yes"/>
+    <timer name="hypervclock" present="yes"/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <pm>
+    <suspend-to-mem enabled="no"/>
+    <suspend-to-disk enabled="no"/>
+  </pm>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2"/>
+      <source file="/var/lib/libvirt/images/Windows-Vanilla.qcow2"/>
+      <target dev="sda" bus="sata"/>
+      <boot order="1"/>
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw"/>
+      <source file="/var/lib/libvirt/images/win10.iso"/>
+      <target dev="sdb" bus="sata"/>
+      <readonly/>
+      <boot order="2"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="0"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw"/>
+      <source file="/var/lib/libvirt/images/virtio-win.iso"/>
+      <target dev="sdc" bus="sata"/>
+      <readonly/>
+      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw"/>
+      <source file="/var/lib/libvirt/images/essentials.iso"/>
+      <target dev="sdd" bus="sata"/>
+      <readonly/>
+      <address type="drive" controller="0" bus="0" target="0" unit="2"/>
+    </disk>
+    <controller type="usb" index="0" model="qemu-xhci" ports="15">
+      <address type="pci" domain="0x0000" bus="0x02" slot="0x00" function="0x0"/>
+    </controller>
+    <controller type="sata" index="0">
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x1f" function="0x2"/>
+    </controller>
+    <controller type="pci" index="0" model="pcie-root"/>
+    <controller type="pci" index="1" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="1" port="0x10"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x0" multifunction="on"/>
+    </controller>
+    <controller type="pci" index="2" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="2" port="0x11"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x1"/>
+    </controller>
+    <controller type="pci" index="3" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="3" port="0x12"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x2"/>
+    </controller>
+    <controller type="pci" index="4" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="4" port="0x13"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x3"/>
+    </controller>
+    <controller type="pci" index="5" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="5" port="0x14"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x4"/>
+    </controller>
+    <controller type="pci" index="6" model="pcie-root-port">
+      <model name="pcie-root-port"/>
+      <target chassis="6" port="0x15"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x02" function="0x5"/>
+    </controller>
+    <controller type="virtio-serial" index="0">
+      <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
+    </controller>
+    <interface type="network">
+      <mac address="52:54:00:36:40:7a"/>
+      <source network="default"/>
+      <model type="virtio"/>
+      <link state="down"/>
+      <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
+    </interface>
+    <serial type="pty">
+      <target type="isa-serial" port="0">
+        <model name="isa-serial"/>
+      </target>
+    </serial>
+    <console type="pty">
+      <target type="serial" port="0"/>
+    </console>
+    <channel type="spicevmc">
+      <target type="virtio" name="com.redhat.spice.0"/>
+      <address type="virtio-serial" controller="0" bus="0" port="1"/>
+    </channel>
+    <input type="tablet" bus="usb">
+      <address type="usb" bus="0" port="1"/>
+    </input>
+    <input type="mouse" bus="ps2"/>
+    <input type="keyboard" bus="ps2"/>
+    <graphics type="spice" autoport="yes">
+      <listen type="address"/>
+      <image compression="off"/>
+    </graphics>
+    <sound model="ich9">
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x1b" function="0x0"/>
+    </sound>
+    <video>
+      <model type="qxl" ram="65536" vram="65536" vgamem="16384" heads="1" primary="yes"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
+    </video>
+    <redirdev bus="usb" type="spicevmc">
+      <address type="usb" bus="0" port="2"/>
+    </redirdev>
+    <redirdev bus="usb" type="spicevmc">
+      <address type="usb" bus="0" port="3"/>
+    </redirdev>
+    <memballoon model="virtio">
+      <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
+    </memballoon>
+  </devices>
+  <qemu:commandline>
+    <qemu:arg value="-global"/>
+    <qemu:arg value="kvm-pit.lost_tick_policy=discard"/>
+    <qemu:arg value="-rtc"/>
+    <qemu:arg value="base=localtime"/>
+    <qemu:arg value="-cpu"/>
+    <qemu:arg value="host,host-cache-info=on,kvm=off,l3-cache=on,kvm-hint-dedicated=on,migratable=no,h
+v_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=Nvidia43FIX,+invtsc,+topoext"/>
+  </qemu:commandline>
+</domain>

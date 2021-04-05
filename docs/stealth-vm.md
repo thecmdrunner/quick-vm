@@ -35,7 +35,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 - After enabling **Hyper-V**, select the restart option from the prompt shown in Windows.
 
   > It is necessary to restart using Windows' built in method.
-> If you face a bootloop in Windows, try switching to a different kernel (v5.10 LTS or v5.11).
+> If you face a bootloop in Windows, try switching to the latest kernel available to you.
 
 > I have personally tested it on 5.10 LTS without any problems, but your mileage ma vary.
 
