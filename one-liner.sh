@@ -107,12 +107,12 @@ check_kvm() {
 reload_kvm() {
 
   if [[ $cpubrand == 'AMD' ]]; then
-    sudo modprobe -r kvm kvm_amd
+    sudo modprobe -r kvm_amd kvm
     sudo modprobe kvm
     sudo modprobe kvm_amd nested=1
 
   elif [[ $cpubrand == 'INTEL' ]]; then
-    sudo modprobe -r kvm kvm_intel
+    sudo modprobe -r kvm_intel kvm
     sudo modprobe kvm
     sudo modprobe kvm_intel nested=1
   
