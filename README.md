@@ -67,6 +67,7 @@ bash <(curl -sL https://git.io/JqtJc)
 
 **Network Card**: VirtIO (Recommended Disabled until debloated)
 
+</br>
 </details>
 </p>
 
