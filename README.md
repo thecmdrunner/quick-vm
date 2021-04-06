@@ -149,7 +149,6 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 **VirtIO Drivers** ➜ `virtio-win.iso`
 
 
-
 </br>
 </details>
 </p>

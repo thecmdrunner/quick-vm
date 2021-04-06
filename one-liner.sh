@@ -368,7 +368,7 @@ debian_setup() {
   TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
   echo -e ":: Installing Dependencies...\n"; 
   echo -e "\n"
-  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+  sudo apt update -q && sudo apt upgrade -y && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
   TEXT="\n[✓] Setup Finished!"; greentext
 
 }
@@ -487,7 +487,7 @@ vm_profile_define() {
   TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
   TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
 
-  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] (BETA STAGR)\n'; cyantext
+  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] (BETA STAGE)\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
     TEXT='➜ Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
