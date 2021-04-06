@@ -73,8 +73,6 @@ bash <(curl -sL https://git.io/JqtJc)
 
 ## ⚔️ Advanced Install Method
 
-
-
 ## 🛸 DIY (Manual Method)
 
 <p>
