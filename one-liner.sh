@@ -71,7 +71,7 @@ fi
 # echo --------------------
 
 border() {
-  TEXT="\n----------------------------------------------------------------------------------\n"; whitetext
+  TEXT="\n----------------------------------------------------------------------------------"; whitetext
 }
 
 # exit function
@@ -527,7 +527,7 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
-  TEXT="\n\n:: You have selected Advanced Install."; boldtext
+  TEXT="\n:: You have selected Advanced Install."; boldtext
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Check KVM Compatibility"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
