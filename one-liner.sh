@@ -446,6 +446,9 @@ vm3_define() {
 
 stealth_define() {
 
+
+  TEXT='\n\n\n:: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n\n\n'; redtext
+
   TEXT='\n:: A Stealthy VM applies some mitigations to prevent VM detection.\n'; cyantext
   TEXT='This is useful for running programs that have DRM/Anticheat built into them.\n'; cyantext
   TEXT='(for eg. Video Games)\n'; cyantext
@@ -484,7 +487,7 @@ vm_profile_define() {
   TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
   TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
 
-  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs]\n'; cyantext
+  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] (BETA STAGR)\n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
     TEXT='➜ Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext
