@@ -1,7 +1,6 @@
-<domain type="kvm">
+<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
   <name>Windows10-Stealth</name>
-  <uuid>9c68b3c5-741e-4b6a-bd3e-428dd2faba6d</uuid>
-  <title>Windows 10 Vanilla</title>
+  <title>Windows 10 Stealth</title>
   <description>This Windows 10 VM is meant to be a template, for when a Windows VM starts suffering from software rot, that VM can be deleted and this Vanilla VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. DO NOT USE this VM for primary work. Always clone this VM and use the clone for any work you wanna do. </description>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
@@ -14,7 +13,7 @@
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-vanilla_VARS.fd</nvram>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-Stealth_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
   <features>
