@@ -51,6 +51,7 @@ bash <(curl -sL https://git.io/JqtJc)
 <p>
 <details>
 <summary>Default specs of the VM<summary>
+<br>
 
 **CPU**: 4 vCPUs Allocated
 
