@@ -89,30 +89,39 @@ byee() {
 
 check_kvm() {
 
+  cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
   cpu_vt=$(lscpu | grep Virtualization)
   kvm_pass=$(virt-host-validate | grep '/dev/kvm exists')
 
   echo ''
 
-  if [[ $cpu_vt =~ "AMD-V" ]]; then
-    TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
-    cpubrand='AMD'
-  elif [[ $cpu_vt =~ "VT-x" ]]; then
-    TEXT="[✓] Intel Virtualization (VT-x) is Supported!"; greentext
-    cpubrand='INTEL'
-  else
-    TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
-    echo -e "The setup can still continue."
-  fi
+  if [[ $cpu_kvm_flags > 0 ]]; then
 
-  if [[ $kvm_pass =~ ": PASS" ]]; then
-    TEXT="[✓] KVM is enabled!"; greentext
-    kvm_enabled='yes'
-  elif [[ $kvm_pass =~ ": FAIL" ]]; then
-    TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in BIOS/CoreBoot."; redtext
-    kvm_enabled='no'
-  else
-    TEXT="[!] ERROR DETECTING KVM SUPPORT."; redtext
+    if [[ $cpu_vt =~ "AMD-V" ]]; then
+      TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
+      cpubrand='AMD'
+    elif [[ $cpu_vt =~ "VT-x" ]]; then
+      TEXT="[✓] Intel Virtualization (VT-x) is Supported!"; greentext
+      cpubrand='INTEL'
+    else
+      TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
+      echo -e "The setup can still continue."
+    fi
+  
+    if [[ $kvm_pass =~ ": PASS" ]]; then
+      TEXT="[✓] KVM is enabled!"; greentext
+      kvm_enabled='yes'
+    elif [[ $kvm_pass =~ ": FAIL" ]]; then
+      TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in BIOS/CoreBoot."; redtext
+      kvm_enabled='no'
+    else
+      TEXT="[!] ERROR DETECTING KVM SUPPORT."; redtext
+    fi
+  
+  elif [[ $cpu_kvm_flags < 1 ]]; then
+    
+    TEXT="[X] YOUR CPU DOES NOT SUPPORT VIRTUALIZATION."; redtext
+
   fi
 
 }
