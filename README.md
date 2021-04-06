@@ -59,9 +59,9 @@ bash <(curl -sL https://git.io/JqtJc)
 
 **Memory**: Total 6 GiB, 1 GiB Allocated initially
 
-**Primary Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
+**Storage Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
 
-**Secondary Drive**: Windows 10 ISO
+**DVD Drive**: Windows 10 ISO
 
 **Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
 
