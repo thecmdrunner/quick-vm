@@ -68,6 +68,12 @@ fi
 
 ### PRE-DEFINED OPERATIONS
 
+# echo --------------------
+
+border() {
+  TEXT="\n----------------------------------------------------------------------------------\n"; whitetext
+}
+
 # exit function
 
 byee() {
@@ -539,28 +545,35 @@ do
   if [[ $setup_choice == 1 ]]; then
     clear;
     check_kvm;
+    border;
   elif [[ $setup_choice == 2 ]]; then
     clear;
     install_all;
+    border;
   elif [[ $setup_choice == 3 ]]; then
     clear;
     libvirt_systemd_start;
+    border;
   elif [[ $setup_choice == 4 ]]; then
     clear;
     checkiso;
+    border;
   elif [[ $setup_choice == 5 ]]; then
     clear;
     vm_profile_define;
-    setupmode='advanced'
+    border;
   elif [[ $setup_choice == 6 ]]; then
     clear;
     reload_kvm;
+    border;
   elif [[ $setup_choice == 7 ]]; then
     clear;
     welcome;
+    border;
   else
-    echo "Invalid choice, please select from the options above."
-    echo '-----------------------------------------------------'
+    clear;
+    echo "Invalid choice, please select from the options below."
+    border;
     setupmode='advanced'
   fi
 
