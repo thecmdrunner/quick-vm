@@ -53,19 +53,19 @@ bash <(curl -sL https://git.io/JqtJc)
 <summary>Default specs of the VM<summary>
 <br>
 
-**CPU**: 4 vCPUs Allocated
+CPU: 4 vCPUs Allocated
 
-**GPU**: VirtIO or [VFIO GPU Passthrough - ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
+GPU: VirtIO or [VFIO GPU Passthrough - ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
 
-**Memory**: Total 6 GiB, 1 GiB Allocated initially
+Memory: Total 6 GiB, 1 GiB Allocated initially
 
-**Storage Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
+Storage Drive: 1 TB VirtIO Disk (Dynamically Allocated)
 
-**DVD Drive**: Windows 10 ISO
+DVD Drive: Windows 10 ISO
 
-**Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
+Other Drives: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
 
-**Network Card**: VirtIO (Recommended Disabled until debloated)
+Network Card: VirtIO (Recommended Disabled until debloated)
 
 </br>
 </details>
