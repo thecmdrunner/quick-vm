@@ -101,7 +101,7 @@ check_kvm() {
       TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
       cpubrand='AMD'
     elif [[ $cpu_vt =~ "VT-x" ]]; then
-      TEXT="[✓] Intel Virtualization (VT-x) is Supported!"; greentext
+      TEXT="[✓] Intel Virtualization (VT-x/VT-d) is Supported!"; greentext
       cpubrand='INTEL'
     else
       TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
