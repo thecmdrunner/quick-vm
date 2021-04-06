@@ -1,5 +1,5 @@
 <domain type="kvm">
-  <name>Windows10-vanilla</name>
+  <name>Windows10-Stealth</name>
   <uuid>9c68b3c5-741e-4b6a-bd3e-428dd2faba6d</uuid>
   <title>Windows 10 Vanilla</title>
   <description>This Windows 10 VM is meant to be a template, for when a Windows VM starts suffering from software rot, that VM can be deleted and this Vanilla VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. DO NOT USE this VM for primary work. Always clone this VM and use the clone for any work you wanna do. </description>
@@ -29,10 +29,13 @@
       <synic state="on"/>
       <stimer state="on"/>
       <reset state="on"/>
-      <vendor_id state="on" value="FckYouNVIDIA"/>
+      <vendor_id state="on" value="NVIDEO"/>
       <frequencies state="on"/>
     </hyperv>
     <vmport state="off"/>
+    <kvm>
+      <hidden state="on"/>
+    </kvm>
   </features>
   <cpu mode="host-model" check="partial"/>
   <clock offset="utc">

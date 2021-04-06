@@ -37,6 +37,6 @@ If you need to mask your VM from checks that a few programs do to restrict users
   > It is necessary to restart using Windows' built in method.
 > If you face a bootloop in Windows, try switching to the latest kernel available to you.
 
-> I have personally tested it on 5.10 LTS without any problems, but your mileage ma vary.
+> I have personally tested it on 5.10 LTS without any problems, but your mileage may vary.
 
--
+> DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.

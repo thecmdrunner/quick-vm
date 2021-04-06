@@ -1,8 +1,6 @@
 <domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
-
-  <name>Windows10-vanilla</name>
-  <uuid>9c68b3c5-741e-4b6a-bd3e-428dd2faba6d</uuid>
-  <title>Windows 10 Vanilla</title>
+  <name>Windows10-Stealth</name>
+  <title>Windows 10 Stealth</title>
   <description>This Windows 10 VM is meant to be a template, for when a Windows VM starts suffering from software rot, that VM can be deleted and this Vanilla VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. DO NOT USE this VM for primary work. Always clone this VM and use the clone for any work you wanna do. </description>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
@@ -15,17 +13,21 @@
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-vanilla_VARS.fd</nvram>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-stealth_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
   <features>
     <acpi/>
     <apic/>
     <hyperv>
+      <vendor_id state="on" value="NVIDEO"/>
     </hyperv>
+    <kvm>
+      <hidden state="on"/>
+    </kvm>
     <vmport state="off"/>
   </features>
-  <cpu mode="host-model" check="partial"/>
+  <cpu mode="host-passthrough" check="partial"/>
   <clock offset="localtime">
     <timer name="rtc" tickpolicy="catchup"/>
     <timer name="pit" tickpolicy="delay"/>
@@ -41,13 +43,6 @@
   </pm>
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
-    <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows-Vanilla.qcow2"/>
-      <target dev="sda" bus="sata"/>
-      <boot order="1"/>
-      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
-    </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
       <source file="/var/lib/libvirt/images/win10.iso"/>
