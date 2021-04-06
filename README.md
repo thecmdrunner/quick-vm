@@ -47,7 +47,9 @@ bash <(curl -sL https://git.io/JqtJc)
   - **40+ GiB of Free Storage** (For a typical install, **SSD Recommened**)
 > **Linux Kernel 5.4 LTS** or newer is recommended 
 
-### Default specs of the VM:
+<p>
+<details>
+<summary>Default specs of the VM<summary>
 
 >**CPU**: 4 vCPUs Allocated
 >
@@ -63,6 +65,8 @@ bash <(curl -sL https://git.io/JqtJc)
 >
 >**Network Card**: VirtIO (Recommended Disabled until debloated)
 
+</details>
+</p>
 
 ## ⚔️ Advanced Install Method
 
