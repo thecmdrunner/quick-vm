@@ -1,49 +1,44 @@
 #!/bin/bash
 
 # oneliner command: bash <(curl -sSL https://git.io/JqtJc) 
-
+# Credits for colored output https://techstop.github.io/bash-script-colors
 # For normal and bold text
 
 old=$(tput bold)
 normal=$(tput sgr0)
+SELF_NAME=$(basename $0)
 
 boldtext() {
   echo -e "\033[1m$TEXT"
 }
 
-# Credits for colored output https://gist.github.com/amberj/5166112
-
-SELF_NAME=$(basename $0)
-
 redtext() {
   echo -e "\x1b[1;31m$TEXT\e[0m"
 }
-
 
 greentext() {
   echo -e "\x1b[1;32m$TEXT\e[0m"
 }
 
-
 yellowtext() {
   echo -e "\x1b[1;33m$TEXT\e[0m"
 }
-
 
 bluetext() {
   echo -e "\x1b[1;34m$TEXT\e[0m"
 }
 
-
 cyantext() {
-  echo -e "\e[1;36m$TEXT\e[0m"
+  echo -e "\x1b[1;36m$TEXT\e[0m"
 }
 
+whitetext() {
+  echo -e "\x1b[1;37m$TEXT\e[0m"
+}
 
 purpletext() {
-  echo -e "\e[0;105m$TEXT\e[0m"
+  echo -e "\x1b[1;105m$TEXT\e[0m"
 }
-
 
 whiteunderline() {
   echo -e "\e[4;37m$TEXT\e[0m"
@@ -61,12 +56,12 @@ cd ~/
 touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
 then
-  echo "Logs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm" >> ~/quick-vm.log
+  echo -e "\nLogs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm\n\n\n" >> ~/quick-vm.log
   if [[ $EUID -ne 0 ]]; then
     echo " Not running this script as root. " >>  ~/quick-vm.log
   fi
 else
-  TEXT="Filesystem is READ-ONLY. Errors may not be logged."; redtext
+  TEXT="Filesystem is possibly READ-ONLY. Errors may not be logged."; redtext
   TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
 fi
 
@@ -102,6 +97,16 @@ check_kvm() {
     echo -e "The setup can still continue."
   fi
 
+  if [[ -f /dev/kvm ]]; then
+    TEXT="[✓] KVM is enabled!"; text
+    kvm_enabled='yes'
+  elif [[ ! -f /dev/kvm ]]; then
+    TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in BIOS/CoreBoot."; redtext
+    kvm_enabled='no'
+  else
+    TEXT="[!] ERROR DETECTING KVM SUPPORT."; redtext
+  fi
+
 }
 
 reload_kvm() {
@@ -116,6 +121,13 @@ reload_kvm() {
     sudo modprobe kvm
     sudo modprobe kvm_intel nested=1
   
+  fi
+
+  if [[ $kvm_enabled == 'yes' ]]; then
+    echo -e "\nkvm detected properly.\n" >> ~/quick-vm.log
+    
+  elif [[ $kvm_enabled == 'no' ]]; then
+    TEXT="\n[X] KVM DOES NOT SEEM TO BE ENABLED IN BIOS/COREBOOT."; redtext 
   fi
 
   TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY."; whiteunderline
