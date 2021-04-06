@@ -125,12 +125,11 @@ reload_kvm() {
 
   if [[ $kvm_enabled == 'yes' ]]; then
     echo -e "\nkvm detected properly.\n" >> ~/quick-vm.log
+    TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY."; whiteunderline
     
   elif [[ $kvm_enabled == 'no' ]]; then
     TEXT="\n[X] KVM DOES NOT SEEM TO BE ENABLED IN BIOS/COREBOOT."; redtext 
   fi
-
-  TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY."; whiteunderline
 
 }
 
