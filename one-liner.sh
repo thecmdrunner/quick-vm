@@ -90,6 +90,8 @@ byee() {
 check_kvm() {
 
   cpu_vt=$(lscpu | grep Virtualization)
+  kvm_pass=$(virt-host-validate | grep '/dev/kvm exists')
+
   echo ''
 
   if [[ $cpu_vt =~ "AMD-V" ]]; then
@@ -103,10 +105,10 @@ check_kvm() {
     echo -e "The setup can still continue."
   fi
 
-  if [[ -f /dev/kvm ]]; then
-    TEXT="[✓] KVM is enabled!"; text
+  if [[ $kvm_pass =~ ": PASS" ]]; then
+    TEXT="[✓] KVM is enabled!"; greentext
     kvm_enabled='yes'
-  elif [[ ! -f /dev/kvm ]]; then
+  elif [[ $kvm_pass =~ ": FAIL" ]]; then
     TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in BIOS/CoreBoot."; redtext
     kvm_enabled='no'
   else
