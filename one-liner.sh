@@ -128,6 +128,13 @@ check_kvm() {
 
 reload_kvm() {
 
+
+  if [[ $cpu_vt =~ "AMD-V" ]]; then
+      cpubrand='AMD'
+  elif [[ $cpu_vt =~ "VT-x" ]]; then
+      cpubrand='INTEL'
+  fi 
+
   if [[ $cpubrand == 'AMD' ]]; then
     sudo modprobe -r kvm_amd kvm
     sudo modprobe kvm
