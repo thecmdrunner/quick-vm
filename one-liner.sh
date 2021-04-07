@@ -335,7 +335,8 @@ gitndefine() {
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
   
   else
-    cd ~/quick-vm && git pull
+    cd ~/quick-vm 
+    git pull || grep 'yay'
 
   fi
 
@@ -434,6 +435,7 @@ simplesetup() {
   border;
   check_kvm;
   border;
+  sleep 5;
   libvirt_systemd_start;
   checkiso;
   gitndefine;
@@ -491,7 +493,6 @@ vm3_define() {
 }
 
 stealth_define() {
-
 
   TEXT='\n\n\n:: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n\n\n'; redtext
 
@@ -599,7 +600,7 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
-  TEXT="\n:: You have selected Advanced Install."; boldtext
+  TEXT="\n:: You have selected Advanced Install."; greentext
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Check KVM Compatibility"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
