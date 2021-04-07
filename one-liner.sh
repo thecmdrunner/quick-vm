@@ -430,8 +430,10 @@ fi
 simplesetup() {
   
   echo -e "\nStarting Simple Setup"
-  check_kvm;
   install_all;
+  border;
+  check_kvm;
+  border;
   libvirt_systemd_start;
   checkiso;
   gitndefine;
