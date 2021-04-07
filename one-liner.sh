@@ -434,7 +434,7 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-highend.xml\n'
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml\n'
   sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml
 
 }
@@ -442,7 +442,7 @@ vm1_define() {
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-default.xml\n'
+  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml\n'
   sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml
 
 }
