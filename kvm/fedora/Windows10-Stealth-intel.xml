@@ -13,7 +13,7 @@
   <vcpu placement="static">4</vcpu>
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
-    <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
+    <loader readonly="yes" type="pflash">/usr/share/edk2/ovmf/OVMF_CODE.fd</loader>
     <nvram>/var/lib/libvirt/qemu/nvram/Windows10-stealth_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
