@@ -50,7 +50,7 @@ bash <(curl -sL https://git.io/JqtJc)
 
 <p>
 <details>
-<summary>Default specs of the VM<summary>
+<summary>Default specs of the VM</summary>
 <br>
 
 CPU: 4 vCPUs Allocated
@@ -137,10 +137,8 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 - Download [Official Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10ISO) from Microsoft 
 
 > You may even supply your own custom Windows Image (like Windows Ameliorated Edition)
- 
 
 **Note:** Place the ISOs in `~/WindowsVM` , as this script points to that directory to find those ISOs. You can change the location in the `kvm/Windows10-Vanilla.xml` file if you prefer.
-
 
 ### Make sure you rename both of the ISOs as following:
 
