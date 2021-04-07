@@ -333,6 +333,10 @@ gitndefine() {
     cd ~/
     echo "cloning from git repo" >> ~/quick-vm.log
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
+  
+  else
+    cd ~/quick-vm && git pull
+
   fi
 
   sudo rsync -q ~/quick-vm/kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
