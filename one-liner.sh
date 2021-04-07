@@ -339,8 +339,16 @@ gitndefine() {
   sudo rsync -q ~/quick-vm/kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
-    sudo virsh define kvm/Windows10-Default.xml >> ~/quick-vm.log;
-    TEXT="\nYour VM is Ready! Follow the instructions."; greentext
+    
+    if [[ -f /usr/bin/pacman ]]; then
+      sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml  >> quick-vm.log
+    elif [[ -f /usr/bin/apt ]]; then
+      sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml >> ~/quick-vm.log
+    elif [[ -f /usr/bin/dnf ]]; then
+      sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml >> ~/quick-vm.log
+    fi
+
+    TEXT="\n[✓] Your VM is Ready! Follow the instructions from the Official Project page to get started."; greentext
 
   else
     TEXT="\n[!] Some filess missing from /var/lib/libvirt/images/"; redtext
