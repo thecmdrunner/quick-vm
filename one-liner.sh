@@ -340,7 +340,7 @@ gitndefine() {
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     sudo virsh define kvm/Windows10-Default.xml >> ~/quick-vm.log;
-    TEXT="\nYour VM is Ready! Launch Virt-Manager to start the VM."; greentext
+    TEXT="\nYour VM is Ready! Follow the instructions."; greentext
 
   else
     TEXT="\n[!] Some filess missing from /var/lib/libvirt/images/"; redtext
