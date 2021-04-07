@@ -87,11 +87,11 @@ byee() {
 
 # Check if the system supports virtualisation
 
-check_kvm() {
+cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
+cpu_vt=$(lscpu | grep Virtualization)
+kvm_pass=$(virt-host-validate | grep '/dev/kvm exists')
 
-  cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
-  cpu_vt=$(lscpu | grep Virtualization)
-  kvm_pass=$(virt-host-validate | grep '/dev/kvm exists')
+check_kvm() {
 
   echo ''
 
@@ -128,6 +128,11 @@ check_kvm() {
 
 reload_kvm() {
 
+  if [[ $kvm_pass =~ ": PASS" ]]; then
+    kvm_enabled='yes'
+  elif [[ $kvm_pass =~ ": FAIL" ]]; then
+    kvm_enabled='no'
+  fi
 
   if [[ $cpu_vt =~ "AMD-V" ]]; then
       cpubrand='AMD'
@@ -228,7 +233,6 @@ checkiso() {
    if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
     echo ''
     TEXT='[✓] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!'; whiteunderline
-    echo ''
 
    else
 
