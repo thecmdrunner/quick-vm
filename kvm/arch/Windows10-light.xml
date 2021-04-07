@@ -1,6 +1,6 @@
-<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
-  <name>Windows10-default</name>
-  <title>Windows 10 Default</title>
+<domain type="kvm">
+  <name>Windows10-light</name>
+  <title>Windows 10 Light</title>
   <description>This Windows VM is intended to be a template, for when Windows suffering from software rot, that VM can be deleted and this VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. It is best to always clone this VM and use that clone for your work.
 </description>
   <metadata>
@@ -13,9 +13,8 @@
   <vcpu placement="static">4</vcpu>
   <os>
     <type arch="x86_64" machine="pc-q35">hvm</type>
-    <loader readonly="yes" type="pflash">/usr/share/OVMF/OVMF_CODE.fd</loader>
     <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd</nvram>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
   <features>
@@ -166,4 +165,3 @@
     <qemu:arg value="host,host-cache-info=on,kvm=off,l3-cache=on,kvm-hint-dedicated=on,migratable=no,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=Nvidia43FIX,+invtsc,+topoext"/>
   </qemu:commandline>
 </domain>
-

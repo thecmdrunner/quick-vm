@@ -367,7 +367,7 @@ fedora_setup() {
   TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
   echo -e ":: Installing Dependencies\n"; 
   echo ""
-  sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils virt-install virt-manager 
+  sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
   TEXT="\n[✓] Setup Finished!"; greentext
 
 }
@@ -379,7 +379,7 @@ debian_setup() {
   TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
   echo -e ":: Installing Dependencies...\n"; 
   echo -e "\n"
-  sudo apt update -q && sudo apt upgrade -y && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+  sudo apt update -q && sudo apt upgrade -y && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
   TEXT="\n[✓] Setup Finished!"; greentext
 
 }
@@ -434,24 +434,45 @@ simplesetup() {
 vm1_define() {
 
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Highend.xml
+  echo -e '\n➜ sudo virsh define Windows10-highend.xml\n'
+
+  if [[ -f /usr/bin/pacman ]]; then
+    sudo virsh define ~/quick-vm/kvm/arch/Windows10-highend.xml
+  elif [[ -f /usr/bin/apt ]]; then
+    sudo virsh define ~/quick-vm/kvm/debian/Windows10-highend.xml
+  elif [[ -f /usr/bin/dnf ]]; then
+    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-highend.xml
+  fi
 
 }
 
 vm2_define() {
 
   TEXT='\n:: Making a useful VM!\n'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Default.xml
+  echo -e '\n➜ sudo virsh define Windows10-default.xml\n'
+
+  if [[ -f /usr/bin/pacman ]]; then
+    sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml
+  elif [[ -f /usr/bin/apt ]]; then
+    sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml
+  elif [[ -f /usr/bin/dnf ]]; then
+    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml
+  fi
 
 }
 
 vm3_define() {
 
   TEXT='\n:: Making an economic VM!\n'; greentext
-  echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml\n'
-  sudo virsh define ~/quick-vm/kvm/Windows10-Light.xml
+  echo -e '\n➜ sudo virsh define Windows10-light.xml\n'
+
+  if [[ -f /usr/bin/pacman ]]; then
+    sudo virsh define ~/quick-vm/kvm/arch/Windows10-light.xml
+  elif [[ -f /usr/bin/apt ]]; then
+    sudo virsh define ~/quick-vm/kvm/debian/Windows10-light.xml
+  elif [[ -f /usr/bin/dnf ]]; then
+    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-light.xml
+  fi
 
 }
 
@@ -471,12 +492,24 @@ stealth_define() {
   TEXT='\n\nCreating a Stealth VM'; greentext
 
   if [[ $cpubrand == 'AMD' ]]; then
-    echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml\n'
-    sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-amd.xml
+    echo -e '\n➜ sudo virsh define Windows10-Stealth-amd.xml\n'
+      if [[ -f /usr/bin/pacman ]]; then
+        sudo virsh define ~/quick-vm/kvm/arch/Windows10-Stealth-amd.xml
+      elif [[ -f /usr/bin/apt ]]; then
+        sudo virsh define ~/quick-vm/kvm/debian/Windows10-Stealth-amd.xml
+      elif [[ -f /usr/bin/dnf ]]; then
+        sudo virsh define ~/quick-vm/kvm/fedora/Windows10-Stealth-amd.xml
+      fi
 
   elif [[ $cpubrand == 'INTEL' ]]; then
     echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
-    sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml
+      if [[ -f /usr/bin/pacman ]]; then
+        sudo virsh define ~/quick-vm/kvm/arch/Windows10-Stealth-intel.xml
+      elif [[ -f /usr/bin/apt ]]; then
+        sudo virsh define ~/quick-vm/kvm/debian/Windows10-Stealth-intel.xml
+      elif [[ -f /usr/bin/dnf ]]; then
+        sudo virsh define ~/quick-vm/kvm/fedora/Windows10-Stealth-intel.xml
+      fi
   fi
 
 }
