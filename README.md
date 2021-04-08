@@ -157,7 +157,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>1. Check KVM Compatibility 📍</summary>
+<summary>3. Enable Libvirt Service & Virtual Networking 📍</summary>
 <br>
 
 
@@ -262,6 +262,10 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 - remove virtio From stealth VM
 - GPU Passthrough options and notes
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
+
+## Feature ideas
+
+- ask user to enter the path to the isos instead of putting it in one folder (just for giving an option to the user)
 
 ## 📬 Contact me
 
