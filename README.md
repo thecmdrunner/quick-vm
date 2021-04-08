@@ -258,7 +258,7 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - Stealth VM notes
-- Make separate VM XML files for all profiles, with their own qcow2
+- Make separate disks for each stealth vm, with their own qcow2
 - remove virtio From stealth VM
 - GPU Passthrough options and notes
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
@@ -270,7 +270,7 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 ## 📬 Contact me
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
-[![Mail Me](https://img.shields.io/badge/pranavkulkarni195@gmail.com-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:pranavkulkarni195@gmail.com) 
+[![Mail Me](https://img.shields.io/badge/gamerhat18@gmail.com-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:pranavkulkarni195@gmail.com) 
 [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/gamerhat18) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/pranav-kulkarni-94b975180) 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)

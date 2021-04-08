@@ -508,7 +508,7 @@ stealth_define() {
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
   TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
-  TEXT='\nhttps://github.com/gamerhat18/Quick-VM/#advanced-install-method\n'; whiteunderline 
+  TEXT='\nhttps://github.com/gamerhat18/quick-vm/blob/main/docs/stealth-vm.md\n'; whiteunderline 
   sleep 5
   TEXT='\n\nCreating a Stealth VM'; greentext
 
