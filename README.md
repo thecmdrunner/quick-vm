@@ -72,6 +72,29 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 </details>
 </p>
 
+### Installing Windows:
+
+<p>
+<details>
+<summary>Step by Step Guide</summary>
+<br>
+
+![Screenshot](docs/img/first-boot.png)
+![Screenshot](docs/img/booting-iso.png)
+![Screenshot](docs/img/install-1.png)
+![Screenshot](docs/img/install-2.png)
+![Screenshot](docs/img/install-3.png)
+![Screenshot](docs/img/install-4.png)
+![Screenshot](docs/img/install-5.png)
+![Screenshot](docs/img/install-6.png)
+![Screenshot](docs/img/install-7.png)
+![Screenshot](docs/img/install-8.png)
+![Screenshot](docs/img/install-9.png)
+![Screenshot](docs/img/install-10.png)
+![Screenshot](docs/img/install-11.png)
+![Screenshot](docs/img/install-12.png)
+
+
 ## ⚔️ Advanced Install
 
 ## 🛸 DIY (From Scratch)
