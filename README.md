@@ -72,13 +72,16 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 </details>
 </p>
 
-### Installing Windows:
+### Getting the VM Ready:
+
+Please follow the guide below.
 
 <p>
 <details>
-### <summary>Step by Step Guide</summary>
+<summary>Step by Step Guide</summary>
 <br>
 
++ Click inside the VM Window and press any key when asked  
 ![Screenshot](docs/img/first-boot.png)
 ![Screenshot](docs/img/booting-iso.png)
 ![Screenshot](docs/img/install-1.png)
