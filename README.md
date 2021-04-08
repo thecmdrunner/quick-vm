@@ -135,6 +135,47 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 ## ⚔️ Advanced Install
 
+<p>
+<details>
+<summary>1. Check KVM Compatibility 📍</summary>
+<br>
+
+
+</br>
+</details>
+</p>
+
+<p>
+<details>
+<summary>2. Install required packages 📍</summary>
+<br>
+
+
+</br>
+</details>
+</p>
+
+<p>
+<details>
+<summary>1. Check KVM Compatibility 📍</summary>
+<br>
+
+
+</br>
+</details>
+</p>
+
+<p>
+<details>
+<summary>1. Check KVM Compatibility 📍</summary>
+<br>
+
+
+</br>
+</details>
+</p>
+
+
 ## 🛸 DIY (From Scratch)
 
 <p>

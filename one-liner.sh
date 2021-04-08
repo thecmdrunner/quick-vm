@@ -89,7 +89,7 @@ byee() {
 
 cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
 cpu_vt=$(lscpu | grep Virtualization)
-kvm_pass=$(virt-host-validate | grep '/dev/kvm exists')
+kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
 
 check_kvm() {
 
