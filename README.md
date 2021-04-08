@@ -81,31 +81,47 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 #### Please follow along the screenshots below to get the VM ready.
 
-+ Click inside the VM Window and press any key when asked  
++ Click inside the VM Window and press any key when asked.  
 
 ![Screenshot](docs/img/first-boot.png)
 
 ![Screenshot](docs/img/booting-iso.png)
 
++ Select your language and keyboard input and click Next.
+
 ![Screenshot](docs/img/install-1.png)
 
 ![Screenshot](docs/img/install-2.png)
 
++ Enter your product key now, or you can skip and enter your product key after installation.
+
 ![Screenshot](docs/img/install-3.png)
+
++ Selecting **Windows 10 Pro N** will install **Windows 10 Pro** without extra bloat.
 
 ![Screenshot](docs/img/install-4.png)
 
 ![Screenshot](docs/img/install-5.png)
 
++ Select **Custom Install**  (because the other is useless)
+
 ![Screenshot](docs/img/install-6.png)
+
++ Click on **Load Driver** to install disk drivers.
 
 ![Screenshot](docs/img/install-7.png)
 
 ![Screenshot](docs/img/install-8.png)
 
++ Double-Click on **CD Drive virtio-win** ➜ **amd64** ➜ **w10** and click **OK**. 
+
 ![Screenshot](docs/img/install-9.png)
 
++ Just click N**ext** to select the default one.
+
 ![Screenshot](docs/img/install-10.png)
+
++ Select `Unallocated Space` and click **Next** to begin the installation.
 
 ![Screenshot](docs/img/install-11.png)
 
