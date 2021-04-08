@@ -185,7 +185,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 </details>
 </p>
 
-## 🛸 DIY (From Scratch)
+## 🛸 DIY (From Scratch) - WIP
 
 <p>
 <details>
@@ -266,6 +266,8 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 ## 🔌 TODO-notes
 
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
+- (maybe?) IOMMU and VFIO
+- GPU Passthrough after IOMMU
 - Stealth VM notes
 - Make separate disks for each stealth vm, with their own qcow2
 - remove virtio From stealth VM
