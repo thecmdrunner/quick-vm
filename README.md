@@ -74,11 +74,9 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 ### Getting the VM Ready:
 
-Please follow the guide below.
-
 <p>
 <details>
-<summary>Step by Step Guide</summary>
+<summary>Step by Step Guide - Click Me!</summary>
 <br>
 
 + Click inside the VM Window and press any key when asked  
