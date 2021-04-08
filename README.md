@@ -72,7 +72,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 </details>
 </p>
 
-### Getting the VM Ready:
+### ✅ Getting the VM Ready:
 
 <p>
 <details>
