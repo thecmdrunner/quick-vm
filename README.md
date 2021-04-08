@@ -76,7 +76,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>Step by Step Guide</summary>
+### <summary>Step by Step Guide</summary>
 <br>
 
 ![Screenshot](docs/img/first-boot.png)
