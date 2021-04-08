@@ -493,6 +493,8 @@ vm3_define() {
 }
 
 stealth_define() {
+  
+  border;
 
   TEXT='\n\n\n:: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n\n\n'; redtext
 
@@ -538,13 +540,13 @@ vm_profile_define() {
     git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
   fi
 
-  cd ~/quick-vm && git pull >> ~/quick-vm.log;
+  cd ~/quick-vm && git pull >> ~/quick-vm.log; border;
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
-  TEXT='[1] Serious Business (6 CPU Threads/8 GB RAM)'; boldtext
-  TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; boldtext
-  TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; boldtext
+  TEXT='[1] Serious Business (6 CPU Threads/8 GB RAM)'; whitetext
+  TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; whitetext
+  TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; whitetext
 
   TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] (BETA STAGE)\n'; cyantext
     
@@ -574,6 +576,9 @@ vm_profile_define() {
   elif [[ $vm_profile_choice == 4 ]]; then                     # Stealthy ^=^
     stealth_define;
 
+  else
+    vm2_define;
+
   fi
 
   if [[ -f /usr/bin/virt-manager ]]; then
@@ -600,6 +605,8 @@ advancedsetup(){
 while [[ $setupmode=='advanced' ]]
 do
 
+  border;
+
   TEXT="\n:: You have selected Advanced Install."; greentext
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Check KVM Compatibility"; bluetext 
@@ -618,35 +625,27 @@ do
   if [[ $setup_choice == 1 ]]; then
     clear;
     check_kvm;
-    border;
   elif [[ $setup_choice == 2 ]]; then
     clear;
     install_all;
-    border;
   elif [[ $setup_choice == 3 ]]; then
     clear;
     libvirt_systemd_start;
-    border;
   elif [[ $setup_choice == 4 ]]; then
     clear;
     checkiso;
-    border;
   elif [[ $setup_choice == 5 ]]; then
     clear;
     vm_profile_define;
-    border;
   elif [[ $setup_choice == 6 ]]; then
     clear;
     reload_kvm;
-    border;
   elif [[ $setup_choice == 7 ]]; then
     clear;
     welcome;
-    border;
   else
     clear;
     echo "Invalid choice, please select from the options below."
-    border;
     setupmode='advanced'
   fi
 
