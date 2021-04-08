@@ -94,6 +94,10 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 ![Screenshot](docs/img/install-11.png)
 ![Screenshot](docs/img/install-12.png)
 
+</br>
+</details>
+</p>
+
 
 ## ⚔️ Advanced Install
 
