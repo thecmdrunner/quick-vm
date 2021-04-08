@@ -137,7 +137,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>1. Check KVM Compatibility 📍</summary>
+<summary>📍 Check KVM Compatibility</summary>
 <br>
 
 
@@ -147,7 +147,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>2. Install required packages 📍</summary>
+<summary>📍 Install required packages</summary>
 <br>
 
 
@@ -157,7 +157,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>3. Enable Libvirt Service & Virtual Networking 📍</summary>
+<summary>📍 Enable Libvirt Service & Virtual Networking</summary>
 <br>
 
 
@@ -167,7 +167,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 <p>
 <details>
-<summary>1. Check KVM Compatibility 📍</summary>
+<summary>📍 Locate ISOs</summary>
 <br>
 
 
@@ -175,6 +175,15 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 </details>
 </p>
 
+<p>
+<details>
+<summary>📍 Reload KVM Kernel Modules</summary>
+<br>
+
+
+</br>
+</details>
+</p>
 
 ## 🛸 DIY (From Scratch)
 

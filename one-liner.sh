@@ -500,7 +500,7 @@ stealth_define() {
   
   border;
 
-  TEXT='\n\n\n:: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n\n\n'; redtext
+  TEXT='\n:: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n'; redtext
 
   TEXT='\n:: A Stealthy VM applies some mitigations to prevent VM detection.\n'; cyantext
   TEXT='This is useful for running programs that have DRM/Anticheat built into them.\n'; cyantext
@@ -593,6 +593,10 @@ vm_profile_define() {
       if [[ $virtmanagerchoice =~ "Y" || $virtmanagerchoice =~ "y" ]]; then
         echo -e '\n\n'
         virt-manager &
+
+      elif [[ $virtmanagerchoice =~ "N" || $virtmanagerchoice =~ "n" ]]; then
+        echo '\n'
+
       fi
 
   fi
@@ -616,9 +620,9 @@ do
   TEXT="[1] Check KVM Compatibility"; bluetext 
   TEXT="[2] Install required packages (via package manager)"; bluetext
   TEXT="[3] Enable Libvirt Service & Virtual Networking (SYSTEMD ONLY)"; bluetext 
-  TEXT="[4] Check ISOs (in "$maindir" & $imagesdir)"; bluetext
+  TEXT="[4] Locate ISOs (in $maindir & $imagesdir)"; bluetext
   TEXT="[5] Select a Custom VM Profile"; bluetext
-  TEXT="[6] Load/Reload KVM Kernel Modules (also enables Nested Virtualization)"; bluetext
+  TEXT="[6] Reload KVM Kernel Modules (enables Nested Virtualization)"; bluetext
   echo ''
   TEXT="[7] Return"; boldtext 
 
