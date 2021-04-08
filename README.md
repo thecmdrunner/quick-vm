@@ -103,7 +103,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 
 ![Screenshot](docs/img/install-5.png)
 
-+ Select **Custom Install**  (because the other is useless)
++ Select **Custom Install**  (because the other one is useless)
 
 ![Screenshot](docs/img/install-6.png)
 
