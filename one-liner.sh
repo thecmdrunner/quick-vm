@@ -93,6 +93,7 @@ kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
 
 check_kvm() {
 
+  kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
   echo ''
 
   if [[ $cpu_kvm_flags > 0 ]]; then
