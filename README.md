@@ -79,21 +79,38 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 <summary>Step by Step Guide - Click Me!</summary>
 <br>
 
+#### Please follow along the screenshots below to get the VM ready.
+
 + Click inside the VM Window and press any key when asked  
+
 ![Screenshot](docs/img/first-boot.png)
+
 ![Screenshot](docs/img/booting-iso.png)
+
 ![Screenshot](docs/img/install-1.png)
+
 ![Screenshot](docs/img/install-2.png)
+
 ![Screenshot](docs/img/install-3.png)
+
 ![Screenshot](docs/img/install-4.png)
+
 ![Screenshot](docs/img/install-5.png)
+
 ![Screenshot](docs/img/install-6.png)
+
 ![Screenshot](docs/img/install-7.png)
+
 ![Screenshot](docs/img/install-8.png)
+
 ![Screenshot](docs/img/install-9.png)
+
 ![Screenshot](docs/img/install-10.png)
+
 ![Screenshot](docs/img/install-11.png)
+
 ![Screenshot](docs/img/install-12.png)
+
 
 </br>
 </details>
