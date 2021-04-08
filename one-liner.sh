@@ -396,7 +396,7 @@ debian_setup() {
   TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
   echo -e ":: Installing Dependencies...\n"; 
   echo -e "\n"
-  sudo apt update -q && sudo apt upgrade -y && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
+  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
   TEXT="\n[✓] Setup Finished!"; greentext
 
 }
