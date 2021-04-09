@@ -170,7 +170,7 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 <summary>📍 Enable Libvirt Service & Virtual Networking</summary>
 <br>
 
-Executes the following commands only if systemd is present and running.
+**Executes the following commands only if systemd is present and running.**
 
 ```
 # Libvirt service and socket
@@ -186,7 +186,6 @@ sudo virsh net-start default
 </br>
 </details>
 </p>
-
 <p>
 <details>
 <summary>📍 Locate ISOs</summary>
