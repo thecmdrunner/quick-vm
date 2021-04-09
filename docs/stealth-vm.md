@@ -11,6 +11,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 4. You might notice some performance degradation in the Stealth VM
 5. Having a separate installation of Windows apart from normal Windows VM is encouraged.
 6. Sometimes running a kernel older than the recent Windows Update might cause a bootloop of the VM. So either only enable security updates ([use this](https://github.com/thegamerhat/win-debloat))
+7. Debloating Windows is beneficial as it won't have as much overhead.
 
 ## 🚀 Getting Started
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
@@ -40,11 +41,14 @@ If you need to mask your VM from checks that a few programs do to restrict users
 | --- |
 | ![Screenshot](img/hyper-v-enable.png) |
 
-- After enabling **Hyper-V**, select the restart option from the prompt shown in Windows.
+- After enabling **Hyper-V**, you will be asked to **REBOOT**, do it from that prompt itself and not from the Start Menu.
 
   > It is necessary to restart using Windows' built in method.
 > If you face a bootloop in Windows, try switching to the latest kernel available to you.
 
 > I have personally tested it on 5.10 LTS without any problems, but your mileage may vary.
 
-> DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
+## GPU Passthrough for Stealth VMs 
+
+- DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
+- 

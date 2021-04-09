@@ -236,6 +236,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 - remove virtio From stealth VM
 - GPU Passthrough options and notes
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
+- Single GPU Passthrough for NVIDIA and AMD
 
 ## Feature ideas
 
