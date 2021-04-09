@@ -194,7 +194,7 @@ sudo virsh net-start default
 <br>
 
 1. Checks if `win10.iso` and `virtio-win.iso` exist in ~/WindowsVM or /var/lib/libvirt/images
-2. Uses `rsync` to copy the ISOs to /var/lib/libvirt/images ($HOME subdirectories might cause permission issues.)
+2. Uses `rsync` to copy the ISOs to /var/lib/libvirt/images (__$HOME subdirectories might cause permission issues__)
 
 </br>
 </details>
