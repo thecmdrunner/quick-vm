@@ -77,7 +77,8 @@ bash <(curl -sL https://git.io/JOeOs)
 <details>
 <summary>Step by Step Guide - Click Me!</summary>
 <br>
-#### Please follow along the screenshots below to get the VM ready.
+
+### Please follow along the screenshots below to get the VM ready.
 
 + Click inside the VM Window and press any key when asked.  
 
