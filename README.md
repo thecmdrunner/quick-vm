@@ -209,14 +209,14 @@ If `kvm` is enabled correctly, then executes the following commands depending up
 
 ```
 # AMD
-sudo modprobe -r kvm_amd kvm        # safely unloads the modules
-sudo modprobe kvm                   # enables kvm first
-sudo modprobe kvm_amd nested=1      # then kvm_amd module with nested enabled
+sudo modprobe -r kvm_amd kvm      # safely unloads the modules
+sudo modprobe kvm                 # enables kvm first
+sudo modprobe kvm_amd nested=1    # then kvm_amd module with nested enabled
 
 # INTEL
-sudo modprobe -r kvm_intel kvm      # safely unloads the modules
-sudo modprobe kvm                   # enables kvm first
-sudo modprobe kvm_intel nested=1    # then kvm_intel module with nested enabled
+sudo modprobe -r kvm_intel kvm    # safely unloads the modules
+sudo modprobe kvm                 # enables kvm first
+sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 ```
 </br>
 </details>
