@@ -36,7 +36,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 bash <(curl -sL https://git.io/JqtJc) 
  ```
 
-> Here is the [Script](https://github.com/gamerhat18/quick-vm/blob/main/one-liner.sh)
+> Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
 ### 🖥 Host System Requirements:
  
@@ -139,6 +139,7 @@ Network Card: VirtIO (Recommended Disabled until debloated)
 <details>
 <summary>📍 Check KVM Compatibility</summary>
 <br>
+
 
 
 </br>
@@ -281,8 +282,8 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 ## 📬 Contact me
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
-[![Mail Me](https://img.shields.io/badge/gamerhat18@gmail.com-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:pranavkulkarni195@gmail.com) 
-[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/gamerhat18) 
+[![Mail Me](https://img.shields.io/badge/Mail-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
+[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/thegamerhat) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/pranav-kulkarni-94b975180) 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
 

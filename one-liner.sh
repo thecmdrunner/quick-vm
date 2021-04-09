@@ -450,7 +450,7 @@ simplesetup() {
   byee;
   
   if [[ -f /usr/bin/virt-manager ]]; then
-    /usr/bin/virt-manager &
+    bash /usr/bin/virt-manager &
   fi
 
 }
