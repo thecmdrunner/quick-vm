@@ -208,15 +208,15 @@ sudo virsh net-start default
 If `kvm` is enabled correctly, then executes the following commands depending upon the CPU.
 
 ```
-#AMD
-sudo modprobe -r kvm_amd kvm
-sudo modprobe kvm
-sudo modprobe kvm_amd nested=1
+# AMD
+sudo modprobe -r kvm_amd kvm        # safely unloads the modules
+sudo modprobe kvm                   # enables kvm first
+sudo modprobe kvm_amd nested=1      # then kvm_amd module with nested enabled
 
-#INTEL
-sudo modprobe -r kvm_intel kvm
-sudo modprobe kvm
-sudo modprobe kvm_intel nested=1
+# INTEL
+sudo modprobe -r kvm_intel kvm      # safely unloads the modules
+sudo modprobe kvm                   # enables kvm first
+sudo modprobe kvm_intel nested=1    # then kvm_intel module with nested enabled
 ```
 </br>
 </details>
