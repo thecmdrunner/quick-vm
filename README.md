@@ -33,7 +33,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 ### 🪄 One-liner to Setup KVM - Paste this in your terminal
 
 ```bash
-bash <(curl -sL https://git.io/JqtJc) 
+bash <(curl -sL https://git.io/JOeOs) 
  ```
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)

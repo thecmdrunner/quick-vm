@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# oneliner command: bash <(curl -sSL https://git.io/JqtJc) 
+# oneliner command: bash <(curl -sSL https://git.io/JOeOs) 
 # Credits for colored output https://techstop.github.io/bash-script-colors
 # For normal and bold text
 
@@ -56,7 +56,7 @@ cd ~/
 touch ~/quick-vm.log
 if [[ -f ~/quick-vm.log ]]
 then
-  echo -e "\nLogs for Quick-VM Project are written here. Link: https://github.com/gamerhat18/quick-vm\n\n\n" >> ~/quick-vm.log
+  echo -e "\nLogs for Quick-VM Project are written here. Link: https://github.com/thegamerhat/quick-vm\n\n\n" >> ~/quick-vm.log
   if [[ $EUID -ne 0 ]]; then
     echo " Not running this script as root. " >>  ~/quick-vm.log
   fi
@@ -339,7 +339,7 @@ gitndefine() {
   if [[ ! -d ~/quick-vm ]]; then
     cd ~/
     echo "cloning from git repo" >> ~/quick-vm.log
-    git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
+    git clone --recursive https://github.com/thegamerhat/quick-vm >> ~/quick-vm.log 
   
   else
     cd ~/quick-vm 
@@ -411,7 +411,7 @@ unknown_distro() {
   TEXT="\n[X] Skipping Distro Check...\n"; cyantext
   TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager.\n"; bluetext
   echo -e "\nAfter installing, run the Advanced Setup to complete the rest of the process."
-  echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/gamerhat18/Quick-VM\n"
+  echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/thegamerhat/Quick-VM\n"
   sleep 3
   byee;
 
@@ -514,7 +514,7 @@ stealth_define() {
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
   TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
-  TEXT='\nhttps://github.com/gamerhat18/quick-vm/blob/main/docs/stealth-vm.md\n'; whiteunderline 
+  TEXT='\nhttps://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n'; whiteunderline 
   sleep 5
   TEXT='\n\nCreating a Stealth VM'; greentext
 
@@ -547,7 +547,7 @@ vm_profile_define() {
   if [[ ! -d ~/quick-vm ]]; then
     cd ~/
     echo "cloning from git repo" >> ~/quick-vm.log
-    git clone --recursive https://github.com/gamerhat18/quick-vm >> ~/quick-vm.log 
+    git clone --recursive https://github.com/thegamerhat/quick-vm >> ~/quick-vm.log 
   fi
 
   cd ~/quick-vm && git pull >> ~/quick-vm.log; border;
