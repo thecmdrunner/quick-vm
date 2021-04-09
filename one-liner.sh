@@ -671,11 +671,11 @@ welcome() {
 
   TEXT="\n\n\x1b[1;32m:: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
-  TEXT="[1] Default install (Fully Automated & Quick)"; boldtext
+  TEXT="[1] Default install (Fully Automated & Quick)"; whitetext
   echo ''
-  TEXT="[2] Advanced install (Pick and choose what you want)"; boldtext
+  TEXT="[2] Advanced install (Pick and choose what you want)"; whitetext
   echo ''
-  TEXT="[3] Exit without installation"; boldtext
+  TEXT="[3] Exit without installation"; whitetext
   echo -e '\n\n'
   read -p "➜ Choose an option [1,2,3]: " user_choice
   echo ''
