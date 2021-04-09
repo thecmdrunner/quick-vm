@@ -140,9 +140,7 @@ bash <(curl -sL https://git.io/JOeOs)
 <br>
 
 1. Checks if `AMD-V` or `VT-d`/`VT-x` is supported on your AMD/Intel CPU.
-2. Checks if kvm is enabled using `virt-host-validate`.
-
-</br>
+2. Checks if kvm is enabled using `virt-host-validate`.</br>
 </details>
 </p>
 
@@ -154,14 +152,15 @@ bash <(curl -sL https://git.io/JOeOs)
 - Updates repositories (Debian and Fedora only) and installs required packages.
 
 ```
+# Debian
 sudo apt update -q && sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager
 
+# Fedora
 sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager
 
+# Arch
 sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
-```
-
-</br>
+```</br>
 </details>
 </p>
 
