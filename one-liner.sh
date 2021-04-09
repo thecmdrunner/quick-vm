@@ -182,7 +182,6 @@ libvirt_systemd_start () {
     exit
   fi
 
-
   echo ""
   TEXT=":: Now starting up libvirtd socket and service"; bluetext
   echo ""
@@ -260,7 +259,7 @@ checkiso() {
   
      elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
        TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
-       echo "Please make sure that it is in $maindir and run the script again!"
+       echo "Please make sure that ~/WindowsVM/win10.iso exists and run the script again!"
 
      else
        TEXT="ERROR OCCURED. Please check the logs."; redtext
@@ -284,6 +283,7 @@ checkiso() {
   
      elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
        TEXT="\n\nVirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
+       echo -e "\nPlease make sure that ~/WindowsVM/win10.iso exists and run the script again!\n'"
        TEXT="[!] Do you want to download them now? The VM will NOT boot without the drivers ISO.\n"; greentext
        
        read -p "➜ Please enter your choice [Y/n]: " virt_choice
@@ -304,14 +304,16 @@ checkiso() {
 
        elif [[ $virt_choice == 'n' ]]; then
         echo ''
-        TEXT="[✓] OK! Skipping VirtIO Drivers for now.\n"; bluetext
+        TEXT="[!] OK! Skipping VirtIO Drivers for now.\n"; bluetext
         echo "Make sure to download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
         echo "OR place it in $maindir and run the script again."
+        sleep 5;
 
        else
         TEXT="[!] Invalid Option! Skipping VirtIO Drivers for now,"; redtext
         echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
         echo "OR place it in $maindir and run the script again."
+        sleep 5;
        fi
 
      else

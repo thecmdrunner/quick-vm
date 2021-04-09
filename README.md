@@ -97,6 +97,7 @@ bash <(curl -sL https://git.io/JOeOs)
 ![Screenshot](docs/img/install-3.png)
 
 + Selecting **Windows 10 Pro N** will install **Windows 10 Pro** without extra bloat.
+> Note: Choose Windows 10 Pro XXX or Enterprise if you need Hyper-V for Stealth VM. 
 
 ![Screenshot](docs/img/install-4.png)
 
@@ -186,11 +187,14 @@ sudo virsh net-start default
 </br>
 </details>
 </p>
+
 <p>
 <details>
 <summary>📍 Locate ISOs</summary>
 <br>
 
+1. Checks if `win10.iso` and `virtio-win.iso` exist in ~/WindowsVM or /var/lib/libvirt/images
+2. Uses `rsync` to copy the ISOs to /var/lib/libvirt/images ($HOME subdirectories might cause permission issues.)
 
 </br>
 </details>
@@ -206,6 +210,10 @@ sudo virsh net-start default
 </details>
 </p>
 
+📍 [Making a Stealth VM](docs/stealth-vm.md)
+
+📍 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+
 ## 🔌 TODO-notes
 
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
@@ -220,6 +228,7 @@ sudo virsh net-start default
 ## Feature ideas
 
 - ask user to enter the path to the isos instead of putting it in one folder (just for giving an option to the user)
+- 
 
 ## 📬 Contact me
 
