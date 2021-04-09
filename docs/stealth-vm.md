@@ -3,6 +3,8 @@
 
 If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
 
+#### This method does not support hacking/cheating in video games.
+
 ## ⚠️ Things to keep in mind
 
 1. Windows 10 Home is not supported as it DOES NOT have Hyper-V feature unlike Pro and Enterprise.
@@ -44,9 +46,14 @@ If you need to mask your VM from checks that a few programs do to restrict users
 - After enabling **Hyper-V**, you will be asked to **REBOOT**, do it from that prompt itself and not from the Start Menu.
 
   > It is necessary to restart using Windows' built in method.
-> If you face a bootloop in Windows, try switching to the latest kernel available to you.
-
+If you face a bootloop in Windows, try switching to the latest kernel available to you.
 > I have personally tested it on 5.10 LTS without any problems, but your mileage may vary.
+
+Windows should now boot with Hyper-V Hypervisor enabled, and you are now running a Nested Windows Virtual Machine, which slims down the chances of VM detection by a lot.
+
+Microsoft's **Hyper-V** Hypervisor is a hardware-based virtualization program that can run VMs with hardware acceleration (though not as great and efficiently as `kvm`).
+
+Windows is using **Hyper-V** to mask our VM from other applications. But that means Windows does know that is is being Virtualized.
 
 ## GPU Passthrough for Stealth VMs 
 

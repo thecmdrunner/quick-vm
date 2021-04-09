@@ -56,7 +56,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows-Vanilla.qcow2"/>
+      <source file="/var/lib/libvirt/images/Windows10Stealth.qcow2"/>
       <target dev="sda" bus="sata"/>
       <boot order="1"/>
       <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
