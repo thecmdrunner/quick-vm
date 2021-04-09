@@ -6,7 +6,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 ## ⚠️ Things to keep in mind
 
 1. Windows 10 Home is not supported as it DOES NOT have Hyper-V feature unlike Pro and Enterprise.
-2. It is recommended to not install VirtIO drivers if you are going to passthrough a GPU (onboard/dedicated).
+2. It is recommended to not install VirtIO Display drivers if you are going to passthrough a GPU (onboard/dedicated).
 3. We are fooling Apps and Softwares, and not Windows itself, as that would be way more hectic, unreliable, and at the end of the not ideal.
 4. You might notice some performance degradation in the Stealth VM
 5. Having a separate installation of Windows apart from normal Windows VM is encouraged.
