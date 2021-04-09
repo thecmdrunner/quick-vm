@@ -437,7 +437,7 @@ fi
 
 simplesetup() {
   
-  echo -e "\nStarting Simple Setup"
+  TEXT="\nStarting Simple Setup"; cyantext
   install_all;
   border;
   check_kvm;
@@ -448,7 +448,10 @@ simplesetup() {
   gitndefine;
   reload_kvm;
   byee;
-  virt-manager & 
+  
+  if [[ -f /usr/bin/virt-manager ]]; then
+    /usr/bin/virt-manager &
+  fi
 
 }
 
