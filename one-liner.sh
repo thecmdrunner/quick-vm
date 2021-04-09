@@ -633,7 +633,7 @@ do
   TEXT="[7] Return"; boldtext 
 
   echo ''
-  read -p "➜ Choose a task from above [1-6]: " setup_choice
+  read -p "➜ Choose a task from above [1-7]: " setup_choice
   echo ''
 
   if [[ $setup_choice == 1 ]]; then
