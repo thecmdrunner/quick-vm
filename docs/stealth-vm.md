@@ -51,4 +51,4 @@ If you need to mask your VM from checks that a few programs do to restrict users
 ## GPU Passthrough for Stealth VMs 
 
 - DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
-- 
+- Single GPU Passthrough method works, but isn't heavily tested yet. 
