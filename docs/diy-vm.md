@@ -2,11 +2,6 @@
 
 ## 🛸 DIY (From Scratch) - WIP
 
-<p>
-<details>
-<summary>Manual Step-by-Step-Process</summary>
-<br>
-
 ### First, you must install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 
 <p>
@@ -73,7 +68,3 @@ You will need **Windows 10 Pro/Pro N**, as it has RDP Support which is needed if
 
 **VirtIO Drivers** ➜ `virtio-win.iso`
 
-
-</br>
-</details>
-</p>
