@@ -160,7 +160,8 @@ sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager
 
 # Arch
 sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
-```</br>
+```
+</br>
 </details>
 </p>
 
@@ -169,8 +170,19 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 <summary>📍 Enable Libvirt Service & Virtual Networking</summary>
 <br>
 
-Executes the following commands
+Executes the following commands only if systemd is present and running.
 
+```
+# Libvirt service and socket
+sudo systemctl enable --now libvirtd
+
+# Virtlogd
+sudo systemctl enable --now virtlogd
+
+# Virtual Networking
+sudo virsh net-autostart default
+sudo virsh net-start default
+```
 </br>
 </details>
 </p>
