@@ -139,7 +139,8 @@ bash <(curl -sL https://git.io/JOeOs)
 <summary>📍 Check KVM Compatibility</summary>
 <br>
 
-
+1. Checks if `AMD-V` or `VT-d`/`VT-x` is supported on your AMD/Intel CPU.
+2. Checks if kvm is enabled using `virt-host-validate`.
 
 </br>
 </details>
@@ -150,6 +151,15 @@ bash <(curl -sL https://git.io/JOeOs)
 <summary>📍 Install required packages</summary>
 <br>
 
+- Updates repositories (Debian and Fedora only) and installs required packages.
+
+```
+sudo apt install -y qemu qemu-kvm libvirt-bin libvirt-daemon libvirt-clients bridge-utils virt-manager
+
+sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager
+
+sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
+```
 
 </br>
 </details>
