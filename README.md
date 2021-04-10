@@ -7,7 +7,6 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-
 # Quick-VM (WORK IN PROGRESS) 
 
 Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
@@ -196,6 +195,45 @@ sudo virsh net-start default
 1. Checks if `win10.iso` and `virtio-win.iso` exist in ~/WindowsVM or /var/lib/libvirt/images
 2. Uses `rsync` to copy the ISOs to /var/lib/libvirt/images (_$HOME subdirectories might cause permission issues_)
 
+</br>
+</details>
+</p>
+
+<p>
+<details>
+<summary>📍 Selecting a VM Profile</summary>
+<br>
+[1] Serious Business - Ideal
+
+```
+Specs: 
+6 CPU Threads
+8 GB RAM
+```
+
+[2] Decently Powerful [Default]
+
+```
+Specs: 
+4 CPU Threads
+6 GB RAM
+```
+
+[3] Lightweight and Barebones
+
+```
+Specs: 
+2 CPU Threads
+4 GB RAM
+```
+
+[4] Stealth VM (Beta) - Ideal for DRM/Anticheat Programs
+
+```
+Specs: 
+4 CPU Threads
+6 GB RAM
+```
 </br>
 </details>
 </p>
