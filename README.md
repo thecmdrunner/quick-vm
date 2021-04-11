@@ -203,7 +203,7 @@ sudo virsh net-start default
 <details>
 <summary>📍 Selecting a VM Profile</summary>
 <br>
-[1] Serious Business - Ideal
+1. Serious Business - Ideal
 
 ```
 Specs: 
@@ -211,7 +211,7 @@ Specs:
 8 GB RAM
 ```
 
-[2] Decently Powerful [Default]
+2. Decently Powerful [Default]
 
 ```
 Specs: 
@@ -219,7 +219,7 @@ Specs:
 6 GB RAM
 ```
 
-[3] Lightweight and Barebones
+3. Lightweight and Barebones
 
 ```
 Specs: 
@@ -227,7 +227,7 @@ Specs:
 4 GB RAM
 ```
 
-[4] Stealth VM (Beta) - Ideal for DRM/Anticheat Programs
+4. Stealth VM (Beta) - Ideal for DRM/Anticheat Programs
 
 ```
 Specs: 
