@@ -133,9 +133,11 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
----
-
 ## ⚔️ Advanced Install
+
+### 🔖 [Making a Stealth VM](docs/stealth-vm.md)
+
+### 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
 
 <p>
 <details>
@@ -263,11 +265,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 </details>
 </p>
 
-### 🔖 [Making a Stealth VM](docs/stealth-vm.md)
-
-### 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
-
-## Other Useful guides
+## Some more useful stuff
 
 1. Single GPU Passthrough - [joeknock90]() and [Stetsed](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
 
