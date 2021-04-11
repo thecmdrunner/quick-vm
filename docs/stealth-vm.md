@@ -66,3 +66,7 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 - DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
 
 ## 📣 Credits
+
+- **The Entire [r/VFIO](https://reddit.com/) Community!**
+- **SomeOrdinaryGamers** - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
+- **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
