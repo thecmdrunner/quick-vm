@@ -141,7 +141,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 <p>
 <details>
-<summary>📍 Check KVM Compatibility</summary>
+<summary>📍 **Check KVM Compatibility**</summary>
 <br>
 
 1. Checks if `AMD-V` or `VT-d`/`VT-x` is supported on your AMD/Intel CPU.
@@ -151,7 +151,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 <p>
 <details>
-<summary>📍 Install required packages</summary>
+<summary>📍 **Install required packages**</summary>
 <br>
 
 - Updates repositories (Debian and Fedora only) and installs required packages.
@@ -172,7 +172,7 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 
 <p>
 <details>
-<summary>📍 Enable Libvirt Service & Virtual Networking</summary>
+<summary>📍 **Enable Libvirt Service & Virtual Networking**</summary>
 <br>
 
 **Executes the following commands only if systemd is present and running.**
@@ -194,7 +194,7 @@ sudo virsh net-start default
 
 <p>
 <details>
-<summary>📍 Locate ISOs</summary>
+<summary>📍 **Locate ISOs**</summary>
 <br>
 
 1. Checks if `win10.iso` and `virtio-win.iso` exist in ~/WindowsVM or /var/lib/libvirt/images
@@ -206,7 +206,7 @@ sudo virsh net-start default
 
 <p>
 <details>
-<summary>📍 Selecting a VM Profile</summary>
+<summary>📍 **Selecting a VM Profile**</summary>
 <br>
 1. Serious Business - Ideal
 
@@ -245,7 +245,7 @@ Specs:
 
 <p>
 <details>
-<summary>📍 Reload KVM Kernel Modules</summary>
+<summary>📍 **Reload KVM Kernel Modules**</summary>
 <br>
 
 If `kvm` is enabled correctly, then executes the following commands depending upon the CPU.
@@ -281,10 +281,10 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## 📣 Credits
 
-- The Entire [r/VFIO](https://reddit.com/) Community!
-- SomeOrdinaryGamers - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
-- Zeptic - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
-- joeknock90 (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough
+- **The Entire [r/VFIO](https://reddit.com/) Community!**
+- **SomeOrdinaryGamers** - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
+- **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
+- **joeknock90** (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough Central Point
 
 ## 📬 Contact me
 
