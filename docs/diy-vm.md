@@ -8,6 +8,7 @@
 <details>
 <summary>Installing Dependencies</summary>
 <br>
+
 ### Install Qemu-KVM, Virt-Manager, Libvirt and other dependencies on your distro.
 
 **Note:** Any Linux distribution will work just fine. You do need to install `libvirt`, `virt-manager`, `qemu`, and other required dependencies.
@@ -43,7 +44,6 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 </br> 
 </details>
 </p>
- 
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
 ## Download the Windows 10 ISO and KVM VirtIO drivers
