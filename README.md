@@ -210,7 +210,7 @@ sudo virsh net-start default
 <br>
 1. Serious Business - Ideal for Gaming, Content Creation and other heavy duty applications
 
---------------------
+
 |Part|Specification|
 | --- | --- |
 |CPU|6 vCPU|
@@ -218,6 +218,7 @@ sudo virsh net-start default
 |Storage|1 TiB|
 
 2. Decently Powerful [Default] - Ideal for
+
 
 |Part|Specification|
 | --- | --- |
@@ -227,25 +228,23 @@ sudo virsh net-start default
 
 3. Lightweight and Barebones
 
+
 |Part|Specification|
 | --- | --- |
 |CPU|2 vCPU|
 |Memory|4 GiB|
 |Storage|1 TiB|
 
-```
-Specs: 
-2 CPU Threads
-4 GB RAM
-```
-
 4. Stealth VM (Beta) - Ideal for DRM/Anticheat Programs
 
-```
-Specs: 
-4 CPU Threads
-6 GB RAM
-```
+
+|Part|Specification|
+| --- | --- |
+|CPU|2 vCPU|
+|Memory|4 GiB|
+|Storage|1 TiB|
+
+
 </br>
 </details>
 </p>
