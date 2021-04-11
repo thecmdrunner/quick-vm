@@ -208,6 +208,7 @@ sudo virsh net-start default
 <details>
 <summary>📍 Selecting a VM Profile</summary>
 <br>
+
 ### 1. Serious Business 
 
 >Ideal for Gaming, Content Creation and other heavy duty applications.
