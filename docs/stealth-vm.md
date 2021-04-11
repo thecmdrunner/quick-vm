@@ -63,4 +63,4 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 - Single GPU Passthrough method works, but isn't heavily tested yet. 
 - DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
 
-## 💰📣 Credits
+## 📣 Credits
