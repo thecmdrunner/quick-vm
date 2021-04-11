@@ -4,16 +4,19 @@
 If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
 
 #### This method does not support hacking/cheating in video games.
+> Do what you want at your own risk, DO NOT blame me if you get your account banned or get yourself caught using a VM. 
+
 
 ## ⚠️ Things to keep in mind
 
 1. Windows 10 Home is not supported as it DOES NOT have Hyper-V feature unlike Pro and Enterprise.
+2. Visit [r/VFIO](https://reddit.com/r/VFIO) 
 2. It is recommended to not install VirtIO Display drivers if you are going to passthrough a GPU (onboard/dedicated).
-3. We are fooling Apps and Softwares, and not Windows itself, as that would be way more hectic, unreliable, and at the end of the not ideal.
-4. You might notice some performance degradation in the Stealth VM
-5. Having a separate installation of Windows apart from normal Windows VM is encouraged.
-6. Sometimes running a kernel older than the recent Windows Update might cause a bootloop of the VM. So either only enable security updates ([use this](https://github.com/thegamerhat/win-debloat))
-7. Debloating Windows is beneficial as it won't have as much overhead.
+3. We are fooling Apps and Softwares, and not Windows itself, because it would be way more hectic, unreliable, and at the end of the day not ideal.
+4. You might experience some performance degradation in this kind of setup.
+5. Using a normal Windows VM for Non-DRM/Anticheat purposes is encouraged.
+6. Sometimes running a kernel older than the recent Windows Update might cause a bootloop of the VM. So either only enable security updates ([use this](https://github.com/thegamerhat/win-debloat)), or keep up with the recent Kernel Versions, or just don't update Windows that frequently.
+7. Debloating Windows is beneficial & adviced as it will have less overhead as Windows continues to bloat up.
 
 ## 🚀 Getting Started
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
