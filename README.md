@@ -267,8 +267,8 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## Some more useful stuff
 
-1. Single GPU Passthrough - [joeknock90]() and [Stetsed](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
-
+1. Single GPU Passthrough - [SomeOrdinaryGamers](https://youtube.com/watch?v=BUSrdUoedTo), [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough) and [Stetsed](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
+2. 
 
 ## 🎁 Contribute/Help
 
@@ -285,7 +285,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
 [![Mail Me](https://img.shields.io/badge/Mail-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
-[![Mail Me](https://img.shields.io/badge/Mail-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
+  [![Mail Me](https://img.shields.io/badge/Mail-%23663399.svg?&style=flat-square&logo=proton-mail&logoColor=white)](mailto:gamerhat18@protonmail.com) 
 [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/thegamerhat) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/pranav-kulkarni-94b975180) 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
