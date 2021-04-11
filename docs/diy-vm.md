@@ -46,6 +46,7 @@ Instead of `Systemd`, you can use `OpenRC`, `Runit`, `SysVinit` as well.
 </br> 
 </details>
 </p>
+
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
 ## Download the Windows 10 ISO and KVM VirtIO drivers
@@ -58,4 +59,11 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 
 **Note:** Place the ISOs in `/var/lib/libvirt/images/` to avoid permission issues.
 
+
 ## TODO: qemu-img create
+
+To create a virtual disk, enter the following in your terminal. Instead of `1024G` can select any amount of storage depending on your needs. 
+
+```bash
+qemu-img create -f qcow2 Windows10Vanilla.qcow2 1024G
+```
