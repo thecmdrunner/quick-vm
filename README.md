@@ -141,7 +141,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 <p>
 <details>
-<summary>📍 **Check KVM Compatibility**</summary>
+<summary>📍 Check KVM Compatibility</summary>
 <br>
 
 1. Checks if `AMD-V` or `VT-d`/`VT-x` is supported on your AMD/Intel CPU.
@@ -151,7 +151,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 <p>
 <details>
-<summary>📍 **Install required packages**</summary>
+<summary>📍 Install required packages</summary>
 <br>
 
 - Updates repositories (Debian and Fedora only) and installs required packages.
@@ -172,7 +172,7 @@ sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dns
 
 <p>
 <details>
-<summary>📍 **Enable Libvirt Service & Virtual Networking**</summary>
+<summary>📍 Enable Libvirt Service & Virtual Networking</summary>
 <br>
 
 **Executes the following commands only if systemd is present and running.**
@@ -194,7 +194,7 @@ sudo virsh net-start default
 
 <p>
 <details>
-<summary>📍 **Locate ISOs**</summary>
+<summary>📍 Locate ISOs</summary>
 <br>
 
 1. Checks if `win10.iso` and `virtio-win.iso` exist in ~/WindowsVM or /var/lib/libvirt/images
@@ -206,25 +206,31 @@ sudo virsh net-start default
 
 <p>
 <details>
-<summary>📍 **Selecting a VM Profile**</summary>
+<summary>📍 Selecting a VM Profile</summary>
 <br>
 1. Serious Business - Ideal for Gaming, Content Creation and other heavy duty applications
 
 |Part|Specification|
 | --- | --- |
-|CPU Threads|6|
+|CPU|6 vCPU|
 |Memory|8 GiB|
 |Storage|1 TiB|
 
 2. Decently Powerful [Default]
 
-```
-Specs: 
-4 CPU Threads
-6 GB RAM
-```
+|Part|Specification|
+| --- | --- |
+|CPU|4 vCPU|
+|Memory|6 GiB|
+|Storage|1 TiB|
 
 3. Lightweight and Barebones
+
+|Part|Specification|
+| --- | --- |
+|CPU|2 vCPU|
+|Memory|4 GiB|
+|Storage|1 TiB|
 
 ```
 Specs: 
