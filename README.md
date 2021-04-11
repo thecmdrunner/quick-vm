@@ -131,7 +131,10 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
-<br />
+---
+### Yes
+---
+
 
 ## ⚔️ Advanced Install
 
