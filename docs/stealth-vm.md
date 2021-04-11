@@ -1,7 +1,7 @@
 
 # 🛡 Making a Stealth VM
 
-This Section is inherently always Work-in-Progress (see [r/VFIO](https://reddit.com/r/VFIO))
+### This Section is inherently always Work-in-Progress (see [r/VFIO](https://reddit.com/r/VFIO))
 
 If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
 
@@ -11,7 +11,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 ## ⚠️ Things to keep in mind
 
-1. Windows 10 Home is not supported as it DOES NOT have Hyper-V feature unlike Pro and Enterprise.
+1. Windows 10 Home is not supported as it DOES NOT have the Hyper-V feature unlike Pro and Enterprise.
 2. Visit [r/VFIO](https://reddit.com/r/VFIO) for the latest updates and workarounds for your problems. This guide is heavily been influenced from the work done by the awesome community over there.
 2. It is recommended to not install VirtIO Display drivers if you are going to passthrough a GPU (onboard/dedicated).
 3. We are fooling Apps and Softwares, and not Windows itself, because it would be way more hectic, unreliable, and at the end of the day not ideal.
