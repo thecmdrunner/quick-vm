@@ -208,8 +208,13 @@ sudo virsh net-start default
 <details>
 <summary>📍 Selecting a VM Profile</summary>
 <br>
-1. Serious Business - Ideal for Gaming, Content Creation and other heavy duty applications
+### 1. Serious Business 
 
+>Ideal for Gaming, Content Creation and other heavy duty applications.
+>
+> **Adobe Creative Cloud**
+> **3d Printing Software**: CHITUBOX
+> **360 Photo/Video Software**: VeeR Editor
 
 |Part|Specification|
 | --- | --- |
@@ -217,7 +222,9 @@ sudo virsh net-start default
 |Memory|8 GiB|
 |Storage|1 TiB|
 
-2. Decently Powerful [Default] - Ideal for
+### 2. Decently Powerful [Default]
+
+>Ideal for Office 365, and some light Photoshop.
 
 
 |Part|Specification|
@@ -226,7 +233,12 @@ sudo virsh net-start default
 |Memory|6 GiB|
 |Storage|1 TiB|
 
-3. Lightweight and Barebones
+### 3. Lightweight and Barebones
+
+>Ideal for basic stuff that requires Windows. 
+>
+> **Printer Software, CNC Application**
+> **Tax Software in Banks**
 
 
 |Part|Specification|
@@ -235,7 +247,9 @@ sudo virsh net-start default
 |Memory|4 GiB|
 |Storage|1 TiB|
 
-4. Stealth VM (Beta) - Ideal for DRM/Anticheat Programs
+### 4. Stealth VM (Beta)
+
+>Ideal for DRM/Anticheat Programs like Valorant, Rainbow Six: Siege
 
 
 |Part|Specification|
