@@ -16,7 +16,6 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 >Till then, read [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) and [Arch Wiki - PCI Passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF).
 
 # 🚀 Getting Started
-====================
 
 ### 🌟 Simple Install:
 
@@ -132,6 +131,7 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
+<br />
 
 ## ⚔️ Advanced Install
 
