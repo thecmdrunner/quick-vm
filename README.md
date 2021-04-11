@@ -133,6 +133,7 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
+---
 
 ## ⚔️ Advanced Install
 
@@ -294,3 +295,4 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/pranav-kulkarni-94b975180) 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
 
+## 📣 Credits
