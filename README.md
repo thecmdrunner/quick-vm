@@ -279,8 +279,8 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 ## 🔮 Feature ideas
 
 - ask user to enter the path to the isos instead of putting it in one folder (just for giving an option to the user)
-- Better design?
-- ꧁ ability to make multiple VMs from the same profile.
+- ꧁ Better design ꧂
+- ability to make multiple VMs from the same profile.
 
 ## 📬 Contact me
 
