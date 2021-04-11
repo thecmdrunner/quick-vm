@@ -1,5 +1,7 @@
 
-# 🛡 Making a Stealth VM (WIP)
+# 🛡 Making a Stealth VM
+
+This Section is inherently always Work-in-Progress (see [r/VFIO](https://reddit.com/r/VFIO))
 
 If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
 
