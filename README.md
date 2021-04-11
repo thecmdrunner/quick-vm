@@ -29,7 +29,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 
 4. Open your terminal and enter the command shown below  
 
-### 🪄 One-liner to Setup KVM - Paste this in your terminal
+### 🪄 🐧One-liner to Setup KVM - Paste this in your terminal
 
 ```bash
 bash <(curl -sL https://git.io/JOeOs) 
