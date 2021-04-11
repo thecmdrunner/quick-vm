@@ -97,9 +97,6 @@ if [[ -f /usr/bin/virt-host-validate ]]; then
   kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
 fi
 
-
-
-
 check_kvm() {
 
   # throws up an error in front of the user if 
