@@ -326,5 +326,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/thegamerhat)
 
+[![Instagran](https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/thegamerhat)
+
 ![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
 : gamerhat#2074
