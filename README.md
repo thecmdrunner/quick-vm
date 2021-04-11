@@ -274,9 +274,11 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## 🎁 Contribute/Help
 
-Stuff gets changed all the time, and I am only a kid maintaining this.
-If you want to help, THANK YOU, that will be wonderful!
-This project is aimed at making a Windows VM for gaming/content creation, paired with [WinApps](https://github.com/Fmstrat/winapps/)
+**Stuff gets changed all the time, and I am only a kid maintaining this.**
+
+**If you want to help, THANK YOU, that will be wonderful!**
+
+**This project is aimed at making a Windows VM for gaming/content creation, paired with [WinApps](https://github.com/Fmstrat/winapps/) to make it easier for people to switch to Linux while still being able to use their Adobe CC apps, MS Office, Play Games etc.**
 
 ## 📣 Credits
 
