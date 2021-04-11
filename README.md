@@ -251,7 +251,7 @@ sudo virsh net-start default
 
 <p>
 <details>
-<summary>📍 **Reload KVM Kernel Modules**</summary>
+<summary>📍 Reload KVM Kernel Modules</summary>
 <br>
 
 If `kvm` is enabled correctly, then executes the following commands depending upon the CPU.
