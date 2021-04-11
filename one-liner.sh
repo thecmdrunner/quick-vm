@@ -90,11 +90,20 @@ byee() {
 cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
 cpu_vt=$(lscpu | grep Virtualization)
 
-if [[ -f /usr/bin/virt-host-validate ]]; then
+# throws up an error in front of the user if 
+# /usr/bin/virt-host-validate does not exist
+
+if [[ -f /usr/bin/virt-host-validate ]]; then 
   kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
 fi
 
+
+
+
 check_kvm() {
+
+  # throws up an error in front of the user if 
+  # /usr/bin/virt-host-validate does not exist
 
   if [[ -f /usr/bin/virt-host-validate ]]; then
     kvm_pass=$(/usr/bin/virt-host-validate | grep '/dev/kvm exists')
@@ -102,8 +111,13 @@ check_kvm() {
 
   echo ''
 
+  # if the output is more than 0 then,
+  # virtualization is supported, else not
   if [[ $cpu_kvm_flags > 0 ]]; then
 
+
+    # if the output is more than 0 then,
+    # virtualization is supported, else not
     if [[ $cpu_vt =~ "AMD-V" ]]; then
       TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
       cpubrand='AMD'
@@ -461,6 +475,8 @@ simplesetup() {
 
 vm1_define() {
 
+  sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10highend.qcow2
+
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-highend.xml\n'
 
@@ -490,6 +506,8 @@ vm2_define() {
 }
 
 vm3_define() {
+
+  sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10light.qcow2
 
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-light.xml\n'

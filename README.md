@@ -276,7 +276,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
 - Single GPU Passthrough for NVIDIA and AMD
 
-## Feature ideas
+## 🔮 Feature ideas
 
 - ask user to enter the path to the isos instead of putting it in one folder (just for giving an option to the user)
 - 
