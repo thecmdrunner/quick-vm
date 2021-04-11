@@ -315,11 +315,11 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 ## 📬 Contact me
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
-[![Telegram](https://img.shields.io/badge/Telegram-%2326A5E4.svg?&style=flat-square&logo=telegram&logoColor=white)](https://t.me/thegamerhat)
-[![Mail Me](https://img.shields.io/badge/Gmail-%23EA4335.svg?&style=flat-square&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
-[![Secure Mail Me](https://img.shields.io/badge/ProtonMail-%23663399.svg?&style=flat-square&logo=proton-mail&logoColor=white)](mailto:gamerhat18@protonmail.com) 
-[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/thegamerhat) 
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
+[![Telegram](https://img.shields.io/badge/Telegram-%2326A5E4.svg?&style=style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/thegamerhat)
+[![Mail Me](https://img.shields.io/badge/Gmail-%23EA4335.svg?&style=style=for-the-badge&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
+[![Secure Mail Me](https://img.shields.io/badge/ProtonMail-%23663399.svg?&style=style=for-the-badge&logo=proton-mail&logoColor=white)](mailto:gamerhat18@protonmail.com) 
+[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=style=for-the-badge&logo=github&logoColor=white)](https://github.com/thegamerhat) 
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
 
-![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=flat-square&logo=discord&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
 : gamerhat#2074
