@@ -28,7 +28,9 @@ sudo dnf -y install qemu-kvm libvirt bridge-utils virt-install virt-manager
 sudo pacman -S --noconfirm qemu libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager
  ```
 
-### After installing the dependencies, make sure you enable the following services
+### After installing the dependencies, make sure you enable the following services.
+
+Instead of `Systemd`, you can use `OpenRC`, `Runit`, `SysVinit` as well.
 
 ```bash
  # Enable Libvirt Service
