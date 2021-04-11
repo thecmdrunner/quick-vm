@@ -260,9 +260,9 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 </details>
 </p>
 
-📍 [Making a Stealth VM](docs/stealth-vm.md)
+🔖 [Making a Stealth VM](docs/stealth-vm.md)
 
-📍 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
 
 ## 🔌 TODO-notes
 
