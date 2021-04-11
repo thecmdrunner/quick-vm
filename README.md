@@ -324,7 +324,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=style=for-the-badge&logo=github&logoColor=white)](https://github.com/thegamerhat) 
 
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/gamerhat18)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/thegamerhat)
 
 ![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
 : gamerhat#2074
