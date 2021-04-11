@@ -13,7 +13,7 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 
 >Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173) (no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
 >
->Till then, read [Arch Wiki - PCI Passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) and [this]().
+>Till then, read [Arch Wiki - PCI Passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) and [this](https://github.com/thegamerhat/quick-vm#some-more-useful-stuff).
 
 # 🚀 Getting Started
 
@@ -284,6 +284,8 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 **If you want to help, THANK YOU, that will be wonderful!** 💜
 
 **This project is aimed at making a Windows VM for gaming/content creation, paired with [WinApps](https://github.com/Fmstrat/winapps/) to make it easier for people to switch to Linux while still being able to use their Adobe CC apps, MS Office, Play Games etc.**
+
+Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs/list-things-todo.md) that will make this project way better!
 
 ## 📣 Credits
 
