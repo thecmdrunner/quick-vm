@@ -267,6 +267,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## 🔌 TODO-notes
 
+- Maybe add a features section?
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - (maybe?) IOMMU and VFIO
 - GPU Passthrough edits in XML for `kvm hidden state` and `vendor_id` 
