@@ -24,8 +24,8 @@ Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system 
 2. Place the ISOs in either `~/WindowsVM/` or `/var/lib/libvirt/images/`.
 
 3. Rename the ISOs as shown below:
-  - **Windows 10 ISO** ➜ `win10.iso`
-  - **VirtIO Drivers** ➜ `virtio-win.iso`
+    - **Windows 10 ISO** ➜ `win10.iso`
+    - **VirtIO Drivers** ➜ `virtio-win.iso`
 
 4. Open your terminal and enter the command shown below  
 

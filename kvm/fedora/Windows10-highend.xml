@@ -67,7 +67,7 @@
     </disk>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows10Vanilla.qcow2"/>
+      <source file="/var/lib/libvirt/images/Windows10highend.qcow2"/>
       <target dev="vda" bus="virtio"/>
       <boot order="2"/>
       <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>

@@ -67,7 +67,7 @@
     </disk>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows10Vanilla.qcow2"/>
+      <source file="/var/lib/libvirt/images/Windows10light.qcow2"/>
       <target dev="vda" bus="virtio"/>
       <boot order="2"/>
       <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
@@ -156,12 +156,4 @@
       <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
     </memballoon>
   </devices>
-  <qemu:commandline>
-    <qemu:arg value="-global"/>
-    <qemu:arg value="kvm-pit.lost_tick_policy=discard"/>
-    <qemu:arg value="-rtc"/>
-    <qemu:arg value="base=localtime"/>
-    <qemu:arg value="-cpu"/>
-    <qemu:arg value="host,host-cache-info=on,kvm=off,l3-cache=on,kvm-hint-dedicated=on,migratable=no,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=Nvidia43FIX,+invtsc,+topoext"/>
-  </qemu:commandline>
 </domain>
