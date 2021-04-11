@@ -208,13 +208,13 @@ sudo virsh net-start default
 <details>
 <summary>📍 **Selecting a VM Profile**</summary>
 <br>
-1. Serious Business - Ideal
+1. Serious Business - Ideal for Gaming, Content Creation and other heavy duty applications
 
-```
-Specs: 
-6 CPU Threads
-8 GB RAM
-```
+|Part|Specification|
+| --- | --- |
+|CPU Threads|6|
+|Memory|8 GiB|
+|Storage|1 TiB|
 
 2. Decently Powerful [Default]
 
