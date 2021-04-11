@@ -67,6 +67,6 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 
 ## 📣 Credits
 
-- **The Entire [r/VFIO](https://reddit.com/) Community!**
-- **SomeOrdinaryGamers** - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
-- **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
+- **The Entire [r/VFIO](https://reddit.com/) Community!** ❤️
+- **SomeOrdinaryGamers** - For [Vanguard bypass](https://youtube.com/watch?v=BUSrdUoedTo)
+- **Zeptic** - For [helping solve various issues](https://youtube.com/watch?v=VKh2eKPnmXs)
