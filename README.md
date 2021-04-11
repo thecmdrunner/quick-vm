@@ -37,38 +37,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
-### 🖥 Host System Requirements:
- 
-  - **Ubuntu 18.04** or newer
-  - **Fedora 31** or newer
-  - **Arch** (Read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setting)
-  - **4 CPUs** (2 Multi-Threaded Cores at minimum)
-  - **8 GiB Memory** (more = better)
-  - **40+ GiB of Free Storage** typically (**SSD Recommened**)
-  
-> **Linux Kernel 5.4 LTS** or newer is recommended 
-
-<p>
-<details>
-<summary>Default specs of the VM</summary>
-<br>
-
-**CPU**: 4 vCPUs Allocated
-
-**GPU**: VirtIO or [VFIO GPU Passthrough - ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
-
-**Memory**: Total 6 GiB, 1 GiB Allocated initially
-
-**Storage Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
-
-**DVD Drive**: Windows 10 ISO
-
-**Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
-
-**Network Card**: VirtIO (Recommended Disabled until debloated)
-</br>
-</details>
-</p>
+---
 
 ### ✅ Getting the VM Ready:
 
@@ -131,9 +100,38 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
----
-### Yes
----
+### 🖥 Host System Requirements:
+ 
+  - **Ubuntu 18.04** or newer
+  - **Fedora 31** or newer
+  - **Arch** (Read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setting)
+  - **4 CPUs** (2 Multi-Threaded Cores at minimum)
+  - **8 GiB Memory** (more = better)
+  - **40+ GiB of Free Storage** typically (**SSD Recommened**)
+  
+> **Linux Kernel 5.4 LTS** or newer is recommended 
+
+<p>
+<details>
+<summary>Default specs of the VM</summary>
+<br>
+
+**CPU**: 4 vCPUs Allocated
+
+**GPU**: VirtIO or [VFIO GPU Passthrough - ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) or [Single-GPU-Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) 
+
+**Memory**: Total 6 GiB, 1 GiB Allocated initially
+
+**Storage Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
+
+**DVD Drive**: Windows 10 ISO
+
+**Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
+
+**Network Card**: VirtIO (Recommended Disabled until debloated)
+</br>
+</details>
+</p>
 
 
 ## ⚔️ Advanced Install
