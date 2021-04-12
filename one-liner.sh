@@ -49,6 +49,9 @@ whiteunderline() {
 totalmem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 totalcpus=$(getconf _NPROCESSORS_ONLN)
 
+# what distro
+distro=''
+
 # Checks if the current working directory is read only and warns the user.
 # Logs cant be stored on a READ-ONLY Drive.
 
@@ -65,6 +68,18 @@ else
   TEXT="YOU MAY CONTINUE, BUT MIGHT ENCOUNTER ERRORS."; redtext
 fi
 
+# What main distro is the system running
+
+if [[ -f /usr/bin/apt ]]; then
+  distro='debian'
+elif [[ -f /usr/bin/dnf ]]; then
+  distro='fedora'
+elif [[ -f /usr/bin/pacman ]]; then
+  distro='arch'
+else
+  distro='unknown'
+fi
+
 
 ### PRE-DEFINED OPERATIONS
 
@@ -73,6 +88,7 @@ fi
 border() {
   TEXT="\n--------------------------------------------------------------------------------"; whitetext
 }
+
 
 # exit function
 
@@ -193,12 +209,9 @@ libvirt_systemd_start () {
     exit
   fi
 
-  echo ""
-  TEXT=":: Now starting up libvirtd socket and service"; bluetext
-  echo ""
+  TEXT="\n:: Now starting up libvirtd socket and service"; bluetext
 
-  TEXT=":: Executing 'sudo systemctl enable --now libvirtd' ..."; bluetext
-  echo ""
+  TEXT="\n:: Executing 'sudo systemctl enable --now libvirtd'\n"; bluetext
 
   sudo systemctl enable libvirtd >> ~/quick-vm.log
   sudo systemctl start libvirtd >> ~/quick-vm.log
@@ -209,28 +222,21 @@ libvirt_systemd_start () {
   sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  echo ""
-  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
-  echo ""
+  TEXT="\n[✓] Done. Logs saved to ~/quick-vm.log\n"; greentext
 
   TEXT=":: Now starting up virtlogd socket and service"; bluetext
-  echo ""
 
-  TEXT=":: Executing 'sudo systemctl enable --now virtlogd'"; bluetext
-  echo ""
+  TEXT="\n:: Executing 'sudo systemctl enable --now virtlogd'\n"; bluetext
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
 
-  TEXT=":: Enabling Virtual Network Bridge at startup'"; bluetext
-  echo ""
+  TEXT=":: Enabling Virtual Network Bridge at startup\n"; bluetext
 
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
-  echo ""
-  TEXT="[✓] Done. Logs saved to ~/quick-vm.log"; greentext
-  echo ""
+  TEXT="\n[✓] Done. Logs saved to ~/quick-vm.log\n"; greentext
 
 }
 
@@ -249,7 +255,7 @@ checkiso() {
 
    if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
     echo ''
-    TEXT='[✓] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!'; whiteunderline
+    TEXT='[✓] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!\n'; whiteunderline
 
    else
 
@@ -261,9 +267,7 @@ checkiso() {
        TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
        echo ''
        sudo rsync --partial --progress $maindir/win10.iso /var/lib/libvirt/images/win10.iso
-       echo ''
-       TEXT="[✓] Operation Done!"; greentext
-       echo ''
+       TEXT="\n[✓] Operation Done!\n"; greentext
   
      elif [[ -f $imagesdir/win10.iso ]]; then
        TEXT="Windows ISO already exists in ~/$imagesdir!\n"; greentext
@@ -279,14 +283,10 @@ checkiso() {
      # VirtIO Check and moves it to $imagesdir
   
      if [[ -f $maindir/virtio-win.iso ]]; then
-       TEXT="VirtIO Drivers exist in ~/WindowsVM!"; greentext
-       echo ''
-       TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
-       echo ''
+       TEXT="VirtIO Drivers exist in ~/WindowsVM!\n"; greentext
+       TEXT="➜ Relocating the image in /var/lib/libvirt/images !\n"; bluetext
        sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
-       echo ''
-       TEXT="[✓] Operation Done!"; greentext
-       echo ''
+       TEXT="\n[✓] Operation Done!\n"; greentext
   
      elif [[ -f $imagesdir/virtio-win.iso ]]; then
        TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
@@ -300,17 +300,14 @@ checkiso() {
        read -p "➜ Please enter your choice [Y/n]: " virt_choice
     
        if [[ $virt_choice == 'y' ]]; then
-        echo ''
-        echo 'Downloading VirtIO Drivers (Stable)...'
-        echo ''
+        TEXT='\nDownloading VirtIO Drivers (Stable)...\n'; greentext
         wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
         echo ''
 
         if [[ -f $maindir/virtio-win.iso ]]; then
           sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
           echo ":: Done! Now the setup process will continue."
-          echo ''
-          TEXT="[✓] Operation Done!"; greentext
+          TEXT="\n[✓] Operation Done!\n"; greentext
         fi
 
        elif [[ $virt_choice == 'n' ]]; then
@@ -335,10 +332,8 @@ checkiso() {
 
  else
    mkdir $maindir
-   TEXT=":: Please put Windows and VirtIO Drivers ISO in $maindir"; redtext
-   echo ''
-   echo "Without the ISOs, the setup can't progress further."
-   echo ''
+   TEXT=":: Please put Windows and VirtIO Drivers ISO in $maindir\n"; redtext
+   TEXT="Without the ISOs, the setup can't progress further.\n"; yellowtext
    exit
  fi
  
@@ -351,7 +346,7 @@ gitndefine() {
 
   if [[ ! -d ~/quick-vm ]]; then
     cd ~/
-    echo "cloning from git repo" >> ~/quick-vm.log
+    echo "Cloning from git repository..." >> ~/quick-vm.log
     git clone --recursive https://github.com/thegamerhat/quick-vm >> ~/quick-vm.log 
   
   else
@@ -360,16 +355,16 @@ gitndefine() {
 
   fi
 
-  sudo rsync -q ~/quick-vm/kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images >> ~/quick-vm.log
+  sudo rsync -q ~/quick-vm/kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images/ >> ~/quick-vm.log
   sudo rsync -q ~/quick-vm/kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     
-    if [[ -f /usr/bin/pacman ]]; then
+    if [[ $distro=='arch' ]]; then
       sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml  >> quick-vm.log
-    elif [[ -f /usr/bin/apt ]]; then
+    elif [[ $distro=='debian' ]]; then
       sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml >> ~/quick-vm.log
-    elif [[ -f /usr/bin/dnf ]]; then
+    elif [[ $distro=='fedora' ]]; then
       sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml >> ~/quick-vm.log
     fi
 
@@ -382,67 +377,42 @@ gitndefine() {
 
 }
 
+installdeps() {
+
 # Arch-Setup 
 
-arch_setup() {
-  
-  TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
-  echo -e "\n:: Installing Dependencies...\n"; 
-  sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
-  TEXT="\n[✓] Setup Finished!"; greentext
-
-}
+  if [[ $distro=='arch' ]]; then
+    TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
+    echo -e "\n:: Installing Dependencies...\n"; 
+    sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
 
 # Fedora Setup
 
-fedora_setup() {
-
-  TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
-  echo -e ":: Installing Dependencies\n"; 
-  echo ""
-  sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
-  TEXT="\n[✓] Setup Finished!"; greentext
-
-}
+  elif [[ $distro=='fedora' ]]; then
+    TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
+    echo -e ":: Installing Dependencies\n"; 
+    sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
 
 # Debian Setup
 
-debian_setup() {
+  elif [[ $distro=='debian' ]]; then
+    TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
+    echo -e ":: Installing Dependencies\n"; 
+    sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
+  
+# Unknown Distro
 
-  TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
-  echo -e ":: Installing Dependencies...\n"; 
-  echo -e "\n"
-  sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
+  else
+    TEXT="\n[X] Skipping Distro Check...\n"; cyantext
+    TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager.\n"; bluetext
+    echo -e "\nAfter installing, run the Advanced Setup to complete the rest of the process."
+    echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/thegamerhat/Quick-VM\n"
+    sleep 3
+    byee;
+  
+  fi
+
   TEXT="\n[✓] Setup Finished!"; greentext
-
-}
-
-# Fallback: Unknown Distro detected. Tells the user to install dependencies himself and checks if the system uses systemd init, then exits.
-
-unknown_distro() {
-
-  TEXT="\n[X] Skipping Distro Check...\n"; cyantext
-  TEXT=":: Your System possibly isn't Debian/Fedora/Arch, make sure to install the KVM dependencies through your package manager.\n"; bluetext
-  echo -e "\nAfter installing, run the Advanced Setup to complete the rest of the process."
-  echo -e "OR check out the Manual Setup Process on the Project's GitHub Page: https://github.com/thegamerhat/Quick-VM\n"
-  sleep 3
-  byee;
-
-}
-
-# Check the flavour of Linux and install dependencies
-
-install_all() {
-
-if [[ -f /usr/bin/pacman ]]; then    # Present in Arch
-  arch_setup
-elif [[ -f /usr/bin/dnf ]]; then      # Present in Fedora
-  fedora_setup
-elif [[ -f /usr/bin/dpkg ]]; then     # Present in Debian
-  debian_setup
-else                                  # Resorts to fallback
-  unknown_distro
-fi
 
 }
 
@@ -450,12 +420,11 @@ fi
 
 simplesetup() {
   
-  TEXT="\nStarting Simple Setup"; cyantext
-  install_all;
+  TEXT="\n➜ Starting Simple Setup"; cyantext
+  installdeps;
   border;
   check_kvm;
-  border;
-  sleep 5;
+  border && sleep 5;
   libvirt_systemd_start;
   checkiso;
   gitndefine;
@@ -537,23 +506,14 @@ stealth_define() {
 
   if [[ $cpubrand == 'AMD' ]]; then
     echo -e '\n➜ sudo virsh define Windows10-Stealth-amd.xml\n'
-      if [[ -f /usr/bin/pacman ]]; then
-        sudo virsh define ~/quick-vm/kvm/arch/Windows10-Stealth-amd.xml
-      elif [[ -f /usr/bin/apt ]]; then
-        sudo virsh define ~/quick-vm/kvm/debian/Windows10-Stealth-amd.xml
-      elif [[ -f /usr/bin/dnf ]]; then
-        sudo virsh define ~/quick-vm/kvm/fedora/Windows10-Stealth-amd.xml
-      fi
+    sudo virsh define ~/quick-vm/kvm/$distro/Windows10-Stealth-amd.xml
 
   elif [[ $cpubrand == 'INTEL' ]]; then
     echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
-      if [[ -f /usr/bin/pacman ]]; then
-        sudo virsh define ~/quick-vm/kvm/arch/Windows10-Stealth-intel.xml
-      elif [[ -f /usr/bin/apt ]]; then
-        sudo virsh define ~/quick-vm/kvm/debian/Windows10-Stealth-intel.xml
-      elif [[ -f /usr/bin/dnf ]]; then
-        sudo virsh define ~/quick-vm/kvm/fedora/Windows10-Stealth-intel.xml
-      fi
+    sudo virsh define ~/quick-vm/kvm/$distro/Windows10-Stealth-intel.xml
+
+  else
+    TEXT="\n:: NO STEALTH VM PROFILE FOUND FOR YOUR PLATFORM!\n"; redtext
   fi
 
 }
@@ -561,13 +521,7 @@ stealth_define() {
 
 vm_profile_define() {
   
-  if [[ ! -d ~/quick-vm ]]; then
-    cd ~/
-    echo "cloning from git repo" >> ~/quick-vm.log
-    git clone --recursive https://github.com/thegamerhat/quick-vm >> ~/quick-vm.log 
-  fi
-
-  cd ~/quick-vm && git pull >> ~/quick-vm.log; border;
+  border;
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
   TEXT='\nYou can change the resource allocations anytime.\n'; greentext
@@ -632,7 +586,6 @@ vm_profile_define() {
 
 advancedsetup(){
 
-
 while [[ $setupmode=='advanced' ]]
 do
 
@@ -658,7 +611,7 @@ do
     check_kvm;
   elif [[ $setup_choice == 2 ]]; then
     clear;
-    install_all;
+    installdeps;
   elif [[ $setup_choice == 3 ]]; then
     clear;
     libvirt_systemd_start;
