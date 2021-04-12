@@ -7,9 +7,9 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-# Quick-VM (WORK IN PROGRESS) 
+# Quick-VM 
 
-Setup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command! 
+S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command!**
 
 >Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173) (no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
 >
