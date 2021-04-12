@@ -66,6 +66,8 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 <summary>Step by Step Guide - Click Me!</summary>
 <br>
 
++ Open Virt Manager from your applications menu or type `virt-manager` in terminal.
+
 + Click on the ➕ icon or the first icon in Virt Manager to create a VM.
 
 ![Screenshot](img/diy-create-1.png)
