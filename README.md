@@ -9,7 +9,7 @@
 
 # Quick-VM (WORK IN PROGRESS) 
 
-Setup a Windows VM very easily and quickly on any Arch, Debian or Fedora system using RedHat KVM. 
+Setup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command! 
 
 >Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173) (no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
 >
