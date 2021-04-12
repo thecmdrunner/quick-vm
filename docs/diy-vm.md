@@ -2,6 +2,9 @@
 
 ## 🛸 DIY (From Scratch) - WIP
 
+If you want to go through the process of making a VM all by yourself, this section is for you.
+This guide works regardless of your distribution.
+
 ### First, you must install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 
 <p>
@@ -49,9 +52,9 @@ Instead of `Systemd`, you can use `OpenRC`, `Runit`, `SysVinit` as well.
 
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
-## Download the Windows 10 ISO and KVM VirtIO drivers
+## Downloading ISOs
 
-You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have Hyper-V Support which is needed if you want to run Anti-Cheat games and use Winapps.
+If you want to run Anti-Cheat games and use Winapps, you will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have Hyper-V Support which is required.
  
 1. Download [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), and [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 

@@ -135,7 +135,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 ## ⚔️ Advanced Install
 
-### 🔖 [Making a Stealth VM](docs/stealth-vm.md)
+### 🔖 [Making a Stealth VM (Always being Updated)](docs/stealth-vm.md)
 
 ### 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
 
