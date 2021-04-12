@@ -69,6 +69,10 @@ qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G
 
 ## Creating a VM
 
+<p>
+<details>
+<summary>Step by Step Guide - Click Me!</summary>
+<br>
 
 ![Screenshot](img/diy-create-1.png)
 ![Screenshot](img/diy-create-2.png)
@@ -85,3 +89,6 @@ qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G
 ![Screenshot](img/diy-create-13.png)
 ![Screenshot](img/diy-create-14.png)
 
+</br>
+</details>
+</p>
