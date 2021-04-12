@@ -59,11 +59,12 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 
 **Note:** Place the ISOs in `/var/lib/libvirt/images/` to avoid permission issues.
 
-
-## TODO: qemu-img create
+## Create Virtual Drive
 
 To create a virtual disk, enter the following in your terminal. Instead of `1024G` can select any amount of storage depending on your needs. 
 
 ```bash
 qemu-img create -f qcow2 Windows10Vanilla.qcow2 1024G
 ```
+
+
