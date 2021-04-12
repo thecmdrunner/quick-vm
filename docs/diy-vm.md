@@ -104,17 +104,27 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ![Screenshot](img/diy-create-8.png)
 
-+ In the Memory section, enter `Current allocation = 1024`
++ In the Memory section, enter `Current allocation = 1024` to make initial RAM usage less.
 
 ![Screenshot](img/diy-create-9.png)
 
++ In SATA Disk section, Change the `Disk Bus` to `VirtIO` to make operations faster by reducing overhead.
+
 ![Screenshot](img/diy-create-10.png)
 
++ In NIC section, Change the `Device model` to `VirtIO` to enable Virtual Network Bridge for interfacing between VM and Host.
+
 ![Screenshot](img/diy-create-11.png)
+
++ Click **Add Hardware** and select the Storage section to add VirtIO Drivers ISO and change the `Device type` to `CDROM device` and click Finish.
 
 ![Screenshot](img/diy-create-12.png)
 
 ![Screenshot](img/diy-create-13.png)
+
++ In the Boot Options section, select Windows ISO CDROM and VirtIO Disk that we created earlier, and check 'Enable boot menu'.
+
++ Finally, Click `Begin Installation` to save and start the VM.
 
 ![Screenshot](img/diy-create-14.png)
 
