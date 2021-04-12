@@ -106,6 +106,14 @@ byee() {
 cpu_kvm_flags=$(egrep -c '(vmx|svm)' /proc/cpuinfo)
 cpu_vt=$(lscpu | grep Virtualization)
 
+# What CPU is it
+if [[ $cpu_vt =~ "AMD-V" ]]; then
+  cpubrand='AMD'
+elif [[ $cpu_vt =~ "VT-x" ]]; then
+  cpubrand='Intel'
+fi
+
+
 # throws up an error in front of the user if 
 # /usr/bin/virt-host-validate does not exist
 
@@ -128,15 +136,12 @@ check_kvm() {
   # virtualization is supported, else not
   if [[ $cpu_kvm_flags > 0 ]]; then
 
-
     # if the output is more than 0 then,
     # virtualization is supported, else not
     if [[ $cpu_vt =~ "AMD-V" ]]; then
       TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
-      cpubrand='AMD'
     elif [[ $cpu_vt =~ "VT-x" ]]; then
       TEXT="[✓] Intel Virtualization (VT-x/VT-d) is Supported!"; greentext
-      cpubrand='INTEL'
     else
       TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
       echo -e "The setup can still continue."
@@ -461,13 +466,7 @@ vm2_define() {
   TEXT='\n:: Making a useful VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-default.xml\n'
 
-  if [[ -f /usr/bin/pacman ]]; then
-    sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml
-  elif [[ -f /usr/bin/apt ]]; then
-    sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml
-  elif [[ -f /usr/bin/dnf ]]; then
-    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml
-  fi
+  sudo virsh define ~/quick-vm/kvm/$distro/Windows10-default.xml
 
 }
 
@@ -478,13 +477,7 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-light.xml\n'
 
-  if [[ -f /usr/bin/pacman ]]; then
-    sudo virsh define ~/quick-vm/kvm/arch/Windows10-light.xml
-  elif [[ -f /usr/bin/apt ]]; then
-    sudo virsh define ~/quick-vm/kvm/debian/Windows10-light.xml
-  elif [[ -f /usr/bin/dnf ]]; then
-    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-light.xml
-  fi
+  sudo virsh define ~/quick-vm/kvm/$distro/Windows10-light.xml
 
 }
 
@@ -499,10 +492,10 @@ stealth_define() {
   TEXT='(for eg. Video Games)\n'; cyantext
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
-  TEXT='\n\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
+  TEXT='\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process.'; yellowtext
   TEXT='\nhttps://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n'; whiteunderline 
+  TEXT='\nCreating a Stealth VM...'; greentext
   sleep 5 & sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
-  TEXT='\n\nCreating a Stealth VM'; greentext
 
   if [[ $cpubrand == 'AMD' ]]; then
     echo -e '\n➜ sudo virsh define Windows10-Stealth-amd.xml\n'
