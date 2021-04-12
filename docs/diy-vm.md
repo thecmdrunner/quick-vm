@@ -132,7 +132,7 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ![Screenshot](img/first-boot.png)
 
-![Screenshot](docs/img/booting-iso.png)
+![Screenshot](img/booting-iso.png)
 
 + Select your language and keyboard input and click Next.
 
