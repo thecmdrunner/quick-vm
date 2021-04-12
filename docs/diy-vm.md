@@ -57,15 +57,7 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 
 > You may even supply your own custom Windows Image (like Windows Ameliorated Edition)
 
-**Note:** Place the ISOs in `/var/lib/libvirt/images/` to avoid permission issues.
-
-## Create Virtual Drive
-
-To create a virtual disk, enter the following in your terminal. Instead of `1024G` can select any amount of storage depending on your needs. 
-
-```bash
-qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G
-```
+**Note:** Place ISOs in `/var/lib/libvirt/images/` to avoid permission issues.
 
 ## Creating a VM
 
@@ -74,21 +66,44 @@ qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G
 <summary>Step by Step Guide - Click Me!</summary>
 <br>
 
++ Click on the ➕ icon or the first icon in Virt Manager to create a VM.
+
 ![Screenshot](img/diy-create-1.png)
 
 ![Screenshot](img/diy-create-2.png)
 
++ Select the Windows 10 ISO that you downloaded earlier, and choose the OS from the list if it isn't detected automatically.
+
 ![Screenshot](img/diy-create-3.png)
+
++ Allocate Memory and CPUs as per requirement.
 
 ![Screenshot](img/diy-create-4.png)
 
++ Either create a new disk or create one as big as you want, and later select the disk here.
+You can enter any directory you wish, as well as how big you want it to be.
+
+`qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G`
+
 ![Screenshot](img/diy-create-5.png)
+
++ Check `Customize configuration before install` and click **Finish**.
 
 ![Screenshot](img/diy-create-6.png)
 
++ In the Overview section, Select `OVMF_CODE.fd` in Firmware.
+
 ![Screenshot](img/diy-create-7.png)
 
++ In the CPU section, check `Copy host CPU configuration` if you aren't planning to make a Stealth VM, and `host-passthrough` otherwise.
+
++ You may manually set `CPU Topology` if you know the exact layout of your CPU.
+
+>for example: **Ryzen 5 3600** has `6 Cores`, `12 Threads` and is only available in `1 Socket` motherboards.
+
 ![Screenshot](img/diy-create-8.png)
+
++ In the Memory section, enter `Current allocation = 1024`
 
 ![Screenshot](img/diy-create-9.png)
 
