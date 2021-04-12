@@ -82,6 +82,8 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 
 + Either create a new disk or create one as big as you want, and later select the disk here.
 You can enter any directory you wish, as well as how big you want it to be.
+
++ Enter this command to create a disk.
 `qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G`
 
 ![Screenshot](img/diy-create-5.png)
