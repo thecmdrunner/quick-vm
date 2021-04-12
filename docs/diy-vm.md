@@ -1,6 +1,6 @@
 
 
-## 🛸 DIY (From Scratch) - WIP
+## 🛸 DIY From Scratch - WIP
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
 This guide works regardless of your distribution.
