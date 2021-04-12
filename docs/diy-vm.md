@@ -64,7 +64,9 @@ You will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have 
 To create a virtual disk, enter the following in your terminal. Instead of `1024G` can select any amount of storage depending on your needs. 
 
 ```bash
-qemu-img create -f qcow2 Windows10Vanilla.qcow2 1024G
+qemu-img create -f qcow2 /var/lib/libvirt/images/Windows10Vanilla.qcow2 1024G
 ```
+
+## Creating a VM
 
 

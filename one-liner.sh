@@ -636,10 +636,10 @@ welcome() {
   TEXT=":: Select any one of the options below to get started!\n"; boldtext
   TEXT="[1] Default install (Fully Automated & Quick)"; whitetext
   echo ''
-  TEXT="[2] Advanced install (Pick and choose what you want)"; whitetext
+  TEXT="[2] Advanced install (Pick & choose functions)"; whitetext
   echo ''
   TEXT="[3] Exit without installation"; whitetext
-  echo -e '\n\n'
+  echo -e '\n'
   read -p "➜ Choose an option [1,2,3]: " user_choice
   echo ''
   
