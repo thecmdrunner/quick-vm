@@ -61,6 +61,12 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 
 ## GPU Passthrough for Stealth VMs 
 
+NVIDIA's driver 465 and newer support GPU Passthrough to a Windows Guest on a Linux Host.
+
+>NOTE: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
+>
+>If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) by [joeknock90](https://github.com/joeknock90/)
+
 - Single GPU Passthrough method works, but isn't heavily tested yet. 
 - DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
 
