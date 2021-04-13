@@ -70,7 +70,7 @@ NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on 
 >
 >If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) by [joeknock90](https://github.com/joeknock90/)
 
-However, if you are using (or need) an older driver, add the following lines to your XML.
+So if you need to passthrough an NVIDIA or AMD GPU without making it obvious that you are using a VM, add the following lines to your XML.
 
   1. List all VMs
   ```bash
@@ -84,7 +84,7 @@ However, if you are using (or need) an older driver, add the following lines to 
   sudo virsh edit Windows10
   ```
 
-  3. Enter the following text between the already existing sections. You may replace `randomid` with anything else.
+  3. Enter the following text between the already existing sections. You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
   ```bash
   ...
   <features>
