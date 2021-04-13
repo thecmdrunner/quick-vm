@@ -81,6 +81,20 @@ However, if you are using (or need) an older driver, add the following lines to 
   sudo virsh edit Windows10
   ```
 
+  3. Enter the following text between the already existing sections. You may replace `randomid` with anything else.
+  ```bash
+  ...
+  <features>
+  ...
+    <hyperv>
+    ...
+    <vendor_id state="on" value="randomid">
+    ...
+    </hyperv>
+  ...
+  </features>
+  ```
+
 
 - Single GPU Passthrough method works, but isn't heavily tested yet. 
 - DO NOT USE `vendor-reset-dkms` if you have a newer AMD GPU.
