@@ -290,7 +290,9 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## Some more useful stuff
 
-- **Looking Glass** by Wendell from [Level1Techs]
+- **[Looking Glass](https://looking-glass.io)** by Wendell from [Level1Techs](https://www.youtube.com/channel/UC4w1YQAJMWOz4qtxinq55LQ)
+
+- **[Gaming on Linux on Level1Forums](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFh5ckxpMm9OQ05XdHBrYXFfNFM0dFVEeGpKZ3xBQ3Jtc0tudmllSW9vVE90Z1cyNFNGQU1yY1BzbTdxQ21jdmRNU1ppZ1FOMzZsWVpjWnhGVm5iVEZ1Rkk3OTIzaXdGcWVkYlY0azBYZ2p6eEM3dXljU3BfbGtnQkl4YjFOLTNQTURlLXhacGE3bkVMUmtBUG9tUQ&q=https%3A%2F%2Flevel1techs.com%2Farticle%2Fgaming-linux)**
 
 - **Single GPU Passthrough**:
   - [SomeOrdinaryGamers' Video Guide (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)

@@ -62,8 +62,8 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 ## KVM Documentation
 
 [RedHat's Hyper-V Presentation](https://archive.fosdem.org/2019/schedule/event/vai_enlightening_kvm/attachments/slides/2860/export/events/attachments/vai_enlightening_kvm/slides/2860/vkuznets_fosdem2019_enlightening_kvm.pdf)
-[KVM Format Domain](https://libvirt.org/formatdomain.html)
 
+[KVM Format Domain](https://libvirt.org/formatdomain.html)
 
 ## Better Storage Disk solution
 
