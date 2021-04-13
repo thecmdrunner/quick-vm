@@ -77,7 +77,7 @@ However, if you are using (or need) an older driver, add the following lines to 
   sudo virsh list --all
   ```
 
-| ![Screenshot](img/virsh-edit.png) |
+| ![Screenshot](img/virsh-list.png) |
 
   2. Edit the VM config
   ```bash
@@ -91,8 +91,8 @@ However, if you are using (or need) an older driver, add the following lines to 
   ...
     <hyperv>
     ...
-    <vendor_id state="on" value="randomid">
-    ...
+      <vendor_id state="on" value="randomid"> 
+
     </hyperv>
   ...
   </features>
