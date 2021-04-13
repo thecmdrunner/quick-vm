@@ -95,7 +95,6 @@ bash <(curl -sL https://git.io/JOeOs)
 
 ![Screenshot](docs/img/install-12.png)
 
-
 </br>
 </details>
 </p>

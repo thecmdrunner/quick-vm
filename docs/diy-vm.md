@@ -180,6 +180,18 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ![Screenshot](img/install-12.png)
 
++ After installation, Windows will boot normally and you will need to set up your user account and password.
+
++ Avoid Microsoft Sign in if you can at all 😉 
+
 </br>
 </details>
 </p>
+
+
+## GPU Passthrough 
+
+
+## Making your VM Stealth
+
+### 🔖 [Guide on Stealthy VM](stealth-vm.md)

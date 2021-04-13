@@ -8,7 +8,6 @@ If you need to mask your VM from checks that a few programs do to restrict users
 #### This method does not support hacking/cheating in video games.
 > Do what you want at your own risk, DO NOT blame me if you get your account banned or get yourself caught using a VM. 
 
-
 ## ⚠️ Things to keep in mind
 
 1. Windows 10 Home is not supported as it DOES NOT have the Hyper-V feature unlike Pro and Enterprise.
