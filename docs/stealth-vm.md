@@ -77,7 +77,7 @@ So if you need to passthrough an NVIDIA or AMD GPU without making it obvious tha
   sudo virsh list --all
   ```
 
-| ![Screenshot](img/virsh-list.png) |
+![Screenshot](img/virsh-list.png)
 
   2. Edit the VM config
   ```bash

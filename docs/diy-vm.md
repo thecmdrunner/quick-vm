@@ -191,6 +191,8 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ## GPU Passthrough 
 
+Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.
+
 
 ## Making your VM Stealth
 
