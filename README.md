@@ -290,6 +290,8 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## Some more useful stuff
 
+- **Looking Glass** by Wendell from [Level1Techs]
+
 - **Single GPU Passthrough**:
   - [SomeOrdinaryGamers' Video Guide (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
   - [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough)
@@ -297,6 +299,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
   - [ledisthebest (Ryzen + Radeon)](https://github.com/ledisthebest/LEDs-single-gpu-passthrough)
 
 - **NVIDIA GPU Passthrough** - [clayfreeman](https://github.com/clayfreeman/gpu-passthrough) 
+
 - **Intel iGPU Passthrough** - [Lan Tian](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
 ## 🎁 Contribute/Help
@@ -312,6 +315,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 ## 📣 Credits
 
 - **The Entire [r/VFIO](https://reddit.com/r/vfio) Community!**
+- **[Wendell from Level1Techs]()**
 - **SomeOrdinaryGamers** - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
 - **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
 - **joeknock90** (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough Central Point
