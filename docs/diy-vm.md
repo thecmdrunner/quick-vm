@@ -214,7 +214,9 @@ If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for you
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
   2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
 
-If you only have integrated graphics right now, check out 
+If you only have integrated graphics right now, check out:
+
+- [Intel GPU Passhrough](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
 If you want to be able to use Hardware Accelerated Applications (like Video Games, Adobe CC, etc) on a Windows VM without having multiple monitors, check out the Looking Glass Project:
 
