@@ -291,7 +291,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 ## Some more useful stuff
 
 - **Single GPU Passthrough**:
-  - [SomeOrdinaryGamers' Video Guide (Intel + NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
+  - [SomeOrdinaryGamers' Video Guide (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
   - [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough)
   - [Stetsed](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
   - [ledisthebest (Ryzen + Radeon)](https://github.com/ledisthebest/LEDs-single-gpu-passthrough)

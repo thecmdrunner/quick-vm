@@ -3,9 +3,12 @@
 ## 🛸 DIY From Scratch - WIP
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
+
 This guide works regardless of your distribution.
 
-### First, you must install the required packages on your system. You may search the packages in your package manager or compile them yourself.
+# Enabling Virtualization in your BIOS/Coreboot
+
+### Install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 
 <p>
 <details>
@@ -52,6 +55,7 @@ Instead of `Systemd`, you can use `OpenRC`, `Runit`, `SysVinit` as well.
 
 > **Linux Kernel 5.4 LTS** or newer is recommended
  
+
 ## Downloading ISOs
 
 If you want to run Anti-Cheat games and use Winapps, you will need **Windows 10 Pro/Pro N/Pro Workstation/Enterprise**, as they have Hyper-V Support which is required.
@@ -193,6 +197,34 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.
 
+However, if you are living in the world after 2020, I know your pain and why you have only one (or possibly none) GPU.
+
+You might be in one of the following situations:
+
+  1. You ONLY have one GPU, either discrete GPU (NVIDIA/AMD) or integrated Graphics (Intel UHD/AMD Radeon)
+  2. You have a discrete GPU (NVIDIA/AMD) + integrated Graphics (Intel UHD/AMD Radeon)
+  3. You have two discrete GPUs (then integrated graphics won't matter)
+
+If you are one of the privileged people to own a GPU, and are looking to pass it through without integrated graphics, check out these Single GPU Passthrough Guides:
+  1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
+  2. [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough)
+
+If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for your Linux system and pass the other one to Windows. Check these guides out:
+
+  1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
+  2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
+
+If you only have integrated graphics right now, check out 
+
+If you want to be able to use Hardware Accelerated Applications (like Video Games, Adobe CC, etc) on a Windows VM without having multiple monitors, check out the Looking Glass Project:
+
+  - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
+  - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
+
+## AMD Reset Bug Fixes
+
+- [Navi Reset Bug Kernel V2](https://forum.level1techs.com/t/navi-reset-bug-kernel-patch-v2/163103/14)
+- [Pop! OS 20.10 VFIO 5700XT](https://forum.level1techs.com/t/pop-os-20-10-vfio-5700xt-pain/169647/2)
 
 ## Making your VM Stealth
 

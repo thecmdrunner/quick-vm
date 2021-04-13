@@ -59,6 +59,18 @@ Microsoft's **Hyper-V** Hypervisor is a hardware-based virtualization program th
 
 Windows is using **Hyper-V** to mask our VM from other applications. But that means Windows does know that is is being Virtualized.
 
+## KVM Documentation
+
+[RedHat's Hyper-V Presentation](https://archive.fosdem.org/2019/schedule/event/vai_enlightening_kvm/attachments/slides/2860/export/events/attachments/vai_enlightening_kvm/slides/2860/vkuznets_fosdem2019_enlightening_kvm.pdf)
+[KVM Format Domain](https://libvirt.org/formatdomain.html)
+
+
+## Better Storage Disk solution
+
+Using a `qcow2` Virtual Disk (VirtIO) is faster than using SATA, as it avoids emulating `SATA` entirely. But even that can be a bottleneck, and there is obviously a better way to do it.
+
+One of the easier methods is given by Wendell, from Level1Techs in [this video](https://www.youtube.com/watch?v=aLeWg11ZBn0)
+
 ## GPU Passthrough for Stealth VMs 
 
 - Single GPU Passthrough method works, but isn't heavily tested yet. 
