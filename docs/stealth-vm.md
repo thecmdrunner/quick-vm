@@ -11,13 +11,13 @@ If you need to mask your VM from checks that a few programs do to restrict users
 ## ⚠️ Things to keep in mind
 
 1. Windows 10 Home is not supported as it DOES NOT have the Hyper-V feature unlike Pro and Enterprise.
-2. Visit [r/VFIO](https://reddit.com/r/VFIO) for the latest updates and workarounds for your problems. This guide is heavily been influenced from the work done by the awesome community over there.
-2. It is recommended to not install VirtIO Display drivers if you are going to passthrough a GPU (onboard/dedicated).
-3. We are fooling Apps and Softwares, and not Windows itself, because it would be way more hectic, unreliable, and at the end of the day not ideal.
-4. You might experience some performance degradation in this kind of setup.
+2. Visit [r/VFIO](https://reddit.com/r/VFIO) for the latest updates and workarounds for your problems, as this guide is heavily been influenced from the work done by the awesome community over there.
+2. It is recommended to not install VirtIO Display drivers if you are going to passthrough a GPU (onboard/dedicated) later on.
+3. We are fooling Windows Apps and Softwares, and not Windows itself, because it would be way more hectic, unreliable, and at the end of the day not ideal.
+4. You might experience some performance overhead in VM if you decide to deploy this setup.
 5. Using a normal Windows VM for Non-DRM/Anticheat purposes is encouraged.
 6. Sometimes running a kernel older than the recent Windows Update might cause a bootloop of the VM. So either only enable security updates ([use this](https://github.com/thegamerhat/win-debloat)), or keep up with the recent Kernel Versions, or just don't update Windows that frequently.
-7. Debloating Windows is beneficial & adviced as it will have less overhead as Windows continues to bloat up.
+7. Debloating Windows is beneficial & adviced as it could have a lot less overhead as Windows continues to bloat up.
 
 ## 🚀 Getting Started
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
