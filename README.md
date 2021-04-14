@@ -102,7 +102,7 @@ bash <(curl -sL https://git.io/JOeOs)
 ### 🖥 Host System Requirements:
  
   - **Ubuntu 18.04** or newer
-  - **Fedora 31** or newer
+  - **Fedora 30** or newer
   - **Arch** (Read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setting)
   - **4 CPUs** (2 Multi-Threaded Cores at minimum)
   - **8 GiB Memory** (more = better)
@@ -257,7 +257,7 @@ Ideal for DRM/Anticheat Programs like **Valorant**, **Rainbow Six: Siege**
 
 |Part|Specification|
 | --- | --- |
-|CPU|4 vCPU|
+|CPU|6 vCPU|
 |Memory|8 GiB|
 |Storage|1 TiB|
 
