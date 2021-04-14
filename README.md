@@ -37,8 +37,6 @@ bash <(curl -sL https://git.io/JOeOs)
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
----
-
 ### ✅ Getting the VM Ready:
 
 <p>
@@ -98,6 +96,8 @@ bash <(curl -sL https://git.io/JOeOs)
 </br>
 </details>
 </p>
+
+---
 
 ### 🖥 Host System Requirements:
  
@@ -257,8 +257,8 @@ Ideal for DRM/Anticheat Programs like **Valorant**, **Rainbow Six: Siege**
 
 |Part|Specification|
 | --- | --- |
-|CPU|2 vCPU|
-|Memory|4 GiB|
+|CPU|4 vCPU|
+|Memory|8 GiB|
 |Storage|1 TiB|
 
 
