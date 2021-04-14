@@ -151,7 +151,7 @@ check_kvm() {
       TEXT="[✓] KVM is enabled!"; greentext
       kvm_enabled='yes'
     elif [[ $kvm_pass =~ ": FAIL" ]]; then
-      TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in BIOS/CoreBoot."; redtext
+      TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in UEFI/CoreBoot."; redtext
       kvm_enabled='no'
     else
       TEXT="[!] ERROR DETECTING KVM SUPPORT."; redtext
@@ -196,7 +196,7 @@ reload_kvm() {
     TEXT="\n:: RESTART MIGHT BE REQUIRED IF THE VM DOES NOT BOOT PROPERLY."; whiteunderline
     
   elif [[ $kvm_enabled == 'no' ]]; then
-    TEXT="\n[X] KVM DOES NOT SEEM TO BE ENABLED IN BIOS/COREBOOT."; redtext 
+    TEXT="\n[X] KVM DOES NOT SEEM TO BE ENABLED IN UEFI/COREBOOT."; redtext 
   fi
 
 }

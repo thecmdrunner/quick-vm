@@ -6,9 +6,11 @@ If you want to go through the process of making a VM all by yourself, this secti
 
 This guide works regardless of your distribution.
 
-## Enabling Virtualization in your BIOS/Coreboot
+## Enabling Virtualization in your UEFI/Coreboot
 
-You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your BIOS before going further.
+You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
+
+On Coreboot devices, it is typically enabled
 
 <p>
 <details>
