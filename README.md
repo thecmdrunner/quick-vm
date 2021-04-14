@@ -99,7 +99,10 @@ bash <(curl -sL https://git.io/JOeOs)
 
 ---
 
-### 🖥 Host System Requirements:
+<p>
+<details>
+<summary>🖥 Host System Requirements:</summary>
+<br>
  
   - **Ubuntu 18.04** or newer
   - **Fedora 30** or newer
@@ -107,7 +110,10 @@ bash <(curl -sL https://git.io/JOeOs)
   - **4 CPUs** (2 Multi-Threaded Cores at minimum)
   - **8 GiB Memory** (more = better)
   - **40+ GiB of Free Storage** typically (**SSD Recommened**)
-  
+</br>
+</details>
+</p>
+
 > **Linux Kernel 5.4 LTS** or newer is recommended 
 
 <p>
