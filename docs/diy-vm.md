@@ -1,12 +1,34 @@
 
 
-## 🛸 DIY From Scratch - WIP
+# 🛸 DIY From Scratch - WIP
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
 
 This guide works regardless of your distribution.
 
-# Enabling Virtualization in your BIOS/Coreboot
+## Enabling Virtualization in your BIOS/Coreboot
+
+You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your BIOS before going further.
+
+<p>
+<details>
+<summary>AMD - MSI Tomahawk</summary>
+<br>
+
+- Boot in to Bios using "Delete" Key
+
+- Select "Overclocking"
+
+- Go to "OC Explore Mode" and turn that to "Expert"
+
+- Scroll down to "CPU Features"
+
+- Select "SVM Mode" and "Enable"
+
+- Save and Exit
+</br>
+</details>
+</p>
 
 ### Install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 

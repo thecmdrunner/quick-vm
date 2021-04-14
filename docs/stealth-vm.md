@@ -20,6 +20,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 7. Debloating Windows is beneficial & adviced as it could have a lot less overhead as Windows continues to bloat up.
 
 ## 🚀 Getting Started
+- Run the [One-liner](https://github.com/thegamerhat/quick-vm#-one-liner-to-setup-kvm) in the Terminal.
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
 - From there, select `Create a Stealth VM`, and you will have a Stealthy VM ready (almost) in a few seconds.
 
