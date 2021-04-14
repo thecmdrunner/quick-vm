@@ -10,11 +10,18 @@ This guide works regardless of your distribution.
 
 You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
 
-For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
+<p>
+<details>
+<summary>ASUS ROG B450-F Motherboard</summary>
+<br>
+
+</br>
+</details>
+</p>
 
 <p>
 <details>
-<summary>AMD - MSI Tomahawk</summary>
+<summary>MSI B450 Tomahawk</summary>
 <br>
 
 - Boot in to Bios using "Delete" Key
@@ -28,9 +35,13 @@ For Coreboot devices, refer to your manufacturer's instructions or check the off
 - Select "SVM Mode" and "Enable"
 
 - Save and Exit
+
 </br>
 </details>
 </p>
+
+For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
+
 
 ### Install the required packages on your system. You may search the packages in your package manager or compile them yourself.
 
@@ -231,7 +242,7 @@ You might be in one of the following situations:
 
 If you are one of the privileged people to own a GPU, and are looking to pass it through without integrated graphics, check out these Single GPU Passthrough Guides:
   1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
-  2. [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough)
+  2. [joeknock90 central repository](https://github.com/joeknock90/Single-GPU-Passthrough)
 
 If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for your Linux system and pass the other one to Windows. Check these guides out:
 
@@ -251,7 +262,7 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
 
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
->NOTE: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
+>**NOTE**: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
 >
 >If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) by [joeknock90](https://github.com/joeknock90/)
 
@@ -287,7 +298,7 @@ sudo virsh edit Windows10
 
 Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info in Windows or else it returns **Code 43**.
 
-[**ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#%22Error_43:_Driver_failed_to_load%22_with_mobile_(Optimus/max-q)_nvidia_GPUs)
+If you experience that issue, check out the [SSDT Workaround](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#%22Error_43:_Driver_failed_to_load%22_with_mobile_(Optimus/max-q)_nvidia_GPUs) on ArchWiki.
 
 
 ## AMD Reset Bug Fixes

@@ -30,7 +30,7 @@
   </features>
   <cpu mode="host-passthrough" check="full">
     <cache mode="passthrough"/>
-    <feature policy="require" name="invtsc"/>
+    <feature policy="require" name="hypervisor"/>
   </cpu>
   <clock offset="localtime">
     <timer name="rtc" tickpolicy="catchup"/>
