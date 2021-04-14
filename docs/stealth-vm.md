@@ -21,7 +21,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 ## 🚀 Getting Started
 
->If you haven't enabled Virtualization and IOMMU 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+>If you haven't enabled Virtualization and IOMMU, check out 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
 
 - Run the [One-liner](https://github.com/thegamerhat/quick-vm#-one-liner-to-setup-kvm) in the Terminal.
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`

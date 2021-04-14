@@ -10,7 +10,7 @@ This guide works regardless of your distribution.
 
 You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
 
-On Coreboot devices, 
+For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
 
 <p>
 <details>
@@ -247,6 +247,8 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
   - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
   - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
 
+### NVIDIA GPU Passhrough allowed
+
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
 >NOTE: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
@@ -280,6 +282,12 @@ sudo virsh edit Windows10
 ...
 </features>
 ```
+
+### NVIDIA on Laptops
+
+Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info in Windows or else it returns **Code 43**.
+
+[**ArchWiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#%22Error_43:_Driver_failed_to_load%22_with_mobile_(Optimus/max-q)_nvidia_GPUs)
 
 
 ## AMD Reset Bug Fixes
