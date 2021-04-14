@@ -396,7 +396,7 @@ installdeps() {
   elif [[ $distro=='fedora' ]]; then
     TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
     echo -e ":: Installing Dependencies\n"; 
-    sudo dnf -y install git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
+    sudo dnf -y install @virtualization git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
 
 # Debian Setup
 

@@ -69,7 +69,9 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 
 Using a `qcow2` Virtual Disk (VirtIO) is faster than using SATA, as it avoids emulating `SATA` entirely. But even that can be a bottleneck, and there is obviously a better way to do it.
 
-One of the easier methods is given by Wendell, from Level1Techs in [this video](https://www.youtube.com/watch?v=aLeWg11ZBn0)
+One of the easier methods is given by Wendell, from Level1Techs in [this video](https://www.youtube.com/watch?v=aLeWg11ZBn0), which involves passing through an entire `SATA` or `NVME` controller to the VM along with a drive.
+
+For this, Windows and VirtIO drivers must already be installed normally on bare metal, before the Drive and Bus Controller are passed throug are passed through.
 
 ## GPU Passthrough for Stealth VMs 
 
