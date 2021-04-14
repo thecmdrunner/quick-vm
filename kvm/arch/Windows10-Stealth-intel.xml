@@ -39,7 +39,7 @@
   </features>
   <cpu mode="host-passthrough" check="partial" migratable="on">
     <cache mode="passthrough"/>
-  <feature policy="require" name="invtsc"/>
+    <feature policy="require" name="hypervisor"/>
   </cpu>
   <clock offset="utc">
     <timer name="pit" tickpolicy="delay"/>

@@ -280,7 +280,10 @@ sudo virsh list --all
 sudo virsh edit Windows10
 ```
 
-3. Enter the following text between the already existing sections. You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
+3. Enter the following text between the already existing sections. 
+
+#### You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
+
 ```bash
 ...
 <features>
@@ -294,7 +297,7 @@ sudo virsh edit Windows10
 </features>
 ```
 
-### NVIDIA on Laptops
+### NVIDIA Issues on Laptops
 
 Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info in Windows or else it returns **Code 43**.
 
