@@ -116,6 +116,13 @@ sudo virsh edit Windows10
 </features>
 ```
 
+## More Useful Guides
+
+If you need something specific, or something didn't work for you here, make sure you give these a look.
+Many people who have experience with this stuff have wonderful guides that you should check out.
+
+1. [Clayfreeman's GPU Passthrough](https://clayfreeman.github.io/gpu-passthrough/)
+
 ## 📣 Credits
 
 - **The Entire [r/VFIO](https://reddit.com/) Community!** ❤️
