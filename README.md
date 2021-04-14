@@ -311,7 +311,6 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 - **NVIDIA GPU Passthrough**:
   - [clayfreeman](https://clayfreeman.github.io/gpu-passthrough/) 
   - [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=h7SG7ccjn-g)
-  - **[Gaming on Linux on Level1Forums](https://level1techs.com/article/gaming-linux)**
 
 - **Intel iGPU Passthrough** - [Lan Tian](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
