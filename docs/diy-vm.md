@@ -10,7 +10,7 @@ This guide works regardless of your distribution.
 
 You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
 
-On Coreboot devices, it is typically enabled
+On Coreboot devices, 
 
 <p>
 <details>
@@ -284,6 +284,7 @@ sudo virsh edit Windows10
 
 ## AMD Reset Bug Fixes
 
+- For Polaris, Vega and Gen1 Navi Reset fix, installing [vendor-reset](https://github.com/gnif/vendor-reset) is enough thanks to [gnif](https://github.com/gnif).
 - [Navi Reset Bug Kernel V2](https://forum.level1techs.com/t/navi-reset-bug-kernel-patch-v2/163103/14)
 - [Pop! OS 20.10 VFIO 5700XT](https://forum.level1techs.com/t/pop-os-20-10-vfio-5700xt-pain/169647/2)
 

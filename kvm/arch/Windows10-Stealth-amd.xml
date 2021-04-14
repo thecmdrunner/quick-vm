@@ -28,7 +28,10 @@
     </hyperv>
     <vmport state="off"/>
   </features>
-  <cpu mode="host-passthrough" check="partial"/>
+  <cpu mode="host-passthrough" check="full">
+    <cache mode="passthrough"/>
+    <feature policy="require" name="invtsc"/>
+  </cpu>
   <clock offset="localtime">
     <timer name="rtc" tickpolicy="catchup"/>
     <timer name="pit" tickpolicy="delay"/>

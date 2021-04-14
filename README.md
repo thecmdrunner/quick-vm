@@ -302,17 +302,16 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 - **[VFIO on Pop! OS](https://forum.level1techs.com/t/vfio-in-2019-pop-os-how-to-general-guide-though-draft/142287)**
 
-- **[Gaming on Linux on Level1Forums](https://level1techs.com/article/gaming-linux)**
-
 - **Single GPU Passthrough**:
   - [SomeOrdinaryGamers' Video Guide (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
-  - [joeknock90](https://github.com/joeknock90/Single-GPU-Passthrough)
-  - [Stetsed](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
+  - [joeknock90 Central Repository](https://github.com/joeknock90/Single-GPU-Passthrough)
+  - [Stetsed NVIDIA Guide](https://github.com/Stetsed/NVIDIA-Single-GPU-Passthrough)
   - [ledisthebest (Ryzen + Radeon)](https://github.com/ledisthebest/LEDs-single-gpu-passthrough)
 
 - **NVIDIA GPU Passthrough**:
-  - [clayfreeman](https://github.com/clayfreeman/gpu-passthrough) 
-  - [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)]*(https://youtube.com/watch?v=BUSrdUoedTo)
+  - [clayfreeman](https://clayfreeman.github.io/gpu-passthrough/) 
+  - [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=h7SG7ccjn-g)
+  - **[Gaming on Linux on Level1Forums](https://level1techs.com/article/gaming-linux)**
 
 - **Intel iGPU Passthrough** - [Lan Tian](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
