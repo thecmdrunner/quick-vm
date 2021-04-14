@@ -84,31 +84,31 @@ NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on 
 
 So if you need to passthrough an NVIDIA or AMD GPU without making it obvious that you are using a VM, add the following lines to your XML.
 
-  1. List all VMs
-  ```bash
-  sudo virsh list --all
-  ```
+1. List all VMs
+```bash
+sudo virsh list --all
+```
 
 ![Screenshot](img/virsh-list.png)
 
-  2. Edit the VM config
-  ```bash
-  sudo virsh edit Windows10
-  ```
+2. Edit the VM config
+```bash
+sudo virsh edit Windows10
+```
 
-  3. Enter the following text between the already existing sections. You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
-  ```bash
+3. Enter the following text between the already existing sections. You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
+```bash
+...
+<features>
+...
+  <hyperv>
   ...
-  <features>
-  ...
-    <hyperv>
-    ...
-      <vendor_id state="on" value="randomid"> 
+    <vendor_id state="on" value="randomid"> 
 
-    </hyperv>
-  ...
-  </features>
-  ```
+  </hyperv>
+...
+</features>
+```
 
 ## 📣 Credits
 
