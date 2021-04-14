@@ -63,7 +63,9 @@ Microsoft's **Hyper-V** Hypervisor is a hardware-based virtualization program th
 
 Windows is using **Hyper-V** to mask our VM from other applications. But that means Windows does know that is is being Virtualized.
 
-## KVM Documentation
+## RedHat's KVM Documentation
+
+A lot of documentation about configuring CPU, Hyper-V enlightenments has been given by RedHat in their KVM docs, which makes troubleshooting easy.
 
 [RedHat's Hyper-V Presentation](https://archive.fosdem.org/2019/schedule/event/vai_enlightening_kvm/attachments/slides/2860/export/events/attachments/vai_enlightening_kvm/slides/2860/vkuznets_fosdem2019_enlightening_kvm.pdf)
 
@@ -122,6 +124,7 @@ If you need something specific, or something didn't work for you here, make sure
 Many people who have experience with this stuff have wonderful guides that you should check out.
 
 1. [Clayfreeman's GPU Passthrough](https://clayfreeman.github.io/gpu-passthrough/)
+2. 
 
 ## 📣 Credits
 
