@@ -67,6 +67,8 @@ Windows is using **Hyper-V** to mask our VM from other applications. But that me
 
 A lot of documentation about configuring CPU, Hyper-V enlightenments has been given by RedHat in their KVM docs, which makes troubleshooting easy.
 
+**Every system is necessarily different, and so it's best that you read some documentation and add some flags in XML as per your requirements to make the VM more stealthy.**
+
 [RedHat's Hyper-V Presentation](https://archive.fosdem.org/2019/schedule/event/vai_enlightening_kvm/attachments/slides/2860/export/events/attachments/vai_enlightening_kvm/slides/2860/vkuznets_fosdem2019_enlightening_kvm.pdf)
 
 [KVM Format Domain](https://libvirt.org/formatdomain.html)
