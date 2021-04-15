@@ -117,11 +117,8 @@ sudo virsh edit Windows10
     <vendor_id state="on" value="randomid"> 
 
   </hyperv>
-
   <kvm>
-
       <hidden state='on'/>
-
   </kvm> 
 ...
 </features>
