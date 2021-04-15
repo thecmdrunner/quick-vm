@@ -37,8 +37,8 @@
       <hidden state="on"/>
     </kvm>
   </features>
-  <cpu mode="host-passthrough" check="full">
-    <cache mode="passthrough"/>                        
+  <cpu mode="host-passthrough" check="partial" migratable="on">
+    <cache mode="passthrough"/>
     <feature policy="require" name="hypervisor"/>
   </cpu>
   <clock offset="utc">

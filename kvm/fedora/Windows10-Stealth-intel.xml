@@ -37,8 +37,8 @@
       <hidden state="on"/>
     </kvm>
   </features>
-  <cpu mode="host-passthrough" check="full">
-    <cache mode="passthrough"/>                        
+  <cpu mode="host-passthrough" check="partial" migratable="on">
+    <cache mode="passthrough"/>
     <feature policy="require" name="hypervisor"/>
   </cpu>
   <clock offset="utc">
@@ -57,34 +57,34 @@
   </pm>
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
-    <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/Windows10Stealth.qcow2"/>
-      <target dev="sda" bus="sata"/>
-      <boot order="1"/>
-      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
-    </disk>
-    <disk type="file" device="cdrom">
+     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
       <source file="/var/lib/libvirt/images/win10.iso"/>
-      <target dev="sdb" bus="sata"/>
+      <target dev="sda" bus="sata"/>
       <readonly/>
-      <boot order="2"/>
+      <boot order="1"/>
       <address type="drive" controller="0" bus="0" target="0" unit="0"/>
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/virtio-win.iso"/>
+      <source file="/var/lib/libvirt/images/virtio-win-0.1.185.iso"/>
       <target dev="sdc" bus="sata"/>
       <readonly/>
-      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="2"/>
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
       <source file="/var/lib/libvirt/images/essentials.iso"/>
       <target dev="sdd" bus="sata"/>
       <readonly/>
-      <address type="drive" controller="0" bus="0" target="0" unit="2"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="3"/>
+    </disk>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2"/>
+      <source file="/var/lib/libvirt/images/Windows10Stealth.qcow2"/>
+      <target dev="vda" bus="virtio"/>
+      <boot order="2"/>
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15">
       <address type="pci" domain="0x0000" bus="0x02" slot="0x00" function="0x0"/>
@@ -127,10 +127,9 @@
       <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
     </controller>
     <interface type="network">
-      <mac address="52:54:00:36:40:7a"/>
+      <mac address="52:54:00:7a:60:62"/>
       <source network="default"/>
       <model type="virtio"/>
-      <link state="down"/>
       <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
     </interface>
     <serial type="pty">
