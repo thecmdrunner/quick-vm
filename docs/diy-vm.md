@@ -49,6 +49,8 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 #### 5. Finally, **Save** and **Reboot**.
 
+>Instructions and media taken from Asus Forums.
+
 </br>
 </details>
 </p>
