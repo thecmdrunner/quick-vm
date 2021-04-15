@@ -19,19 +19,19 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 1. Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
 
-![Screenshot](img/asus-b450-1.png)
+![Screenshot](img/asus-b450-1.jpg)
 
 2. Click `F7` if you are not in advanced mode already
 
-![Screenshot](img/asus-b450-2.png)
+![Screenshot](img/asus-b450-2.jpg)
 
 3. Click [Advanced] - [CPU Configuration] 
 
-![Screenshot](img/asus-b450-3.png)
+![Screenshot](img/asus-b450-3.jpg)
 
 4. Set [SVM Mode] as [Enabled]
 
-![Screenshot](img/asus-b450-4.png)
+![Screenshot](img/asus-b450-4.jpg)
 
 5. Finally, **Save** and **Reboot**.
 
