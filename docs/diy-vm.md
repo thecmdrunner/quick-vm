@@ -1,5 +1,4 @@
 
-
 # 🛸 DIY From Scratch (Almost Done) 
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
@@ -246,8 +245,11 @@ You can enter any directory you wish, as well as how big you want it to be.
 </details>
 </p>
 
-
 ## GPU Passthrough 
+
+TLDR; see [Ubuntu/Pop OS 20.04 Guide](https://mathiashueber.com/pci-passthrough-ubuntu-2004-virtual-machine/), [ArchWiki PCI Passthrough via OVMF](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF), [Gentoo Guide](https://wiki.gentoo.org/wiki/GPU_passthrough_with_libvirt_qemu_kvm)
+
+<br/>
 
 Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.
 
@@ -305,7 +307,7 @@ sudo virsh edit Windows10
 
 **3. Enter the following text between the already existing sections**
 
-#### You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
+#### You can replace `randomid` with `AuthenticAMD` to fix a few issues on RX 5000 and older AMD GPUs. 
 
 ```bash
 ...

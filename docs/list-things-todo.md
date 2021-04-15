@@ -2,6 +2,7 @@
 ## 🔌 TODO-notes (no particular order)
 
 - Maybe add a features section?
+- Fork iommu, UEFI, laptop detection, GPU detection and some other features from https://github.com/T-vK/GPU-pass-through-compatibility-check
 - Actual CPU Core allocation instead of vCPUs
 - USB _Passthrough guide (maybe also mouse and keyboard passthrough with endev?)
 - convert the xmls into actual defining commands of qemu
