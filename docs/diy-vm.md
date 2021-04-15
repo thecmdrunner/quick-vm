@@ -281,6 +281,8 @@ If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for you
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
   2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
 
+> In the past, it was required that you have two different GPUs (typically AMD + NVIDIA), but that's not a requirement anymore!
+
 If you only have integrated graphics right now, check out:
 
 - [Lan Tian's Intel GPU iPasshrough Guide](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
