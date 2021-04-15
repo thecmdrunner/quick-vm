@@ -10,6 +10,8 @@ This guide works regardless of your distribution.
 
 You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
 
+Take a look at these examples below:
+
 <p>
 <details>
 <summary>ASUS ROG B450-F Motherboard</summary>
@@ -59,6 +61,8 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 </br>
 </details>
 </p>
+
+If you have a laptop with UEFI, [check this video](https://youtu.be/NbnPWhI4xis).
 
 For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
 
