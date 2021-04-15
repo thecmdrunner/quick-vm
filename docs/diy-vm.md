@@ -1,6 +1,6 @@
 
 
-# 🛸 DIY From Scratch - WIP
+# 🛸 DIY From Scratch (Almost Done) 
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
 
@@ -246,19 +246,6 @@ You can enter any directory you wish, as well as how big you want it to be.
 </details>
 </p>
 
-## Gotchas
-
-For any issues not just limited to the following, check the following sections on the Arch Wiki.
-
-[**Section 1**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_1):
-- Unisolated IOMMU Groupings
-- Problems with vfio-pci loading correctly
-
-[**Section 2**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_2):
-- Using a non-EFI image on EFI based VM
-
-[**Section 3**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_3):
-- Passing through a device that does not support resetting via kernel
 
 ## GPU Passthrough 
 
@@ -330,6 +317,20 @@ sudo virsh edit Windows10
 ...
 </features>
 ```
+
+## Gotchas
+
+For any issues not just limited to the following, check the following sections on the Arch Wiki.
+
+[**Section 1**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_1):
+- Unisolated IOMMU Groupings
+- Problems with vfio-pci loading correctly
+
+[**Section 2**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_2):
+- Using a non-EFI image on EFI based VM
+
+[**Section 3**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_3):
+- Passing through a device that does not support resetting via kernel
 
 ### NVIDIA Issues on Laptops
 
