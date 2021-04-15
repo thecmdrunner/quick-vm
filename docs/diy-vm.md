@@ -289,7 +289,7 @@ If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for you
 
 If you only have integrated graphics right now, check out:
 
-- [Intel GPU Passhrough](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
+- [Lan Tian's Intel GPU iPasshrough Guide](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
 If you want to be able to use Hardware Accelerated Applications (like Video Games, Adobe CC, etc) on a Windows VM without dedicating an entire monitor to Windows VM, check out the **Looking Glass** Project:
 
