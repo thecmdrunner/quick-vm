@@ -43,6 +43,36 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 <p>
 <details>
+<summary>ASUS Prime/ROG B450-F Motherboard</summary>
+<br>
+
+Please follow below steps to enable virtualization(SVM) in the BIOS for AMD motherboards:
+
+- Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
+
+![Screenshot](img/asus-b450-1.jpg)
+
+- Click `F7` if you are not in advanced mode already
+
+![Screenshot](img/asus-b450-2.jpg)
+
+- Click [Advanced] - [CPU Configuration] 
+
+![Screenshot](img/asus-b450-3.jpg)
+
+- Set [SVM Mode] as [Enabled]
+
+![Screenshot](img/asus-b450-4.jpg)
+
+- Finally, **Save** and **Reboot**.
+
+</br>
+</details>
+</p>
+
+
+<p>
+<details>
 <summary>MSI B450 Tomahawk</summary>
 <br>
 
@@ -62,7 +92,7 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 </details>
 </p>
 
-If you have a laptop with UEFI, [check this video](https://youtu.be/NbnPWhI4xis).
+If you have a laptop with UEFI, you can also [check this video](https://youtu.be/NbnPWhI4xis).
 
 For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
 
@@ -282,7 +312,7 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
   - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
   - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
 
-### NVIDIA GPU Passhrough allowed
+### NVIDIA GPU Passhrough
 
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
@@ -327,6 +357,7 @@ Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info i
 
 If you experience that issue, check out the [SSDT Workaround](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#%22Error_43:_Driver_failed_to_load%22_with_mobile_(Optimus/max-q)_nvidia_GPUs) on ArchWiki.
 
+If you still get a **Code 43**, perhaps [batmanfeynman's post](https://www.reddit.com/r/VFIO/comments/mqxhus/code_43_on_optimus_laptop_help/) or [alterNERDtive's post](https://www.reddit.com/r/VFIO/comments/mqz2gt/solved_nvidia_passthrough_post_driver_465_code_43/) could help.
 
 ## AMD Reset Bug Fixes
 
