@@ -281,7 +281,7 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
   - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
   - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
 
-### GPU Passhrough
+### Code 43/Black Screen fix 
 
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
@@ -318,6 +318,10 @@ sudo virsh edit Windows10
     <vendor_id state="on" value="randomid"> 
 
   </hyperv>
+  
+  <kvm>
+      <hidden state="on"/>
+  </kvm>
 ...
 </features>
 ```
