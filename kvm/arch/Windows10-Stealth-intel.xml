@@ -32,9 +32,6 @@
       <vendor_id state="on" value="NVIDEOLOL"/>
       <frequencies state="on"/>
     </hyperv>
-    <kvm>
-      <hidden state='on'/>
-    </kvm>
     <vmport state="off"/>
     <kvm>
       <hidden state="on"/>
