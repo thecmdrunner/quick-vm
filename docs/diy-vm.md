@@ -246,6 +246,20 @@ You can enter any directory you wish, as well as how big you want it to be.
 </details>
 </p>
 
+## Gotchas
+
+For any issues not just limited to the following, check the following sections on the Arch Wiki.
+
+[**Section 1**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_1):
+- Unisolated IOMMU Groupings
+- Problems with vfio-pci loading correctly
+
+[**Section 2**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_2):
+- Using a non-EFI image on EFI based VM
+
+[**Section 3**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_3):
+- Passing through a device that does not support resetting via kernel
+
 ## GPU Passthrough 
 
 Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.

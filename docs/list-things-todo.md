@@ -9,10 +9,9 @@
 - (maybe?) IOMMU and VFIO
 - gotchas section from archwiki pci passthrough
 - GPU Passthrough edits in XML for `kvm hidden state` and `vendor_id` 
-- Stealth VM notes
-- remove virtio From stealth VM
-- GPU Passthrough options and notes
-- AMD GPUs can use `vendor_id="AuthenticAMD"`
+- ~~Stealth VM notes~~
+- ~~GPU Passthrough options and notes~~
+- ~~AMD GPUs can use `vendor_id="AuthenticAMD"`~~
 - Single GPU Passthrough for NVIDIA and AMD
 
 
