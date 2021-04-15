@@ -249,6 +249,8 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 TLDR; see 1. [Ubuntu/Pop OS 20.04 Guide](https://mathiashueber.com/pci-passthrough-ubuntu-2004-virtual-machine/), 2. [ArchWiki PCI Passthrough via OVMF](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF), 3. [Gentoo Guide](https://wiki.gentoo.org/wiki/GPU_passthrough_with_libvirt_qemu_kvm)
 
+For laptops, see [Laptop Compatibility](#Lapt)
+
 ---
 
 Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.
@@ -340,6 +342,16 @@ For any issues not just limited to the following, check the following sections o
 [**Section 3**](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Gotchas_3):
 - Passing through a device that does not support resetting via kernel
 
+## 💻 Laptop Compatibility
+
+![Screenshot](img/mux-laptop.png)
+
+According to the image above, if you have a MUXless laptop, then it is tricky to dedicate your GPU to a VM and have its own separate display, because the GPU doesn't connect to the HDMI/DisplayPort Port directly, and instead uses the iGPU as a bridge to the laptop screen.
+
+You might be able to get around this by passing the iGPU to the VM, as [shown here](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian)
+
+Read more about it on [this post in Level1Forums](https://forum.level1techs.com/t/implications-of-muxed-muxless-laptops-for-gpu-passthrough/129165)
+
 ### NVIDIA Issues on Laptops
 
 Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info in Windows or else it returns **Code 43**.
@@ -348,11 +360,12 @@ If you experience that issue, check out the [SSDT Workaround](https://wiki.archl
 
 If you still get a **Code 43**, perhaps [batmanfeynman's post](https://www.reddit.com/r/VFIO/comments/mqxhus/code_43_on_optimus_laptop_help/) or [alterNERDtive's post](https://www.reddit.com/r/VFIO/comments/mqz2gt/solved_nvidia_passthrough_post_driver_465_code_43/) could help.
 
+
 ## AMD Reset Bug Fixes
 
 - For Polaris, Vega and Gen1 Navi Reset fix, installing [vendor-reset](https://github.com/gnif/vendor-reset) is enough thanks to [gnif](https://github.com/gnif).
-- [Navi Reset Bug Kernel V2](https://forum.level1techs.com/t/navi-reset-bug-kernel-patch-v2/163103/14)
-- [Pop! OS 20.10 VFIO 5700XT](https://forum.level1techs.com/t/pop-os-20-10-vfio-5700xt-pain/169647/2)
+- For RX 5000, check out [Navi Reset Bug Kernel V2](https://forum.level1techs.com/t/navi-reset-bug-kernel-patch-v2/163103/14)
+- Also see the recent [Pop! OS 20.10 VFIO 5700XT](https://forum.level1techs.com/t/pop-os-20-10-vfio-5700xt-pain/169647/2) post
 
 ## Making your VM Stealth
 
