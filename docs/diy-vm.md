@@ -8,7 +8,9 @@ This guide works regardless of your distribution.
 
 ## Enabling Virtualization in your UEFI/Coreboot
 
-You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further.
+You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further. 
+
+**THIS VARIES BETWEEN VARIOUS MOTHERBOARDS**
 
 Take a look at these examples below:
 
@@ -19,62 +21,33 @@ Take a look at these examples below:
 
 Please follow below steps to enable virtualization(SVM) in the BIOS for AMD motherboards:
 
-1. Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
+#### 1. Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
 
 ![Screenshot](img/asus-b450-1.jpg)
 
-2. Click `F7` if you are not in advanced mode already
+#### 2. Click `F7` if you are not in advanced mode already
 
 ![Screenshot](img/asus-b450-2.jpg)
 
-3. Click [Advanced] - [CPU Configuration] 
+#### 3. Click [Advanced] - [CPU Configuration] 
 
 ![Screenshot](img/asus-b450-3.jpg)
 
-4. Set [SVM Mode or Intel VT-x] as [Enabled]
+#### 4. Set [SVM Mode or Intel VT-x] as [Enabled]
 
-- ROG Strix B450-F (AMD)
+- **ROG Strix B450-F (AMD)**
 
 ![Screenshot](img/asus-b450-4.jpg)
 
-- ASUS Prime Z270 (Intel)
+- **ASUS Prime Z270 (Intel)**
 
 ![Screenshot](img/asus-laptop-intel1.jpg)
 
-- OLD BIOS (Intel and AMD)
+- **OLD BIOS (Intel and AMD)**
 
 ![Screenshot](img/asus-laptop-intel2.jpg)
 
-5. Finally, **Save** and **Reboot**.
-
-</br>
-</details>
-</p>
-
-<p>
-<details>
-<summary>ASUS Prime/ROG B450-F Motherboard</summary>
-<br>
-
-Please follow below steps to enable virtualization(SVM) in the BIOS for AMD motherboards:
-
-- Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
-
-![Screenshot](img/asus-b450-1.jpg)
-
-- Click `F7` if you are not in advanced mode already
-
-![Screenshot](img/asus-b450-2.jpg)
-
-- Click [Advanced] - [CPU Configuration] 
-
-![Screenshot](img/asus-b450-3.jpg)
-
-- Set [SVM Mode] as [Enabled]
-
-![Screenshot](img/asus-b450-4.jpg)
-
-- Finally, **Save** and **Reboot**.
+#### 5. Finally, **Save** and **Reboot**.
 
 </br>
 </details>
@@ -107,7 +80,9 @@ If you have a laptop with UEFI, you can also [check this video](https://youtu.be
 For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
 
 
-### Install the required packages on your system. You may search the packages in your package manager or compile them yourself.
+## Installing Dependencies 
+
+Boot into your preffered Linux OS and install the packages. You may search the packages in your package manager or compile them yourself.
 
 <p>
 <details>
@@ -290,7 +265,6 @@ You can enter any directory you wish, as well as how big you want it to be.
 </br>
 </details>
 </p>
-
 
 ## GPU Passthrough 
 
