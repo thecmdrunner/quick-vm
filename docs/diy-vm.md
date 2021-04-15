@@ -39,7 +39,7 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 - ASUS Prime Z270 (Intel)
 
-![Screenshot](img/asus-laptop-intel.jpg)
+![Screenshot](img/asus-laptop-intel1.jpg)
 
 - OLD BIOS (Intel and AMD)
 
