@@ -12,11 +12,11 @@ You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand 
 
 **THIS VARIES BETWEEN VARIOUS MOTHERBOARDS**
 
-Take a look at these examples below:
+Take a look at how to do it below:
 
 <p>
 <details>
-<summary>ASUS ROG B450-F Motherboard</summary>
+<summary>How to enable Virtualization on your Motherboard</summary>
 <br>
 
 Please follow below steps to enable virtualization(SVM) in the BIOS for AMD motherboards:
@@ -33,13 +33,13 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 ![Screenshot](img/asus-b450-3.jpg)
 
-#### 4. Set [SVM Mode or Intel VT-x] as [Enabled]
+#### 4. Enable Virtualization based on your CPU [INTEL or AMD] 
 
-- **ROG Strix B450-F (AMD)**
+- **Enable SVM (AMD)**
 
 ![Screenshot](img/asus-b450-4.jpg)
 
-- **ASUS Prime Z270 (Intel)**
+- **Enable VT-x and Intel Virtualization (Intel)**
 
 ![Screenshot](img/asus-laptop-intel1.jpg)
 
@@ -56,31 +56,9 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 </p>
 
 
-<p>
-<details>
-<summary>MSI B450 Tomahawk</summary>
-<br>
-
-- Boot in to Bios using "Delete" Key
-
-- Select "Overclocking"
-
-- Go to "OC Explore Mode" and turn that to "Expert"
-
-- Scroll down to "CPU Features"
-
-- Select "SVM Mode" and "Enable"
-
-- Save and Exit
-
-</br>
-</details>
-</p>
-
 If you have a laptop with UEFI, you can also [check this video](https://youtu.be/NbnPWhI4xis).
 
 For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
-
 
 ## Installing Dependencies 
 
