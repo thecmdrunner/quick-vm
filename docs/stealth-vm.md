@@ -21,7 +21,7 @@ If you need to mask your VM from checks that a few programs do to restrict users
 
 ## 🚀 Getting Started
 
->If you haven't enabled Virtualization and IOMMU, check out 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+>If you haven't enabled Virtualization and IOMMU, check out 🔖 [DIY VM (Everything From Scratch)](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md)
 
 - Run the [One-liner](https://github.com/thegamerhat/quick-vm#-one-liner-to-setup-kvm) in the Terminal.
 - Select `Advanced Setup` and go to `Select a Custom VM Profile`
@@ -129,7 +129,8 @@ sudo virsh edit Windows10
 
 If you need something specific, or something didn't work for you here, make sure you give these a look. Many people who have experience with this stuff have wonderful guides that you should check out.
 
-1. [Clayfreeman's GPU Passthrough](https://clayfreeman.github.io/gpu-passthrough/)
+1. [SomeOrdinaryGamers' BattleEye bypass](https://www.youtube.com/watch?v=vXkuyeYaTro) - Modifying somethings in the kernel to mitigate some checks
+2. [Clayfreeman's GPU Passthrough](https://clayfreeman.github.io/gpu-passthrough/)
 
 ## 📣 Credits
 
