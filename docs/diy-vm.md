@@ -23,6 +23,10 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 ![Screenshot](img/asus-b450-1.jpg)
 
+
+
+
+
 2. Click `F7` if you are not in advanced mode already
 
 ![Screenshot](img/asus-b450-2.jpg)
@@ -31,9 +35,19 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 
 ![Screenshot](img/asus-b450-3.jpg)
 
-4. Set [SVM Mode] as [Enabled]
+4. Set [SVM Mode or Intel VT-x] as [Enabled]
+
+- ROG Strix B450-F (AMD)
 
 ![Screenshot](img/asus-b450-4.jpg)
+
+- ASUS Prime Z270 (Intel)
+
+![Screenshot](img/asus-laptop-intel.jpg)
+
+- OLD BIOS (Intel and AMD)
+
+![Screenshot](img/asus-laptop-intel2.jpg)
 
 5. Finally, **Save** and **Reboot**.
 
