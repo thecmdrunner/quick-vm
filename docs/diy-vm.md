@@ -279,29 +279,31 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
   - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
   - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
 
-### NVIDIA GPU Passhrough
+### GPU Passhrough
 
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
 >**NOTE**: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
 >
->If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough) by [joeknock90](https://github.com/joeknock90/)
+>If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough)
 
 So if you need to passthrough an NVIDIA or AMD GPU without making it obvious that you are using a VM, add the following lines to your XML.
 
-1. List all VMs
+**1. List all VMs**
+
 ```bash
 sudo virsh list --all
 ```
 
 ![Screenshot](img/virsh-list.png)
 
-2. Edit the VM config
+**2. Edit the VM config**
+
 ```bash
 sudo virsh edit Windows10
 ```
 
-3. Enter the following text between the already existing sections. 
+**3. Enter the following text between the already existing sections**
 
 #### You can replace `randomid` with `AuthenticAMD` to fix a few issues on AMD GPUs.
 
