@@ -493,7 +493,7 @@ stealth_define() {
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
 
-  if [[ $totalcpus < 5 || $totalmem < 8388608 ]]; then
+  if [[ $totalmem < 8388608 ]]; then
     TEXT="\n:: It is recommended that you allocate atleast 8 GiB RAM and 4 CPUs to the VM."; redtext
   elif [[ $totalcpus < 4 ]]; then
     TEXT="\n:: YOUR CPU LIKELY DOES NOT HAVE ENOUGH CORES, PLEASE REDUCE THE ALLOCATION IN THE CONFIG."; redtext
@@ -529,7 +529,7 @@ vm_profile_define() {
   TEXT='[2] Decently Powerful (4 CPU Threads/6 GB RAM) [Default]'; whitetext
   TEXT='[3] Lightweight and Barebones (2 CPU Threads/4 GB RAM)'; whitetext
 
-  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] (BETA STAGE)\n'; cyantext
+  TEXT='\n[4] Create a Stealth VM [For DRM/Anticheat Programs] \n'; cyantext
     
   if [[ $totalcpus < 4 || $totalmem < 7000000 ]]; then
     TEXT='➜ Your system probably does NOT have enough CPU/Memory resources, slowdowns might occur.'; redtext

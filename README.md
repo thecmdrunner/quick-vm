@@ -238,7 +238,6 @@ Ideal for Gaming, Content Creation and other heavy duty applications.
 
 Ideal for Office 365, and some light Photoshop.
 
-
 |Part|Specification|
 | --- | --- |
 |CPU|4 vCPU|
@@ -253,7 +252,6 @@ Ideal for basic stuff that requires Windows.
 
 **Tax Software in Banks**
 
-
 |Part|Specification|
 | --- | --- |
 |CPU|2 vCPU|
@@ -264,10 +262,9 @@ Ideal for basic stuff that requires Windows.
 
 Ideal for DRM/Anticheat Programs like **Valorant**, **Rainbow Six: Siege**
 
-
 |Part|Specification|
 | --- | --- |
-|CPU|6 vCPU|
+|CPU|4 vCPU|
 |Memory|8 GiB|
 |Storage|1 TiB|
 
