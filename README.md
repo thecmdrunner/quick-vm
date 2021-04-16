@@ -336,7 +336,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 ## Donate
 
-[![PayPal.Me](https://img.shields.io/badge/PayPal-%23000000.svg?&style=for-the-badge&logo=paypal)](https://paypal.me/gamerhat18) 
+[![PayPal.Me](https://img.shields.io/badge/PayPal-%23FFFFFF.svg?&style=for-the-badge&logo=paypal)](https://paypal.me/gamerhat18) 
 
 ## 📬 Contact me
 
