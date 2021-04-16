@@ -14,7 +14,7 @@
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/usr/share/OVMF/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-stealth.fd</nvram>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
   <features>
