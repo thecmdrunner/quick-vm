@@ -361,7 +361,7 @@ Read more about it on [this post in Level1Forums](https://forum.level1techs.com/
 You might be able to get around this by passing the iGPU to the VM, as [shown here](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian)
 
 
-You can still get past through this sometimes like [this reddit post](https://www.reddit.com/r/VFIO/comments/hx5j8q/success_with_laptop_gpu_passthrough_on_asus_rog/) mentions, using an ROG Zephyrus G14 w/ RTX 2060.
+You can still get past through this sometimes like [this reddit post](https://www.reddit.com/r/VFIO/comments/hx5j8q/success_with_laptop_gpu_passthrough_on_asus_rog/) mentions, using an **ROG Zephyrus G14** w/ **RTX 2060**.
 
 
 ### NVIDIA Issues on Laptops
