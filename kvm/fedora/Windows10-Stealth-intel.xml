@@ -10,7 +10,7 @@
   </metadata>
   <memory unit="KiB">8388608</memory>
   <currentMemory unit="KiB">1048576</currentMemory>
-  <vcpu placement="static">6</vcpu>
+  <vcpu placement="static">4</vcpu>
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/usr/share/edk2/ovmf/OVMF_CODE.fd</loader>
@@ -52,8 +52,8 @@
   <on_reboot>restart</on_reboot>
   <on_crash>destroy</on_crash>
   <pm>
-    <suspend-to-mem enabled="no"/>
-    <suspend-to-disk enabled="no"/>
+    <suspend-to-mem enabled="yes"/>
+    <suspend-to-disk enabled="yes"/>
   </pm>
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
@@ -67,7 +67,7 @@
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/virtio-win-0.1.185.iso"/>
+      <source file="/var/lib/libvirt/images/virtio-win.iso"/>
       <target dev="sdc" bus="sata"/>
       <readonly/>
       <address type="drive" controller="0" bus="0" target="0" unit="2"/>
