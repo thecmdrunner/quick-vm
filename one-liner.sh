@@ -493,16 +493,22 @@ stealth_define() {
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
 
+  sleep 3;
+
   if [[ $totalmem < 8388608 ]]; then
     TEXT="\n:: It is recommended that you allocate atleast 8 GiB RAM and 4 CPUs to the VM."; redtext
   elif [[ $totalcpus < 4 ]]; then
     TEXT="\n:: YOUR CPU LIKELY DOES NOT HAVE ENOUGH CORES, PLEASE REDUCE THE ALLOCATION IN THE CONFIG."; redtext
   fi
 
+  sleep 1;
+
   TEXT="\nNOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process."; yellowtext
   TEXT="\nhttps://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n"; whiteunderline 
   TEXT="\nCreating a Stealth VM..."; greentext
-  sleep 5 & sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
+  sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
+
+  sleep 3;
 
   if [[ $cpubrand == 'AMD' ]]; then
     echo -e '\n➜ sudo virsh define Windows10-Stealth-amd.xml\n'
