@@ -353,7 +353,7 @@ For any issues not just limited to the following, check the following sections o
 
 ## 💻 Laptop Compatibility
 
-![Screenshot](img/mux-laptop.png)
+![Screenshot](img/mux-laptop.jpg)
 
 According to the image above, if you have a MUXless laptop, then it is tricky to dedicate your GPU to a VM and have its own separate display, because the GPU doesn't connect to the HDMI/DisplayPort Port directly, and instead uses the iGPU as a bridge to the laptop screen.
 You might be able to get around this by passing the iGPU to the VM, as [shown here](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian)
