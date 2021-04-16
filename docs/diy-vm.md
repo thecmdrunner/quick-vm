@@ -5,6 +5,8 @@ If you want to go through the process of making a VM all by yourself, this secti
 
 This guide works regardless of your distribution.
 
+NOTE: Using a recent version of Windows is recommended (anything after 20H1 or May 2020) as older revisions are known to have some issues, and hence are not mentioned in this guide.
+
 ## Enabling Virtualization in your UEFI/Coreboot
 
 You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further. 
@@ -272,18 +274,19 @@ You might be in one of the following situations:
   2. You have a discrete GPU (NVIDIA/AMD) + integrated Graphics (Intel UHD/AMD Radeon)
   3. You have two discrete GPUs (then integrated graphics won't matter)
 
-If you are one of the privileged people to own a GPU, and are looking to pass it through without integrated graphics, check out these Single GPU Passthrough Guides:
+### If you are one of the privileged people to own a GPU (no iGPU), check out:
+
   1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
   2. [joeknock90 central repository](https://github.com/joeknock90/Single-GPU-Passthrough)
 
-If you are lucky enough to have 2 discrete GPUs, you can reserve one GPU for your Linux system and pass the other one to Windows. Check these guides out:
+### If you are lucky enough to have 2 discrete GPUs, check out:
 
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
   2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
 
 > In the past, it was required that you have two different GPUs (typically AMD + NVIDIA), but that's not a requirement anymore!
 
-If you only have integrated graphics right now, check out:
+### If you only have integrated graphics right now, check out:
 
 - [Lan Tian's Intel GPU iPasshrough Guide](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
@@ -360,9 +363,7 @@ Read more about it on [this post in Level1Forums](https://forum.level1techs.com/
 
 You might be able to get around this by passing the iGPU to the VM, as [shown here](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian)
 
-
 You can still get past through this sometimes like [this reddit post](https://www.reddit.com/r/VFIO/comments/hx5j8q/success_with_laptop_gpu_passthrough_on_asus_rog/) mentions, using an **ROG Zephyrus G14** w/ **RTX 2060**.
-
 
 ### NVIDIA Issues on Laptops
 
@@ -371,7 +372,6 @@ Sometimes on Optimus/Max-Q laptops, NVIDIA wants to check for the battery info i
 If you experience that issue, check out the [SSDT Workaround](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#%22Error_43:_Driver_failed_to_load%22_with_mobile_(Optimus/max-q)_nvidia_GPUs) on ArchWiki.
 
 If you still get a **Code 43**, perhaps [batmanfeynman's post](https://www.reddit.com/r/VFIO/comments/mqxhus/code_43_on_optimus_laptop_help/) or [alterNERDtive's post](https://www.reddit.com/r/VFIO/comments/mqz2gt/solved_nvidia_passthrough_post_driver_465_code_43/) could help.
-
 
 ## AMD Reset Bug Fixes
 

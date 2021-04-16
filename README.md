@@ -334,6 +334,10 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 - **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
 - **joeknock90** (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough Central Point
 
+## Donate
+
+[![PayPal.Me](https://img.shields.io/badge/PayPal-%2300457C.svg?&style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/gamerhat18) 
+
 ## 📬 Contact me
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
