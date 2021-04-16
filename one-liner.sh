@@ -525,6 +525,10 @@ vm_profile_define() {
     cd /home/$USER/
     git clone https://github.com/thegamerhat/quick-vm
     clear;
+  else
+    cd /home/$USER/quick-vm
+    git pull
+    clear;
   fi
   
   border;
