@@ -386,24 +386,24 @@ installdeps() {
 
 # Arch-Setup 
 
-  if [[ $distro=='arch' ]]; then
+  if [[ $distro == 'arch' ]]; then
     TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
     echo -e "\n:: Installing Dependencies...\n"; 
     sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
 
 # Fedora Setup
 
-  elif [[ $distro=='fedora' ]]; then
+  elif [[ $distro == 'fedora' ]]; then
     TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
     echo -e ":: Installing Dependencies\n"; 
     sudo dnf -y install @virtualization git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
 
 # Debian Setup
 
-  elif [[ $distro=='debian' ]]; then
+  elif [[ $distro == 'debian' ]]; then
     TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
     echo -e ":: Installing Dependencies\n"; 
-    sudo apt update -q && sudo apt install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
+    sudo apt-get update -q && sudo apt-get install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
   
 # Unknown Distro
 
