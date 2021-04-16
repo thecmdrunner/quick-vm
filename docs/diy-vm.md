@@ -260,12 +260,15 @@ You can enter any directory you wish, as well as how big you want it to be.
 </details>
 </p>
 
-## CPU Optimization
+## Optimization
 
-There usually isn't much that needs to be done for optimizing CPU Performance in VM, but there are a couple of things that need to be taken into consideration for more than just a basic VM.
+There usually isn't much that needs to be done for optimizing Performance in VM, but there are a couple of things that need to be taken into consideration for more than just a basic VM.
 
-- [CPU Pinning](https://mathiashueber.com/performance-tweaks-gaming-on-virtual-machines/#CPU_Pinning) for better CPU Allocation
-- []
+- [CPU Pinning](https://mathiashueber.com/performance-tweaks-gaming-on-virtual-machines/#CPU_Pinning) for better CPU Allocation.
+
+- [Huge Memory Pages](https://mathiashueber.com/configuring-hugepages-use-virtual-machine/) for less overhead on systems with lot of memory allocation.
+
+- [Other Small issues](https://mathiashueber.com/qemu-troubleshooting-errors-gpu-passthrough-vm/) that do come from time to time.
 
 ## GPU Passthrough 
 
