@@ -110,7 +110,7 @@ cpu_vt=$(lscpu | grep Virtualization)
 if [[ $cpu_vt =~ "AMD-V" ]]; then
   cpubrand='AMD'
 elif [[ $cpu_vt =~ "VT-x" ]]; then
-  cpubrand='Intel'
+  cpubrand='INTEL'
 fi
 
 
