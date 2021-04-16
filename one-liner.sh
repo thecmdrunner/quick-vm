@@ -578,11 +578,15 @@ vm_profile_define() {
     echo ''
 
       if [[ $virtmanagerchoice =~ "Y" || $virtmanagerchoice =~ "y" ]]; then
-        echo -e '\n\n'
+        echo -e '\n \n'
         virt-manager &
 
       elif [[ $virtmanagerchoice =~ "N" || $virtmanagerchoice =~ "n" ]]; then
         echo '\n'
+
+      else
+        echo -e '\n \n'
+        virt-manager &
 
       fi
 
