@@ -493,9 +493,9 @@ stealth_define() {
   TEXT='These workarounds and mitigations might result in a performace hit depending on your hardware config, and the way you have your VM Set up.\n'; redtext
   TEXT='Therefore, It is adviced that you use a Stealthy VM for ONLY operating the Softwares/Games that DO NOT run well in a traditional VM (even after GPU Passthrough).'; yellowtext
 
-  if [[ $totalcpus < 6 || $totalmem < 8388608 ]]; then
-    TEXT="\n:: It is recommended that you allocate atleast 8 GiB RAM and 6 CPUs to the VM."; redtext
-  elif [[ $totalcpus < 5 ]]; then
+  if [[ $totalcpus < 5 || $totalmem < 8388608 ]]; then
+    TEXT="\n:: It is recommended that you allocate atleast 8 GiB RAM and 4 CPUs to the VM."; redtext
+  elif [[ $totalcpus < 4 ]]; then
     TEXT="\n:: YOUR CPU LIKELY DOES NOT HAVE ENOUGH CORES, PLEASE REDUCE THE ALLOCATION IN THE CONFIG."; redtext
   fi
 
