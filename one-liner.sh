@@ -521,6 +521,12 @@ stealth_define() {
 
 vm_profile_define() {
   
+  if [[ ! -d /home/$USER/quick-vm ]]; then
+    cd /home/$USER/
+    git clone https://github.com/thegamerhat/quick-vm
+    clear;
+  fi
+  
   border;
 
   TEXT='\n:: Please Selct the VM Profile according to your needs.'; greentext
