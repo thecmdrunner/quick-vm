@@ -57,6 +57,19 @@ Please follow below steps to enable virtualization(SVM) in the BIOS for AMD moth
 </p>
 
 
+<p>
+<details>
+<summary>Verify on System76 Computers</summary>
+<br>
+
+![Screenshot](img/coreboot-1.jpg)
+
+![Screenshot](img/coreboot-2.jpg)
+
+</br>
+</details>
+</p>
+
 If you have a laptop with UEFI, you can also [check this video](https://youtu.be/NbnPWhI4xis).
 
 For Coreboot devices, refer to your manufacturer's instructions or check the official documentation [here](https://coreboot.org/status/kconfig-options.html). 
