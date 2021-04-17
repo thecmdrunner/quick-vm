@@ -52,9 +52,9 @@ bash <(curl -sL https://git.io/JOeOs)
 
 + Open **Virtual Machine Manager** and Start the **Windows VM**
 
-> If you encounter an OVMF/edk2 problem, check out [OVMF fix](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Cannot_boot_after_upgrading_ovmf)
+> If you encounter an OVMF/edk2 problem, check out [OVMF Fix](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Cannot_boot_after_upgrading_ovmf)
 >
-> Or you can enter the following command in terminal (only applicable this VM) 
+> **Or you can enter the following command in terminal (only applicable this VM) **
 >
 > Ubuntu/Debian ➜ `sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd `
 >
