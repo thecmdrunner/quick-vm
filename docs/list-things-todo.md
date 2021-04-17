@@ -22,3 +22,6 @@
 - ꧁ Better design ꧂
 - ability to make multiple VMs from the same profile.
 - Motherboard Compatibility list (based on good IOMMU Groups separation)
+
+![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
+: gamerhat#2074

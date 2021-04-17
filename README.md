@@ -7,7 +7,7 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-# 🏅 Quick-VM (Beta, Stealth VM not recommended) 
+# 🏅 Quick-VM
 
 S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
@@ -144,9 +144,9 @@ bash <(curl -sL https://git.io/JOeOs)
 
 ## ⚔️ Advanced Install
 
-### 🔖 [Making a Stealth VM (Always being Updated)](docs/stealth-vm.md)
-
 ### 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+
+### 🔖 [Making a Stealth VM (Always being Updated)](docs/stealth-vm.md)
 
 <p>
 <details>
@@ -335,7 +335,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 [![PayPal.Me](https://img.shields.io/badge/PayPal-%23FFFFFF.svg?&style=for-the-badge&logo=paypal)](https://paypal.me/gamerhat18) 
 
-## 📬 Contact me
+## 📬 Facing Issues? Contact me
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gamerhat18.quick-vm)
 
@@ -351,5 +351,3 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 [![Instagran](https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/thegamerhat)
 
-![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
-: gamerhat#2074
