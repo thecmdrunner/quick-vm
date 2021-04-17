@@ -367,10 +367,13 @@ gitndefine() {
     
     if [[ $distro=='arch' ]]; then
       sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml  >> quick-vm.log
+      sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     elif [[ $distro=='debian' ]]; then
       sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml >> ~/quick-vm.log
+      sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
     elif [[ $distro=='fedora' ]]; then
       sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml >> ~/quick-vm.log
+      sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     fi
 
     TEXT="\n[✓] Your VM is Ready! Follow the instructions from the Official Project page to get started."; greentext
