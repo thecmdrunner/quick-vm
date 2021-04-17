@@ -7,7 +7,7 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-# 🏅 Quick-VM
+# Quick-VM
 
 S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
