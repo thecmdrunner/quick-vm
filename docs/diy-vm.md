@@ -205,6 +205,16 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ![Screenshot](img/diy-create-14.png)
 
+> If you encounter an OVMF/edk2 problem, check out [OVMF fix](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Cannot_boot_after_upgrading_ovmf)
+>
+> Or you can enter the following command in terminal (only applicable this VM) 
+>
+> Ubuntu/Debian ➜ `sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd `
+>
+> Fedora ➜ `sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd`
+>
+> Arch ➜ `sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd`
+
 + Click inside the VM Window and press any key when asked.  
 
 ![Screenshot](img/first-boot.png)
