@@ -17,7 +17,7 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
 
 # 🚀 Getting Started
 
-### 🥇 Simple Install:
+## 🥇 Simple Install:
 
 1. Download [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), and [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
@@ -29,7 +29,7 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
 
 4. Open your terminal and enter the command shown below  
 
-### 🥈 One-liner to Setup KVM
+## 🥈 One-liner to Setup KVM
 
 #### Paste this in your terminal
 
@@ -39,7 +39,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
-### 🥉 Getting the VM Ready:
+## 🥉 Getting the VM Ready:
 
 <p>
 <details>
