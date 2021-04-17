@@ -17,9 +17,7 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
 
 # 🚀 Getting Started
 
-## Simple Install:
-
-### Follow Step 🥇, Step 🥈 and Step 🥉
+## 🏅 Simple Install ➜ Follow Step 🥇, Step 🥈 and Step 🥉
 
 ### 🥇 Getting ISOs Ready
 
