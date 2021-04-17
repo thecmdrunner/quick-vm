@@ -158,7 +158,7 @@ bash <(curl -sL https://git.io/JOeOs)
 
 ## ⚔️ Advanced Install
 
-### 🔖 [DIY VM (Everything From Scratch)](docs/diy-vm.md)
+### 🔖 [DIY VM (Everything From Scratch + GPU Passthrough)](docs/diy-vm.md)
 
 ### 🔖 [Making a Stealth VM (Always being Updated)](docs/stealth-vm.md)
 
