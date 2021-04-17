@@ -415,4 +415,8 @@ If you still get a **Code 43**, perhaps [batmanfeynman's post](https://www.reddi
 
 ## Making your VM Stealth
 
+If you need to mask your VM from checks that a few programs do to restrict users from using certain programs inside a VM for various reasons (like Video Games), then this section is for you.
+
+It goes over running DRM/Anti-Cheat games under VMs that have built in VM detection techniques.
+
 ### 🔖 [Guide on Stealthy VM](stealth-vm.md)
