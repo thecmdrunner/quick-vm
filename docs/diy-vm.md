@@ -205,6 +205,15 @@ You can enter any directory you wish, as well as how big you want it to be.
 
 ![Screenshot](img/diy-create-14.png)
 
+> If you encounter an OVMF/edk2 problem, check out [OVMF Fix](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Cannot_boot_after_upgrading_ovmf)
+>
+> **Or you can enter the following command in terminal (only applicable this VM)**
+>
+> Ubuntu/Debian ➜ `sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd `
+>
+> Fedora ➜ `sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd`
+>
+> Arch ➜ `sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd`
 
 + Click inside the VM Window and press any key when asked.  
 
@@ -273,9 +282,17 @@ There usually isn't much that needs to be done for optimizing Performance in VM,
 
 ## GPU Passthrough 
 
-TLDR; see 1. [Ubuntu/Pop OS 20.04 Guide](https://mathiashueber.com/pci-passthrough-ubuntu-2004-virtual-machine/), 2. [ArchWiki PCI Passthrough via OVMF](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF), 3. [Gentoo Guide](https://wiki.gentoo.org/wiki/GPU_passthrough_with_libvirt_qemu_kvm)
+**TLDR;** 
 
-Video Guides: 1. [TechTeamGB Ubuntu NVIDIA Passthrough](https://www.youtube.com/watch?v=NDgiV7Lgku8), 2. [SomeOrdinaryGamers' Arch NVIDIA Passthrough](https://www.youtube.com/watch?v=h7SG7ccjn-g), 3. [Level1Linux Fedora Passthrough](https://www.youtube.com/watch?v=aLeWg11ZBn0) 
+**Writen Guides**:
+  - [Ubuntu/Pop OS 20.04 Guide](https://mathiashueber.com/pci-passthrough-ubuntu-2004-virtual-machine/)
+  - [ArchWiki PCI Passthrough via OVMF](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF)
+  - [Gentoo Guide](https://wiki.gentoo.org/wiki/GPU_passthrough_with_libvirt_qemu_kvm)
+
+**Video Guides**: 
+  - [TechTeamGB Ubuntu NVIDIA Passthrough](https://www.youtube.com/watch?v=NDgiV7Lgku8) 
+  - [SomeOrdinaryGamers' Arch NVIDIA Passthrough](https://www.youtube.com/watch?v=h7SG7ccjn-g)
+  - [Level1Linux Fedora Passthrough](https://www.youtube.com/watch?v=aLeWg11ZBn0) 
 
 For laptops, see [Laptop Compatibility](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#-laptop-compatibility)
 
