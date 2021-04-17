@@ -17,6 +17,8 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
 
 # 🚀 Getting Started
 
+### Follow Step 🥇, Step 🥈 and Step 🥉
+
 ## 🥇 Simple Install:
 
 1. **Download** [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)**, and **[VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
