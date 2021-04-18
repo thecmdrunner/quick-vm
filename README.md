@@ -113,7 +113,7 @@ bash <(curl -sL https://git.io/JOeOs)
 </details>
 </p>
 
-### 🎉 That's it, You have successfully made a VM as quickly as possible!
+### 🎉 That's it, You have successfully made a VM!
 
 ---
 
