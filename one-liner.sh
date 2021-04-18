@@ -392,7 +392,7 @@ installdeps() {
   if [[ $distro == 'arch' ]]; then
     TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
     echo -e "\n:: Installing Dependencies...\n"; 
-    sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
+    sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 iptables dnsmasq openbsd-netcat virt-manager 
 
 # Fedora Setup
 
