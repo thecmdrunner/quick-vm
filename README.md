@@ -48,7 +48,7 @@ bash <(curl -sL https://git.io/JOeOs)
 <summary>Step by Step Guide - Click Me!</summary>
 <br>
 
-### Please follow along the screenshots below to get the VM ready.
+### Please follow along the steps below to get the VM ready.
 
 + Open **Virtual Machine Manager** and Start the **Windows VM**
 
