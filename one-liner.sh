@@ -86,7 +86,7 @@ fi
 # echo --------------------
 
 border() {
-  TEXT="\n--------------------------------------------------------------------------------"; whitetext
+  TEXT="\n-------------------------------------------------------------------------------"; whitetext
 }
 
 
@@ -173,9 +173,9 @@ reload_kvm() {
     kvm_enabled='no'
   fi
 
-  if [[ $cpu_vt =~ "AMD-V" ]]; then
+  if [[ $cpu_vt =~ "AMD" ]]; then
       cpubrand='AMD'
-  elif [[ $cpu_vt =~ "VT-x" ]]; then
+  elif [[ $cpu_vt =~ "VT" ]]; then
       cpubrand='INTEL'
   fi 
 
