@@ -159,7 +159,7 @@ check_kvm() {
   
   elif [[ $cpu_kvm_flags < 1 ]]; then
     
-    TEXT="[X] YOUR CPU DOES NOT SUPPORT VIRTUALIZATION."; redtext
+    TEXT="[X] YOUR CPU DOES NOT HAVE VIRTUALIZATION ENABLED."; redtext
 
   fi
 
