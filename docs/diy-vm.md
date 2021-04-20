@@ -313,6 +313,8 @@ You might be in one of the following situations:
   1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
   2. [joeknock90 central repository](https://github.com/joeknock90/Single-GPU-Passthrough)
 
+> NOTE: Before you passthrough your GPU, make sure you enable your integrated graphics and set it to default in UEFI/Coreboot first, or else you won't be able to view your Linux Host.
+
 ### If you are lucky enough to have 2 discrete GPUs, check out:
 
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
