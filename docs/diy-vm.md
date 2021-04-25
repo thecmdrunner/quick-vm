@@ -339,6 +339,9 @@ NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on 
 >
 >If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough)
 
+### Check Out [**NVIDIA GRID on GeForce and Quadro GPUs**](https://github.com/DualCoder/vgpu_unlock), which is NVIDIA's Proprietary alternative to SR-IOV, and you need a functioning NVIDIA Tesla GPU in your system to get this trick working.
+You can read the [Community made Wiki](https://docs.google.com/document/d/1pzrWJ9h-zANCtyqRgS7Vzla0Y8Ea2-5z2HEi4X75d2Q/edit).
+
 So if you need to passthrough an NVIDIA or AMD GPU without making it obvious that you are using a VM, add the following lines to your XML.
 
 **1. List all VMs**
