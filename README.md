@@ -36,7 +36,7 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
 #### Paste this in your terminal
 
 ```bash
-bash <(curl -sL https://git.io/JOeOs) 
+bash <(curl -sL https://git.io/JOeOs)
  ```
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
