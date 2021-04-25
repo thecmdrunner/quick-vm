@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# oneliner command: bash <(curl -sSL https://git.io/JOeOs) 
+# oneliner commands: 
+
+# bash <(curl -sSL https://git.io/JOeOs) 
+# OR
+# bash <(wget -qO- https://git.io/JOeOs) 
+
 # Credits for colored output https://techstop.github.io/bash-script-colors
 # For normal and bold text
 
@@ -43,6 +48,14 @@ purpletext() {
 whiteunderline() {
   echo -e "\e[4;37m$TEXT\e[0m"
 }
+
+ROOT_UID=0
+
+if [[ "${UID}" -eq "${ROOT_UID}" ]]; then
+  # Error message
+  TEXT='\n[!] RUNNING AS ROOT IS DISCOURAGED.\n'
+  TEXT='\n[!] PROCEED WITH CAUTION.\n'
+fi
 
 
 # System resource definitions
@@ -210,7 +223,7 @@ libvirt_systemd_start () {
   
   if [[ ! -f /usr/bin/virsh ]]; then
     echo ''
-    TEXT="[X] Virsh not found! Please make sure all the dependencies are installed correctly."; redtext
+    TEXT="[X] Virsh not found! Please make sure all the dependencies are installed correctly.\n"; redtext
     exit
   fi
 
@@ -269,7 +282,7 @@ checkiso() {
      if [[ -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]]; then
        TEXT="Windows ISO exists in ~/$dirname!"; greentext
        echo ''
-       TEXT="➜ Relocating the image in /var/lib/libvirt/images !"; bluetext
+       TEXT="➜ Relocating to /var/lib/libvirt/images"; bluetext
        echo ''
        sudo rsync --partial --progress $maindir/win10.iso /var/lib/libvirt/images/win10.iso
        TEXT="\n[✓] Operation Done!\n"; greentext
@@ -289,7 +302,7 @@ checkiso() {
   
      if [[ -f $maindir/virtio-win.iso ]]; then
        TEXT="VirtIO Drivers exist in ~/WindowsVM!\n"; greentext
-       TEXT="➜ Relocating the image in /var/lib/libvirt/images !\n"; bluetext
+       TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
        sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
        TEXT="\n[✓] Operation Done!\n"; greentext
   
@@ -368,7 +381,7 @@ gitndefine() {
     if [[ $distro=='arch' ]]; then
       sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml  >> quick-vm.log
       sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-    elif [[ $distro=='debian' ]]; then
+    elif [[ $distro=='debian' || $distro=='ubuntu' ]]; then
       sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
     elif [[ $distro=='fedora' ]]; then
@@ -376,9 +389,9 @@ gitndefine() {
       sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     fi
 
-    TEXT="\n[✓] Your VM is Ready! Follow the instructions from the Official Project page to get started."; greentext
+    TEXT="\n[✓] Setup is Finished! Follow the instructions from the Official Project page to get started."; greentext
 
-  else
+  elif [[ ! $setupmode == 'simple' ]]; then
     TEXT="\n[!] Some filess missing from /var/lib/libvirt/images/"; redtext
     echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
   fi
