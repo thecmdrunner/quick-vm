@@ -404,8 +404,22 @@ installdeps() {
 # Debian Setup
 
   elif [[ $distro == 'debian' ]]; then
-    TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
+    apt_sources=$(cat /etc/apt/sources.list)
+
+    if [[ $apt_sources =~ "ubuntu" ]]; then
+      distro='ubuntu'
+      TEXT="\n[✓] BASE SYSTEM: UBUNTU\n"; cyantext
+    else
+      TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
+    fi
+
     echo -e ":: Installing Dependencies\n"; 
+
+    if [[ $distro == 'ubuntu' ]]; then
+      sudo apt-get install software-properties-common -y
+      sudo add-apt-repository universe -y
+    fi
+
     sudo apt-get update -q && sudo apt-get install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
   
 # Unknown Distro
