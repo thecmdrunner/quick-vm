@@ -113,7 +113,7 @@ bash <(wget -qO- https://git.io/JOeOs)
 </details>
 </p>
 
-### 🎉 That's it, You have successfully made a VM!
+### 🎉 That's it, You have successfully created a VM!
 
 ---
 
