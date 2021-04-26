@@ -214,12 +214,11 @@ reload_kvm() {
 
 }
 
-
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
 
-  # dependencies check
+  # libvirt check
   
   if [[ ! -f /usr/bin/virsh ]]; then
     echo ''
@@ -247,6 +246,47 @@ libvirt_systemd_start () {
   TEXT="\n:: Executing 'sudo systemctl enable --now virtlogd'\n"; bluetext
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
+  sudo systemctl start virtlogd >> ~/quick-vm.log
+
+  TEXT=":: Enabling Virtual Network Bridge at startup\n"; bluetext
+
+  sudo virsh net-autostart default >> ~/quick-vm.log
+  sudo virsh net-start default >> ~/quick-vm.log
+
+  TEXT="\n[✓] Done. Logs saved to ~/quick-vm.log\n"; greentext
+
+}
+
+# Restart Libvirt service through systemd
+
+libvirt_systemd_restart () {
+
+  # libvirt check
+  
+  if [[ ! -f /usr/bin/virsh ]]; then
+    echo ''
+    TEXT="[X] Virsh not found! Please make sure all the dependencies are installed correctly.\n"; redtext
+    exit
+  fi
+
+  TEXT="\n:: Trying to restart libvirtd socket and service"; bluetext
+
+  sudo systemctl enable --now libvirtd >> ~/quick-vm.log
+  sudo systemctl stop libvirtd >> ~/quick-vm.log
+  sudo systemctl start libvirtd >> ~/quick-vm.log
+
+  sudo systemctl enable --now libvirtd.socket >> ~/quick-vm.log
+  sudo systemctl stop libvirtd.socket >> ~/quick-vm.log
+  sudo systemctl start libvirtd.socket >> ~/quick-vm.log
+
+  sudo systemctl enable libvirtd.service >> ~/quick-vm.log
+  sudo systemctl stop libvirtd.service >> ~/quick-vm.log
+  sudo systemctl start libvirtd.service >> ~/quick-vm.log
+
+  TEXT=":: Trying to restart virtlogd socket and service"; bluetext
+
+  sudo systemctl enable --now virtlogd >> ~/quick-vm.log
+  sudo systemctl stop virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
 
   TEXT=":: Enabling Virtual Network Bridge at startup\n"; bluetext
@@ -429,7 +469,7 @@ installdeps() {
     echo -e ":: Installing Dependencies\n"; 
 
     if [[ $distro == 'ubuntu' ]]; then
-      sudo apt-get install software-properties-common -y
+      sudo apt-get update && sudo apt-get install software-properties-common -y
       sudo add-apt-repository universe -y
     fi
 
@@ -664,7 +704,7 @@ do
     installdeps;
   elif [[ $setup_choice == 3 ]]; then
     clear;
-    libvirt_systemd_start;
+    libvirt_systemd_restart;
   elif [[ $setup_choice == 4 ]]; then
     clear;
     checkiso;
