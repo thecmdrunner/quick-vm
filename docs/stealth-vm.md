@@ -63,7 +63,7 @@ Microsoft's **Hyper-V** Hypervisor is a hardware-based virtualization program th
 
 Windows is using **Hyper-V** to mask our VM from other applications. But that means Windows does know that is is being Virtualized.
 
-## RedHat's KVM Documentation
+## Documentation
 
 A lot of documentation about configuring CPU, Hyper-V enlightenments has been given by RedHat in their KVM docs, which makes troubleshooting easy.
 
@@ -71,7 +71,9 @@ A lot of documentation about configuring CPU, Hyper-V enlightenments has been gi
 
 [RedHat's Hyper-V Presentation](https://archive.fosdem.org/2019/schedule/event/vai_enlightening_kvm/attachments/slides/2860/export/events/attachments/vai_enlightening_kvm/slides/2860/vkuznets_fosdem2019_enlightening_kvm.pdf)
 
-[KVM Format Domain](https://libvirt.org/formatdomain.html)
+[Libvirt Documentation](https://libvirt.org/formatdomain.html)
+
+Also read [How Anti-Cheats detect System Emulation](https://secret.club/2020/04/13/how-anti-cheats-detect-system-emulation.html) to know more about how Anti-Cheats detect systems that are Virtualized.
 
 ## Better Storage Disk solution
 
