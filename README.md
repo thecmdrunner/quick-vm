@@ -9,6 +9,12 @@
 
 # Quick-VM
 
+
+
+> It is possible to invent a single machine which can be used to compute any computable sequence.
+>
+> ~ _Alan Turing, 1936_
+
 S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
 >Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173) (no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
