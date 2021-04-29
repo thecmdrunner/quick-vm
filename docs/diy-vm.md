@@ -335,6 +335,8 @@ If you want to be able to use Hardware Accelerated Applications (like Video Game
 
 NVIDIA's driver **465** and newer support GPU Passthrough to a Windows Guest on a Linux Host.
 
+Check out [**LinusTechTips' Video**](https://www.youtube.com/watch?v=JGvrXXonoqM), [**Wendell's Video**](https://www.youtube.com/watch?v=kCNPdih6gbg) and [**SomeOrdarinaryGamers' Video**](https://www.youtube.com/watch?v=eR6Q1YhCIbk) to get an idea about what could be possible down the line.
+
 >**NOTE**: NVIDIA still doesn't support SR-IOV so you will need an iGPU or a separate GPU if you want to be able to access the Linux Host.
 >
 >If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough)
