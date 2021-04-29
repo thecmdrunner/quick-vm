@@ -261,7 +261,7 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 
 ## 🎁 Contribute/Help
 
-**Stuff changes all the time, and I am only a kid maintaining this repo.**
+**Stuff changes all the time, and I can only do so much.**
 
 **If you want to help, THANK YOU, that will be wonderful!** 💜
 
