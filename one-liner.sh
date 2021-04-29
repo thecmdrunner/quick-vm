@@ -51,13 +51,6 @@ whiteunderline() {
 
 ROOT_UID=0
 
-if [[ "${UID}" -eq "${ROOT_UID}" ]]; then
-  # Error message
-  TEXT='\n[!] RUNNING AS ROOT IS DISCOURAGED.\n'
-  TEXT='\n[!] PROCEED WITH CAUTION.\n'
-fi
-
-
 # System resource definitions
 totalmem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 totalcpus=$(getconf _NPROCESSORS_ONLN)
@@ -70,11 +63,13 @@ distro=''
 
 cd ~/
 touch ~/quick-vm.log
-if [[ -f ~/quick-vm.log ]]
-then
+if [[ -f ~/quick-vm.log ]]; then
   echo -e "\nLogs for Quick-VM Project are written here. Link: https://github.com/thegamerhat/quick-vm\n\n\n" >> ~/quick-vm.log
   if [[ $EUID -ne 0 ]]; then
     echo " Not running this script as root. " >>  ~/quick-vm.log
+  else
+    TEXT='\n[!] RUNNING AS ROOT IS DISCOURAGED.\n'; redtext
+    TEXT='\n[!] PROCEED WITH CAUTION.\n'; redtext
   fi
 else
   TEXT="Filesystem is possibly READ-ONLY. Errors may not be logged."; redtext
@@ -83,12 +78,20 @@ fi
 
 # What main distro is the system running
 
+
 if [[ -f /usr/bin/apt ]]; then
-  distro='debian'
+  apt_sources=$(cat /etc/apt/sources.list)
+
+  if [[ $apt_sources =~ "ubuntu" ]]; then
+    distro='UBUNTU'
+  else
+    distro='DEBIAN'
+  fi
+
 elif [[ -f /usr/bin/dnf ]]; then
-  distro='fedora'
+  distro='FEDORA'
 elif [[ -f /usr/bin/pacman ]]; then
-  distro='arch'
+  distro='ARCH'
 else
   distro='unknown'
 fi
@@ -402,6 +405,10 @@ checkiso() {
 
 gitndefine() {
 
+  if [[ $distro=='UBUNTU' ]]; then
+    distro='DEBIAN'
+  fi
+
   if [[ ! -d ~/quick-vm ]]; then
     cd ~/
     echo "Cloning from git repository..." >> ~/quick-vm.log
@@ -409,7 +416,7 @@ gitndefine() {
   
   else
     cd ~/quick-vm 
-    git pull || grep 'yay'
+    git pull
 
   fi
 
@@ -418,14 +425,14 @@ gitndefine() {
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     
-    if [[ $distro=='arch' ]]; then
-      sudo virsh define ~/quick-vm/kvm/arch/Windows10-default.xml  >> quick-vm.log
+    if [[ $distro=='ARCH' ]]; then
+      sudo virsh define ~/quick-vm/kvm/ARCH/Windows10-default.xml  >> quick-vm.log
       sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-    elif [[ $distro=='debian' || $distro=='ubuntu' ]]; then
-      sudo virsh define ~/quick-vm/kvm/debian/Windows10-default.xml >> ~/quick-vm.log
+    elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+      sudo virsh define ~/quick-vm/kvm/DEBIAN/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
-    elif [[ $distro=='fedora' ]]; then
-      sudo virsh define ~/quick-vm/kvm/fedora/Windows10-default.xml >> ~/quick-vm.log
+    elif [[ $distro=='FEDORA' ]]; then
+      sudo virsh define ~/quick-vm/kvm/FEDORA/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     fi
 
@@ -440,36 +447,25 @@ gitndefine() {
 
 installdeps() {
 
+  TEXT="\n[✓] BASE SYSTEM: $distro"; cyantext
+  echo -e ":: Installing Dependencies\n"; 
+
 # Arch-Setup 
 
-  if [[ $distro == 'arch' ]]; then
-    TEXT="\n[✓] BASE SYSTEM: ARCH"; cyantext
-    echo -e "\n:: Installing Dependencies...\n"; 
+  if [[ $distro == 'ARCH' ]]; then
     sudo pacman -S --noconfirm git qemu rsync libvirt bridge-utils edk2-ovmf vde2 ebtables dnsmasq openbsd-netcat virt-manager 
 
 # Fedora Setup
 
-  elif [[ $distro == 'fedora' ]]; then
-    TEXT="\n[✓] BASE SYSTEM: FEDORA\n"; cyantext
-    echo -e ":: Installing Dependencies\n"; 
+  elif [[ $distro == 'FEDORA' ]]; then
     sudo dnf -y install @virtualization git qemu-kvm rsync libvirt bridge-utils edk2-ovmf virt-install virt-manager 
 
 # Debian Setup
 
-  elif [[ $distro == 'debian' ]]; then
-    apt_sources=$(cat /etc/apt/sources.list)
+  elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
 
-    if [[ $apt_sources =~ "ubuntu" ]]; then
-      distro='ubuntu'
-      TEXT="\n[✓] BASE SYSTEM: UBUNTU\n"; cyantext
-    else
-      TEXT="\n[✓] BASE SYSTEM: DEBIAN\n"; cyantext
-    fi
-
-    echo -e ":: Installing Dependencies\n"; 
-
-    if [[ $distro == 'ubuntu' ]]; then
-      sudo apt-get update && sudo apt-get install software-properties-common -y
+    if [[ $distro='UBUNTU' && ! $apt_sources =~ "universe" ]]; then
+      sudo apt-get update -q && sudo apt-get install software-properties-common -qy
       sudo add-apt-repository universe -y
     fi
 
@@ -521,12 +517,14 @@ vm1_define() {
   TEXT='\n:: Making a Gaming capable VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-highend.xml\n'
 
-  if [[ -f /usr/bin/pacman ]]; then
-    sudo virsh define ~/quick-vm/kvm/arch/Windows10-highend.xml
-  elif [[ -f /usr/bin/apt ]]; then
-    sudo virsh define ~/quick-vm/kvm/debian/Windows10-highend.xml
-  elif [[ -f /usr/bin/dnf ]]; then
-    sudo virsh define ~/quick-vm/kvm/fedora/Windows10-highend.xml
+  sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-highend.xml
+
+  if [[ $distro=='ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
+  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+    sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
+  elif [[ $distro=='FEDORA' ]]; then
+    sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
   fi
 
 }
@@ -536,7 +534,15 @@ vm2_define() {
   TEXT='\n:: Making a useful VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-default.xml\n'
 
-  sudo virsh define ~/quick-vm/kvm/$distro/Windows10-default.xml
+  sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-default.xml
+
+  if [[ $distro=='ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
+  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+    sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
+  elif [[ $distro=='FEDORA' ]]; then
+    sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
+  fi
 
 }
 
@@ -547,7 +553,15 @@ vm3_define() {
   TEXT='\n:: Making an economic VM!\n'; greentext
   echo -e '\n➜ sudo virsh define Windows10-light.xml\n'
 
-  sudo virsh define ~/quick-vm/kvm/$distro/Windows10-light.xml
+  sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-light.xml
+
+  if [[ $distro=='ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
+  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+    sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
+  elif [[ $distro=='FEDORA' ]]; then
+    sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
+  fi
 
 }
 
@@ -582,11 +596,11 @@ stealth_define() {
 
   if [[ $cpubrand == 'AMD' ]]; then
     echo -e '\n➜ sudo virsh define Windows10-Stealth-amd.xml\n'
-    sudo virsh define ~/quick-vm/kvm/$distro/Windows10-Stealth-amd.xml
+    sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-Stealth-amd.xml
 
   elif [[ $cpubrand == 'INTEL' ]]; then
     echo -e '\n➜ sudo virsh define ~/quick-vm/kvm/Windows10-Stealth-intel.xml\n'
-    sudo virsh define ~/quick-vm/kvm/$distro/Windows10-Stealth-intel.xml
+    sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-Stealth-intel.xml
 
   else
     TEXT="\n:: NO STEALTH VM PROFILE FOUND FOR YOUR PLATFORM!\n"; redtext
@@ -596,6 +610,10 @@ stealth_define() {
 
 
 vm_profile_define() {
+
+  if [[ $distro=='UBUNTU' ]]; then
+    distro='DEBIAN'
+  fi
   
   if [[ ! -d /home/$USER/quick-vm ]]; then
     cd /home/$USER/
@@ -661,7 +679,7 @@ vm_profile_define() {
         echo '\n'
 
       else
-        echo -e '\n \n'
+        echo -e ''
         virt-manager &
 
       fi
