@@ -272,10 +272,11 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 ## 📣 Credits
 
 - **The Entire [r/VFIO](https://reddit.com/r/vfio) Community!**
-- **Wendell** from [Level1Techs]
+- **Wendell** from [Level1Techs](https://www.youtube.com/user/teksyndicate)
 - **SomeOrdinaryGamers** - For [Video guide](https://youtube.com/watch?v=BUSrdUoedTo)
 - **Zeptic** - For [Stealth VM stuff](https://youtube.com/watch?v=VKh2eKPnmXs)
 - **joeknock90** (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough Central Point
+- [**More Credits...**](docs/more-credits.md)
 
 ## Donate
 
