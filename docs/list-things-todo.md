@@ -2,6 +2,7 @@
 ## 🔌 TODO-notes (no particular order)
 
 - Maybe add a features section?
+- make every define and creation with general command that has `$variables` based on the system and user choice
 - Fork iommu, UEFI, laptop detection, GPU detection and some other features from https://github.com/T-vK/GPU-pass-through-compatibility-check
 - Actual CPU Core allocation instead of vCPUs
 - USB _Passthrough guide (maybe also mouse and keyboard passthrough with endev?)
