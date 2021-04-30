@@ -429,7 +429,7 @@ gitndefine() {
   sudo rsync -q ~/quick-vm/kvm/Windows10Vanilla.qcow2 /var/lib/libvirt/images/ >> ~/quick-vm.log
   sudo rsync -q ~/quick-vm/kvm/essentials.iso /var/lib/libvirt/images >> ~/quick-vm.log
 
-  if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
+  if [[ -f /var/lib/libvirt/images/virtio-win.iso && -f /var/lib/libvirt/images/win10.iso ]]; then
     
     if [[ $distro == 'ARCH' ]]; then
       sudo virsh define ~/quick-vm/kvm/ARCH/Windows10-default.xml  >> quick-vm.log
@@ -444,9 +444,10 @@ gitndefine() {
 
     TEXT="\n[✓] Setup is Finished! Follow the instructions from the Official Project page to get started."; greentext
 
-  elif [[ ! $setupmode == 'simple' ]]; then
-    TEXT="\n[!] Some filess missing from /var/lib/libvirt/images/"; redtext
+  else
+    TEXT="\n[!] Some files missing from /var/lib/libvirt/images/"; redtext
     echo -e "\nPlease read the instructions on how and where to place them on the Official GitHub Page. \n"
+    TEXT='\n➜ Quick-VM Official GitHub Page: https://github.com/thegamerhat/quick-vm'; whitetext
   fi
 
 }
