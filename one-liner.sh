@@ -448,7 +448,7 @@ gitndefine() {
 installdeps() {
 
   TEXT="\n[✓] BASE SYSTEM: $distro"; cyantext
-  echo -e ":: Installing Dependencies\n"; 
+  echo -e "\n:: Installing Dependencies\n"; 
 
 # Arch-Setup 
 
