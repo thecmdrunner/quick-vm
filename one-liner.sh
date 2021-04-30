@@ -369,7 +369,7 @@ checkiso() {
   
      elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
        TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
-       echo "Please make sure that ~/WindowsVM/win10.iso exists and run the script again!"
+       echo -e "\nPlease make sure that ~/WindowsVM/win10.iso exists and run the script again!"
 
      else
        TEXT="ERROR OCCURED. Please check the logs."; redtext
@@ -382,7 +382,7 @@ checkiso() {
       echo ''
 
      elif [[ -f $maindir/virtio-win.iso ]]; then
-      TEXT="VirtIO Drivers exist in ~/WindowsVM!\n"; greentext
+      TEXT="\nVirtIO Drivers exist in ~/WindowsVM!\n"; greentext
       TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
       sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
       TEXT="\n[✓] Operation Done!\n"; greentext
@@ -400,7 +400,7 @@ checkiso() {
  else
   mkdir $maindir
   virtio_download
-  TEXT="\:: Please download Windows ISO in $maindir and run this script again.\n"; redtext
+  TEXT="\n:: Please download Windows ISO in $maindir and run this script again.\n"; redtext
   exit
  fi
  
