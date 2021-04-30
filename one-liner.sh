@@ -425,13 +425,13 @@ gitndefine() {
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && /var/lib/libvirt/images/win10.iso ]]; then
     
-    if [[ $distro=='ARCH' ]]; then
+    if [[ $distro == 'ARCH' ]]; then
       sudo virsh define ~/quick-vm/kvm/ARCH/Windows10-default.xml  >> quick-vm.log
-      sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-    elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+      sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
+    elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
       sudo virsh define ~/quick-vm/kvm/DEBIAN/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
-    elif [[ $distro=='FEDORA' ]]; then
+    elif [[ $distro == 'FEDORA' ]]; then
       sudo virsh define ~/quick-vm/kvm/FEDORA/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     fi
@@ -519,11 +519,11 @@ vm1_define() {
 
   sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-highend.xml
 
-  if [[ $distro=='ARCH' ]]; then
-    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
-  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+  if [[ $distro == 'ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
+  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
-  elif [[ $distro=='FEDORA' ]]; then
+  elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
   fi
 
@@ -536,11 +536,11 @@ vm2_define() {
 
   sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-default.xml
 
-  if [[ $distro=='ARCH' ]]; then
-    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+  if [[ $distro == 'ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
+  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-  elif [[ $distro=='FEDORA' ]]; then
+  elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
   fi
 
@@ -555,11 +555,11 @@ vm3_define() {
 
   sudo virsh define /home/$USER/quick-vm/kvm/$distro/Windows10-light.xml
 
-  if [[ $distro=='ARCH' ]]; then
-    sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
-  elif [[ $distro=='DEBIAN' || $distro=='UBUNTU' ]]; then
+  if [[ $distro == 'ARCH' ]]; then
+    sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
+  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
-  elif [[ $distro=='FEDORA' ]]; then
+  elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
   fi
 
