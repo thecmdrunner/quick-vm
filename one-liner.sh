@@ -265,8 +265,7 @@ libvirt_systemd_restart () {
   # libvirt check
   
   if [[ ! -f /usr/bin/virsh ]]; then
-    echo ''
-    TEXT="[X] Virsh not found! Please make sure all the dependencies are installed correctly.\n"; redtext
+    TEXT="\n[X] Virsh not found! Please make sure all the dependencies are installed correctly.\n"; redtext
     exit
   fi
 
