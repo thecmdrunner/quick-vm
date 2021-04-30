@@ -229,9 +229,9 @@ libvirt_systemd_start () {
     exit
   fi
 
-  TEXT="\n:: Now starting up libvirtd socket and service"; bluetext
+  TEXT="\n:: Starting up libvirtd socket and service"; bluetext
 
-  TEXT="\n:: Executing 'sudo systemctl enable --now libvirtd'\n"; bluetext
+  TEXT="\n:: Executing 'sudo systemctl enable --now libvirtd'\n"; cyantext
 
   sudo systemctl enable libvirtd >> ~/quick-vm.log
   sudo systemctl start libvirtd >> ~/quick-vm.log
@@ -242,16 +242,14 @@ libvirt_systemd_start () {
   sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  TEXT="\n[✓] Done. Logs saved to ~/quick-vm.log\n"; greentext
+  TEXT=":: Starting up virtlogd socket and service"; bluetext
 
-  TEXT=":: Now starting up virtlogd socket and service"; bluetext
-
-  TEXT="\n:: Executing 'sudo systemctl enable --now virtlogd'\n"; bluetext
+  TEXT="\n:: Executing 'sudo systemctl enable --now virtlogd'\n"; cyantext
 
   sudo systemctl enable virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
 
-  TEXT=":: Enabling Virtual Network Bridge at startup\n"; bluetext
+  TEXT=":: Enabling Virtual Network Bridge at startup\n"; greentext
 
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
@@ -272,28 +270,29 @@ libvirt_systemd_restart () {
     exit
   fi
 
-  TEXT="\n:: Trying to restart libvirtd socket and service"; bluetext
+  TEXT="\n:: Trying to restart libvirtd socket and service"; cyantext
 
-  sudo systemctl enable --now libvirtd >> ~/quick-vm.log
   sudo systemctl stop libvirtd >> ~/quick-vm.log
+  sudo systemctl enable --now libvirtd >> ~/quick-vm.log
   sudo systemctl start libvirtd >> ~/quick-vm.log
 
-  sudo systemctl enable --now libvirtd.socket >> ~/quick-vm.log
   sudo systemctl stop libvirtd.socket >> ~/quick-vm.log
+  sudo systemctl enable --now libvirtd.socket >> ~/quick-vm.log
   sudo systemctl start libvirtd.socket >> ~/quick-vm.log
 
-  sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl stop libvirtd.service >> ~/quick-vm.log
+  sudo systemctl enable libvirtd.service >> ~/quick-vm.log
   sudo systemctl start libvirtd.service >> ~/quick-vm.log
 
-  TEXT=":: Trying to restart virtlogd socket and service"; bluetext
+  TEXT="\n:: Trying to restart virtlogd socket and service"; cyantext
 
-  sudo systemctl enable --now virtlogd >> ~/quick-vm.log
   sudo systemctl stop virtlogd >> ~/quick-vm.log
+  sudo systemctl enable --now virtlogd >> ~/quick-vm.log
   sudo systemctl start virtlogd >> ~/quick-vm.log
 
-  TEXT=":: Enabling Virtual Network Bridge at startup\n"; bluetext
+  TEXT=":: Re-enabling Virtual Network Bridge at startup\n"; cyantext
 
+  sudo virsh net-destroy default >> ~/quick-vm.log
   sudo virsh net-autostart default >> ~/quick-vm.log
   sudo virsh net-start default >> ~/quick-vm.log
 
@@ -301,11 +300,49 @@ libvirt_systemd_restart () {
 
 }
 
-# Check if Windows iso and virtio-drivers exist in ~/WindowsVM
-
 maindir=/home/$USER/WindowsVM
 imagesdir=/var/lib/libvirt/images
 dirname=WindowsVM
+
+# Downloads VirtIO Drivers if dont exist already
+
+virtio_download() {
+
+  if [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]]; then
+  
+    TEXT="\n\nVirtIO Drivers ISO doesn't exist in ~/WindowsVM or $imagesdir!"; redtext
+    #echo -e "\nPlease make sure that ~/WindowsVM/virtio-win.iso exists and run the script again!\n'"
+    TEXT="\n[!] Do you want to download them now? The VM will NOT boot without it.\n"; yellowtext
+    
+    read -p "➜ Please enter your choice [Y/n]: " virt_choice
+    
+    if [[ $virt_choice =~ 'n' || $virt_choice =~ 'N' ]]; then
+      echo ''
+      TEXT="[!] OK! Skipping VirtIO Drivers for now.\n"; bluetext
+      echo "Download the VirtIO Drivers (Stable) ISO and put it in ~/WindowsVM or $imagesdir and run the script again."
+      sleep 4;
+  
+    else
+      TEXT='\nDownloading VirtIO Drivers (Stable)...\n'; greentext
+      wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
+      echo ''
+  
+      if [[ -f $maindir/virtio-win.iso ]]; then
+        sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+        echo ":: Done! Now the setup process will continue."
+        TEXT="\n[✓] Operation Done!\n"; greentext
+
+      else
+        TEXT='\n[X] ERROR DURING DOWNLOAD. PLEASE CHECK YOUR NETWORK CONNECTION.\n'; redtext
+        echo "Download the VirtIO Drivers (Stable) ISO and put it in ~/WindowsVM or $imagesdir and run the script again."
+
+      fi
+    fi
+  fi
+
+}
+
+# Check if Windows iso and virtio-drivers exist in ~/WindowsVM
 
 checkiso() {
 
@@ -323,10 +360,8 @@ checkiso() {
     # Windows ISO check and moves it to $imagesdir
 
      if [[ -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]]; then
-       TEXT="Windows ISO exists in ~/$dirname!"; greentext
-       echo ''
-       TEXT="➜ Relocating to /var/lib/libvirt/images"; bluetext
-       echo ''
+       TEXT="Windows ISO exists in ~/$dirname!\n"; greentext
+       TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
        sudo rsync --partial --progress $maindir/win10.iso /var/lib/libvirt/images/win10.iso
        TEXT="\n[✓] Operation Done!\n"; greentext
   
@@ -343,59 +378,31 @@ checkiso() {
      
      # VirtIO Check and moves it to $imagesdir
   
-     if [[ -f $maindir/virtio-win.iso ]]; then
-       TEXT="VirtIO Drivers exist in ~/WindowsVM!\n"; greentext
-       TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
-       sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
-       TEXT="\n[✓] Operation Done!\n"; greentext
+     if [[ -f $imagesdir/virtio-win.iso ]]; then
+      TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
+      echo ''
+
+     elif [[ -f $maindir/virtio-win.iso ]]; then
+      TEXT="VirtIO Drivers exist in ~/WindowsVM!\n"; greentext
+      TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
+      sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
+      TEXT="\n[✓] Operation Done!\n"; greentext
   
-     elif [[ -f $imagesdir/virtio-win.iso ]]; then
-       TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
-       echo ''
   
      elif [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]] ; then
-       TEXT="\n\nVirtIO Drivers ISO doesn't exist in in either ~/WindowsVM or $imagesdir!"; redtext
-       echo -e "\nPlease make sure that ~/WindowsVM/win10.iso exists and run the script again!\n'"
-       TEXT="[!] Do you want to download them now? The VM will NOT boot without the drivers ISO.\n"; greentext
-       
-       read -p "➜ Please enter your choice [Y/n]: " virt_choice
-    
-       if [[ $virt_choice == 'y' ]]; then
-        TEXT='\nDownloading VirtIO Drivers (Stable)...\n'; greentext
-        wget -cq https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O ~/WindowsVM/virtio-win.iso --show-progress --progress=bar
-        echo ''
-
-        if [[ -f $maindir/virtio-win.iso ]]; then
-          sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
-          echo ":: Done! Now the setup process will continue."
-          TEXT="\n[✓] Operation Done!\n"; greentext
-        fi
-
-       elif [[ $virt_choice == 'n' ]]; then
-        echo ''
-        TEXT="[!] OK! Skipping VirtIO Drivers for now.\n"; bluetext
-        echo "Make sure to download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "OR place it in $maindir and run the script again."
-        sleep 5;
-
-       else
-        TEXT="[!] Invalid Option! Skipping VirtIO Drivers for now,"; redtext
-        echo "But make sure you download and put the VirtIO Drivers (Stable) ISO in $imagesdir"
-        echo "OR place it in $maindir and run the script again."
-        sleep 5;
-       fi
+      virtio_download
 
      else
-       TEXT="ERROR OCCURED. Please check the logs."; redtext
+      TEXT="ERROR OCCURED. Please check the logs."; redtext
      fi
   
    fi
 
  else
-   mkdir $maindir
-   TEXT=":: Please put Windows and VirtIO Drivers ISO in $maindir\n"; redtext
-   TEXT="Without the ISOs, the setup can't progress further.\n"; yellowtext
-   exit
+  mkdir $maindir
+  virtio_download
+  TEXT="\:: Please download Windows ISO in $maindir and run this script again.\n"; redtext
+  exit
  fi
  
 }
@@ -405,7 +412,7 @@ checkiso() {
 
 gitndefine() {
 
-  if [[ $distro=='UBUNTU' ]]; then
+  if [[ $distro == 'UBUNTU' ]]; then
     distro='DEBIAN'
   fi
 
@@ -428,7 +435,7 @@ gitndefine() {
     if [[ $distro == 'ARCH' ]]; then
       sudo virsh define ~/quick-vm/kvm/ARCH/Windows10-default.xml  >> quick-vm.log
       sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-    elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
+    elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
       sudo virsh define ~/quick-vm/kvm/DEBIAN/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
     elif [[ $distro == 'FEDORA' ]]; then
@@ -521,7 +528,7 @@ vm1_define() {
 
   if [[ $distro == 'ARCH' ]]; then
     sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
-  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
+  elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
   elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd
@@ -538,7 +545,7 @@ vm2_define() {
 
   if [[ $distro == 'ARCH' ]]; then
     sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
-  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
+  elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
   elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
@@ -557,7 +564,7 @@ vm3_define() {
 
   if [[ $distro == 'ARCH' ]]; then
     sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
-  elif [[ $distro == 'DEBIAN' || $distro=='UBUNTU' ]]; then
+  elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
     sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
   elif [[ $distro == 'FEDORA' ]]; then
     sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-light_VARS.fd
@@ -611,7 +618,7 @@ stealth_define() {
 
 vm_profile_define() {
 
-  if [[ $distro=='UBUNTU' ]]; then
+  if [[ $distro == 'UBUNTU' ]]; then
     distro='DEBIAN'
   fi
   
@@ -694,7 +701,7 @@ vm_profile_define() {
 
 advancedsetup(){
 
-while [[ $setupmode=='advanced' ]]
+while [[ $setupmode == 'advanced' ]]
 do
 
   border;
