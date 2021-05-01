@@ -1,5 +1,5 @@
 
-# 🛸 DIY From Scratch (Almost Done) 
+# 🛸 DIY From Scratch
 
 If you want to go through the process of making a VM all by yourself, this section is for you.
 
