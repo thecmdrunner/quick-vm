@@ -472,11 +472,11 @@ installdeps() {
   elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
 
     if [[ $distro='UBUNTU' && ! $apt_sources =~ "universe" ]]; then
-      sudo apt-get update -q && sudo apt-get install software-properties-common -qy
+      sudo apt-get update -q ; sudo apt-get install software-properties-common -qy
       sudo add-apt-repository universe -y
     fi
 
-    sudo apt-get update -q && sudo apt-get install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
+    sudo apt-get update -q ; sudo apt-get install -y git qemu rsync qemu-kvm libvirt-daemon libvirt-clients bridge-utils ovmf virt-manager
   
 # Unknown Distro
 
