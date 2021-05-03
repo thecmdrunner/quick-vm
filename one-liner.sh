@@ -359,16 +359,16 @@ checkiso() {
     # Windows ISO check and moves it to $imagesdir
 
      if [[ -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]]; then
-       TEXT="Windows ISO exists in ~/$dirname!\n"; greentext
+       TEXT="Windows ISO exists in ~/$dirname !\n"; greentext
        TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
        sudo rsync --partial --progress $maindir/win10.iso /var/lib/libvirt/images/win10.iso
        TEXT="\n[✓] Operation Done!\n"; greentext
   
      elif [[ -f $imagesdir/win10.iso ]]; then
-       TEXT="Windows ISO already exists in ~/$imagesdir!\n"; greentext
+       TEXT="Windows ISO already exists in ~/$imagesdir !\n"; greentext
   
      elif [[ ! -f $maindir/win10.iso && ! -f $imagesdir/win10.iso ]] ; then
-       TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir!"; redtext
+       TEXT="Windows ISO doesn't exist in either ~/WindowsVM or $imagesdir !"; redtext
        echo -e "\nPlease make sure that ~/WindowsVM/win10.iso exists and run the script again!"
 
      else
@@ -378,11 +378,11 @@ checkiso() {
      # VirtIO Check and moves it to $imagesdir
   
      if [[ -f $imagesdir/virtio-win.iso ]]; then
-      TEXT="VirtIO Drivers ISO already exists in ~/$imagesdir!"; greentext
+      TEXT="VirtIO Drivers ISO already exists in $imagesdir !"; greentext
       echo ''
 
      elif [[ -f $maindir/virtio-win.iso ]]; then
-      TEXT="\nVirtIO Drivers exist in ~/WindowsVM!\n"; greentext
+      TEXT="\nVirtIO Drivers exist in ~/WindowsVM !\n"; greentext
       TEXT="➜ Relocating to /var/lib/libvirt/images\n"; bluetext
       sudo rsync --partial --progress $maindir/virtio-win.iso /var/lib/libvirt/images/virtio-win.iso
       TEXT="\n[✓] Operation Done!\n"; greentext
