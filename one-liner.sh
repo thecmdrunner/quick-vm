@@ -2,9 +2,9 @@
 
 # oneliner commands: 
 
-# bash <(curl -sSL https://git.io/JOeOs) 
-# OR
 # bash <(wget -qO- https://git.io/JOeOs) 
+# OR
+# bash <(curl -sSL https://git.io/JOeOs) 
 
 # Credits for colored output https://techstop.github.io/bash-script-colors
 # For normal and bold text
