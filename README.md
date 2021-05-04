@@ -25,7 +25,7 @@ S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with 
     - **Windows 10 ISO** ➜ `win10.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
 
-4. **Open your terminal and enter the command shown below**
+4. **Enter the command shown below in the terminal.** 
 
 ### 🥈 One-liner to Setup KVM
 
