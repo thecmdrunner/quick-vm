@@ -156,7 +156,7 @@ check_kvm() {
     # virtualization is supported, else not
     if [[ $cpu_vt =~ "AMD-V" ]]; then
       TEXT="[✓] AMD Virtualization (AMD-V) is Supported!"; greentext
-    elif [[ $cpu_vt =~ "VT-x" ]]; then
+    elif [[ $cpu_vt =~ "VT" ]]; then
       TEXT="[✓] Intel Virtualization (VT-x/VT-d) is Supported!"; greentext
     else
       TEXT="[!] AMD-V/VT-x not detected. Virtualization support might be limited."; yellowtext
@@ -170,7 +170,7 @@ check_kvm() {
       TEXT="[X] KVM not detected. Please ensure Virtualization is enabled in UEFI/CoreBoot."; redtext
       kvm_enabled='no'
     else
-      TEXT="[!] ERROR DETECTING KVM SUPPORT."; redtext
+      TEXT="[!] DEPENDENCIES NOT INSTALLED, EXITING."; yellowtext
     fi
   
   elif [[ $cpu_kvm_flags < 1 ]]; then
