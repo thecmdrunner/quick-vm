@@ -351,7 +351,7 @@ checkiso() {
 
    if [[ -f $imagesdir/win10.iso && -f $imagesdir/virtio-win.iso ]]; then
     echo ''
-    TEXT=' [✔] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!\n'; whiteunderline
+    TEXT=' [✔] VirtIO Drivers and Windows 10 ISO exist in '$imagesdir'!\n'; whitetext
 
    else
 
