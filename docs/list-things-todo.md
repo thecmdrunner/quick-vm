@@ -27,3 +27,6 @@
 
 ![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?&style=for-the-badge&logo=discord&logoColor=white)
 : gamerhat#2074
+
+
+ℹ ✔ 
