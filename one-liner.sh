@@ -594,7 +594,7 @@ stealth_define() {
   sleep 1;
 
   TEXT="\n NOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process."; yellowtext
-  TEXT="\n https://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n"; whiteunderline 
+  TEXT="\n https://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n"; whitetext 
   TEXT="\n Creating a Stealth VM..."; greentext
   sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
 
