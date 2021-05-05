@@ -593,12 +593,8 @@ stealth_define() {
 
   sleep 1;
 
-  TEXT="\n NOTE: Please follow the instructions from the Official GitHub Page to complete the remaining process."; yellowtext
-  TEXT="\n https://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n"; whitetext 
   TEXT="\n Creating a Stealth VM..."; greentext
   sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
-
-  sleep 3;
 
   if [[ $cpubrand == 'AMD' ]]; then
     echo -e '\n ➜ sudo virsh define Windows10-Stealth-amd.xml\n'
@@ -611,6 +607,11 @@ stealth_define() {
   else
     TEXT="\n :: NO STEALTH VM PROFILE FOUND FOR YOUR PLATFORM!\n"; redtext
   fi
+
+  TEXT="\n NOTE: Follow the further instructions from the Official GitHub Page."; yellowtext
+  TEXT="\n https://github.com/thegamerhat/quick-vm/blob/main/docs/stealth-vm.md\n"; whitetext 
+
+  sleep 3;
 
 }
 
