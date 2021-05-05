@@ -753,7 +753,7 @@ done
 
 welcome() {
 
-  TEXT="\n\n\x1b[1;32m :: Thank you for choosing Quick-VM, the setup process is starting.\e[0m"; boldtext 
+  TEXT="\n\n\x1b[1;32m :: Thank you for using Quick-VM, the setup process is starting.\e[0m"; boldtext 
   TEXT=" :: Select any one of the options below to get started!\n"; boldtext
   TEXT=" [1] Default install (Fully Automated & Quick)"; whitetext
   echo ''
