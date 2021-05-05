@@ -420,7 +420,7 @@ gitndefine() {
     git clone --recursive https://github.com/thegamerhat/quick-vm >> ~/quick-vm.log 
   
   else
-    cd ~/quick-vm 
+    cd /home/$USER/quick-vm
     git pull
 
   fi
@@ -430,14 +430,13 @@ gitndefine() {
 
   if [[ -f /var/lib/libvirt/images/virtio-win.iso && -f /var/lib/libvirt/images/win10.iso ]]; then
     
+    sudo virsh define ~/quick-vm/kvm/$distro/Windows10-default.xml  >> quick-vm.log
+
     if [[ $distro == 'ARCH' ]]; then
-      sudo virsh define ~/quick-vm/kvm/ARCH/Windows10-default.xml  >> quick-vm.log
       sudo cp /usr/share/ovmf/x64/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     elif [[ $distro == 'DEBIAN' || $distro == 'UBUNTU' ]]; then
-      sudo virsh define ~/quick-vm/kvm/DEBIAN/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/OVMF/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd 
     elif [[ $distro == 'FEDORA' ]]; then
-      sudo virsh define ~/quick-vm/kvm/FEDORA/Windows10-default.xml >> ~/quick-vm.log
       sudo cp /usr/share/edk2/ovmf/OVMF_CODE.fd /var/lib/libvirt/qemu/nvram/Windows10-default_VARS.fd
     fi
 
@@ -593,7 +592,7 @@ stealth_define() {
 
   sleep 1;
 
-  TEXT="\n Creating a Stealth VM..."; greentext
+  TEXT="\n Creating a Stealth VM...\n"; greentext
   sudo cp ~/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10Stealth.qcow2
 
   if [[ $cpubrand == 'AMD' ]]; then
