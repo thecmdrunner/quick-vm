@@ -11,6 +11,10 @@
 
 S**etup a Windows VM very easily and quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
+> It is possible to invent a single machine which can be used to compute any computable sequence.
+>
+> ~ _Alan Turing, 1936_
+
 # 🚀 Getting Started
 
 ## 🏅 Simple Install ➜ Follow Step 🥇, Step 🥈 and Step 🥉
@@ -264,10 +268,6 @@ sudo modprobe kvm_intel nested=   # then kvm_intel module with nested enabled
 **This project is aimed at making a Windows VM for gaming/content creation, paired with [WinApps](https://github.com/Fmstrat/winapps/) to make it easier for people to switch to Linux while still being able to use their Adobe CC apps, MS Office, Play Games etc.**
 
 Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs/list-things-todo.md) that will make this project way better!
-
-> It is possible to invent a single machine which can be used to compute any computable sequence.
->
-> ~ _Alan Turing, 1936_
 
 > Now that [NVIDIA has enabled GPU Passthrough for Windows based Virtual Machines](https://nvidia.custhelp.com/app/answers/detail/a_id/5173) (no more Code 43!), this project will also include easy setup and configuration for passing through NVIDIA GPUs in KVM and interfacing Windows apps from linux via [WinApps](https://github.com/Fmstrat/winapps/).
 >
