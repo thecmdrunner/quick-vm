@@ -7,9 +7,7 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-<h1>Quick VM</h1>
-
-<img src="https://raw.githubusercontent.com/thegamerhat/quick-vm/main/docs/img/quick-vm-icon.svg" width="60px">
+<h1><img src="https://raw.githubusercontent.com/thegamerhat/quick-vm/main/docs/img/quick-vm-icon.svg" width="30px"> Quick VM</h1>
 
 **Setup a Windows VM quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
