@@ -80,16 +80,16 @@ if [[ ! -f $logfile ]]; then
 fi
 
 # Append log with big line and current date & time
-echo -e "---------------------------------------------------" >> $logfile
+echo -e "\n***************************************************\n" >> $logfile
 echo "$(date)" >> $logfile
 
 # Detecs if script is run as root
 if [[ $EUID == 0 ]]; then
-  echo -e "-- Running the script as ROOT!\n" >>  $logfile
+  echo -e "[!] Running the script as ROOT!" >>  $logfile
   TEXT="\n [!] RUNNING AS ROOT IS DISCOURAGED.\n"; redtext
   TEXT="\n [!] PROCEED WITH CAUTION.\n"; redtext
 else
-  echo -e "-- Running the script as USER: $USER\n" >>  $logfile
+  echo -e "-- Running the script as USER: $USER" >>  $logfile
 fi
 
 # What CPU is it
@@ -125,12 +125,12 @@ else
 fi
 
 # Append log with system details
-echo -e "\n*********************************" >> $logfile
+echo -e "---------------------------------" >> $logfile
 echo -e "-- BASE SYSTEM: $distro" >> $logfile
 echo -e "-- CPU VENDOR: $cpubrand" >> $logfile
 echo -e "-- TOTAL CPU THREADS: $totalcpus" >> $logfile
 echo -e "-- TOTAL MEMORY: $totalmem" >> $logfile
-echo -e "*********************************\n" >> $logfile
+echo -e "---------------------------------\n" >> $logfile
 
 
 # Logs cant be stored on a READ-ONLY Drive.
@@ -155,14 +155,14 @@ border() {
 
 byee() {
   echo ""
-  TEXT=" :: Exiting, Bye! Logs save in ~/.local/quick-vm.log\n"; yellowtext
-  echo "-- Exiting Successfully!\n" >>  $logfile
+  TEXT=" :: Exiting! Logs save in ~/.local/quick-vm.log\n"; yellowtext
+  echo -e "-- Exit Successfully!\n" >>  $logfile
   exit
 }
 
 
 check_kvm() {
-   echo "-- FUNCTION: Check KVM Compatibility\n" >>  $logfile
+   echo "\n-- FUNCTION: Check KVM Compatibility\n" >>  $logfile
    echo ""
 
   # throws up an error in front of the user if 
@@ -222,7 +222,7 @@ check_kvm() {
 }
 
 reload_kvm() {
-   echo "-- FUNCTION: Reload KVM Kernel Modules\n" >>  $logfile
+   echo "\n-- FUNCTION: Reload KVM Kernel Modules\n" >>  $logfile
 
   if [[ $cpu_vt =~ "AMD" ]]; then
       cpubrand="AMD"
@@ -269,7 +269,7 @@ reload_kvm() {
 # Start Libvirt service through systemd
 
 libvirt_systemd_start () {
-  echo "-- FUNCTION: Enable Libvirt Service & Virtual Networking\n" >>  $logfile
+  echo "\n-- FUNCTION: Enable Libvirt Service & Virtual Networking\n" >>  $logfile
 
   # libvirt check
   if [[ ! -f /usr/bin/virsh ]]; then
@@ -307,7 +307,7 @@ libvirt_systemd_start () {
 
 # Restart Libvirt service through systemd
 libvirt_systemd_restart () {
-  echo "-- FUNCTION: Enable Libvirt Service & Virtual Networking\n" >>  $logfile
+  echo "\n-- FUNCTION: (re)Enable Libvirt Service & Virtual Networking\n" >>  $logfile
 
   # libvirt check
   if [[ ! -f /usr/bin/virsh ]]; then
@@ -350,7 +350,7 @@ libvirt_systemd_restart () {
 
 # Downloads VirtIO Drivers if dont exist already
 virtio_download() {
-  echo "-- FUNCTION: VirtIO Drivers Download" >> $logfile
+  echo "\n-- FUNCTION: VirtIO Drivers Download" >> $logfile
 
   if [[ ! -f $maindir/virtio-win.iso && ! -f $imagesdir/virtio-win.iso ]]; then
     echo "-- VirtIO Drivers ISO doesn't exist in ~/$dirname or $imagesdir" >> $logfile
@@ -390,7 +390,7 @@ virtio_download() {
 
 # Check if Windows iso and virtio-drivers exist in ~/$maindir
 checkiso() {
- echo "-- FUNCTION: Locate ISOs" >> $logfile
+ echo "\n-- FUNCTION: Locate ISOs" >> $logfile
 
  # checks if ~/$dirname exists
  if [[ -d $maindir ]]; then
@@ -456,7 +456,7 @@ checkiso() {
 
 # Clones the main reporsitory and defining the VM via `virsh`
 gitndefine() {
-  echo "-- FUNCTION: Clone Repository and define VM" >> $logfile
+  echo "\n-- FUNCTION: Clone Repository and define VM" >> $logfile
 
   if [[ $distro == "UBUNTU" ]]; then
     distro="DEBIAN"
@@ -501,7 +501,7 @@ gitndefine() {
 }
 
 installdeps() {
-  echo -e "-- FUNCTION: Install required packages" >> $logfile
+  echo -e "\n-- FUNCTION: Install required packages" >> $logfile
 
   TEXT="\n [✔] BASE SYSTEM: $distro\n"; cyantext
   echo -e " :: Installing Dependencies\n"; 
@@ -545,9 +545,9 @@ installdeps() {
 # Simple Quick and automatic setup for One-Liner.
 
 simplesetup() {
+  echo -e "\n-- [ SIMPLE SETUP ]\n" >> $logfile
   
   TEXT="\n ➜ Starting Simple Setup"; cyantext
-  echo -e "-- [ SIMPLE SETUP ]" >> $logfile
   installdeps;
   border;
   check_kvm;
@@ -568,7 +568,7 @@ simplesetup() {
 # Define VMs from a set Profile
 
 vm1_define() {
-  echo -e "-- FUNCTION: Define: Tier 1 VM" >> $logfile
+  echo -e "\n-- FUNCTION: Define: Tier 1 VM" >> $logfile
 
   echo -e "-- Making appropriate virtual disk" >> $logfile
   sudo cp $HOME/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10highend.qcow2 >> $logfile
@@ -590,7 +590,7 @@ vm1_define() {
 }
 
 vm2_define() {
-  echo -e "-- FUNCTION: Define: Tier 2 VM" >> $logfile
+  echo -e "\n-- FUNCTION: Define: Tier 2 VM" >> $logfile
 
   TEXT="\n :: Making a useful VM!\n"; greentext
   echo -e "\n ➜ sudo virsh define Windows10-default.xml\n"
@@ -612,7 +612,7 @@ vm2_define() {
 }
 
 vm3_define() {
-  echo -e "-- FUNCTION: Define: Tier 3 VM" >> $logfile
+  echo -e "\n-- FUNCTION: Define: Tier 3 VM" >> $logfile
 
   echo -e "-- Making appropriate virtual disk" >> $logfile
   sudo cp $HOME/quick-vm/kvm/Windows10Vanilla.qcow2 $imagesdir/Windows10light.qcow2 >> $logfile
@@ -634,7 +634,7 @@ vm3_define() {
 }
 
 stealth_define() {
-  echo -e "-- FUNCTION: Define: Stealth VM" >> $logfile
+  echo -e "\n-- FUNCTION: Define: Stealth VM" >> $logfile
   border;
 
   # TEXT="\n :: NOTE: THIS IS STILL BETA AND MIGHT NOT WORK OUT OF THE BOX.\n"; redtext
@@ -683,7 +683,7 @@ stealth_define() {
 
 
 vm_profile_define() {
-  echo -e "-- FUNCTION: Select a Custom VM Profile" >> $logfile
+  echo -e "\n-- FUNCTION: Select a Custom VM Profile" >> $logfile
 
   if [[ $distro == "UBUNTU" ]]; then
     distro="DEBIAN"
@@ -762,7 +762,7 @@ vm_profile_define() {
 
 # Advanced Setup with every step
 advancedsetup(){
-  echo -e "-- [ ADVANCED SETUP ]" >> $logfile
+  echo -e "\n-- [ ADVANCED SETUP ]\n" >> $logfile
 
   while [[ $setupmode == "advanced" ]]
   do
@@ -804,6 +804,7 @@ advancedsetup(){
       reload_kvm;
     elif [[ $setup_choice == 7 ]]; then
       clear;
+      echo "\n-- [ Return ]" >> $logfile
       welcome;
     else
       clear;
@@ -838,15 +839,13 @@ welcome() {
     advancedsetup
   elif [[ $user_choice == 3 ]]; then
     echo ""
-    TEXT=" :: Exiting, Bye!"; greentext
-    exit
+    byee;
   else
     echo " Invalid choice, please select from the options above."
     exit
   fi
   
   echo "\n"
-
 }
 
 welcome
