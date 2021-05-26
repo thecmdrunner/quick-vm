@@ -1,6 +1,6 @@
 <domain type="kvm">
-  <name>Windows10-ultra</name>
-  <title>Windows 10 Ultra</title>
+  <name>Windows10-highend</name>
+  <title>Windows 10 High End</title>
   <description>This Windows VM is intended to be a template, for when Windows suffering from software rot, that VM can be deleted and this VM can be cloned for a fresh new VM. This will save the time required for creating a new VM from scratch and installing Windows. It is best to always clone this VM and use that clone for your work.
 </description>
   <metadata>
@@ -14,7 +14,7 @@
   <os>
     <type arch="x86_64" machine="q35">hvm</type>
     <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-ultra_VARS.fd</nvram>
+    <nvram>/var/lib/libvirt/qemu/nvram/Windows10-highend_VARS.fd</nvram>
     <bootmenu enable="yes"/>
   </os>
   <features>

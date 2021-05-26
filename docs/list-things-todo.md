@@ -1,6 +1,7 @@
 
 ## 🔌 TODO-notes (no particular order)
 
+- Add more distros support, and a general linux profile
 - Maybe add a features section?
 - make every define and creation with general command that has `$variables` based on the system and user choice
 - Fork iommu, UEFI, laptop detection, GPU detection and some other features from https://github.com/T-vK/GPU-pass-through-compatibility-check
