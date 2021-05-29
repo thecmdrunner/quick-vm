@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Project: https://github.com/thegamerhat/quick-vm
+
 # oneliner commands: 
 
 # bash <(wget -qO- https://git.io/JOeOs) 
