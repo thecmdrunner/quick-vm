@@ -1,9 +1,9 @@
 
 # 🛸 DIY From Scratch
 
-If you want to go through the process of making a VM all by yourself, this section is for you.
+**UPDATE:** Windows 11 will be supported once Microsoft releases an official ISO in early 2022.
 
-This guide works regardless of your distribution.
+If you want to go adjust every little aspect of the VM to suit your needs, this section is for you. This guide works regardless of your Linux distribution.
 
 NOTE: Using a recent version of Windows is recommended (anything after 20H1 or May 2020) as older revisions are known to have some issues, and hence are not mentioned in this guide.
 
@@ -363,6 +363,8 @@ sudo virsh list --all
 
 **2. Edit the VM config**
 
++ Replace `Windows10` with the name shown in the previous step.
+
 ```bash
 sudo virsh edit Windows10
 ```
@@ -406,7 +408,7 @@ For any issues not just limited to the following, check the following sections o
 
 ![Screenshot](img/mux-laptop.jpg)
 
-According to the image above, if you have a MUXless laptop, then it is tricky to dedicate your GPU to a VM and have its own separate display, because the GPU doesn't connect to the HDMI/DisplayPort Port directly, and instead uses the iGPU as a bridge to the laptop screen.
+According to the image above, if you have a MUXless laptop, it is a little tricky to dedicate your GPU to a VM and have its own separate display, because the GPU doesn't connect to the HDMI/DisplayPort Port directly, and instead uses the iGPU as a bridge to the laptop screen.
 Read more about it on [this post in Level1Forums](https://forum.level1techs.com/t/implications-of-muxed-muxless-laptops-for-gpu-passthrough/129165)
 
 You might be able to get around this by passing the iGPU to the VM, as [shown here](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian)
