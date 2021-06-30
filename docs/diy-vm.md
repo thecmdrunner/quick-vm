@@ -312,7 +312,7 @@ You might be in one of the following situations:
 
 Refer the following sections according to your current system specifications. If your system has,
 
-### Only one discrete GPU (no iGPU):
+#### Only one discrete GPU (no iGPU):
 
   1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
   2. [Fedora 34 Single GPU Passthrough on Level1Forums](https://forum.level1techs.com/t/single-gpu-passthrough-on-fedora-34/)
@@ -320,7 +320,7 @@ Refer the following sections according to your current system specifications. If
 
 > NOTE: Before you passthrough your GPU, make sure you enable your integrated graphics and set it to default in UEFI/Coreboot first, or else you won't be able to view your Linux Host.
 
-### One discrete GPU to dedicate completely to the VM:
+#### One discrete GPU to dedicate completely to the VM:
 
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
   2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
@@ -329,7 +329,7 @@ Refer the following sections according to your current system specifications. If
 
 > NOTE: The GPU used by the VM will be unavailable for the Linux System for use. Using the iGPU/low-cost GPU for the Linux system is recommended.
 
-### Only integrated graphics:
+#### Only integrated graphics:
 
 - [Lan Tian's Intel GPU iPasshrough Guide](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
@@ -350,7 +350,7 @@ Check out [**LinusTechTips' Video**](https://www.youtube.com/watch?v=JGvrXXonoqM
 >
 >If you don't want to use a second GPU, check out [Single GPU Passthrough](https://github.com/joeknock90/Single-GPU-Passthrough)
 
-### Check Out [**NVIDIA GRID on GeForce and Quadro GPUs**](https://github.com/DualCoder/vgpu_unlock), which is NVIDIA's Proprietary alternative to SR-IOV, and you need a functioning NVIDIA Tesla GPU in your system to get this trick working.
+#### Check Out [**NVIDIA GRID on GeForce and Quadro GPUs**](https://github.com/DualCoder/vgpu_unlock), NVIDIA's Proprietary alternative to SR-IOV.
 You can read the [Community made Wiki](https://docs.google.com/document/d/1pzrWJ9h-zANCtyqRgS7Vzla0Y8Ea2-5z2HEi4X75d2Q/edit).
 
 So if you need to passthrough an NVIDIA or AMD GPU without making it obvious that you are using a VM, add the following lines to your XML.
