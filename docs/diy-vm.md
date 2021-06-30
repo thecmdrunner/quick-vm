@@ -298,35 +298,42 @@ For laptops, see [Laptop Compatibility](https://github.com/thegamerhat/quick-vm/
 
 ---
 
-Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.
+**Ideally you need to have 2 GPUs (one dedicated and one integrated) in order to access Windows as well as Linux desktop simultaneously, by using 2 monitors or switching the display output on one monitor.**
 
 However, if you are living in the world after 2020, I know your pain and why you have only one (or possibly none) GPU.
 
 You might be in one of the following situations:
 
-  1. You ONLY have one GPU, either discrete GPU (NVIDIA/AMD) or integrated Graphics (Intel UHD/AMD Radeon)
+  1. You ONLY have one GPU, either discrete GPU (NVIDIA/AMD RX) or integrated Graphics (Intel/AMD Radeon)
   2. You have a discrete GPU (NVIDIA/AMD) + integrated Graphics (Intel UHD/AMD Radeon)
-  3. You have two discrete GPUs (then integrated graphics won't matter)
+  3. You have two discrete GPUs (then integrated graphics don't matter)
 
-### If you are one of the privileged people to own a GPU (no iGPU), check out:
+Refer the following sections according to your current system specifications. If your system has,
+
+### Only one discrete GPU (no iGPU):
 
   1. [SomeOrdinaryGamers' Single GPU Passhrough Video (NVIDIA)](https://youtube.com/watch?v=BUSrdUoedTo)
-  2. [joeknock90 central repository](https://github.com/joeknock90/Single-GPU-Passthrough)
+  2. [Fedora 34 Single GPU Passthrough on Level1Forums](https://forum.level1techs.com/t/single-gpu-passthrough-on-fedora-34/)
+  3. [joeknock90 central repository](https://github.com/joeknock90/Single-GPU-Passthrough)
 
 > NOTE: Before you passthrough your GPU, make sure you enable your integrated graphics and set it to default in UEFI/Coreboot first, or else you won't be able to view your Linux Host.
 
-### If you are lucky enough to have 2 discrete GPUs, check out:
+### One discrete GPU to dedicate completely to the VM:
 
   1. [Level1Tech's GPU Passthrough Guide](https://www.youtube.com/watch?v=aLeWg11ZBn0)
   2. [SomeOrdinaryGamers' KVM Guide](https://www.youtube.com/watch?v=h7SG7ccjn-g)
 
-> In the past, it was required that you have two different GPUs (typically AMD + NVIDIA), but that's not a requirement anymore!
+> In the past, it was required that you have two different GPUs (typically AMD + NVIDIA), but that's not the case anymore!
 
-### If you only have integrated graphics right now, check out:
+> NOTE: The GPU used by the VM will be unavailable for the Linux System for use. Using the iGPU/low-cost GPU for the Linux system is recommended.
+
+### Only integrated graphics:
 
 - [Lan Tian's Intel GPU iPasshrough Guide](https://lantian.pub/en/article/modify-computer/laptop-intel-nvidia-optimus-passthrough.lantian/)
 
-If you want to be able to use Hardware Accelerated Applications (like Video Games, Adobe CC, etc) on a Windows VM without dedicating an entire monitor to Windows VM, check out the **Looking Glass** Project:
+---
+
+If you want to be able to use GPU Accelerated Applications (like Video Games, Adobe CC, etc) on a Windows VM without dedicating an entire monitor to Windows VM, check out the **Looking Glass** Project:
 
   - [Looking Glass](https://looking-glass.io) - An extremely low latency Memory-to-Memory frame copy from the Guest to Host.
   - [Level1Techs Video](https://www.youtube.com/watch?v=okMGtwfiXMo) - It has gotten better than what this video demonstrates!
