@@ -282,6 +282,8 @@ There usually isn't much that needs to be done for optimizing Performance in VM,
 
 - [Other Small issues](https://mathiashueber.com/qemu-troubleshooting-errors-gpu-passthrough-vm/) that do come from time to time.
 
+Check out [this video by SomeOrdinaryGamers](https://www.youtube.com/watch?v=WYrTajuYhCk) for an easy tutorial on the same.
+
 ## GPU Passthrough 
 
 **TLDR;** 
