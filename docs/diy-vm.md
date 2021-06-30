@@ -9,7 +9,7 @@ NOTE: Using a recent version of Windows is recommended (anything after 20H1 or M
 
 ## Enabling Virtualization in your UEFI/Coreboot
 
-You need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further. 
+You may need to enable **AMD-V** or Intel **VT-x/VT-d** depending on your CPU brand in your UEFI before going further. 
 
 **THIS VARIES BETWEEN VARIOUS MOTHERBOARDS**
 
@@ -20,7 +20,9 @@ Take a look at how to do it below:
 <summary>How to enable Virtualization on your Motherboard</summary>
 <br>
 
-Please follow below steps to enable virtualization(SVM) in the BIOS for AMD motherboards:
+**STEPS WILL VARY BETWEEN DIFFERENT MOTHERBOARD MANUFACTURERS**
+
+Please follow the steps to enable virtualization (SVM) in the BIOS for AMD motherboards:
 
 #### 1. Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
 
@@ -76,7 +78,7 @@ For Coreboot devices, refer to your manufacturer's instructions or check the off
 
 ## Installing Dependencies 
 
-Boot into your preffered Linux OS and install the packages. You may search the packages in your package manager or compile them yourself.
+Boot into your preferred Linux OS and install the packages. You may search the packages in your package manager or compile them yourself.
 
 <p>
 <details>
