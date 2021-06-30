@@ -306,8 +306,8 @@ However, if you are living in the world after 2020, I know your pain and why you
 
 You might be in one of the following situations:
 
-  1. You ONLY have one GPU, either discrete GPU (NVIDIA/AMD RX) or integrated Graphics (Intel/AMD Radeon)
-  2. You have a discrete GPU (NVIDIA/AMD) + integrated Graphics (Intel UHD/AMD Radeon)
+  1. You have ONLY one GPU, either discrete (NVIDIA/AMD RX) or iGPU (Intel/AMD Radeon)
+  2. You have a discrete GPU (NVIDIA/AMD) + iGPU (Intel UHD/AMD Radeon)
   3. You have two discrete GPUs (then integrated graphics don't matter)
 
 Refer the following sections according to your current system specifications. If your system has,
