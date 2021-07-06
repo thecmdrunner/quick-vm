@@ -24,7 +24,7 @@ Take a look at how to do it below:
 
 Please follow the steps to enable virtualization (SVM) in the BIOS for AMD motherboards:
 
-#### 1. Press `Del` or `F2` in the keyboard after power on, then press `F7` to enter into Advanced Mode(ROG series motherboard can directly enter into Advanced Mode, no need to press `F7`)
+#### 1. Press `Del` or `F2` in the keyboard after power on, then go to the appropriate menu for AMD SVM/ Intel Virtualization (VT-x).
 
 ![Screenshot](img/asus-b450-1.jpg)
 
@@ -36,7 +36,7 @@ Please follow the steps to enable virtualization (SVM) in the BIOS for AMD mothe
 
 ![Screenshot](img/asus-b450-3.jpg)
 
-#### 4. Enable Virtualization based on your CPU [INTEL or AMD] 
+#### 4. Enable Virtualization 
 
 - **Enable SVM (AMD)**
 
