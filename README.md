@@ -17,7 +17,7 @@
 
 # 🚀 Getting Started
 
-### ➊➀ Getting ISOs Ready
+### ➊ Getting ISOs Ready
 
 1. **Download** [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO) or [Windows 11](https://www.microsoft.com/en-us/software-download/windows11), **along with** [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
@@ -29,7 +29,7 @@
 
 4. **Enter the command shown below in the terminal.** 
 
-### ➋② One-liner to Setup KVM
+### ➋ One-liner to Setup KVM
 
 #### Paste this in your terminal
 
@@ -39,7 +39,7 @@ bash <(wget -qO- https://git.io/JOeOs)
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
-### ➌③ Installing Windows with VirtIO:
+### ➌ Installing Windows with VirtIO:
 
 [Step by Step Guide - Click Me!](docs/installing-windows-vm.md)
 
