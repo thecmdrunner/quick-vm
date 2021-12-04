@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Project: https://github.com/thegamerhat/quick-vm
 
 # oneliner commands: 
