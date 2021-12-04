@@ -55,7 +55,7 @@ bash <(wget -qO- https://git.io/JOeOs)
   - **Ubuntu 18.04** or newer
   - **Fedora 30** or newer
   - **Arch** (Read this [Guide by LinuxHint](https://linuxhint.com/install_configure_kvm_archlinux) for permissions and User Group setting)
-  - **4 CPUs** (2 Multi-Threaded Cores at minimum)
+  - **4 CPU Threads** (2 Multi-Threaded Cores at minimum)
   - **8 GiB Memory** (more = better)
   - **40+ GiB of Free Storage** typically (**SSD Recommened**)
 </br>
@@ -77,7 +77,7 @@ bash <(wget -qO- https://git.io/JOeOs)
 
 **Storage Drive**: 1 TB VirtIO Disk (Dynamically Allocated)
 
-**DVD Drive**: Windows 10 ISO
+**DVD Drive**: Windows ISO
 
 **Other Drives**: VirtIO Drivers ISO, Essential Tools ISO (to optimize VM performance)
 
