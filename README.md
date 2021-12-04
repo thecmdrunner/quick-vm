@@ -33,7 +33,7 @@
 
 ### ➋ One-liner to Setup KVM
 
-#### Paste this in your terminal
+#### _Paste this in your terminal_
 
 ```bash
 bash <(wget -qO- https://git.io/JOeOs)
