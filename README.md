@@ -9,7 +9,7 @@
 
 <h1><img src="https://raw.githubusercontent.com/thegamerhat/quick-vm/main/docs/img/quick-vm-icon.svg" width="30px"> Quick VM</h1>
 
-**Setup a Windows VM quickly on Linux in under 100 seconds with just one command**, assuming you have Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
+**Setup a Windows VM on Linux in under 100 seconds with just one command**, with Virtualization enabled (see [how-to](https://github.com/thegamerhat/quick-vm/blob/main/docs/diy-vm.md#enabling-virtualization-in-your-ueficoreboot))
 
 > It is possible to invent a single machine which can be used to compute any computable sequence.
 >
@@ -21,12 +21,12 @@
 
 ### 🥇 Getting ISOs Ready
 
-1. **Download** [Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO), **and** [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
+1. **Download** [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO) or [Windows 11](https://www.microsoft.com/en-us/software-download/windows11), **along with** [VirtIO Drivers (Stable)](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
 2. **Place the ISOs in either** `~/WindowsVM/` **or** `/var/lib/libvirt/images/`.
 
 3. **Rename the ISOs as shown below:**
-    - **Windows 10 ISO** ➜ `win10.iso`
+    - **Windows 10/11 ISO** ➜ `win.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
 
 4. **Enter the command shown below in the terminal.** 
@@ -41,7 +41,7 @@ bash <(wget -qO- https://git.io/JOeOs)
 
 > Here is the [Script](https://github.com/thegamerhat/quick-vm/blob/main/one-liner.sh)
 
-### 🥉 Getting the VM Ready:
+### 🥉 Installing Windows with VirtIO:
 
 [Step by Step Guide - Click Me!](docs/installing-windows-vm.md)
 
