@@ -282,7 +282,9 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 - **joeknock90** (and everyone mentioned in their [repository](https://github.com/joeknock90/Single-GPU-Passthrough)) - For Single GPU Passthrough Central Point
 - [**More Credits...**](docs/more-credits.md)
 
-## Donate
+## Support
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T47FIA1)
 
 [![PayPal.Me](https://img.shields.io/badge/PayPal-%23FFFFFF.svg?&style=for-the-badge&logo=paypal)](https://paypal.me/gamerhat18) 
 
