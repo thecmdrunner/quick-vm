@@ -13,9 +13,9 @@
 - gotchas section from archwiki pci passthrough
 - GPU Passthrough edits in XML for `kvm hidden state` and `vendor_id` 
 - make use of `hostnamectl` somehow
-- ~~Stealth VM notes~~
-- ~~GPU Passthrough options and notes~~
-- ~~AMD GPUs can use `vendor_id="AuthenticAMD"`~~
+- Stealth VM notes
+- GPU Passthrough options and notes
+- AMD GPUs can use `vendor_id="AuthenticAMD"`
 - Single GPU Passthrough for NVIDIA and AMD
 
 
