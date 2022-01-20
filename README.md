@@ -296,7 +296,7 @@ Here's a [list of things](https://github.com/thegamerhat/quick-vm/blob/main/docs
 
 [![Mail Me](https://img.shields.io/badge/Gmail-%23EA4335.svg?&style=for-the-badge&logo=gmail&logoColor=white)](mailto:gamerhat18@gmail.com) 
 
-[![Secure Mail Me](https://img.shields.io/badge/ProtonMail-%23663399.svg?&style=for-the-badge&logo=proton-mail&logoColor=white)](mailto:gamerhat18@protonmail.com) 
+[![Secure Mail Me](https://img.shields.io/badge/ProtonMail-%23663399.svg?&style=for-the-badge&logo=proton-mail&logoColor=white)](mailto:thegamerhat@protonmail.com) 
 
 [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/thegamerhat) 
 
