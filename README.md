@@ -29,6 +29,8 @@
     - **Windows 10/11 ISO** ➜ `win.iso`
     - **VirtIO Drivers** ➜ `virtio-win.iso`
 
+> **UPDATE:** Windows 11 has been tested and works just as well, and the support will be added soon!
+
 4. **Enter the command shown below in the terminal.** 
 
 ### ➋ One-liner to Setup KVM
