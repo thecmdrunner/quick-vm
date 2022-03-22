@@ -1,7 +1,7 @@
 
 # 🛸 DIY From Scratch
 
-**UPDATE:** Windows 11 will be supported once Microsoft releases an official ISO in early 2022.
+**UPDATE:** Windows 11 has been tested and works just as well, and the support will be added soon!
 
 If you want to go adjust every little aspect of the VM to suit your needs, this section is for you. This guide works regardless of your Linux distribution.
 
