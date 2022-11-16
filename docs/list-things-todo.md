@@ -8,13 +8,15 @@
   - Remote desktop
   - Remote Apps
   - Mouse and KB passthrough using `evdev`: [Video tutorial](https://www.youtube.com/watch?v=4XDvHQbgujI)
+  - SRIOV for network cards: https://www.youtube.com/watch?v=ltxzUUn1Mg8
+  - 
 - Robust CLI
 - Use `set -x` to show what commands are being executed when necessary.
 - Add more distros support, and a general linux profile
 - Maybe add a features section?
-- make every define and creation with general command that has `$variables` based on the system and user choice
+- make every define and creation with general command that has `$variables` based on the system and user choice: this might help: https://www.youtube.com/watch?v=9ldC03Mqb0I
 - Fork iommu, UEFI, laptop detection, GPU detection and some other features from https://github.com/T-vK/GPU-pass-through-compatibility-check
-- Actual CPU Core allocation instead of vCPUs (CPU Pinning)
+- Actual CPU Core allocation instead of vCPUs (CPU Pinning): https://www.youtube.com/watch?v=Pb2upx53fUM
 - USB_Passthrough guide (maybe also mouse and keyboard passthrough with evdev?)
 - convert the xmls into actual defining commands of qemu
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
@@ -26,6 +28,7 @@
 - GPU Passthrough options and notes
 - AMD GPUs can use `vendor_id="AuthenticAMD"`
 - Single GPU Passthrough for NVIDIA and AMD
+- Single GPU pass for Intel iGPUs: https://www.youtube.com/watch?v=6-RjFl00QSk
 
 
 ## 🔮 Feature ideas
