@@ -1,6 +1,15 @@
 
 ## 🔌 TODO-notes (no particular order)
 
+- Make a more functional VM with optimizations, and VM specific stuff such as:
+  - Adding a virtual sound card for passing through microphone from your Linux host. [Video tutorial](https://www.youtube.com/watch?v=AfUgNEOx3uk) by Pavol Elsig
+  - Looking Glass? https://www.youtube.com/watch?v=wEhvQEyiOwI&t=2s
+  - GPU passthrough? Parsec for gaming? Intel iGPU passthrough: https://www.youtube.com/watch?v=Tt4kHYO1S8U
+  - Remote desktop
+  - Remote Apps
+  - Mouse and KB passthrough using `evdev`: [Video tutorial](https://www.youtube.com/watch?v=4XDvHQbgujI)
+- Robust CLI
+- Use `set -x` to show what commands are being executed when necessary.
 - Add more distros support, and a general linux profile
 - Maybe add a features section?
 - make every define and creation with general command that has `$variables` based on the system and user choice
@@ -22,6 +31,6 @@
 ## 🔮 Feature ideas
 
 - ask user to enter the path to the isos instead of putting it in one folder (just for giving an option to the user)
-- ꧁ Better design ꧂
+- Better TUI and CLI design
 - ability to make multiple VMs from the same profile.
 - Motherboard Compatibility list (based on good IOMMU Groups separation)
