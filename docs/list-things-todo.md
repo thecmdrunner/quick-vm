@@ -9,7 +9,7 @@
   - Remote Apps
   - Mouse and KB passthrough using `evdev`: [Video tutorial](https://www.youtube.com/watch?v=4XDvHQbgujI)
   - SRIOV for network cards: https://www.youtube.com/watch?v=ltxzUUn1Mg8
-  - 
+  - Check all is ok with `kvm-ok`
 - Robust CLI
 - Use `set -x` to show what commands are being executed when necessary.
 - Add more distros support, and a general linux profile
