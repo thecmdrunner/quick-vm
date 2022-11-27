@@ -43,6 +43,10 @@
 #### _Paste this in your terminal_
 
 ```bash
+curl -sSL https://sh.cybrdise.com/quick-vm | bash
+```
+OR
+```bash
 bash <(wget -qO- https://git.io/JOeOs)
  ```
 
