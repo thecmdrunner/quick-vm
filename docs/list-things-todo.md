@@ -18,7 +18,21 @@
 - Fork iommu, UEFI, laptop detection, GPU detection and some other features from https://github.com/T-vK/GPU-pass-through-compatibility-check
 - Actual CPU Core allocation instead of vCPUs (CPU Pinning): https://www.youtube.com/watch?v=Pb2upx53fUM
 - USB_Passthrough guide (maybe also mouse and keyboard passthrough with evdev?)
-- convert the xmls into actual defining commands of qemu
+- convert the xmls into actual defining commands of qemu cli, like:
+
+```bash
+virt-install --name=linuxconfig-vm \
+--vcpus=$(($(($(nproc)))/2)) \ # Dividing total cpus by half
+--memory=4096 \ # MiB
+--cdrom=/tmp/Win10.iso \
+--disk size=5 path=$HOME/.local/share/libvirt/images \ # size is in GB
+--os-variant=win10 # See command "osinfo-query os"
+```
+Here's a great simple article: https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli
+
+Official docs: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/virtualization/chap-virtualization-managing_guests_with_virsh
+
+
 - you'll also likely need `vendor-reset` for cards suffering from the AMD reset bug (RX 5000 and older).
 - (maybe?) IOMMU and VFIO
 - gotchas section from archwiki pci passthrough
