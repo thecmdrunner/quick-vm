@@ -7,12 +7,9 @@
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=Windows&logoColor=white&color=0078D6)
 
 
-<h1><img src="https://raw.githubusercontent.com/thegamerhat/quick-vm/main/docs/img/quick-vm-icon.svg" width="30px"> Quick VM [ALPHA - DO NOT USE]</h1>
+<h1><img src="https://raw.githubusercontent.com/thegamerhat/quick-vm/main/docs/img/quick-vm-icon.svg" width="30px"> Quick VM [ALPHA]</h1>
 
-### - Breaking changes are being made
-### - A GUI is planned and is in progress [here](https://github.com/thegamerhat/quick-vm-app) (***private repo***) 
-
-### ***So hold off running the script for now!***
+### - New GUI is in progress [here](https://github.com/thegamerhat/quick-vm-app) (***private repo***) 
 
 ---
 
